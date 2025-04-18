@@ -1,0 +1,52 @@
+site_name: Capital Nexus
+
+repo_name: "2025.1-T01-CapitalNexus"
+repo_url: https://github.com/mdsreq-fga-unb/2025.1-T01-CapitalNexus
+
+nav:
+  - Início: index.md
+  - Visão do Produto e Projeto:
+      - Cenário atual do cliente e do negócio: visao/cenario.md
+      - Solução proposta: visao/solucao.md
+      - Estratégias de engenharia de software: visao/estrategias.md
+      - Cronograma: visao/cronograma.md
+      - Interação entre equipe e cliente: visao/interacao.md
+      - Lições aprendidas: visao/licoes.md
+      - Referências: visao/referencias.md 
+  - Backlog: backlog/backlog.md
+
+
+
+theme:
+  name: material
+  language: pt-BR
+
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    - header.autohide
+    - navigation.instant
+    - navigation.top
+    - navigation.tracking
+
+  palette:
+    - scheme: default
+      primary: "purple"
+      accent: "purple"
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    - scheme: slate
+      primary: "purple"
+      accent: "purple"
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+  logo:
+  favicon:
+  highlightjs: true
+
+extra_css:
+  - stylesheets/styles.css
