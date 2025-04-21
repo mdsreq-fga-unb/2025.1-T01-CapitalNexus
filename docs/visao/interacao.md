@@ -14,7 +14,8 @@
 
 ## 5.2 Comunicação
 
-Descreva as ferramentas e métodos a serem usados para manter a equipe e o cliente alinhados, além da frequência de reuniões e interações. Também deve ser informado como será realizada a comunição entre os membros da equipe.
+Para a Comunicação da equipe a principal ferramenta entre os desenvolvedores é o whatsapp, nele é discutido assuntos breves e mantem a equipe a par, é separado o grupo com os alunos e com o monitor. Alem do Whatsapp, também é utilizado o Teams para reuniões semanais entre os desenvolvedores e ocasionalmente com o cliente. Ficou decidido em acordo que as reuniões com os clientes seriam de acordo com a necessidade do projeto 
+
 
 ## 5.3 Processo de Validação
 
