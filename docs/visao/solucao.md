@@ -7,7 +7,6 @@ Fornecer uma solução integrada para atender às principais necessidades operac
 1. Aumentar a visibilidade da equipe com conteúdo estratégico para captação de patrocínios e divulgação da trajetória e conquistas;
 1. Aprimorar a gestão de membros, disponibilizando funcionalidades como envio de notificações e controle de advertências;
 1. Otimizar o controle de estoque e materiais, facilitando o planejamento de orçamentos e a reposição de itens;
-1. Garantir transparência nas finanças internas, permitindo acesso claro e organizado às informações financeiras por parte dos membros. 
 
 Além disso, deve apoiar a comunicação entre os núcleos técnicos e destacar a liderança da equipe no setor aeroespacial nacional, evidenciada por marcos como o lançamento do primeiro foguete de propulsão híbrida do Brasil.
 
