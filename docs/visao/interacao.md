@@ -7,10 +7,11 @@
 
 |**Papel**|**Atribuição**|**Responsável**|**Participantes**|
 | :- | :- | :- | :- |
-|**Product Owner**|Gerenciar progresso do projeto e fazer conexão entre a equipe e o cliente|Sophia Silva||
-|<p>**Desenvolvedor** </p><p>**back-end**</p>|Modelar e codificar banco de dados, codificar testes unitários e realizar refatoração|Victor Augusto|Kaio Macedo, Pedro Henrique e Maria Clara|
-|<p>**Desenvolvedor** </p><p>**front-end**</p>|Idealizar design do produto, codificar a interface, codificar testes unitários, realizar refatoração e gerar análise de usuários|Sophia Silva|Kaio Macedo, Maria Clara e Wanjo Christopher|
-|**DevOps**|Codificar testes unitários, realizar refatoração e distribuir produto|Pedro Henrique|Wanjo Christopher|
+|**Gerente de projeto**|Gerenciar progresso do projeto e fazer conexão entre a equipe e o cliente|Sophia Silva|| Wanjo Christopher
+|<p>**Desenvolvedor** </p><p>**backend**</p>|Modelar e codificar banco de dados, codificar testes unitários e realizar refatoração|Victor Augusto|Kaio Macedo, Pedro Henrique, Maria Clara, Wanjo Christopher Sophia Silva |
+|<p>**Desenvolvedor** </p><p>**frontend**</p>|Idealizar design do produto, codificar a interface e implementarfuncionalidadeslado do cliente|Wanjo Christopher|Kaio Macedo, Maria Clara, Pedro Henrique, Sophia Silva e Victor Augusto |
+|**DevOps**|Codificar testes unitários e distribuir produto|Pedro Henrique|Wanjo Christopher, Sophia, Victor, Maria Clara e Kaio Macedo|
+|**Analista de requisitos**|Define os requisitos funcionais e não funcionais do sistema e garante que eles sejam atendidos | Kaio Macedo |Wanjo Christopher, Sophia, Victor, Maria Clara e Pedro Henrique|
 
 ## 5.2 Comunicação
 
