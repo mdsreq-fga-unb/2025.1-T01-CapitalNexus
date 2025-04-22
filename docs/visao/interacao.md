@@ -38,6 +38,6 @@ Cada funcionalidade será validada com base em critérios de aceitação definid
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**18/04/25**|0.1|Definição de papéis da equipe, tópico 5.1 |Equipe |
-|||||
+|**21/04/25**|1.1|Adiciona os tópicos 5.2 e 5.3|Maria, Victor|
 |||||
 |||||
