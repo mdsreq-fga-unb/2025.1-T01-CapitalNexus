@@ -39,6 +39,6 @@ Analisando o quadro anterior, optamos pela escolha do AUP (Processo Unificado Á
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**18/04/25**|1.0|Primeira versão|Equipe |
-|||||
+|**21/04/25**|1.1|Versão completa|Maria, Victor|
 |||||
 |||||
