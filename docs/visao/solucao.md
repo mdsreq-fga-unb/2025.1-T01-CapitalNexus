@@ -1,6 +1,6 @@
-# 2. Solução proposta 
+# Solução proposta 
 
-## 2.1 Objetivos do Produto
+## Objetivos do Produto
 
 Fornecer uma solução integrada para atender às principais necessidades operacionais da Capital Rocket Team (CRT), promovendo maior eficiência na gestão interna e fortalecimento da imagem institucional. A ferramenta será voltada para:
 
@@ -10,7 +10,7 @@ Fornecer uma solução integrada para atender às principais necessidades operac
 
 Além disso, deve apoiar a comunicação entre os núcleos técnicos e destacar a liderança da equipe no setor aeroespacial nacional, evidenciada por marcos como o lançamento do primeiro foguete de propulsão híbrida do Brasil.
 
-## 2.2 Características da Solução 
+## Características da Solução 
 
 A seguir está listado as principais características que a solução deverá ter para atender às necessidades da Capital Rock Team (CRT):
 
@@ -19,7 +19,7 @@ A seguir está listado as principais características que a solução deverá te
 1. Controle de estoque e materiais, permitindo o registro de entrada e saída de itens e a solicitação diretamente à equipe responsável, otimizando a logística interna;
 1. O design deverá ser responsivo e organizado, com menus intuitivos e navegação simples, facilitando tanto o uso por membros da equipe quanto por visitantes externos interessados no projeto.
 
-## 2.3 Tecnologias a Serem Utilizadas
+## Tecnologias a Serem Utilizadas
 
 Considerando as características da solução proposta, foi selecionado algumas tecnologias para construção da solução:
 
@@ -32,7 +32,7 @@ A utilização do Django com Python facilitará o desenvolvimento da solução, 
 
 O Visual Studio Code oferece ótimo suporte ao desenvolvimento com Python e Django, e sua integração com o GitHub contribuirá para a organização do projeto e facilitará a colaboração entre os desenvolvedores.
 
-## 2.4 Pesquisa de Mercado e Análise Competitiva
+## Pesquisa de Mercado e Análise Competitiva
 
 Para a análise de mercado, buscamos sites de outras equipes de competição da Universidade de Brasília (UnB) e escolhemos os dois mais relevantes, levando em consideração que são os mais atualizados e completos. São eles o da UnBall, equipe de futebol de robôs e a DROID, de robótica autônoma.
 
@@ -40,7 +40,7 @@ Os sites analisados tem como objetivo apresentar sua equipe e buscar patrocínio
 
 Nosso produto, como mostrado no item 2.1, tem objetivos e ideias que diferem dos demais, com uma divisão de áreas entre o público geral e os membros da equipe, com o objetivo de incluir de uma área de acesso privado, visando desde a gestão de pessoas ao controle de estoques.
 
-## 2.5 Análise de Viabilidade 
+## Análise de Viabilidade 
 
 Para realizar a análise de viabilidade, passamos por diversos pontos detalhados, refinando cada aspecto e, com base nessa avaliação, concluímos que o projeto Nexus é, de fato, bastante viável.
 
@@ -54,7 +54,7 @@ Quanto à viabilidade de mercado, o público-alvo contempla tanto os próprios m
 
 O diferencial da solução está em sua dupla funcionalidade: por um lado, oferece uma plataforma interna para gestão e organização dos membros; por outro, serve como vitrine institucional para apresentar ao público externo. Essa combinação torna o sistema único e altamente adequado às necessidades da equipe.
 
-## 2.6 Impacto da Solução
+## Impacto da Solução
 
 O projeto Nexus será para a Capital Rocket Team (CRT) um impacto direto nos pilares de trabalho diário e na visibilidade social no meio extensionista das equipes de competição. A intervenção acontecerá tanto na forma como a equipe opera em suas tarefas diárias quanto na captação externa de stakeholders.
 

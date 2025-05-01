@@ -1,6 +1,6 @@
-# 6. Lições aprendidas
+# Lições aprendidas
 
-## 6.1 Unidade 1
+## Unidade 1
 
 Uma lição valiosa aprendida na unidade 1 é a importância de explorar as possibilidades na escolha do abordagem, ciclo de vida e processo adequado pro projeto. Atualmente é muito comum o uso das abordagens ágeis nos projetos, junto com o processo Scrum/XP, e muitos outros processos que seriam mais adequados sejam ignorados ou nem cogitados. Inicialmente a equipe tinha o pensamento de usar o ágil, mas com o conhecimento adquirido nessa unidade, tivemos várias discussões a respeito da escolha e no fim optamos por uma abordagem híbrida, indo a fundo na necessidade do projeto.
 

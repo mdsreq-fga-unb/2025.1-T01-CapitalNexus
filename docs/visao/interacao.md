@@ -1,5 +1,5 @@
-# 5. Interação entre equipe e cliente
-## 5.1 Composição da Equipe
+# Interação entre equipe e cliente
+## Composição da Equipe
 
 <div align="center">
 <p>Tabela 1: Papéis e atribuições da equipe</p>
@@ -7,18 +7,17 @@
 
 |**Papel**|**Atribuição**|**Responsável**|**Participantes**|
 | :- | :- | :- | :- |
-|**Gerente de projeto**|Gerenciar progresso do projeto e fazer conexão entre a equipe e o cliente|Sophia Silva|| Wanjo Christopher
-|<p>**Desenvolvedor** </p><p>**backend**</p>|Modelar e codificar banco de dados, codificar testes unitários e realizar refatoração|Victor Augusto|Kaio Macedo, Pedro Henrique, Maria Clara, Wanjo Christopher Sophia Silva |
+|**Gerente de projeto**|Gerenciar progresso do projeto e fazer conexão entre a equipe e o cliente|Sophia Silva|Wanjo Christopher| 
+|<p>**Desenvolvedor** </p><p>**backend**</p>|Modelar e codificar banco de dados, codificar testes unitários e realizar refatoração|Victor Augusto|Kaio Macedo, Pedro Henrique, Maria Clara, Wanjo Christopher e Sophia Silva |
 |<p>**Desenvolvedor** </p><p>**frontend**</p>|Idealizar design do produto, codificar a interface e implementar funcionalidades lado do cliente|Wanjo Christopher|Kaio Macedo, Maria Clara, Pedro Henrique, Sophia Silva e Victor Augusto |
 |**DevOps**|Codificar testes unitários e distribuir produto|Pedro Henrique|Wanjo Christopher, Sophia, Victor, Maria Clara e Kaio Macedo|
 |**Analista de requisitos**|Define os requisitos funcionais e não funcionais do sistema e garante que eles sejam atendidos | Kaio Macedo |Wanjo Christopher, Sophia, Victor, Maria Clara e Pedro Henrique|
 
-## 5.2 Comunicação
+## Comunicação
 
 Para a Comunicação da equipe a principal ferramenta entre os desenvolvedores é o whatsapp, nele é discutido assuntos breves e mantem a equipe a par, é separado o grupo com os alunos e com o monitor. Alem do Whatsapp, também é utilizado o Teams para reuniões semanais entre os desenvolvedores e ocasionalmente com o cliente. Ficou decidido em acordo que as reuniões com os clientes seriam de acordo com a necessidade do projeto 
 
-
-## 5.3 Processo de Validação
+## Processo de Validação
 
 A validação do produto será realizada de forma contínua ao longo do ciclo de desenvolvimento, garantindo que o sistema atenda às necessidades do cliente e esteja alinhado aos objetivos definidos inicialmente. Para isso, adotaremos as seguintes estratégias:
 
@@ -37,7 +36,7 @@ Cada funcionalidade será validada com base em critérios de aceitação definid
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
-|**18/04/25**|0.1|Definição de papéis da equipe, tópico 5.1 |Equipe |
-|**21/04/25**|1.1|Adiciona os tópicos 5.2 e 5.3|Maria, Victor|
+|**18/04/25**|0.1|Definição de papéis da equipe |Equipe |
+|**21/04/25**|1.0|Definição de comunicação e validação|Maria, Victor|
 |||||
 |||||

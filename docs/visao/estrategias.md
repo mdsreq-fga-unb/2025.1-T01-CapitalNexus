@@ -1,12 +1,12 @@
-# 3. Estratégias de Engenharia de Software
+# Estratégias de Engenharia de Software
 
-## 3.1 Estratégia Priorizada
+## Estratégia Priorizada
 
 - Abordagem: Híbrida;
 - Ciclo de vida: Iterativo incremental;
 - Processo: AUP.
 
-## 3.2 Quadro Comparativo
+## Quadro Comparativo
 
 O quadro, a seguir, apresenta uma comparação entre as características do AUP (Processo Unificado Ágil) e o RAD (Rapid Application Development), visando auxiliar na justificativa da escolha do processo mais adequado ao projeto.
 
@@ -25,7 +25,7 @@ O quadro, a seguir, apresenta uma comparação entre as características do AUP 
 |**Limitação** |Requer equilíbrio entre formalidade e agilidade |Dependência de ferramentas CASE e frameworks de desenvolvimento rápido |
 |**Cenário de aplicação adequado**|Projetos que requerem alguma formalidade mas se beneficiam da adaptabilidade|Sistema de informação corporativo com ênfase em interface de usuário|
 
-## 3.3 Justificativa
+## Justificativa
 
 Analisando o quadro anterior, optamos pela escolha do AUP (Processo Unificado Ágil) como o processo desenvolvimento.  Baseamos nossa escolha nos seguintes fatores:
 

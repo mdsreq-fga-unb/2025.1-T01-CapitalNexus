@@ -1,4 +1,4 @@
-# 4. Cronograma e entregas
+# Cronograma e entregas
 
 <div align="center">
 <p>Tabela 1: Planejamento do projeto</p>

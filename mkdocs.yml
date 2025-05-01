@@ -9,13 +9,21 @@ nav:
       - Cenário atual do cliente e do negócio: visao/cenario.md
       - Solução proposta: visao/solucao.md
       - Estratégias de engenharia de software: visao/estrategias.md
+      - Engenharia de requisitos: visao/engrequisitos.md
       - Cronograma: visao/cronograma.md
       - Interação entre equipe e cliente: visao/interacao.md
+      - DoR e DoD: visao/doredod.md
       - Lições aprendidas: visao/licoes.md
       - Referências: visao/referencias.md 
-  - Backlog: backlog/backlog.md
+  - Requisitos:
+      - Requisitos funcionais: requisitos/reqfuncional.md
+      - Requisitos não funcionais: requisitos/reqnaofuncional.md
+  - Backlog:
+      - Backlog Geral: backlog/geral.md
+      - Priorização: backlog/priorizacao.md  
+      - Produto Mínimo Viável: backlog/mvp.md
   - Entregas:
-      - Unidade 1: unidadeum.md
+      - Unidade 1: entregas/unidadeum.md
 
 
 

@@ -1,6 +1,6 @@
-# 1. Cenário atual do Cliente e do Negócio
+# Cenário atual do Cliente e do Negócio
 
-## 1.1 Introdução ao Negócio e Contexto
+## Introdução ao Negócio e Contexto
 
 A Capital Rocket Team (CRT) é uma equipe de competição de aeromodelismo da Universidade de Brasília (UnB). Fundada no ano de 2015, tem como objetivo representar a universidade em competições nacionais e internacionais, além de promover a capacitação dos estudantes e desenvolvimento dos subsistemas com tecnologia nacional relativas à foguetes. 
 
@@ -8,7 +8,7 @@ A equipe conta com diversas conquistas ao longo de sua jornada, como o 1° e 2°
 
 Apesar de todas as suas conquistas no seu setor, a equipe enfrenta alguns problemas de divulgação dos seus projetos e na gestão de pessoas e controle de estoques.
 
-## 1.2 Identificação da Oportunidade ou Problema
+## Identificação da Oportunidade ou Problema
 A principal oportunidade identificada para a equipe é a facilitação de divulgação do seu trabalho, uma vez que atualmente suas informações e projetos estão espalhados por diferentes meios de comunicação, o que dificulta que patrocinadores em potencial tenham acesso fácil e integral ao seu trabalho.
 
 No gerenciamento interno, a oportunidade principal é a utilização de um sistema centralizado que facilite o acompanhamento individual dos membros (como faltas, advertências e strikes), que atualmente é feito por planilhas, além do controle de estoques, onde os integrantes da equipe tenham acesso aos materiais disponíveis e solicitem a sua utilização ou realizem pedidos dos outros, que atualmente é feita pessoalmente. 
@@ -21,13 +21,13 @@ A figura a seguir apresenta o diagrama de Ishikawa, contendo as causas e o probl
 <p>Figura 1: Diagrama de Ishikawa</p>
 </div>
 
-## 1.3 Desafios do Projeto
+## Desafios do Projeto
 
 O principal desafio do projeto será integrar seus dados ao novo sistema de gerenciamento, uma vez que a equipe mantêm grande parte de suas informações em planilhas, além da equipe possuir atualmente 55 membros.
 
 Outro desafio é que a equipe já possuía um site anterior, porém o responsável por manter o domínio teve um problema e acabou apagando todas as informações que estavam no ar. Embora ainda possuam o domínio, a equipe não tem o conhecimento necessário para manter o site. Por isso, o domínio deve ser reaproveitado e o novo projeto deve ser de fácil manutenção, permitindo que a própria equipe possa gerenciá-lo.
 
-## 1.4 Segmentação de clientes
+## Segmentação de clientes
 
 A equipe tem, em geral, três tipos de clientes:
 
