@@ -15,7 +15,7 @@ No gerenciamento interno, a oportunidade principal é a utilização de um siste
 
 A figura a seguir apresenta o diagrama de Ishikawa, contendo as causas e o problema da Capital Rocket Team (CRT).
 
-![](../img/ishikawa.jpeg)
+![](../img/diagrama_ishikawa.png)
 <div align="center"> 
 
 <p>Figura 1: Diagrama de Ishikawa</p>
