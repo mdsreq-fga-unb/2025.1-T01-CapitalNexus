@@ -15,7 +15,7 @@ No gerenciamento interno, a oportunidade principal é a utilização de um siste
 
 A figura a seguir apresenta o diagrama de Ishikawa, contendo as causas e o problema da Capital Rocket Team (CRT).
 
-![](../img/ishikawa.jpeg)
+![Diagrama de Ishikawa](../assets/diagrama_ishikawa.png)
 <div align="center"> 
 
 <p>Figura 1: Diagrama de Ishikawa</p>
@@ -40,6 +40,5 @@ A equipe tem, em geral, três tipos de clientes:
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**06/04/25**|1.0|Primeira versão|Sophia |
-|||||
+|**02/05/25**|1.1|Correção do diagrama de ishikawa|Sophia|
 |**02/05/25**|1.2|Detalhamento dos clientes|Sophia|
-|||||
