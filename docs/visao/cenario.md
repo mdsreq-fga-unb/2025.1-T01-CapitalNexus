@@ -40,6 +40,6 @@ A equipe tem, em geral, três tipos de clientes:
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**06/04/25**|1.0|Primeira versão|Sophia |
-|||||
+|**02/05/25**|1.1|Correção do diagrama de ishikawa|Sophia|
 |||||
 |||||
