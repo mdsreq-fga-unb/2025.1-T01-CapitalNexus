@@ -32,8 +32,8 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 | US17 | Justificar falta                           | Should have |     |
 | US18 | Avaliar justificativa de falta             | Should have |     |
 | US19 | Gerar alerta                               | Should Have |     |
-| US20 | Criar lista de materiais                   | Should have | X   |
-| US21 | Adicionar, modificar ou remover material.  | Should have | X   |
+| US20 | Criar lista de materiais                   | Must have | X   |
+| US21 | Adicionar, modificar ou remover material.  | Must have | X   |
 | US22 | Visualizar lista de materiais              | Must have   | X   |
 | US23 | Marcar material que está em uso            | Should have  |     |
 | US24 | Solicitar compra de materiais              | Should have  |     |
