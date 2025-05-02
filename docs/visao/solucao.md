@@ -69,6 +69,6 @@ Como ferramenta de gestão e gerenciamento individual centrada, poupará tempo d
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**18/04/25**|1.0|Primeira versão|Kaio, Maria, Pedro, Victor e Wanjo|
-|||||
+|**01/05/25**|1.1|Refatorando parágrafo de Objetivos do Produto| Wanjo Christopher |
 |||||
 |||||
