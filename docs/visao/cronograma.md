@@ -13,22 +13,26 @@
 
 ## Concepção (01/04 - 02/05)
 |**Iteração**|**Período**|**Atividades**|**Resultados**|
+| :- | :- | :- | :- |
 | 0 | 01/04 - 15/04 | Kick-off do projeto | Definição do escopo, tecnologias e viabilidade do projeto |
 | 1 | 16/04 - 02/05 | Planejamento do projeto | Cronograma preliminar <br>Backlog inicial<br> Definição da arquitetura <br> Declaração do MVP  |
 
 ## Elaboração (03/05 - 01/06)
 |**Iteração**|**Período**|**Atividades**|**Resultados**|
+| :- | :- | :- | :- |
 | 2 | 03/05 - 18/05 | Construção da arquitetura PT.1 <br> Prototipação da área pública (US01 - US04) <br> Implementação e  testes (US08 - US14) <br> Feedback do cliente | --- |
 | 3 | 19/05 - 01/06 | Construção da arquitetura PT.2 <br>Prototipação da área interna<br> Implementação da área pública<br> Implementação e testes (US20 - US23) <br> Feedback do cliente | --- |
 
 ## Construção (02/06 - 30/06)
 |**Iteração**|**Período**|**Atividades**|**Resultados**|
-| 4 | 02/06 - 16/06 | --- | -- |
-| 5 | 17/06 - 30/06 | --- | -- |
+| :- | :- | :- | :- |
+| 4 | 02/06 à 16/06 |  |  |
+| 5 | 17/06 à 30/06 |  |  |
 
 ## Transição (01/07 - 15/07)
 |**Iteração**|**Período**|**Atividades**|**Resultados**|
-| 6 | 01/07 - 15/07 | --- | -- |
+| :- | :- | :- | :- |
+| 6 | 01/07 à 15/0 |  |  |
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
