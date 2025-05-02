@@ -2,7 +2,7 @@
 
 ## Objetivos do Produto
 
-Fornecer uma solução integrada para atender às principais necessidades operacionais da Capital Rocket Team (CRT), promovendo maior eficiência na gestão interna e fortalecimento da imagem institucional. A ferramenta será voltada para:
+Nossa solução visa resolver desafios operacionais e de visibilidade social da Capital Rocket Team (CRT), com foco em reduzir a perda de dados e de tempo que a equipe enfrenta diariamente. Além disso, busca facilitar a interação com patrocinadores, permitindo que vizualisem de forma integral os feitos e a trajetória da equipe — motivando-os a se tornarem parceiros e possíveis investidores. Com isso, garantimos maior eficiência na gestão interna, o fortalecimento da imagem institucional e uma conexão da equipe ao público — complementar às plataformas já utilizadas, como o Instagram. A ferramenta será voltada para:
 
 1. Aumentar a visibilidade da equipe com conteúdo estratégico para captação de patrocínios e divulgação da trajetória e conquistas;
 1. Aprimorar a gestão de membros, disponibilizando funcionalidades como envio de notificações e controle de advertências;
