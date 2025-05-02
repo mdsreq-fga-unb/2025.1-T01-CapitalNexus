@@ -8,16 +8,22 @@ Nossa solução visa resolver desafios operacionais e de visibilidade social da 
 1. Aprimorar a gestão de membros, disponibilizando funcionalidades como envio de notificações e controle de advertências;
 1. Otimizar o controle de estoque e materiais, facilitando o planejamento de orçamentos e a reposição de itens;
 
+Os itens acima concatenam nos seguintes objetivos específicos:
+1. Reduzir a perda de dados
+1. Reduzir a perda de tempo
+1. Facilitar a interação com patrocinadores
+1. Fortalecer a imagem institucional da equipe
+
 Além disso, deve apoiar a comunicação entre os núcleos técnicos e destacar a liderança da equipe no setor aeroespacial nacional, evidenciada por marcos como o lançamento do primeiro foguete de propulsão híbrida do Brasil.
 
 ## Características da Solução 
 
 A seguir está listado as principais características que a solução deverá ter para atender às necessidades da Capital Rock Team (CRT):
 
-1. Área pública voltada à divulgação da equipe, incluindo histórico, publicações, vídeos e resultados de testes, com o objetivo de fortalecer a imagem institucional e atrair patrocinadores e parcerias;
-1. Área restrita com login individual para os membros, permitindo acesso a informações internas, controle de participação e desempenho, substituindo sistemas informais como planilhas;
-1. Controle de estoque e materiais, permitindo o registro de entrada e saída de itens e a solicitação diretamente à equipe responsável, otimizando a logística interna;
-1. O design deverá ser responsivo e organizado, com menus intuitivos e navegação simples, facilitando tanto o uso por membros da equipe quanto por visitantes externos interessados no projeto.
+1. Área pública voltada à divulgação da equipe, incluindo histórico, publicações, vídeos e resultados de testes, com o objetivo de fortalecer a imagem institucional e atrair patrocinadores e parcerias, tal como o objetivo específico 3 e 4.
+1. Área restrita com login individual para os membros, permitindo acesso a informações internas, controle de participação e desempenho, substituindo sistemas informais como planilhas, com o objetivo de atender aos objetivos específicos 1 e 2.
+1. Controle de estoque e materiais, permitindo o registro de entrada e saída de itens e a solicitação diretamente à equipe responsável, otimizando a logística interna e focando em solucionar os objetivos específicos 1 e 2.
+1. O design deverá ser responsivo e organizado que se adeque a diferentes tamanhos de telas e dispositivos, com menus intuitivos e navegação simples com ícones espaçados e fontes redondas, facilitando tanto o uso por membros da equipe quanto por visitantes externos interessados na equipe. Essa característica geral tem como objetivo atender o objetivo específico 3 e 4.
 
 ## Tecnologias a Serem Utilizadas
 
@@ -70,5 +76,5 @@ Como ferramenta de gestão e gerenciamento individual centrada, poupará tempo d
 | :- | :- | :- | :- |
 |**18/04/25**|1.0|Primeira versão|Kaio, Maria, Pedro, Victor e Wanjo|
 |**01/05/25**|1.1|Refatorando parágrafo de Objetivos do Produto| Wanjo Christopher |
-|||||
+|**02/05/25**|1.2|Correlacionando Objetivos do Projeto com Objetivos Específicos da Solução Proposta| Wanjo Christopher |
 |||||
