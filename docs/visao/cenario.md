@@ -31,9 +31,9 @@ Outro desafio é que a equipe já possuía um site anterior, porém o responsáv
 
 A equipe tem, em geral, três tipos de clientes:
 
-1. Entusiastas: Amantes de tecnologia e engenharia aeroespacial, que acompanham e apoiam o projeto;
-1. Patrocinadores: Empresas do setor ou entusiastas que patrocinam a equipe por conta de sua relevante atuação na área;
-1. Membros: Estudantes da Universidade de Brasília (UnB) que se voluntariam com o objetivo de competir e aprender.
+1. Entusiastas: Pessoas de 18 à 30 anos, amantes de tecnologia e engenharia aeroespacial, que acompanham e apoiam o projeto;
+1. Patrocinadores: Empresas que produzem materiais do setor (como fibra de vidro) ou entusiastas que patrocinam a equipe por conta de sua relevante atuação na área;
+1. Membros: Estudantes da Universidade de Brasília (UnB), com idade entre 18 a 25 anos, que se voluntariam com o objetivo de competir e aprender.
 
 ## Histórico de versão
 
@@ -41,5 +41,5 @@ A equipe tem, em geral, três tipos de clientes:
 | :- | :- | :- | :- |
 |**06/04/25**|1.0|Primeira versão|Sophia |
 |||||
-|||||
+|**02/05/25**|1.2|Detalhamento dos clientes|Sophia|
 |||||
