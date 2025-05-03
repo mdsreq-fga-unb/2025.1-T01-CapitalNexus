@@ -2,13 +2,10 @@ O MVP refere-se ao conjunto mínimo de funcionalidades que permite que o produto
 
 A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que separa as funcionalidades em quatro categorias:
 
-- **Mo - Must have.** São os requisitos que **devem** estar contido no projeto. Falhar na entrega desses requisitos é o mesmo que dizer que o projeto foi uma falha.
-  
-- **S - Should have.** São requisitos de alta prioridade, mas não cruciais para o lançamento. São importantes e agregam alto valor aos usuários. Devem preencher o segundo lugar da fila de prioridade.
-
-- **Co - Could have.** São requisitos desejáveis, mas que não são necessários. Menor importantes que os requisitos do grupo "should have".
-
-- **W - Won't have.** Requisitos que não serão implementados, mas que podem ser incluídos futuramente.
+- **Mo: Must have.** São os requisitos que **devem** estar contido no projeto. Falhar na entrega desses requisitos é o mesmo que dizer que o projeto foi uma falha.
+- **S: Should have.** São requisitos de alta prioridade, mas não cruciais para o lançamento. São importantes e agregam alto valor aos usuários. Devem preencher o segundo lugar da fila de prioridade.
+- **Co: Could have.** São requisitos desejáveis, mas que não são necessários. Menor importantes que os requisitos do grupo "should have".
+- **W: Won't have.** Requisitos que não serão implementados, mas que podem ser incluídos futuramente.
 
 | ID   | Descrição                                   | Prioridade  | MVP |
 |------|--------------------------------------------|-------------|-----|
