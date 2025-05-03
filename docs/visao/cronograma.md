@@ -26,7 +26,7 @@
 ## Construção (02/06 - 30/06)
 |**Iteração**|**Período**|**Atividades**|**Resultados**|
 | :- | :- | :- | :- |
-| 4 | 02/06 à 16/06 | Desenvolvimento (US20 - US25) <br> Feedback do cliente <br> Ajustes | Feedback do sistema integrado |
+| 4 | 02/06 à 16/06 | Desenvolvimento (US20 - US24) <br> Feedback do cliente <br> Ajustes | Feedback do sistema integrado |
 | 5 | 17/06 à 30/06 | Implantação da área pública <br> Desenvolvimento <br> Feedback do cliente <br> Ajustes| Área pública da plataforma |
 
 ## Transição (01/07 - 15/07)
