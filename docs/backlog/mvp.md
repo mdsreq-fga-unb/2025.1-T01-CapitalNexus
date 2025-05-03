@@ -28,8 +28,8 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 | US14 | Notificar reunião                          | Should have |     |
 | US15 | Realizar chamada em reunião                | Must have   | X   |
 | US16 | Notificar falta                            | Could have  |     |
-| US17 | Justificar falta                           | Should have |     |
-| US18 | Avaliar justificativa de falta             | Should have |     |
+| US17 | Justificar falta                           | Should have |  X  |
+| US18 | Avaliar justificativa de falta             | Should have |   X  |
 | US19 | Gerar alerta                               | Should Have |     |
 | US20 | Criar lista de materiais                   | Must have | X   |
 | US21 | Adicionar, modificar ou remover material.  | Must have | X   |
