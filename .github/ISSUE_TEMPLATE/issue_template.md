@@ -9,7 +9,11 @@ assignees: ''
 
 ### 📝 Descrição  
 Descreva com detalhes o que deve ser feito. Seja claro e específico.
+Crie a branch a partir de:
+- [ ] Main;
+- [ ] Develop.
 
+Siga o padrão de commits estabelecidos em [https://github.com/mdsreq-fga-unb/2025.1-T01-CapitalNexus/blob/main/CONTRIBUTING.md](url)
 ---
 
 ### 📂 Tipo da Issue  
