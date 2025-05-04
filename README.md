@@ -3,6 +3,8 @@
 Este documento descreve os passos para configurar o ambiente de desenvolvimento e começar a trabalhar no projeto. 
 Primeiro, certifique-se de ter o python instalado na sua máquina. Após isso, acesse essa branch (develop) e siga os seguintes passos:
 
+### Certifique-se de ter o arquivo .env com as credenciais do banco.
+
 ## 1. Sincronizar repositório
 Primeiramente, sempre, execute:
 ```
