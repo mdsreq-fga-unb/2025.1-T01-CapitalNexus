@@ -20,8 +20,7 @@ nav:
       - Requisitos não funcionais: requisitos/reqnaofuncional.md
   - Backlog:
       - Backlog Geral: backlog/geral.md
-      - Priorização: backlog/priorizacao.md  
-      - Produto Mínimo Viável: backlog/mvp.md
+      - Priorização e Produto Mínimo Viável: backlog/mvp.md
   - Entregas:
       - Unidade 1: entregas/unidadeum.md
 
