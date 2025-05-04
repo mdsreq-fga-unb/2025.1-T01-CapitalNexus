@@ -1,14 +1,9 @@
 ---
 name: Template Geral
 about: Use este template para reportar bugs, sugerir melhorias ou novas funcionalidades
-title: '[TÍTULO]: '
+title: '[PR]: '
 labels: ''
 assignees: ''
-
----
-
-### 📌 Título da Issue  
-> *Dê um título claro e objetivo para a issue.*
 
 ---
 
