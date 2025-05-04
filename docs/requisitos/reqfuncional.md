@@ -40,13 +40,13 @@ RF17 - Justificar falta: Permitir o envio de um formulário justificando uma fal
 
 RF18 - Avaliar justificativa: Permitir a avaliação da justificativa. 
 
-RF19 - Gerar alerta de membro em risco: Emitir alerta automático para membro em risco de expulsão. 
+RF19 - Gerar alerta de risco: Emitir alerta automático para membro em risco de expulsão. 
 
 RF20 - Cadastrar lista de materiais: Permitir o cadastro de informações dos materiais da equipe. 
 
 RF21 - Atualizar lista de materiais: Permitir a atualização da lista de materiais. 
 
-RF22 - Consultar lista de materiais: Permitir a consulta à lista de materiais. 
+RF22 - Visualizar lista de materiais: Permitir a consulta à lista de materiais. 
 
 RF23 - Utilizar material disponível: Permitir que membros marquem que vão utilizar materiais que estejam disponíveis. 
 

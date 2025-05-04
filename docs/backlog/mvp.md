@@ -16,24 +16,26 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 | US05 | Postar conteúdo                            | Could Have  |     |
 | US06 | Excluir conteúdo                           | Could Have  |     |
 | US07 | Editar área pública                        | Must have   | X   |
-| US08 | Cadastrar membros                          | Must have   | X   |
-| US09 | Atualizar núcleo, faltas e advertências    | Must have | X   |
-| US10 | Consultar lista de membros                 | Must have |   X  |
+| US08 | Cadastrar membro                          | Must have   | X   |
+| US09 | Atualizar membro                          | Must have | X   |
+| US10 | Consultar membro                 | Must have |   X  |
 | US11 | Excluir membro                             | Must have   | X   |
 | US12 | Cadastrar reunião                          | Must have   | X   |
 | US13 | Atualizar reunião                          | Must have   | X   |
 | US14 | Notificar reunião                          | Should have |     |
-| US15 | Realizar chamada em reunião                | Must have   | X   |
+| US15 | Realizar chamada                | Must have   | X   |
 | US16 | Notificar falta                            | Could have  |     |
 | US17 | Justificar falta                           | Should have |  X  |
-| US18 | Avaliar justificativa de falta             | Should have |   X  |
-| US19 | Gerar alerta                               | Should Have |     |
-| US20 | Criar lista de materiais                   | Must have | X   |
-| US21 | Adicionar, modificar ou remover material.  | Must have | X   |
+| US18 | Avaliar justificativa             | Should have |   X  |
+| US19 | Gerar alerta de risco                             | Could Have |     |
+| US20 | Cadastrar lista de materiais                   | Must have | X   |
+| US21 | Atualizar lista de materiais  | Must have | X   |
 | US22 | Visualizar lista de materiais              | Must have   | X   |
-| US23 | Marcar material que está em uso            | Should have  | X    |
+| US23 | Utilizar material disponivel            | Should have  | X    |
 | US24 | Solicitar compra de materiais              | Should have  |  X   |
-| US25 | Gerar relatório de materiais               | Should have | |
+| US25 | Gerar relatório de membros               | Should have | |
+| US26 | Gerar relatório de núcleos              | Won't have | |
+| US27 | Gerar relatório de materias              | Should have | |
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
