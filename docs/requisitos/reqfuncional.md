@@ -58,6 +58,8 @@ RF26 - Gerar relatório de núcleos: Gerar porcentual de membros mudanças de n�
 
 RF27 - Gerar relatório de materias: Gerar relatório de materiais em falta, mais usados e solicitados. 
 
+
+
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
