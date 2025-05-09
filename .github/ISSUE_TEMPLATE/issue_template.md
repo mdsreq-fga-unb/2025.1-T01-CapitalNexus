@@ -1,7 +1,7 @@
 ---
 name: Template Geral
 about: Use este template para reportar bugs, sugerir melhorias ou novas funcionalidades
-title: '[PR]: '
+title: '[PR] '
 labels: ''
 assignees: ''
 
@@ -21,7 +21,7 @@ Siga o padrão de commits estabelecidos em [https://github.com/mdsreq-fga-unb/20
 - [ ] Nova funcionalidade  
 - [ ] Melhoria  
 - [ ] Documentação  
-- [ ] Outro: ___
+- [ ] Protótipo
 
 ---
 
