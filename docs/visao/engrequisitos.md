@@ -1,6 +1,6 @@
 # Engenharia de Requisitos
 
-*A partir das informações apresentadas na seção 3, deste documento, devem ser estabelecidas as atividades da Engenharia de Requisitos (ER), suas práticas e técnicas em alinhamento ao processo de ESW informado.  Inicialmente, cada uma das 6 atividades da ER deve ser associadas as técnicas que serão utilizadas no projeto em desenvolvimento durante a disciplina.* 
+A Engenharia de Requisitos dispõe de diversas **técnicas e práticas**, que devem ser adaptadas conforme o contexto de negócio, necessidades do cliente e o perfil da equipe em questão. A seguir são apresentadas o conjunto de técnicas e práticas da ER a serem utilizadas durante o desenvolvimento da solução para a Capital Rocket Team, visando **garantir clareza e alinhamento do que será feito** e **como será feito**:
 
 
 ### Elicitação e Descoberta
@@ -17,20 +17,21 @@
 
 ### Representação de Requisitos
 
-- **Prototipação**: A técnica de representação informal de prototipação será utilizada com objetivo de permitir a CRT **fornecer feedback** rapidamente sobre o que será desenvolvido, por meio de protótipos interativos de alta fidelidade.
+- **Prototipação**: A técnica de representação informal de prototipação será utilizada com objetivo de permitir a CRT **fornecer feedbacks** intermediarios, afim de validar partes do front inicial.
 
 ### Verificação e Validação de Requisitos
 
 - **Definition of Ready (DoR)**: A técnica de DoR delimita quando um **requisito está preparado para ser trabalhado**. Para que seja considerado como *Ready*, serão levadas em consideração se:
-1. O requisito está represntado por uma história de usuário?
-1. O requisito possui critérios de aceitação orientados por *Behavior Driven Development* (BDD)?
-1. As dependências do requisitos estão mapeadas (se houver)?
-1. O requisito está consoante com a granularidade dos demais?
+    1. O requisito está representado por uma história de usuário?
+    1. O requisito possui critérios de aceitação orientados por *Behavior Driven Development* (BDD)?
+    1. As dependências do requisitos estão mapeadas (se houver)?
+    1. O requisito está consoante com a granularidade dos demais?
 - **Definition of Done (DoD)**: A técnica de DoD demonstra **qualidade do requisito produzido**. Para que seja considerado como *Done*, deve atender ao seguinte:
-1. Esse requisito entrega um incremento do produto?
-1. Contempla critérios de aceite estabelecidos?
-1. Está documentado para uso?
-1. Segue os padrões [estabelecidos de codificação](../../CONTRIBUTING.md)?
+    1. Esse requisito entrega um incremento do produto?
+    1. Contempla critérios de aceite estabelecidos?
+    1. Está documentado para uso?
+    1. Segue os padrões [estabelecidos de codificação](../../CONTRIBUTING.md)?
+- **Revisão em Pares**: A revisão em pares entre os membros do grupo auxiliará na **verificação dos requisitos**, verificando se estão sendo feitos de maneira correta.
 
 ### Organização e Atualização de Requisitos
 
@@ -39,12 +40,12 @@
     |---- | ----------- | ------ | ---- |
     | Prontos para serem desenvolvidos: [*Ready*](#verificação-e-validação-de-requisitos) | Em desenvolvimento | Esperando por review: [*Done*](#verificação-e-validação-de-requisitos) | Revisados e finalizados |
     
-- **MoSCoW**: será utilizada a técnica de priorização de requisitos *MoSCoW* (*Must Have, Should Have, Could Have, Won't Have*), com objetivo de gerar o Produto Mínimo Viável (*MVP*).
-- **Fedback**: será utilizada a técnica de feedback para manter um backlog de produto organizado e atualizado conforme necessidades do projeto
+- **MoSCoW**: será utilizada a técnica de priorização de requisitos *MoSCoW* (*Must Have, Should Have, Could Have, Won't Have*), com objetivo de **gerar o Produto Mínimo Viável** (*MVP*).
+- **Feedback**: será utilizada a técnica de feedback para **manter um backlog de produto organizado** e **atualizado** conforme necessidades do projeto.
 
 ## Engenharia de Requisitos e o AUP
 
-*Aqui, as atividades da ER, suas práticas e técnicas devem ser mapeadas, a partir das fases (etapas) do processo estabelecido pela equipe, para a condução do projeto. Essas informações devem ser apresentadas em uma tabela conforme indicado, a seguir (exemplo).* 
+O Processo do AUP (Agiled Unified Process) adota uma **filosofia pragmática e ágil**, concentrando-se numa natureza **colaborativa** e aplicando abordagens **iterativas** e **incrementais** no desenvolvimento de software. Devido à sua natureza flexível, algumas das técnicas se sobrepoem e podem ocorrer em mais de uma das fases do processo:
 
 
 |**Fases do AUP** |**Atividades ER** |**Prática** |**Técnica** |**Resultado Esperado** |
@@ -54,20 +55,22 @@
 ||*Declaração* | *User Story* | *Narrativas de Usuário* |*Descrição das funcionalidades que entregam valor de negócio* |
 ||*Organização e Atualização* |*Priorização de Requisitos* |*MoSCoW* |*Mínimo Produto Viável (MVP)* |
 |**Elaboração** |*Verificação e Validação* | *Validação de Requisitos* |*Aplicação da DoD* |*Lista de US prontas pasra serem revisadas — Review* |
-|||*Verificação de Requisitos*|*Aplicação da DoR*| *Lista de US prontas para serem desenvolvidas — Todo*
+|||*Verificação de Requisitos*|*Aplicação da DoR*| *Lista de US prontas para serem desenvolvidas — Todo* |
+||| *Verificação de Requisitos* |*Validação em Pares* |*Requisitos verificados: Done* |
 ||*Representação* |*Prototipação* |*Prototipação Intertativa* |*Garantir entrega alinhada às expectativas do cliente* |
-||*Organização e Atualização* |*Organização de Backlog* |*Kanban* |*Organização do Backlog* |
-|||*Organização de Backlog* |*Feedbacl* |*Organização do Backlog* |
-|**Construção** |*Representação* |*<Prática 6>* |*<Técnica 6>* |*<Resultado esperado 6>* |
-||*Elicitação e Descoberta* |*<Prática 7>* |*<Técnica 7>* |*<Resultado esperado 7>* |
-||*Organização e Atualização* |*<Prática 8>* |*<Técnica 8>* |*<Resultado esperado 8>* |
-|**Transição** |*Representação* |*<Prática 6>* |*<Técnica 6>* |*<Resultado esperado 6>* |
-||*Elicitação e Descoberta* |*<Prática 7>* |*<Técnica 7>* |*<Resultado esperado 7>* |
-||*Organização e Atualização* |*<Prática 8>* |*<Técnica 8>* |*<Resultado esperado 8>* |
+||*Organização e Atualização* | *Organização de Backlog* |*Feedback* |*Organização de Backlog* |
+|| |*Organização de Backlog* |*Kanban* |*Organização do Backlog* |
+|||*Atualização de Backlog* |*Feedback* |*Organização do Backlog* |
+| |*Representação* |*Prototipação* |*Prototipação Intertativa* |*Garantir entrega alinhada às expectativas do cliente* |
+|**Construção**| *Verificação e Validação* | *Verificação de Requisitos* |*Validação em Pares* |*Requisitos verificados: Done* |
+||*Organização e Atualização* | *Atualização de Backlog* |*Feedback* |*Organização de Backlog* |
+|||*Organização de Backlog* |*Kanban* |*Organização do Backlog* |
+|**Transição** | *Verificação e Validação* | *Verificação de Requisitos* |*Validação em Pares* |*Requisitos verificados: Done* |
+||*Organização e Atualização* | *Organização de Backlog* |*Kanban* |*Organização de Backlog* |
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 | 12/05/2025 | 0.1 | Descrição das técnicas utilizadas | Wanjo Christopher |
-|||||
+| 12/05/2025 | 0.2 | Correlação entre técnicas e fases do AUP | Wanjo Christopher|
 |||||
