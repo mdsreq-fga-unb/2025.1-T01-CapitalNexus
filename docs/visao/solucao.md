@@ -9,6 +9,7 @@ Nossa solução visa resolver desafios operacionais e de visibilidade social da 
 1. Otimizar o controle de estoque e materiais, facilitando o planejamento de orçamentos e a reposição de itens;
 
 Os itens acima concatenam nos seguintes objetivos específicos:
+
 1. Reduzir a perda de dados
 1. Reduzir a perda de tempo
 1. Facilitar a interação com patrocinadores

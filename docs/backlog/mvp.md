@@ -7,8 +7,8 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 - **Co: Could have.** São requisitos desejáveis, mas que não são necessários. Menor importantes que os requisitos do grupo "should have".
 - **W: Won't have.** Requisitos que não serão implementados, mas que podem ser incluídos futuramente.
 
-| ID   | Descrição                                   | Prioridade  | MVP |
-|------|--------------------------------------------|-------------|-----|
+| ID   | Descrição                                   | Prioridade  | MVP | Obje  |
+|------|--------------------------------------------|-------------|-----|-----|
 | US01 | Acessar histórico da equipe                | Must have   | X   |
 | US02 | Visualizar os projetos da equipe           | Must have   | X   |
 | US03 | Visualizar os prêmios da equipe            | Must have   | X   |
