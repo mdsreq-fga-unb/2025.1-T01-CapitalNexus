@@ -23,14 +23,18 @@ A Engenharia de Requisitos dispõe de diversas **técnicas e práticas**, que de
 
 - **Definition of Ready (DoR)**: A técnica de DoR delimita quando um **requisito está preparado para ser trabalhado**. Para que seja considerado como *Ready*, serão levadas em consideração se:
     1. O requisito está representado por uma história de usuário?
-    1. O requisito possui critérios de aceitação orientados por *Behavior Driven Development* (BDD)?
-    1. As dependências do requisitos estão mapeadas (se houver)?
+    1. O requisito possui critérios de aceitação orientados por *Behavior Driven Development* (BDD) e testes?
     1. O requisito está consoante com a granularidade dos demais?
+    1. O requisito foi estimado?
+    1. O requisito agrega valor e está associado à algum dos objetivos específicos da solução?
+    1. As dependências do requisitos estão mapeadas (se houver)?
 - **Definition of Done (DoD)**: A técnica de DoD demonstra **qualidade do requisito produzido**. Para que seja considerado como *Done*, deve atender ao seguinte:
     1. Esse requisito entrega um incremento do produto?
     1. Contempla critérios de aceite estabelecidos?
     1. Está documentado para uso?
+    1. Foi revisado por outro desenvolvedor?
     1. Segue os padrões [estabelecidos de codificação](../../CONTRIBUTING.md)?
+    1. Foi testado?
 - **Revisão em Pares**: A revisão em pares entre os membros do grupo auxiliará na **verificação dos requisitos**, verificando se estão sendo feitos de maneira correta.
 
 ### Organização e Atualização de Requisitos
@@ -73,4 +77,4 @@ O Processo do AUP (Agiled Unified Process) adota uma **filosofia pragmática e �
 | :- | :- | :- | :- |
 | 12/05/2025 | 0.1 | Descrição das técnicas utilizadas | Wanjo Christopher |
 | 12/05/2025 | 0.2 | Correlação entre técnicas e fases do AUP | Wanjo Christopher|
-|||||
+| 13/05/2025 | 0.3 | Atualizando DoR e DoD | Wanjo Christopher|
