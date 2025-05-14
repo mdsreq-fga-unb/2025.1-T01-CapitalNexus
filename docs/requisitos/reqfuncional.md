@@ -12,7 +12,7 @@ RF03 - Exibir conquistas: Exibir, com mídia, os prêmios conquistados pela equi
 
 RF04 - Contactar a equipe: Enviar uma mensagem de contato por meio de um formulário. 
 
-RF05 - Adicionar conteúdo: Permitir a adição de novos conteúdos na plataforma pública. 
+RF05 - Postar conteúdo: Permitir a adição de novos conteúdos na plataforma pública. 
 
 RF06 - Atualizar conteúdo: Permitir a atualização do conteúdo da plataforma pública. 
 
