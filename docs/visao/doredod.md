@@ -4,6 +4,7 @@ Esta seção apresenta os conceitos de Definition of Ready (DoR) e Definition of
 
 
 *Boas práticas e Direcionamentos utilizados para definição dos critérios*
+
 |DoD |DoR|
 |----|----|
 |1. Actionable immediately by the team<br>2. Negotiable, open to modification<br>3. Valuable <br>4. Time estimate<br>5. Testable <br>6. Size proper for the team<br>| 1. Code review <br>2. Integrated <br>3. Tests <br>4. Commit standard <br>|
@@ -22,6 +23,7 @@ O DoR delimita quando um **requisito está preparado para ser trabalhado**. Perm
 ## Definition of Done (DoD)
 
 O DoD define os critérios que precisam ser cumpridos para que uma funcionalidade seja considerada completa, demonstrando **qualidade do requisito produzido**. Para que seja considerado como *Done*, deve atender ao seguinte:
+
 1. Esse requisito entrega um incremento do produto?
 1. Contempla critérios de aceite estabelecidos?
 1. Está documentado para uso?
