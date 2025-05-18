@@ -1,7 +1,6 @@
 # Instruções para Configuração do Ambiente de Desenvolvimento
 
 Este documento descreve os passos para configurar o ambiente de desenvolvimento e começar a trabalhar no projeto. 
-Primeiro, certifique-se de ter o python instalado na sua máquina. Após isso, acesse essa branch (develop) e siga os seguintes passos:
 
 ### Certifique-se de ter o arquivo .env com as credenciais do banco.
 
@@ -11,38 +10,39 @@ Primeiramente, sempre, execute:
 git pull
 ```
 
-## 2. Criar ambiente virtual (Apenas se você nunca tiver feito!)
-Se for a sua primeira vez acessando, execute o seguinte comando no terminal:
-```
-python -m venv venv
-```
+# Comandos Docker para Projeto Django
 
-## 3. Ativar o ambiente virtual
-No terminal, execute:
+Este arquivo reúne os principais comandos Docker para criar, rodar, testar e gerenciar seu projeto Django dentro de containers.
 
-Windows:
-```
-venv\Scripts\activate
-```
-Linux/MacOS:
-```
-source venv/bin/activate
-```
+---
 
-## 3. Instale as dependências
-Execute:
-```
-pip install -r requirements.txt
-```
+## 2. Construir a imagem Docker
 
-## 5. Rodar as migrações do banco de dados
-Execute:
+```bash
+docker compose build
+``` 
+
+## 3. Iniciar o container
+
+```bash
+docker compose up
+``` 
+
+## 3. Entrar no container (modo interativo)
+
+```bash
+docker start capital-nexus
+docker exec -it capital-nexus /bin/bash
 ```
+## 4. Migrações
+
+python manage.py makemigrations
 python manage.py migrate
-```
 
-## 6. Verifique se está funcionando corretamente
-Execute:
-```
-python manage.py runserver
-```
+## 5. Aplicar migrações
+
+docker exec -it capital-nexus python manage.py migrate
+
+## 6. Teste
+
+docker exec -it capital-nexus python manage.py test
