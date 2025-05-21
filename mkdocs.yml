@@ -14,7 +14,7 @@ nav:
       - Interação entre equipe e cliente: visao/interacao.md
       - DoR e DoD: visao/doredod.md
       - Lições aprendidas: visao/licoes.md
-      - Política de Contribuição: visao/contribuicao.md
+      - Política de contribuição: visao/contribuicao.md
       - Referências: visao/referencias.md 
   - Requisitos:
       - Requisitos funcionais: requisitos/reqfuncional.md
