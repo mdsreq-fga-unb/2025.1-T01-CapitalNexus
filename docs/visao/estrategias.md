@@ -2,9 +2,10 @@
 
 ## Estratégia Priorizada
 
-- Abordagem: Híbrida;
-- Ciclo de vida: Iterativo incremental;
-- Processo: AUP.
+- Abordagem: **Híbrida**;
+- Ciclo de vida: **Iterativo incremental**;
+- Processo: **AUP**;
+- Frameworkde gerenciamento ágil: **Kanban**.
 
 ## Quadro Comparativo
 
@@ -39,6 +40,5 @@ Analisando o quadro anterior, optamos pela escolha do AUP (Processo Unificado Á
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**18/04/25**|1.0|Primeira versão|Equipe |
-|||||
-|||||
+|**21/05/2025**|1.1| Atualizando framework de gerenciamento ágil| Wanjo Christopher|
 |||||

@@ -36,16 +36,10 @@ A Engenharia de Requisitos dispõe de diversas **técnicas e práticas**, que de
     1. Segue os padrões [estabelecidos de codificação](../../CONTRIBUTING.md)?
     1. Foi testado?
 - **Revisão em Pares**: A revisão em pares entre os membros do grupo auxiliará na **verificação dos requisitos**, verificando se estão sendo feitos de maneira correta.
+- **Feedback**: será utilizada a técnica de feedback com a CRT para **manter um backlog de produto verificado** e **validado** de acordo com as necessidades da solução.
 
-### Organização e Atualização de Requisitos
-
-- **Kanban**: será utilizado em conjunto com a plataforma [GitHub Projects](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) para organização visual das fases de cada um dos requisitos do backlog. Os requisitos serão divididos nas seguintes fases:
-    |Todo | In Progress | Review | Done |
-    |---- | ----------- | ------ | ---- |
-    | Prontos para serem desenvolvidos: [*Ready*](#verificação-e-validação-de-requisitos) | Em desenvolvimento | Esperando por review: [*Done*](#verificação-e-validação-de-requisitos) | Revisados e finalizados |
-    
+### Organização e Atualização de Requisitos    
 - **MoSCoW**: será utilizada a técnica de priorização de requisitos *MoSCoW* (*Must Have, Should Have, Could Have, Won't Have*), com objetivo de **gerar o Produto Mínimo Viável** (*MVP*).
-- **Feedback**: será utilizada a técnica de feedback para **manter um backlog de produto organizado** e **atualizado** conforme necessidades do projeto.
 
 ## Engenharia de Requisitos e o AUP
 
@@ -54,27 +48,24 @@ O Processo do AUP (Agiled Unified Process) adota uma **filosofia pragmática e �
 
 |**Fases do AUP** |**Atividades ER** |**Prática** |**Técnica** |**Resultado Esperado** |
 | - | - | - | - | - |
-|**Concepção** |*Elicitação e Descoberta* |*Conversas e reuniões com a CRT* |*Entrevistas* |*Compreender e coletar requisitos* |
-||*Análise e Consenso* |*Conversas e reuniões com a CRT* |*Entrevistas* |*Eliminar ambiguidades e preencher lacunas nos requisitos* |
-||*Declaração* | *User Story* | *Narrativas de Usuário* |*Descrição das funcionalidades que entregam valor de negócio* |
-||*Organização e Atualização* |*Priorização de Requisitos* |*MoSCoW* |*Mínimo Produto Viável (MVP)* |
-|**Elaboração** |*Verificação e Validação* | *Validação de Requisitos* |*Aplicação da DoD* |*Lista de US prontas pasra serem revisadas — Review* |
-|||*Verificação de Requisitos*|*Aplicação da DoR*| *Lista de US prontas para serem desenvolvidas — Todo* |
-||| *Verificação de Requisitos* |*Validação em Pares* |*Requisitos verificados: Done* |
-||*Representação* |*Prototipação* |*Prototipação Intertativa* |*Garantir entrega alinhada às expectativas do cliente* |
-||*Organização e Atualização* | *Organização de Backlog* |*Feedback* |*Organização de Backlog* |
-|| |*Organização de Backlog* |*Kanban* |*Organização do Backlog* |
-|||*Atualização de Backlog* |*Feedback* |*Organização do Backlog* |
-| |*Representação* |*Prototipação* |*Prototipação Intertativa* |*Garantir entrega alinhada às expectativas do cliente* |
-|**Construção**| *Verificação e Validação* | *Verificação de Requisitos* |*Validação em Pares* |*Requisitos verificados: Done* |
-||*Organização e Atualização* | *Atualização de Backlog* |*Feedback* |*Organização de Backlog* |
-|||*Organização de Backlog* |*Kanban* |*Organização do Backlog* |
-|**Transição** | *Verificação e Validação* | *Verificação de Requisitos* |*Validação em Pares* |*Requisitos verificados: Done* |
-||*Organização e Atualização* | *Organização de Backlog* |*Kanban* |*Organização de Backlog* |
+|**Concepção** |***Elicitação e Descoberta*** |Conversas e reuniões com a CRT |Entrevistas |Compreender e coletar requisitos |
+||***Análise e Consenso*** |Conversas e reuniões com a CRT |Entrevistas |Eliminar ambiguidades e preencher lacunas nos requisitos |
+||***Declaração*** | User Story | Narrativas de Usuário |Descrição das funcionalidades que entregam valor de negócio |
+||***Organização e Atualização*** |Priorização de Requisitos |MoSCoW |Mínimo Produto Viável (MVP) |
+|**Elaboração** |***Verificação e Validação*** |Verificação de Requisitos|Aplicação da DoR| Lista de US prontas para serem desenvolvidas — Todo |
+| || Validação de Requisitos | Aplicação da DoD |Lista de US prontas pasra serem revisadas — Review |
+||| Validação de Requisitos | Validação em Pares | Requisitos verificados: Done |
+||| Verificação e Validação |Feedback | Resultados do Feedback |
+||***Representação*** |Prototipação |Prototipação Intertativa |Garantir entrega alinhada às expectativas do cliente |
+|**Construção**| ***Verificação e Validação*** | Validação de Requisitos | Validação em Pares |Requisitos verificados: Done |
+||***Organização e Atualização***| Organização de Backlog |Feedback |Organização de Backlog |
+|**Transição** | ***Verificação e Validação*** | Validação de Requisitos | Validação em Pares |Requisitos verificados: Done |
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
-| 12/05/2025 | 0.1 | Descrição das técnicas utilizadas | Wanjo Christopher |
-| 12/05/2025 | 0.2 | Correlação entre técnicas e fases do AUP | Wanjo Christopher|
-| 13/05/2025 | 0.3 | Atualizando DoR e DoD | Wanjo Christopher|
+| **12/05/2025** | 0.1 | Descrição das técnicas utilizadas | Wanjo Christopher |
+| **12/05/2025** | 0.2 | Correlação entre técnicas e fases do AUP | Wanjo Christopher|
+| **13/05/2025** | 0.3 | Atualizando DoR e DoD | Wanjo Christopher|
+| **21/05/2025** | 1.0 | Corrigindo técnicas da engenharia de requisitos | Wanjo Christopher|
+|||||
