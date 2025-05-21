@@ -14,6 +14,7 @@ nav:
       - Interação entre equipe e cliente: visao/interacao.md
       - DoR e DoD: visao/doredod.md
       - Lições aprendidas: visao/licoes.md
+      - Política de Contribuição: visao/contribuicao.md
       - Referências: visao/referencias.md 
   - Requisitos:
       - Requisitos funcionais: requisitos/reqfuncional.md
@@ -37,6 +38,9 @@ theme:
     - navigation.instant
     - navigation.top
     - navigation.tracking
+    - content.code.select
+    - content.code.copy
+
 
   palette:
     - scheme: default
@@ -59,3 +63,12 @@ theme:
 
 extra_css:
   - stylesheets/styles.css
+
+markdown_extensions:
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.superfences
