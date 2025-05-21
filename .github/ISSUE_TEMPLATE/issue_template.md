@@ -9,11 +9,13 @@ assignees: ''
 
 ### 📝 Descrição  
 Descreva com detalhes o que deve ser feito. Seja claro e específico.
+
 Crie a branch a partir de:
 - [ ] Main;
 - [ ] Develop.
 
 Siga o padrão de commits estabelecidos em [https://github.com/mdsreq-fga-unb/2025.1-T01-CapitalNexus/blob/main/CONTRIBUTING.md](url)
+
 ---
 
 ### 📂 Tipo da Issue  
@@ -26,11 +28,20 @@ Siga o padrão de commits estabelecidos em [https://github.com/mdsreq-fga-unb/20
 ---
 
 ### ✅ Critérios de Aceitação  
-Liste os critérios mínimos que definem quando essa issue pode ser considerada concluída.
 
 - [ ]  
 - [ ]  
 - [ ]  
+
+---
+
+### DoD (Pronto)
+
+- [ ] Esse requisito entrega um incremento do produto
+- [ ] Está documentado para uso
+- [ ] Foi revisado por outro desenvolvedor
+- [ ] Segue os padrões estabelecidos de codificação
+- [ ] Foi testado
 
 ---
 
