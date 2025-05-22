@@ -28,10 +28,11 @@ O DoD define os critérios que precisam ser cumpridos para que uma funcionalidad
 1. Contempla critérios de aceite estabelecidos?
 1. Está documentado para uso?
 1. Foi revisado por outro desenvolvedor?
-1. Segue os padrões [estabelecidos de codificação](../../CONTRIBUTING.md)?
+1. Segue os padrões [estabelecidos de codificação](../contribuicao)?
 1. Foi testado?
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
-| 13/05/2025 | 0.1 | Definindo DoR, DoD e critérios de aceite | Wanjo Christopher |
+| **13/05/2025** | 0.1 | Definindo DoR, DoD e critérios de aceite | Wanjo Christopher |
+| **21/05/2025** | 0.1 | Corrige caminho do documento de contribuição | Wanjo Christopher |

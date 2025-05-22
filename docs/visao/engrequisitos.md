@@ -33,7 +33,7 @@ A Engenharia de Requisitos dispõe de diversas **técnicas e práticas**, que de
     1. Contempla critérios de aceite estabelecidos?
     1. Está documentado para uso?
     1. Foi revisado por outro desenvolvedor?
-    1. Segue os padrões [estabelecidos de codificação](../../CONTRIBUTING.md)?
+    1. Segue os padrões [estabelecidos de codificação](..\contribuicao)?
     1. Foi testado?
 - **Revisão em Pares**: A revisão em pares entre os membros do grupo auxiliará na **verificação dos requisitos**, verificando se estão sendo feitos de maneira correta.
 
@@ -75,6 +75,7 @@ O Processo do AUP (Agiled Unified Process) adota uma **filosofia pragmática e �
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
-| 12/05/2025 | 0.1 | Descrição das técnicas utilizadas | Wanjo Christopher |
-| 12/05/2025 | 0.2 | Correlação entre técnicas e fases do AUP | Wanjo Christopher|
-| 13/05/2025 | 0.3 | Atualizando DoR e DoD | Wanjo Christopher|
+| **12/05/2025** | 0.1 | Descrição das técnicas utilizadas | Wanjo Christopher |
+| **12/05/2025** | 0.2 | Correlação entre técnicas e fases do AUP | Wanjo Christopher|
+| **13/05/2025** | 0.3 | Atualizando DoR e DoD | Wanjo Christopher|
+| **21/05/2025** | 0.1 | Corrige caminho do documento de contribuição | Wanjo Christopher |
