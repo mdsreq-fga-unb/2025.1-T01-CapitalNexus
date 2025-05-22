@@ -9,38 +9,37 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
  
 **Objetivos específicos**
 
-1. Reduzir a perda de dados
-1. Reduzir a perda de tempo
-1. Facilitar a interação com patrocinadores
+1. Facilitar acesso à informação
+1. Reduzir perda de dados
 1. Fortalecer a imagem institucional da equipe
 
 
 | ID   | Nome                                       | Prioridade  | MVP | Objetivo específico |
 |------|--------------------------------------------|-------------|-----|-----|
-| US01 | Apresentar a equipe                        | Must have   | X   |   4  |
-| US02 | Exibir projetos                            | Must have   | X   |    4 |
-| US03 | Exibir conquistas                          | Must have   | X   |    4 |
-| US04 | Contactar a equipe                         | Must have   |   X |    3 |
-| US05 | Postar conteúdo                            | Could Have  |     |   4  |
-| US06 | Atualizar conteúdo                         | Could Have  |     |   4  |
-| US07 | Excluir conteúdo                           | Could have  |     |    4 |
-| US08 | Cadastrar membro                           | Must have   | X   |  1   |
+| US01 | Apresentar a equipe                        | Must have   | X   |   3  |
+| US02 | Exibir projetos                            | Must have   | X   |    3 |
+| US03 | Exibir conquistas                          | Must have   | X   |    3 |
+| US03 | Contactar a equipe                         | Must have   |   X |    3 |
+| US05 | Postar conteúdo                            | Could Have  |     |   3  |
+| US06 | Atualizar conteúdo                         | Could Have  |     |   3  |
+| US07 | Excluir conteúdo                           | Could have  |     |    3 |
+| US08 | Cadastrar membro                           | Must have   | X   |  1  |
 | US09 | Atualizar membro                           | Must have   | X   |   1  |
-| US10 | Consultar membro                           | Must have   |  X  |   2  |
+| US10 | Consultar membro                           | Must have   |  X  |   1  |
 | US11 | Excluir membro                             | Must have   | X   |   1  | 
-| US12 | Cadastrar reunião                          | Must have   | X   |    1 | 
-| US13 | Atualizar reunião                          | Must have   | X   |    1 | 
-| US14 | Notificar reunião                          | Should have |     |    2 | 
+| US12 | Cadastrar reunião                          | Must have   | X   |    2 | 
+| US13 | Atualizar reunião                          | Must have   | X   |    2 | 
+| US13 | Notificar reunião                          | Should have |     |    1 | 
 | US15 | Realizar chamada                           | Must have   | X   |    2 | 
-| US16 | Notificar falta                            | Could have  |     |    2 | 
+| US16 | Notificar falta                            | Could have  |     |    1 | 
 | US17 | Justificar falta                           | Should have |  X  |    1 | 
-| US18 | Avaliar justificativa                      | Should have |  X  |    2 | 
-| US19 | Gerar alerta de risco                      | Could Have  |     |    2 | 
-| US20 | Cadastrar lista de materiais               | Must have   | X   |   1  | 
-| US21 | Atualizar lista de materiais               | Must have   | X   |    1 | 
+| US18 | Avaliar justificativa                      | Should have |  X  |    1 | 
+| US19 | Gerar alerta de risco                      | Could Have  |     |    1 | 
+| US20 | Cadastrar lista de materiais               | Must have   | X   |   2 | 
+| US21 | Atualizar lista de materiais               | Must have   | X   |    2 | 
 | US22 | Visualizar lista de materiais              | Must have   | X   |    1 | 
 | US23 | Utilizar material disponível               | Should have | X   |    1 | 
-| US24 | Solicitar compra de materiais              | Should have |  X  |    2 | 
+| US23 | Solicitar compra de materiais              | Should have |  X  |    2 | 
 | US25 | Gerar relatório de membros                 | Should have |     |    1 | 
 | US26 | Gerar relatório de núcleos                 | Won't have  |     |    1 | 
 | US27 | Gerar relatório de materias                | Should have |     |   1  | 
@@ -49,5 +48,5 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**02/05/25**| 0.1 | Construindo o documento de MVP | Equipe |
-|**14/05/25**| 0.2 | Relacionando backlog com <br> objetivos específicos| Sophia|
+|**13/05/25**| 0.2 | Relacionando backlog com <br> objetivos específicos| Sophia|
 |||||

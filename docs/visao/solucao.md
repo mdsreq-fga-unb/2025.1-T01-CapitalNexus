@@ -10,9 +10,8 @@ Nossa solução visa resolver desafios operacionais e de visibilidade social da 
 
 Os itens acima concatenam nos seguintes objetivos específicos:
 
-1. Reduzir a perda de dados
-1. Reduzir a perda de tempo
-1. Facilitar a interação com patrocinadores
+1. Facilitar acesso à informação
+1. Reduzir perda de dados
 1. Fortalecer a imagem institucional da equipe
 
 Além disso, deve apoiar a comunicação entre os núcleos técnicos e destacar a liderança da equipe no setor aeroespacial nacional, evidenciada por marcos como o lançamento do primeiro foguete de propulsão híbrida do Brasil.
