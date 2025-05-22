@@ -68,4 +68,3 @@ O Processo do AUP (Agiled Unified Process) adota uma **filosofia pragmática e �
 | **12/05/2025** | 0.2 | Correlação entre técnicas e fases do AUP | Wanjo Christopher|
 | **13/05/2025** | 0.3 | Atualizando DoR e DoD | Wanjo Christopher|
 | **21/05/2025** | 1.0 | Corrigindo técnicas da engenharia de requisitos | Wanjo Christopher|
-|||||
