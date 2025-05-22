@@ -49,4 +49,4 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 | :- | :- | :- | :- |
 |**02/05/25**| 0.1 | Construindo o documento de MVP | Equipe |
 |**13/05/25**| 0.2 | Relacionando backlog com <br> objetivos específicos| Sophia|
-|||||
+|**21/05/25**|0.3|Reavaliando backlog com objetivos específicos|Sophia|

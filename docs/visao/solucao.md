@@ -77,4 +77,4 @@ Como ferramenta de gestão e gerenciamento individual centrada, poupará tempo d
 |**18/04/25**|1.0|Primeira versão|Kaio, Maria, Pedro, Victor e Wanjo|
 |**01/05/25**|1.1|Refatorando parágrafo de Objetivos do Produto| Wanjo Christopher |
 |**02/05/25**|1.2|Correlacionando Objetivos do Projeto com Objetivos Específicos da Solução Proposta| Wanjo Christopher |
-|||||
+|**21/05/25**|1.3|Revisando objetivos especificos|Sophia|
