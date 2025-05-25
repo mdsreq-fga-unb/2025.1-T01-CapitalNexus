@@ -16,10 +16,10 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 
 | ID   | Nome                                       | Prioridade  | MVP | Objetivo específico |
 |------|--------------------------------------------|-------------|-----|-----|
-| US01 | Apresentar a equipe                        | Must have   | X   |   3  |
-| US02 | Exibir projetos                            | Must have   | X   |    3 |
-| US03 | Exibir conquistas                          | Must have   | X   |    3 |
-| US03 | Contactar a equipe                         | Must have   |   X |    3 |
+| US01 | Cadastrar núcleo                           | Should have   |    |   1  |
+| US02 | Atualizar núcleo                           | Should have   |    |    1 |
+| US03 | Excluir núcleo                             | Should have   |    |    1 |
+| US04 | Contactar a equipe                         | Must have   |   X |    3 |
 | US05 | Postar conteúdo                            | Could Have  |     |   3  |
 | US06 | Atualizar conteúdo                         | Could Have  |     |   3  |
 | US07 | Excluir conteúdo                           | Could have  |     |    3 |
@@ -50,3 +50,4 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 |**02/05/25**| 0.1 | Construindo o documento de MVP | Equipe |
 |**13/05/25**| 0.2 | Relacionando backlog com <br> objetivos específicos| Sophia|
 |**21/05/25**|0.3|Reavaliando backlog com objetivos específicos|Sophia|
+|**25/05/25**|0.4|Atualizando requisitos 1 - 3|Sophia|

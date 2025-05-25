@@ -4,11 +4,11 @@ Os requisitos funcionais descrevem as funcionalidades específicas que o sistema
 
 ## Lista de Requisitos Funcionais
 
-RF01 - Apresentar a equipe: Listar história, missão e valores da equipe na página inicial da plataforma. 
+RF01 - Cadastrar núcleo: Permitir o cadastro de novos núcleos.
 
-RF02 - Exibir projetos: Exibir, com mídia, os projetos feitos pela equipe. 
+RF02 - Atualizar núcleo: Permitir a atualização de informações do núcleo.
 
-RF03 - Exibir conquistas: Exibir, com mídia, os prêmios conquistados pela equipe. 
+RF03 - Excluir núcleo: Permitir a exclusão de núcleos cadastrados.
 
 RF04 - Contactar a equipe: Enviar uma mensagem de contato por meio de um formulário. 
 
@@ -64,5 +64,5 @@ RF27 - Gerar relatório de materias: Gerar relatório de materiais em falta, mai
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**04/05/25**|0.1|Levantamento de requisitos|Equipe|
-|||||
+|**25/05/25**|0.2|Correção dos requisitos 1 - 3|Sophia|
 |||||

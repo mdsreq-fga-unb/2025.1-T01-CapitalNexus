@@ -8,9 +8,9 @@ Para a elicitação de requisitos, foi utilizada User Stories (Histórias de Usu
 
 | ID   | Declaração                                                                 | Critérios de Aceitação                                                                                                                                        |
 |------|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| US01   | Eu, como visitante, quero acessar a história da equipe para conhecê-la.                                  | **Dado** que o visitante está na página inicial do site,**quando** ele clica em "Sobre",**então** ele deve ser redirecionado para uma página com o conteúdo da história **e** deve visualizar informações sobre a origem, trajetória e conquistas da equipe **e** a identidade visual da equipe deve estar presente na página |
-| US02   | Eu, como visitante, quero visualizar os projetos da equipe para ver o seu trabalho.                      | **Dado** que o visitante está na página inicial do site,**quando** ele seleciona a opção "Projetos" **então** ele deve ser redirecionado para uma página com a lista de projetos da equipe **e** cada projeto deve exibir: <br> - Nome <br> - Descrição <br> - Ano de realização |
-| US03   | Eu, como visitante, quero visualizar os prêmios da equipe para entender sua relevância.                 | **Dado** que o visitante está no site da equipe,**quando** ele acessa a seção "Pincipais Conquistas" **então** ele deve ver uma lista dos principais prêmios **e** cada prêmio deve mostrar: <br> - Nome <br> - Evento <br> - Ano |
+| US01   | Eu, como capitão, quero cadastrar um núcleo para adicioná-lo ao sistema.                                | **Dado** que o capitão está logado e na área de gestão, **quando**  está visualizando os núcleos e clica em "Cadastrar" e preenche um formulário com nome e categoria do núcleo,**então** o novo núcleo é adicionado ao sistema.  |
+| US02   | Eu, como capitão, quero editar um núcleo para mantê-lo atualizado.                  | **Dado** que o capitão está logado e na área de gestão, **quando** ele seleciona um núcleo e clica em "Editar" e muda nome ou categoria e clica em "Salvar" **então** a alteração deve ser salva. |
+| US03   | Eu, como capitão, quero excluir um núcleo para remover núcleos dissolvidos.                | **Dado** que o capitão está na áresa de gestão, **quando** ele acessa um núcleo e clica em "Excluir" e "Confirmar", **então** o núcleo deve ser removido do sistema.  |
 | US04   | Eu, como visitante, quero entrar em contato com a equipe para algum objetivo específico.                | **Dado** que o visitante está na página de contato **quando** ele preenche o formulário com nome, e-mail e mensagem **e** clica em "Enviar" **então** a mensagem deve ser enviada para o e-mail da equipe **e** o visitante deve ver uma confirmação de envio **e** pode haver um termo de consentimento com um termo de aceite |
 | US05   | Eu, como membro do marketing, quero postar conteúdo para atrair pessoas para a plataforma.              | **Dado** que o membro do marketing está logado na área administrativa **quando** ele acessa a seção de postagens e cria uma nova com título, descrição e imagem **e** clica em "Publicar" **então** o conteúdo deve aparecer na área pública |
 | US06   | Eu, como membro do marketing, quero excluir conteúdo existente para remover conteúdo que não deve ficar disponível. | **Dado** que o membro do marketing está logado e visualiza os conteúdos publicados **quando** ele seleciona um conteúdo e clica em "Excluir" **então** o conteúdo deve ser removido da plataforma **e** a exclusão deve ser confirmada previamente |
@@ -34,11 +34,28 @@ Para a elicitação de requisitos, foi utilizada User Stories (Histórias de Usu
 | US24 | Eu, como membro, quero solicitar a compra de materiais que não estejam na lista para que seja disponibilizado.   | **Dado** que sou membro e acessando a lista de materiais, **quando** eu clicar em "Solicitar novo material" e preencher o formulário contendo: <br> - Nome do material <br> - Quantidade <br> - Motivo do pedido<br>  **Então** aparecerá uma confirmação visual **e** o formulário será enviado para o núcleo de adm-fin                    |
 | US25 | Eu, como membro da gestão de pessoas, quero gerar um relatório sobre o membros, para avaliar a participação e situação geral.  | **Dado** que sou gestor e quero avaliar a situação dos membros **quando** eu clicar para gerar um relatório dos membros **então** deve ser gerado um relatório que contém: <br> - A porcentagem de faltas <br> - A media de advertências por membros<br>  **E** esse relatório deve ser exportável **e** deve ser possível filtrar  por período e núcleo        |
 | US26 |Eu, como gestor, quero gerar um relatório de núcleos, para avaliar o desempenho, mudanças e situações de cada núcleo. | **Dado** que sou gestor e quero avaliar a situação dos núcleos **quando** eu clicar para gerar um relatório dos núcleos, **então** deve ser gerado um relatório que contém: <br> - Desempenho <br> - Mudanças <br> - Situações <br> **E** esse relatório deve ser exportável **e** deve ser possível filtrar por data                       |
-| US27 | Eu, como membro do adm-fin, quero gerar um relatório de materiais em falta e as solicitações dos membros para eu avaliar a necessidade de comprar. | **Dado** que sou adm-fin e quero avaliar a necessidade de compra de material, **quando** eu clicar para gerar um relatório dos materiais, **então** deve ser gerado um relatório que contém: <br> - Quantidade do material no estoque <br> - Lista dos materiais mais pedidos <br> - lista dos materiais mais usados <br> **E** esse relatório deve ser exportável
+| US27 | Eu, como membro do adm-fin, quero gerar um relatório de materiais em falta e as solicitações dos membros para eu avaliar a necessidade de comprar. | **Dado** que sou adm-fin e quero avaliar a necessidade de compra de material, **quando** eu clicar para gerar um relatório dos materiais, **então** deve ser gerado um relatório que contém: <br> - Quantidade do material no estoque <br> - Lista dos materiais mais pedidos <br> - lista dos materiais mais usados <br> **E** esse relatório deve ser exportável|
+
+## Requisitos não funcionais
+
+| ID   | Especificação | Detalhamento |
+|------|-------------------| --------------------------------------------------------------------------------------------------------------------|
+|RNF01|Usabilidade|Deve ser listado história, missão, valores, principais prêmios e patrocinadores da equipe na página inicial da plataforma. |
+|RNF02|Usabilidade|Deve haver uma página com a lista de todos os projetos da equipe, contendo nome, período e detalhes de cada um deles. |
+|RNF03|Usabilidade|A plataforma deve ser responsiva para desktop padrão (1440x1024) e android compacto (412x917). |
+|RNF04|Usabilidade|O sistema deve exibir mensagens de erro compreensíveis ao usuário.|
+|RNF05|Suportabilidade|O sistema deve possuir uma facilidade de manutenção através de uma estrutura modular e código bem organizado.|
+|RNF06|Restrição de design|O sistema deve seguir a identidade visual da Capital Rocket Team.|
+
+## Regras de negócio
+
+- O sistema deve autenticar o usuário através do google, com o domínio da Capital Rocket Team;
+- Todo núcleo tem obrigatoriamente um líder, e, se não tiver líder, o capitão assume o cargo de líder do núcleo;
+- Um membro está em risco de expulsão ao faltar em 2 reuniões gerais seguidas e sem justificativa.
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**04/05/25**|0.1|Lista preliminar de US|Sophia|
 |**20/05/25**|0.2|Adicionando critérios de aceitação|Sophia|
-|||||
+|**25/05/25**|0.3|Adicionando requisitos não funcionais e regras de negócio|Sophia|

@@ -4,19 +4,18 @@ Os requisitos não funcionais especificam as qualidades e restrições do sistem
 
 ## Lista de Requisitos Não Funcionais
 
-RNF01 - (Usabilidade) - O sistema deve ser adaptável (responsivo) a telas de celulares e computadores.
-
-RNF02 - (Usabilidade) - O sistema deve exibir mensagens de erro compreensíveis ao usuário final.
-
-RNF03 - (Confiabilidade) - O sistema deve autenticar o usuário através do google, com o domínio da Capital Rocket Team.
-
-RNF04 - (Confiabilidade) - O sistema deve garantir a segurança das informações dos usuários cadastrados.
-
-RNF05 - (Suportabilidade) - Documentar o código para facilitar manutenção e adaptação. 
+| ID   | Especificação | Detalhamento |
+|------|-------------------| --------------------------------------------------------------------------------------------------------------------|
+|RNF01|Usabilidade|Deve ser listado história, missão, valores, principais prêmios e patrocinadores da equipe na página inicial da plataforma. |
+|RNF02|Usabilidade|Deve haver uma página com a lista de todos os projetos da equipe, contendo nome, período e detalhes de cada um deles. |
+|RNF03|Usabilidade|A plataforma deve ser responsiva para desktop padrão (1440x1024) e android compacto (412x917). |
+|RNF04|Usabilidade|O sistema deve exibir mensagens de erro compreensíveis ao usuário.|
+|RNF05|Suportabilidade|O sistema deve possuir uma facilidade de manutenção através de uma estrutura modular e código bem organizado.|
+|RNF06|Restrição de design|O sistema deve seguir a identidade visual da Capital Rocket Team.|
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**05/05/25**|0.1|Levantamento inicial de requisitos|Equipe|
-|||||
+|**25/05/25**|0.2|Correção de requisitos não funcionais|Sophia|
 |||||
