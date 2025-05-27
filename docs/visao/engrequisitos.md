@@ -53,13 +53,15 @@ O Processo do AUP (Agiled Unified Process) adota uma **filosofia pragmática e �
 ||***Declaração*** | User Story | Narrativas de Usuário |Descrição das funcionalidades que entregam valor de negócio |
 ||***Organização e Atualização*** |Priorização de Requisitos |MoSCoW |Mínimo Produto Viável (MVP) |
 |**Elaboração** |***Verificação e Validação*** |Verificação de Requisitos|Aplicação da DoR| Lista de US prontas para serem desenvolvidas — Todo |
-| || Validação de Requisitos | Aplicação da DoD |Lista de US prontas pasra serem revisadas — Review |
+| || Validação de Requisitos | Aplicação da DoD |Lista de US prontas para serem revisadas — Review |
 ||| Validação de Requisitos | Validação em Pares | Requisitos verificados: Done |
 ||| Verificação e Validação |Feedback | Resultados do Feedback |
 ||***Representação*** |Prototipação |Prototipação Intertativa |Garantir entrega alinhada às expectativas do cliente |
 |**Construção**| ***Verificação e Validação*** | Validação de Requisitos | Validação em Pares |Requisitos verificados: Done |
+| || Validação de Requisitos | Aplicação da DoD |Lista de US prontas para serem revisadas — Review |
 ||***Organização e Atualização***| Organização de Backlog |Feedback |Organização de Backlog |
 |**Transição** | ***Verificação e Validação*** | Validação de Requisitos | Validação em Pares |Requisitos verificados: Done |
+| || Validação de Requisitos | Aplicação da DoD |Lista de US prontas para serem revisadas — Review |
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
@@ -67,4 +69,5 @@ O Processo do AUP (Agiled Unified Process) adota uma **filosofia pragmática e �
 | **12/05/2025** | 0.1 | Descrição das técnicas utilizadas | Wanjo Christopher |
 | **12/05/2025** | 0.2 | Correlação entre técnicas e fases do AUP | Wanjo Christopher|
 | **13/05/2025** | 0.3 | Atualizando DoR e DoD | Wanjo Christopher|
-| **21/05/2025** | 1.0 | Corrigindo técnicas da engenharia de requisitos | Wanjo Christopher|
+| **21/05/2025** | 0.4 | Corrigindo técnicas da engenharia de requisitos | Wanjo Christopher|
+| **26/05/2025** | 0.5 | Adiciona técnica de DoD nas fases de Construção e Transição | Wanjo Christopher|
