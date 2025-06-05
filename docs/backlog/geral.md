@@ -51,4 +51,4 @@ RN06 - O núcleo Gerência  possui 3 cargos: Capitão, Gerente e Co-Gerente. Obr
 |**04/05/25**|0.1|Lista preliminar de US|Sophia|
 |**20/05/25**|0.2|Adicionando critérios de aceitação|Sophia|
 |**25/05/25**|0.3|Adicionando requisitos não funcionais e regras de negócio|Sophia|
-|**04/06/25**|0.4|Corrigindo valor de negócio e adicionando 
+|**04/06/25**|0.4|Corrigindo valor de negócio e adicionando regras de negócio| Sophia, Wanjo|
