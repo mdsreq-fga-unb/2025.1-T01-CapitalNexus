@@ -8,13 +8,12 @@ assignees: ''
 ---
 
 ### 📝 Descrição  
-Descreva com detalhes o que deve ser feito. Seja claro e específico.
 
 Crie a branch a partir de:
 - [ ] Main;
 - [ ] Develop.
 
-Siga o padrão de commits estabelecidos em [https://github.com/mdsreq-fga-unb/2025.1-T01-CapitalNexus/blob/main/CONTRIBUTING.md](url)
+Siga o padrão de commits estabelecidos em [Contribuições](https://github.com/mdsreq-fga-unb/2025.1-T01-CapitalNexus/blob/main/CONTRIBUTING.md)
 
 ---
 
@@ -38,10 +37,10 @@ Siga o padrão de commits estabelecidos em [https://github.com/mdsreq-fga-unb/20
 ### DoD (Pronto)
 
 - [ ] Esse requisito entrega um incremento do produto
-- [ ] Está documentado para uso
+- [ ] Está documentado para uso com docstrings da biblioteca pydoc, com descrição, argumentos e retorno.
 - [ ] Foi revisado por outro desenvolvedor
 - [ ] Segue os padrões estabelecidos de codificação
-- [ ] Foi testado
+- [ ] Foi feito um teste unitário para a funcionalidade
 
 ---
 
@@ -53,7 +52,6 @@ Siga o padrão de commits estabelecidos em [https://github.com/mdsreq-fga-unb/20
 ---
 
 ### 🖼️ Evidências (print, erro, vídeo, etc.)  
-Adicione imagens, logs ou outros arquivos que ajudem a entender melhor a situação.
 
 ---
 
