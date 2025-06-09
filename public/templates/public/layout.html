@@ -1,0 +1,228 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Capital Rocket Team {% endblock %}</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* --- LAYOUT DO CABEÇALHO --- */
+        .navbar {
+            background: #010101;
+            padding: 13px 0;
+            /* Padding vertical */
+            position: relative;
+            /* Necessário para posicionar o menu mobile */
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 95%;
+            max-width: 1400px;
+            /* Limita a largura em telas muito grandes */
+            margin: 0 auto;
+        }
+
+        .logo img {
+            width: 176px;
+            height: auto;
+            /* Altura automática para manter a proporção */
+            display: block;
+            /* Remove espaço extra abaixo da imagem */
+        }
+
+        /* --- ESTILOS DOS LINKS E BOTÃO (DESKTOP) --- */
+        .menu-desktop {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            /* Espaço entre a lista de links e o botão */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            /* Espaço entre cada link */
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        /* Efeito de sublinhado no hover */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-cta {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #2475AB 0%, #FFCC29 100%);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            /* Efeito de levantar o botão */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- RESPONSIVIDADE (MOBILE) --- */
+        .menu-mobile-icon {
+            display: none;
+            /* Escondido por padrão no desktop */
+            cursor: pointer;
+        }
+
+        .menu-mobile {
+            display: none;
+            /* Escondido por padrão */
+        }
+
+        /* Quando a tela for menor que 992px... */
+        @media (max-width: 992px) {
+            .menu-desktop {
+                display: none;
+                /* Esconde os links do desktop */
+            }
+
+            .menu-mobile-icon {
+                display: flex;
+                /* Mostra o ícone "hamburger" */
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .menu-mobile-icon span {
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                border-radius: 5px;
+            }
+
+            /* Estilo do menu dropdown */
+            .menu-mobile {
+                background: #1c1c1c;
+                position: absolute;
+                top: 88px;
+                /* Altura da navbar */
+                left: 0;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 15px;
+
+                /* Começa escondido e aparece com animação */
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            }
+
+            /* Classe 'active' que será adicionada via JavaScript */
+            .menu-mobile.active {
+                max-height: 500px;
+                /* Altura suficiente para mostrar todos os links */
+                padding: 20px 0;
+            }
+
+            .btn-cta-mobile {
+                /* Reutiliza o estilo do botão de desktop */
+                color: white;
+                font-size: 18px;
+                font-weight: 600;
+                text-decoration: none;
+                padding: 10px 16px;
+                border-radius: 14px;
+                background: linear-gradient(135deg, #2475AB 0%, #FFCC29 100%);
+                display: inline-block;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <nav class="container">
+            <a href="" class="logo"><img src="" alt="Logo"></a>
+            <div class="menu-desktop">
+                <ul class="nav-links">
+                    <li><a href="{% url 'sobre' %}">Sobre</a></li>
+                    <li><a href="{% url 'projetos' %}">Projetos</a></li>
+                    <li><a href="{% url 'contato' %}">Contato</a></li>
+                </ul>
+                <a href="#" class="btn-cta">Área do membro</a>
+            </div>
+            <div class="menu-mobile-icon">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+        <!-- <div class="menu-mobile">
+            <a href="{% url 'sobre' %}">Sobre</a>
+            <a href="{% url 'projetos' %}">Projetos</a>
+            <a href="{% url 'contato' %}">Contato</a>
+            <a href="#" class="btn-cta-mobile">Área do membro</a>
+        </div> -->
+    </header>
+    <main>
+        {% block hero %}
+        {% endblock hero %}
+
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer class="navbar">
+        <div class="container">
+            <a href="/">
+                <img src="" alt="Logo" class="logo">
+            </a>
+
+            <div class="nav-links">
+                <a href="mailto:contato@capitalrocketteam.com">contato@capitalrocketteam.com</a>
+                <a href="https://instagram.com/capitalrocketteam" target="_blank">Instagram</a>
+                <a href="https://linkedin.com/in/seu_usuario" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
