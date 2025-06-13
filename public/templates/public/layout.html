@@ -1,13 +1,12 @@
-{% load static %}
-
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} Capital Rocket Team {% endblock %}</title>
-    <style>
+    <!-- <style>
         * {
             box-sizing: border-box;
             margin: 0;
@@ -176,7 +175,8 @@
                 margin-top: 10px;
             }
         }
-    </style>
+    </style> -->
+    <link rel="stylesheet" href="{% static 'public/css/style.css' %}">
 </head>
 
 <body>
