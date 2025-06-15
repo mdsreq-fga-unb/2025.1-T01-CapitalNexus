@@ -91,6 +91,7 @@ body {
     max-width: 1400px;
     /* Limita a largura em telas muito grandes */
     margin: 0 auto;
+    flex-wrap: wrap;
 }
 
 .logo img {
@@ -114,6 +115,7 @@ body {
     list-style: none;
     gap: 24px;
     /* Espaço entre cada link */
+    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -476,4 +478,50 @@ body {
 .sponsor-card p {
     font-size: 25px;
     font-weight: 600;
+}
+
+/* ======================= PÁGINA DE PROJETOS (ACCORDION) ======================= */
+.page-title {
+    font-size: 44px;
+    font-family: 'Mokoto', sans-serif;
+    text-align: center;
+    margin: 60px 0;
+}
+
+.project-item {
+    margin-bottom: 40px; 
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    outline: none; /* Remove o contorno azul ao clicar */
+}
+
+/* Remove o triângulo/marcador padrão do <details> */
+.project-summary::-webkit-details-marker,
+.project-summary::marker {
+    display: none;
+    content: "";
+}
+
+.summary-button {
+    background-color: #2475AB;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.project-details-content {
+    font-size: 24px;
+    padding: 10px 25px 25px 25px; /* Espaçamento interno para o conteúdo detalhado */
 }
