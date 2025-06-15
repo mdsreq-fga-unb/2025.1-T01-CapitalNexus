@@ -1,109 +1,138 @@
 {% extends 'public/layout.html' %}
-{% block title %}Capital Rocket Team{% endblock %}
-
+ {% block title %}Capital Rocket Team{%endblock %} 
 {% block hero %}
-<section class="hero-section" style="background-image: url(images/hero-sobre.jpg);">
-    <div class="hero-content">
-        <h1 class="hero-title">Capital Rocket Team</h1>
-        <p class="hero-tagline">Per ardua ad astra</p>
-    </div>
+{% load static %}
+<section class="hero-section" style="background-image: url('{% static 'public/images/hero-sobre.jpg' %}');">
+  <div class="hero-content">
+    <h1 class="hero-title">Capital Rocket Team</h1>
+    <p class="hero-tagline">Per ardua ad astra</p>
+  </div>
 </section>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <section class="about-section">
-    <div class="container content-grid">
-        <div class="about-section__image">
-            <img src="https://placehold.co/750x520" alt="Foto da equipe">
-        </div>
-        <div class="about-section__text">
-            <h2 class="section-title text-gold">A Equipe</h2>
-            <p>Somos uma equipe de competição de foguetes da Universidade de Brasília. Fundada em 2015, somos referência em propulsão híbrida e já executamos mais de 5 projetos, participando tanto de competições nacionais quanto internacionais.</p>
-        </div>
+  <div class="container content-grid">
+    <div class="about-section__image">
+      <img src="https://placehold.co/750x520" alt="Foto da equipe" />
     </div>
+    <div class="about-section__text">
+      <h2 class="section-title text-gold">A Equipe</h2>
+      <p>
+        Somos uma equipe de competição de foguetes da Universidade de Brasília.
+        Fundada em 2015, somos referência em propulsão híbrida e já executamos
+        mais de 5 projetos, participando tanto de competições nacionais quanto
+        internacionais.
+      </p>
+    </div>
+  </div>
 </section>
 
 <section class="vms-section">
-    <div class="container">
-        <div class="vms-grid">
-            <div class="vms-card">
-                <h3 class="vms-card__title text-gold">Visão</h3>
-                <p>Ser a maior referência mundial no desenvolvimento de foguetes experimentais.</p>
-            </div>
-            <div class="vms-card">
-                <h3 class="vms-card__title text-gold">Missão</h3>
-                <p>Preencher o vácuo de uma graduação tradicional por meio de projetos de foguetes experimentais a fim de formar bons profissionais.</p>
-            </div>
-            <div class="vms-card">
-                <h3 class="vms-card__title text-gold">Valores</h3>
-                <p>Audácia, equidade, excelência, inclusão, inovação, proatividade, respeito, segurança e transparência.</p>
-            </div>
-        </div>
+  <div class="container">
+    <div class="vms-grid">
+      <div class="vms-card">
+        <h3 class="vms-card__title text-gold">Visão</h3>
+        <p>
+          Ser a maior referência mundial no desenvolvimento de foguetes
+          experimentais.
+        </p>
+      </div>
+      <div class="vms-card">
+        <h3 class="vms-card__title text-gold">Missão</h3>
+        <p>
+          Preencher o vácuo de uma graduação tradicional por meio de projetos de
+          foguetes experimentais a fim de formar bons profissionais.
+        </p>
+      </div>
+      <div class="vms-card">
+        <h3 class="vms-card__title text-gold">Valores</h3>
+        <p>
+          Audácia, equidade, excelência, inclusão, inovação, proatividade,
+          respeito, segurança e transparência.
+        </p>
+      </div>
     </div>
+  </div>
 </section>
 
 <section class="project-section">
-    <div class="container content-grid">
-        <div class="project-section__image">
-            <img src="https://placehold.co/750x350" alt="Foguete Boscov">
-        </div>
-        <div class="project-section__text">
-            <h3 class="project-section__title text-gold">BOSCOV</h3>
-            <p>Nosso atual projeto é o BOSCOV, um foguete para xkm de apogeu. É o maior projeto da equipe.</p>
-            <a href="#" class="btn-project">Saiba mais</a>
-        </div>
+  <div class="container content-grid">
+    <div class="project-section__image">
+      <img src="{% static 'public/images/boscov.png' %}" alt="Foguete Boscov" />
     </div>
+    <div class="project-section__text">
+      <h3 class="project-section__title text-gold">BOSCOV</h3>
+      <p>
+        Nosso atual projeto é o BOSCOV, um foguete para 3km de apogeu. É o maior
+        projeto da equipe.
+      </p>
+      <a href="#" class="btn-project">Saiba mais</a>
+    </div>
+  </div>
 </section>
 
 <section class="awards-section">
-    <div class="container">
-        <h2 class="section-title text-gold" style="font-family: 'Mokoto', sans-serif; text-align: center; margin-bottom: 40px;">Principais prêmios</h2>
-        <div class="awards-grid">
-            <div class="award-card">
-                <h4>1º lugar - LASC 2022</h4>
-                <a href="#" class="btn-project">Saiba mais</a>
-            </div>
-            <div class="award-card">
-                <h4>2º lugar - LASC 2021</h4>
-                <a href="#" class="btn-project">Saiba mais</a>
-            </div>
-            <div class="award-card">
-                <h4>Rick Maschek</h4>
-                <a href="#" class="btn-project">Saiba mais</a>
-            </div>
-        </div>
+  <div class="container">
+    <h2
+      class="section-title text-gold"
+      style="
+        font-family: 'Mokoto', sans-serif;
+        text-align: center;
+        margin-bottom: 40px;
+      "
+    >
+      Principais prêmios
+    </h2>
+    <div class="awards-grid">
+      <div class="award-card">
+        <h4>1º lugar - LASC 2022</h4>
+        <a href="#" class="btn-project">Saiba mais</a>
+      </div>
+      <div class="award-card">
+        <h4>2º lugar - LASC 2021</h4>
+        <a href="#" class="btn-project">Saiba mais</a>
+      </div>
+      <div class="award-card">
+        <h4>Rick Maschek</h4>
+        <a href="#" class="btn-project">Saiba mais</a>
+      </div>
     </div>
+  </div>
 </section>
 
 <section class="sponsors-section">
-    <div class="container">
-        <h2 class="section-title text-gold" style="text-align: center; margin-bottom: 40px;">PATROCINADORES</h2>
-        <div class="sponsors-grid">
-            <div class="sponsor-card">
-                <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 1">
-                <p>Patrocinador</p>
-            </div>
-            <div class="sponsor-card">
-                <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 2">
-                <p>Patrocinador</p>
-            </div>
-            <div class="sponsor-card">
-                <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 3">
-                <p>Patrocinador</p>
-            </div>
-            <div class="sponsor-card">
-                <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 4">
-                <p>Patrocinador</p>
-            </div>
-             <div class="sponsor-card">
-                <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 5">
-                <p>Patrocinador</p>
-            </div>
-             <div class="sponsor-card">
-                <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 6">
-                <p>Patrocinador</p>
-            </div>
-        </div>
+  <div class="container">
+    <h2
+      class="section-title text-gold"
+      style="text-align: center; margin-bottom: 40px"
+    >
+      PATROCINADORES
+    </h2>
+    <div class="sponsors-grid">
+      <div class="sponsor-card">
+        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 1" />
+        <p>Patrocinador</p>
+      </div>
+      <div class="sponsor-card">
+        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 2" />
+        <p>Patrocinador</p>
+      </div>
+      <div class="sponsor-card">
+        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 3" />
+        <p>Patrocinador</p>
+      </div>
+      <div class="sponsor-card">
+        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 4" />
+        <p>Patrocinador</p>
+      </div>
+      <div class="sponsor-card">
+        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 5" />
+        <p>Patrocinador</p>
+      </div>
+      <div class="sponsor-card">
+        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 6" />
+        <p>Patrocinador</p>
+      </div>
     </div>
+  </div>
 </section>
 {% endblock %}
