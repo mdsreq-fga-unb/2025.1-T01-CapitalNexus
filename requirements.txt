@@ -5,3 +5,4 @@ tzdata==2025.2
 python-decouple==3.8
 psycopg2-binary==2.9.10
 gunicorn==23.0.0
+Pillow==11.2.1

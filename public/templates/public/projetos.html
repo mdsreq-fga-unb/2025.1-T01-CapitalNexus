@@ -1,160 +1,49 @@
-{% extends 'public/layout.html' %} {% block title %}Projetos | CRT{% endblock %}
-{% block hero %} {% load static %}
-<section
-  class="hero-section"
-  style="
-    background-image: url('{% static 'public/images/hero-projetos.jpg' %}');
-  "
->
-  <div class="hero-content">
-    <h1 class="hero-title">Capital Rocket Team</h1>
-    <p class="hero-tagline" style="color: #ffcc29">Projetos</p>
-  </div>
-</section>
-{% endblock %} {% block content %}
+{% extends 'public/layout.html' %} 
+{% load static %}
+{% csrf_token %}
+
+{% block title %}Projetos | CRT{% endblock %}
+
+{% block hero %}
+    <section class="hero-section" style="background-image: url('{% static 'public/images/hero-projetos.jpg' %}');">
+        <div class="hero-content">
+            <h1 class="hero-title">Capital Rocket Team</h1>
+            <p class="hero-tagline" style="color: #ffcc29">Projetos</p>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
 <section class="project-section">
-  <div class="container content-grid">
-    <div class="project-section__image">
-      <img src="{% static 'public/images/boscov.png' %}" alt="Foguete Boscov" />
-    </div>
-    <div class="project-section__text">
-      <h3 class="project-section__title text-gold">BOSCOV</h3>
-      <p>
-        Nosso atual projeto é o BOSCOV, um foguete para 3km de apogeu. É o maior
-        projeto da equipe.
-      </p>
-      <details class="project-item">
-        <summary class="project-summary">
-          <span class="summary-button">Saiba mais</span>
-        </summary>
 
-        <div class="project-details-content">
-          <section class="project-page">
-            <div class="project-grid">
-              <div class="project-grid__column">Foguete para 3km de apogeu, com 2.6m de comprimento, 16cm de diâmetro e kg.</div>
-              <div class="project-grid__column project-grid__main-column">Foi levado a SAC e será lançado na LASC.</div>
-              <div class="project-grid__column">Custo de R$150.000,00</div>
+    {% for projeto in projetos %}
+    
+        <div class="container content-grid">
+            <div class="project-section__image">
+                <img src="{{ projeto.imagem.url }}" alt="Foguete {{ projeto.titulo }}" />
             </div>
-          </section>
-        </div>
-      </details>
-    </div>
-  </div>
+            <div class="project-section__text">
+                <h3 class="project-section__title text-gold">{{ projeto.titulo }}</h3>
+                <p>{{ projeto.resumo|linebreaksbr }}</p>
 
-  <div class="container content-grid">
-    <div class="project-section__image">
-      <img src="{% static 'public/images/circe.png' %}" alt="Foguete CIRCE" />
-    </div>
-    <div class="project-section__text">
-      <h3 class="project-section__title text-gold">CIRCE</h3>
-      <p>
-        Projeto desenvolvido de 2019 - 2022, para participar da LASC e validar
-        subsistemas.
-      </p>
-      <details class="project-item">
-        <summary class="project-summary">
-          <span class="summary-button">Saiba mais</span>
-        </summary>
+                <details class="project-item">
+                    <summary class="project-summary">
+                        <span class="summary-button">Saiba mais</span>
+                    </summary>
 
-        <div class="project-details-content">
-          <section class="project-page">
-            <div class="project-grid">
-              <div class="project-grid__column">Foguete para 1km de apogeu, com 2.13m de comprimento, 15.5cm de diâmetro e 28kg.</div>
-              <div class="project-grid__column project-grid__main-column">Lançado em 2022 na LASC, conseguindo o 1° lugar em 2022 e 2° lugar em 2021.</div>
-              <div class="project-grid__column">Custo de R$45.000,00</div>
+                    <div class="project-details-content">
+                        <section class="project-page">
+                            <div class="project-grid">
+                                <div class="project-grid__column">{{ projeto.dimensoes|linebreaksbr }}</div>
+                                <div class="project-grid__column project-grid__main-column">{{ projeto.situacao|linebreaksbr }}</div>
+                                <div class="project-grid__column">{{ projeto.custo|linebreaksbr }}</div>
+                            </div>
+                        </section>
+                    </div>
+                </details>
             </div>
-          </section>
         </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="container content-grid">
-    <div class="project-section__image">
-      <img src="{% static 'public/images/ddls1.png' %}" alt="Foguete DDLS1" />
-    </div>
-    <div class="project-section__text">
-      <h3 class="project-section__title text-gold">DDLS1</h3>
-      <p>
-        Projeto desenvolvido de 2017 - 2018, com o objetivo de capacitar novos
-        membros.
-      </p>
-      <details class="project-item">
-        <summary class="project-summary">
-          <span class="summary-button">Saiba mais</span>
-        </summary>
-
-        <div class="project-details-content">
-          <section class="project-page">
-            <div class="project-grid">
-              <div class="project-grid__column">Foguete para 1km de apogeu, com 1.6m de comprimento, 14cm de diâmetro e 20kg. Estrutura de fibra de vidro.</div>
-              <div class="project-grid__column project-grid__main-column">Lançado em autoria pela própria equipe. </div>
-              <div class="project-grid__column">Custo de R$15.000,00</div>
-            </div>
-          </section>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="container content-grid">
-    <div class="project-section__image">
-      <img src="{% static 'public/images/gama1.png' %}" alt="Foguete GAMA 1" />
-    </div>
-    <div class="project-section__text">
-      <h3 class="project-section__title text-gold">GAMA 1</h3>
-      <p>
-        Projeto desenvolvido de 2017 - 2018, com o objetivo de participar do
-        COBRUF.
-      </p>
-      <details class="project-item">
-        <summary class="project-summary">
-          <span class="summary-button">Saiba mais</span>
-        </summary>
-
-        <div class="project-details-content">
-          <section class="project-page">
-            <div class="project-grid">
-              <div class="project-grid__column">Foguete para 3km de apogeu, com 2.6m de comprimento, 18.1cm de diâmetro e 22kg.</div>
-              <div class="project-grid__column project-grid__main-column">Foi utilizado para pesquisas que contribuíram para o avanço da equipe.</div>
-              <div class="project-grid__column">Custo de R$35.000,00</div>
-            </div>
-          </section>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="container content-grid">
-    <div class="project-section__image">
-      <img
-        src="{% static 'public/images/guarani.png' %}"
-        alt="Foguete Guarani"
-      />
-    </div>
-
-    <div class="project-section__text">
-      <h3 class="project-section__title text-gold">GUARANI</h3>
-      <p>
-        Projeto desenvolvido de 2016 - 2017, com o objetivo de participar da
-        SAC.
-      </p>
-      <details class="project-item">
-        <summary class="project-summary">
-          <span class="summary-button">Saiba mais</span>
-        </summary>
-
-        <div class="project-details-content">
-          <section class="project-page">
-            <div class="project-grid">
-              <div class="project-grid__column">Foguete para 3km de apogeu, com 2.1m de comprimento, 20cm de diâmetro e 26kg.</div>
-              <div class="project-grid__column project-grid__main-column">Foi levado a SAC, mas devido a condições climáticas a missão foi abortada.</div>
-              <div class="project-grid__column">Custo de R$20.000,00</div>
-            </div>
-          </section>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
+    
+    {% endfor %}
+    </section>
 {% endblock %}
