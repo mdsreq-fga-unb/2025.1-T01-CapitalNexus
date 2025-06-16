@@ -1,0 +1,34 @@
+{% extends 'public/layout.html' %} 
+
+{% block title %}Contato | CRT{% endblock %}
+
+{% block content %}
+<div class="container" style="display: flex; justify-content: center; align-items: center; width: 200px; height: 30;"><form method="POST">
+    {% csrf_token %}
+    <h3>Entre em contato com a gente!</h3>
+    <div class="form-group">
+        <label for="id_nome">Nome:</label>
+        <br>
+        {{ form.nome }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_email">E-mail:</label>
+        <br>
+        {{ form.email }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_mensagem">Mensagem:</label>
+        <br>
+        {{form.mensagem }}
+    </div>
+
+    <div class="form-group">
+        {{ form.termos }} <label for="id_aceito_termos">Li e aceito os <a href="">termos de uso e política de privacidade</a></label>
+    </div>
+
+    <button type="submit" class="summary-button">Enviar</button>
+</form>
+</div>
+{% endblock %}

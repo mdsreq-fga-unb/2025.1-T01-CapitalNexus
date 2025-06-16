@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Projeto
+from django.shortcuts import render, redirect
+from .models import Projeto, MensagemContato
+from .forms import FormularioContato
 # from django.http import HttpResponse
 
 def sobre(request):
@@ -15,5 +16,28 @@ def pagina_projetos(request):
     }
     return render(request, 'public/projetos.html', contexto)
 
-def contato(request):
-    return render(request, 'public/contato.html')
+def pagina_contato(request):
+    if request.method == 'POST':
+        # Se o formulário foi enviado (método POST), processamos os dados
+        form = FormularioContato(request.POST)
+        if form.is_valid():
+            # Se os dados são válidos, podemos trabalhar com eles
+            MensagemContato.objects.create(
+                nome=form.cleaned_data['nome'],
+                email=form.cleaned_data['email'],
+                mensagem=form.cleaned_data['mensagem']
+            )
+            
+            return redirect('sucesso') # Redireciona para uma página de sucesso
+    else:
+        # Se for a primeira vez na página (método GET), apenas exibe um formulário em branco
+        form = FormularioContato()
+
+    contexto = {
+        'form': form
+    }
+    return render(request, 'public/contato.html', contexto)
+
+# View para a página de sucesso
+def pagina_sucesso(request):
+    return render(request, 'public/sucesso.html')
