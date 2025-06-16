@@ -16,3 +16,20 @@ class Projeto(models.Model):
         if self.ano_fim:
             return f"{self.ano_inicio} - {self.ano_fim}"
         return f"{self.ano_inicio} - Atualmente"
+
+class MensagemContato(models.Model):
+    nome = models.CharField(max_length=100)
+    email = models.EmailField()
+    mensagem = models.TextField()
+    data_envio = models.DateTimeField(auto_now_add=True)
+    lido = models.BooleanField(default=False)
+
+    class Meta:
+        # Ordena as mensagens da mais nova para a mais antiga
+        ordering = ['-data_envio']
+        # Nome que aparecerá no painel de admin
+        verbose_name = 'Mensagem de Contato'
+        verbose_name_plural = 'Mensagens de Contato'
+
+    def __str__(self):
+        return f"Mensagem de {self.nome} em {self.data_envio.strftime('%d/%m/%Y %H:%M')}"

@@ -489,7 +489,7 @@ body {
 }
 
 .project-item {
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
 }
 
 .project-list {
@@ -503,7 +503,8 @@ body {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    outline: none; /* Remove o contorno azul ao clicar */
+    outline: none;
+    /* Remove o contorno azul ao clicar */
 }
 
 /* Remove o triângulo/marcador padrão do <details> */
@@ -523,5 +524,8 @@ body {
 
 .project-details-content {
     font-size: 24px;
-    padding: 10px 25px 25px 25px; /* Espaçamento interno para o conteúdo detalhado */
+    padding: 10px 25px 25px 25px;
+    /* Espaçamento interno para o conteúdo detalhado */
 }
+
+/* ======================= PÁGINA DE CONTATO ======================= */
