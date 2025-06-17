@@ -16,32 +16,32 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 ## 1.3. Histórias de Usuários:
 
 
-1.3.1 Persona: Recepcionista (Maria):
+**1.3.1 Persona: Recepcionista (Maria)**
 
  - *Funcionalidade:* Gerenciamento de Cadastro de Pacientes.
 
 | Código US | Título                                | História de Usuário |
 |-----------|----------------------------------------|----------------------|
-| US 1.1    | Cadastro de novo paciente              | Como Recepcionista, quero cadastrar um novo paciente de forma rápida e intuitiva, para agilizar o atendimento e reduzir tempo de espera na recepção. |
-| US 1.3    | Atualização de informações do paciente | Como Recepcionista, quero atualizar informações cadastrais e de contato do paciente de forma eficiente, para garantir dados precisos e facilitar comunicação. |
+| US 1.1    | Cadastrar novo paciente              | Como Recepcionista, quero cadastrar um novo paciente de forma rápida e intuitiva, para agilizar o atendimento e reduzir tempo de espera na recepção. |
+| US 1.3    | Atualizar de informações do paciente | Como Recepcionista, quero atualizar informações cadastrais e de contato do paciente de forma eficiente, para garantir dados precisos e facilitar comunicação. |
 
-1.3.2 Persona: Médico (Dr. João):
+**1.3.2 Persona: Médico (Dr. João)**
 
 - *Funcionalidade:* Prontuário Eletrônico do Paciente (PEP) e Suporte à Decisão Clínica.
 
 | Código US | Título                                         | História de Usuário |
 |-----------|------------------------------------------------|----------------------|
-| US 1.2    | Consulta de histórico de paciente               | Como Médico, quero acessar o histórico completo do paciente de todas as unidades da HealthNet, para ter informações relevantes e tomar decisões clínicas mais assertivas. |
+| US 1.2    | Consultar histórico de paciente               | Como Médico, quero acessar o histórico completo do paciente de todas as unidades da HealthNet, para ter informações relevantes e tomar decisões clínicas mais assertivas. |
 | US 1.4    | Visualizar prontuário eletrônico completo       | Como Médico, quero visualizar de forma centralizada todos os dados clínicos do paciente — exames, tratamentos — para compreender o quadro clínico completo e embasar diagnóstico e tratamento. |
 | US 1.5    | Registrar notas médicas e evoluções no prontuário | Como Médico, quero inserir notas de atendimento e evoluções clínicas diretamente no PEP, para manter registro atualizado e detalhado de cada consulta. |
 | US 1.12   | Gerar prescrição eletrônica                     | Como Médico, quero criar prescrições digitais padronizadas e seguras, para reduzir erros de legibilidade e garantir integridade da informação. |
-| US 1.13   | Alerta de alergias                              | Como Médico, quero receber alertas automáticos sobre alergias conhecidas do paciente durante prescrição, para evitar reações adversas. |
-| US 1.14   | Alerta de interações medicamentosas             | Como Médico, quero que o sistema verifique automaticamente interações medicamentosas durante prescrição, para prevenir complicações. |
+| US 1.13   | Gerar alerta de alergias                              | Como Médico, quero receber alertas automáticos sobre alergias conhecidas do paciente durante prescrição, para evitar reações adversas. |
+| US 1.14   | Gerar alerta de interações medicamentosas             | Como Médico, quero que o sistema verifique automaticamente interações medicamentosas durante prescrição, para prevenir complicações. |
 | US 1.22   | Transferir paciente entre unidades              | Como Médico, quero transferir pacientes entre departamentos/unidades eletronicamente, para agilizar fluxo de atendimento e eliminar documentos físicos. |
 | US 1.23   | Encaminhar paciente a especialista              | Como Médico, quero encaminhar pacientes a outros especialistas de forma digital, para garantir continuidade do cuidado e acesso a expertise. |
 | US 1.24   | Compartilhar informações entre equipes médicas  | Como Médico, quero compartilhar informações relevantes do paciente com equipes médicas de forma segura e eficiente, para atendimento coordenado. |
 
-1.3.3 Persona: Coordenador de Agendamento (Rafael):
+**1.3.3 Persona: Coordenador de Agendamento (Rafael)**
 
 - *Funcionalidade:* Sistema Integrado de Agendamento.
 
@@ -52,7 +52,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 | US 1.10   | Cancelar consultas                            | Como Coordenador, quero cancelar consultas de pacientes de forma simples, para liberar horários e gerenciar agenda com eficiência. |
 | US 1.11   | Enviar lembretes automáticos de consulta      | Como Coordenador, quero que o sistema envie lembretes automáticos por SMS/e‑mail/portal, para reduzir faltas e melhorar experiência do paciente. |
 
-1.3.4 Persona: Paciente (Sra. Clara)
+**1.3.4 Persona: Paciente (Sra. Clara)**
 
 - *Funcionalidade:* Portal do Paciente.
 
@@ -65,7 +65,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 | US 1.20   | Receber lembretes de medicação                   | Como Paciente, quero receber lembretes de medicação por portal/notificações, para seguir corretamente o tratamento. |
 | US 1.21   | Gerenciar dados pessoais (portal)                | Como Paciente, quero atualizar meus dados básicos e de contato no portal, para manter informações corretas e facilitar comunicação com a clínica. |
 
-1.3.4 Persona: Farmacêutica (Lívia)
+**1.3.4 Persona: Farmacêutica (Lívia)**
 
 - *Funcionalidade:* Módulo de Prescrição e Dispensação.
 
@@ -75,16 +75,16 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 | US 1.16   | Registrar dispensação de medicamentos           | Como Farmacêutica, quero registrar quais medicamentos foram dispensados ao paciente, para controlar estoque e histórico de medicação. |
 | US 1.17   | Acessar informações detalhadas de medicamentos  | Como Farmacêutica, quero acessar informações detalhadas (bula, composição, posologia, efeitos, interações), para orientar pacientes e verificar segurança. |
 
-1.3.5 Persona: Diretor de Tecnologia (Sr. Roberto)
+**1.3.5 Persona: Diretor de Tecnologia (Sr. Roberto)**
 
  - *Funcionalidade:* Segurança e Monitoramento de Sistema.
 
 | Código US | Título                                        | História de Usuário |
 |-----------|------------------------------------------------|----------------------|
 | US 1.6    | Garantir segurança e privacidade de dados      | Como Diretor de Tecnologia, quero que o sistema implemente medidas de segurança robustas e cumpra a LGPD, para proteger dados sensíveis e evitar multas ou vazamentos. |
-| US 1.25   | Coleta automática de dados para relatórios     | Como Diretor de Tecnologia, quero que o sistema colete dados de diferentes fontes automaticamente, para garantir precisão e abrangência sem intervenção manual. |
-| US 1.26   | Monitoramento de desempenho do sistema         | Como Diretor de Tecnologia, quero dashboards e alertas para monitorar desempenho e estabilidade do sistema, para identificar e resolver problemas proativamente. |
-| US 1.27   | Monitoramento de segurança do sistema          | Como Diretor de Tecnologia, quero funcionalidades para monitorar e garantir a segurança dos dados e infraestrutura, para proteger contra ameaças cibernéticas e vazamentos. |
+| US 1.25   | Coletar dados automaticamente para relatórios     | Como Diretor de Tecnologia, quero que o sistema colete dados de diferentes fontes automaticamente, para garantir precisão e abrangência sem intervenção manual. |
+| US 1.26   | Monitorar o desempenho do sistema         | Como Diretor de Tecnologia, quero dashboards e alertas para monitorar desempenho e estabilidade do sistema, para identificar e resolver problemas proativamente. |
+| US 1.27   | Monitorar a segurança do sistema          | Como Diretor de Tecnologia, quero funcionalidades para monitorar e garantir a segurança dos dados e infraestrutura, para proteger contra ameaças cibernéticas e vazamentos. |
 
 
 ## 1.4. Critérios de Aceitação das Histórias de Usuários
@@ -248,7 +248,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 ----------
 
-**PBI 1.13: Alerta Automático de Alergias ao Prescrever**
+**PBI 1.13: Gerar Alerta Automático de Alergias ao Prescrever**
 
 **História de Usuário:** Como um **Médico (Dr. João)**, eu quero **receber alertas automáticos sobre alergias conhecidas do paciente durante o processo de prescrição**, para **evitar reações adversas e garantir a segurança do paciente**.
 
@@ -261,7 +261,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 ----------
 
-**PBI 1.14: Alerta Automático de Interações Medicamentosas ao Prescrever**
+**PBI 1.14: Gerar Alerta Automático de Interações Medicamentosas ao Prescrever**
 
 **História de Usuário:** Como um **Médico (Dr. João)**, eu quero **que o sistema verifique automaticamente interações entre medicamentos prescritos**, para **prevenir complicações e garantir a eficácia do tratamento**.
 
@@ -419,7 +419,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 ----------
 
-**PBI 1.26: Ferramentas de Monitoramento de Desempenho do Sistema**
+**PBI 1.26: Monitorar o Desempenho do Sistema**
 
 **História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **ter acesso a painéis e alertas para monitorar o desempenho e a estabilidade do sistema**, para **proativamente identificar e resolver problemas de performance antes que afetem os usuários**.
 
@@ -432,7 +432,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 ----------
 
-**PBI 1.27: Ferramentas de Monitoramento de Segurança do Sistema**
+**PBI 1.27: Monitorar a Segurança do Sistema**
 
 **História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **que o sistema contenha funcionalidades para monitorar e garantir a segurança dos dados e da infraestrutura**, para **proteger contra ameaças cibernéticas e vazamentos de informações sensíveis**.
 
@@ -491,7 +491,7 @@ E destaca os campos não preenchidos com uma mensagem de validação (ex: "Campo
 
 ----------
 
-**PBI 1.2: Consultar Histórico Completo do Paciente (Todas as Unidades)**
+**PBI 1.2: Consultar Histórico Completo do Paciente**
 
 **História de Usuário:** Como um **Médico (Dr. João)**, eu quero **acessar o histórico médico completo do paciente de qualquer unidade da HealthNet**, para **ter todas as informações relevantes durante a consulta e tomar decisões clínicas mais assertivas**.
 
@@ -843,7 +843,7 @@ E exibe uma mensagem de erro "Medicamento não encontrado ou inválido".
 
 ----------
 
-**PBI 1.13: Alerta Automático de Alergias ao Prescrever**
+**PBI 1.13: Gerar Alerta Automático de Alergias ao Prescrever**
 
 **História de Usuário:** Como um **Médico (Dr. João)**, eu quero **receber alertas automáticos sobre alergias conhecidas do paciente durante o processo de prescrição**, para **evitar reações adversas e garantir a segurança do paciente**.
 
@@ -871,7 +871,7 @@ E a prescrição prossegue normalmente.
 
 ----------
 
-**PBI 1.14: Alerta Automático de Interações Medicamentosas ao Prescrever**
+**PBI 1.14: Gerar Alerta Automático de Interações Medicamentosas ao Prescrever**
 
 **História de Usuário:** Como um **Médico (Dr. João)**, eu quero **que o sistema verifique automaticamente interações entre medicamentos prescritos**, para **prevenir complicações e garantir a eficácia do tratamento**.
 
@@ -1237,7 +1237,7 @@ E alerta o Diretor de Tecnologia sobre a interrupção da coleta de dados daquel
 
 ----------
 
-**PBI 1.26: Ferramentas de Monitoramento de Desempenho do Sistema**
+**PBI 1.26: Monitorar o Desempenho do Sistema**
 
 **História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **ter acesso a painéis e alertas para monitorar o desempenho e a estabilidade do sistema**, para **proativamente identificar e resolver problemas de performance antes que afetem os usuários**.
 
@@ -1265,7 +1265,7 @@ E registra o evento nos logs de desempenho para análise posterior.
 
 ----------
 
-**PBI 1.27: Ferramentas de Monitoramento de Segurança do Sistema**
+**PBI 1.27: Monitorar a Segurança do Sistema**
 
 **História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **que o sistema contenha funcionalidades para monitorar e garantir a segurança dos dados e da infraestrutura**, para **proteger contra ameaças cibernéticas e vazamentos de informações sensíveis**.
 
