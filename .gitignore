@@ -1,3 +1,5 @@
 .env
 *env
 .devcontainer/
+staticfiles/
+media/
