@@ -23,7 +23,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 | Código US | Título                                | História de Usuário |
 |-----------|----------------------------------------|----------------------|
 | US 1.1    | Cadastrar novo paciente              | Como Recepcionista, quero cadastrar um novo paciente de forma rápida e intuitiva, para agilizar o atendimento e reduzir tempo de espera na recepção. |
-| US 1.3    | Atualizar de informações do paciente | Como Recepcionista, quero atualizar informações cadastrais e de contato do paciente de forma eficiente, para garantir dados precisos e facilitar comunicação. |
+| US 1.3    | Atualizar informações do paciente | Como Recepcionista, quero atualizar informações cadastrais e de contato do paciente de forma eficiente, para garantir dados precisos e facilitar comunicação. |
 
 **1.3.2 Persona: Médico (Dr. João)**
 
