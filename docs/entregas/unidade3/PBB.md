@@ -65,7 +65,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 | US 1.20   | Receber lembretes de medicação                   | Como Paciente, quero receber lembretes de medicação por portal/notificações, para seguir corretamente o tratamento. |
 | US 1.21   | Gerenciar dados pessoais (portal)                | Como Paciente, quero atualizar meus dados básicos e de contato no portal, para manter informações corretas e facilitar comunicação com a clínica. |
 
-**1.3.4 Persona: Farmacêutica (Lívia)**
+**1.3.5 Persona: Farmacêutica (Lívia)**
 
 - *Funcionalidade:* Módulo de Prescrição e Dispensação.
 
@@ -75,7 +75,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 | US 1.16   | Registrar dispensação de medicamentos           | Como Farmacêutica, quero registrar quais medicamentos foram dispensados ao paciente, para controlar estoque e histórico de medicação. |
 | US 1.17   | Acessar informações detalhadas de medicamentos  | Como Farmacêutica, quero acessar informações detalhadas (bula, composição, posologia, efeitos, interações), para orientar pacientes e verificar segurança. |
 
-**1.3.5 Persona: Diretor de Tecnologia (Sr. Roberto)**
+**1.3.6 Persona: Diretor de Tecnologia (Sr. Roberto)**
 
  - *Funcionalidade:* Segurança e Monitoramento de Sistema.
 
