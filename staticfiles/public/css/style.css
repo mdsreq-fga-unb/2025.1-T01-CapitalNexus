@@ -529,3 +529,154 @@ body {
 }
 
 /* ======================= PÁGINA DE CONTATO ======================= */
+
+/* Estilos gerais para o container do formulário de contato */
+#contact-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px); /* Ajuste conforme a altura do seu header/footer, 100px é um exemplo */
+    padding: 20px;
+    box-sizing: border-box;
+    /* Remova as propriedades width e height que estavam inline no HTML se quiser que o CSS as controle */
+    /* width: auto; */
+    /* height: auto; */
+}
+
+/* Estilos para o formulário de contato específico */
+#contact-form {
+    background-color: #1a1a1a; /* Fundo escuro para o formulário, combinando com o banner */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra sutil para profundidade */
+    width: 100%;
+    max-width: 550px; /* Largura máxima para o formulário */
+    color: #f0f0f0; /* Cor do texto claro para contraste */
+}
+
+/* Título do formulário de contato */
+#contact-form h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+/* Estilos para os grupos de formulário (label + input) dentro do formulário de contato */
+#contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+/* Estilos para labels dentro do formulário de contato */
+#contact-form .form-group label {
+    display: block; /* Garante que a label ocupe sua própria linha */
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #c0c0c0;
+    font-size: 1em;
+}
+
+/* Estilos para inputs de texto e email dentro do formulário de contato */
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #444; /* Borda mais escura */
+    border-radius: 6px;
+    background-color: #2a2a2a; /* Fundo escuro para os campos */
+    color: #f0f0f0; /* Cor do texto dentro do campo */
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+}
+
+/* Estilos de foco para inputs dentro do formulário de contato */
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    border-color: #007bff; /* Uma cor de destaque ao focar */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); /* Sombra sutil ao focar */
+    outline: none; /* Remove o outline padrão do navegador */
+}
+
+/* Adicione este bloco para hover nos campos de texto */
+#contact-form input[type="text"]:hover,
+#contact-form input[type="email"]:hover,
+#contact-form textarea:hover {
+    border-color: #0056b3; /* Cor semelhante ao hover do botão */
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2); /* Sombra sutil ao passar o mouse */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contact-form textarea {
+    resize: vertical; /* Permite redimensionamento vertical */
+    min-height: 120px;
+}
+
+/* Estilos para o checkbox de termos dentro do formulário de contato */
+#contact-form .form-group input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #007bff; /* Cor do checkbox */
+}
+
+
+#contact-form .form-group label[for="id_aceito_termos"] {
+    display: inline; /* Faz a label do checkbox ficar na mesma linha */
+}
+
+#contact-form .form-group a {
+    color: #007bff; /* Cor do link de termos */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact-form .form-group a:hover {
+    color: #0056b3; /* Cor do link ao passar o mouse */
+    text-decoration: underline;/* Sombra sutil para profundidade */
+}
+
+/* Estilos para o botão de envio dentro do formulário de contato */
+#contact-form .summary-button {
+    display: block; /* Ocupa a largura total */
+    width: 100%;
+    padding: 15px 25px;
+    background-color: #2475AB; /* Cor de fundo do botão */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.6s ease, transform 0.5s ease;
+    margin-top: 25px;
+}
+
+#contact-form .summary-button:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+    transform: translateY(-2px) scale(1.03); /* Efeito sutil ao passar o mouse e aumenta levemente */
+}
+
+#contact-form .summary-button:active {
+    background-color: #004085; /* Cor de fundo do botão ao clicar */
+    transform: translateY(0);
+}
+
+/* Media Queries para responsividade para o formulário de contato */
+@media (max-width: 600px) {
+    #contact-form {
+        padding: 25px;
+        margin: 15px;
+    }
+
+    #contact-form h3 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    #contact-form .summary-button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+}
