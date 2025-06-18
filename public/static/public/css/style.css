@@ -529,3 +529,150 @@ body {
 }
 
 /* ======================= PÁGINA DE CONTATO ======================= */
+
+/* Estilos gerais para o container do formulário de contato */
+#contact-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px); 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilos para o formulário de contato específico */
+#contact-form {
+    background-color: #1a1a1a; 
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 550px; 
+    color: #f0f0f0; 
+}
+
+/* Título do formulário de contato */
+#contact-form h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+#contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+/* Labels dentro do formulário de contato */
+#contact-form .form-group label {
+    display: block; 
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #c0c0c0;
+    font-size: 1em;
+}
+
+/* Inputs dentro do formulário de contato */
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #444; 
+    border-radius: 6px;
+    background-color: #2a2a2a; 
+    color: #f0f0f0; 
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; 
+}
+
+/* Foco em inputs do formulário de contato */
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    border-color: #007bff; 
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); 
+    outline: none; /* Contorno padrão do navegador */
+}
+
+/* Hover nos campos de texto */
+#contact-form input[type="text"]:hover,
+#contact-form input[type="email"]:hover,
+#contact-form textarea:hover {
+    border-color: #0056b3; 
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2); 
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contact-form textarea {
+    resize: vertical; 
+    min-height: 120px;
+}
+
+/* Checkbox de termos dentro do formulário de contato */
+#contact-form .form-group input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #007bff; /* Cor do checkbox */
+}
+
+#contact-form .form-group label[for="id_aceito_termos"] {
+    display: inline;
+}
+
+/* Link dos termos */
+#contact-form .form-group a {
+    color: #007bff; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact-form .form-group a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Botão de enviar do formulário de contato*/
+#contact-form .summary-button {
+    display: block;
+    width: 100%;
+    padding: 15px 25px;
+    background-color: #2475AB; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.6s ease, transform 0.5s ease;
+    margin-top: 25px;
+}
+
+#contact-form .summary-button:hover {
+    background-color: #0056b3; 
+    transform: translateY(-2px) scale(1.03); 
+}
+
+#contact-form .summary-button:active {
+    background-color: #004085; 
+    transform: translateY(0);
+}
+
+/* Responsividade para o formulário */
+@media (max-width: 600px) {
+    #contact-form {
+        padding: 25px;
+        margin: 15px;
+    }
+
+    #contact-form h3 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    #contact-form .summary-button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+}
