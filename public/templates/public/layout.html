@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    {% if messages %}
+        <div class="messages-container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <span class="close-alert-btn">&times;</span>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
     <header class="navbar">
       <nav class="container">

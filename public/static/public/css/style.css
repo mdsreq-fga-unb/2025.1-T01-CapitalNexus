@@ -748,3 +748,39 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* ======================= ESTILOS DAS MENSAGENS DE ALERTA ======================= */
+.messages-container {
+    padding: 0;
+    margin: 0;
+}
+
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+/* A tag 'success' é adicionada automaticamente pelo messages.success() */
+.alert-success {
+    background-color: #2475AB; /* Verde para sucesso */
+    border-color: #2475AB;
+}
+
+/* Adicione outras cores para outros tipos de mensagens se quiser no futuro */
+.alert-error {
+    background-color: #dc3545; /* Vermelho para erro */
+}
+
+.close-alert-btn {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+}
