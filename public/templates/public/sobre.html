@@ -66,28 +66,7 @@ Team{%endblock %} {% block hero %} {% load static %}
         Nosso atual projeto é o BOSCOV, um foguete para 3km de apogeu. É o maior
         projeto da equipe.
       </p>
-      <a href="#" class="btn-project">Saiba mais</a>
-      <details class="project-item">
-        <summary class="project-summary">
-          <span class="summary-button">Saiba mais</span>
-        </summary>
-
-        <div class="project-details-content">
-          <section class="project-page">
-            <div class="project-grid">
-              <div class="project-grid__column">
-                {{ projeto.dimensoes|linebreaksbr }}
-              </div>
-              <div class="project-grid__column project-grid__main-column">
-                {{ projeto.situacao|linebreaksbr }}
-              </div>
-              <div class="project-grid__column">
-                {{ projeto.custo|linebreaksbr }}
-              </div>
-            </div>
-          </section>
-        </div>
-      </details>
+      <a href="{% url 'projetos' %}" class="btn-project">Conheça nossos projetos</a>
     </div>
   </div>
 </section>
@@ -107,15 +86,15 @@ Team{%endblock %} {% block hero %} {% load static %}
     <div class="awards-grid">
       <div class="award-card">
         <h4>1º lugar - LASC 2022</h4>
-        <a href="#" class="btn-project">Saiba mais</a>
+        <a href="https://noticias.unb.br/112-extensao-e-comunidade/6023-equipe-da-unb-vence-campeonato-internacional-de-lancamento-de-foguetes" class="btn-project">Saiba mais</a>
       </div>
       <div class="award-card">
         <h4>2º lugar - LASC 2021</h4>
-        <a href="#" class="btn-project">Saiba mais</a>
+        <a href="https://www.instagram.com/reel/CislgbyugSM/?igsh=MzlybjA2MjZ1amE5" class="btn-project">Saiba mais</a>
       </div>
       <div class="award-card">
-        <h4>Rick Maschek</h4>
-        <a href="#" class="btn-project">Saiba mais</a>
+        <h4>Rick Maschek - Excelência Técnica</h4>
+        <a href="https://www.instagram.com/p/CgXgLsmFqpg/" class="btn-project">Saiba mais</a>
       </div>
     </div>
   </div>

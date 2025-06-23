@@ -61,15 +61,29 @@
         </div>
       </div>
     </footer>
-    <script>
-        // 1. Selecionamos os dois elementos do HTML que vamos usar:
-        const mobileIcon = document.querySelector('.menu-mobile-icon');
-        const menuMobile = document.querySelector('.menu-mobile');
-        // 2. Adicionamos um "escutador de eventos" ao ícone.
-        mobileIcon.addEventListener('click', () => {
-            // 3. Quando o clique acontece, esta função é executada.
-            menuMobile.classList.toggle('active');
-        });
-    </script>
+     <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Termos e Condições de Uso</h2>
+            <div class="modal-text-content">
+              <h3>1. Aceitação dos Termos</h3>
+              <p>Ao acessar e utilizar este site, você concorda em cumprir com os seguintes termos e condições de uso, que juntamente com nossa política de privacidade, governam a relação da nossa equipe com você em relação a este website.</p>
+
+              <h3>2. Uso das Informações</h3>
+              <p>Ao enviar informações através do nosso formulário de contato, você concorda que a equipe <strong>Capital Rocket Team (CRT)</strong> pode utilizar seu nome e email para entrar em contato com você em resposta à sua consulta, dúvida ou proposta.</p>
+              <p>Comprometemo-nos a não utilizar suas informações de contato para fins de marketing não solicitados e a não compartilhar seus dados pessoais com terceiros sem o seu consentimento explícito.</p>
+
+              <h3>3. Propriedade Intelectual</h3>
+              <p>Este site contém material que é de nossa propriedade ou licenciado para nós. Este material inclui, mas não se limita a, o design, layout, aparência, textos, fotografias dos projetos e logotipos. A reprodução é proibida, exceto em conformidade com o aviso de direitos autorais, que faz parte destes termos e condições.</p>
+
+              <h3>4. Limitação de Responsabilidade</h3>
+              <p>As informações contidas neste site são apenas para fins de informação geral, embora nos esforcemos para manter as informações atualizadas e corretas.</p>
+
+              <h3>5. Alterações nos Termos</h3>
+              <p>Reservamo-nos o direito de modificar estes termos a qualquer momento. Recomendamos que você revise esta página periodicamente para estar ciente de quaisquer atualizações.</p>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'public/js/main.js' %}"></script>
   </body>
 </html>

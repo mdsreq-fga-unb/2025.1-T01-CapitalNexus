@@ -685,3 +685,57 @@ body {
         font-size: 1em;
     }
 }
+
+/* ======================= ESTILOS DA JANELA MODAL ======================= */
+
+/* O fundo escurecido (overlay) - escondido por padrão */
+.modal {
+    display: none; 
+    position: fixed; /* Fica fixo na tela mesmo com scroll */
+    z-index: 1000; /* Garante que fique na frente de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite scroll se o conteúdo for muito grande */
+    background-color: rgba(0, 0, 0, 0.7); /* Preto com 70% de opacidade */
+}
+
+/* A caixa de conteúdo da modal */
+.modal-content {
+    background-color: #1e1e1e; /* Fundo escuro para combinar com o site */
+    color: #f0f0f0;
+    margin: 10% auto; /* 10% de distância do topo e centralizado horizontalmente */
+    padding: 30px;
+    border: 1px solid #555;
+    width: 80%;
+    max-width: 800px; /* Largura máxima */
+    border-radius: 8px;
+    position: relative;
+}
+
+/* O conteúdo de texto com scroll interno se necessário */
+.modal-text-content {
+    margin-top: 20px;
+    max-height: 60vh; /* Altura máxima de 60% da tela */
+    overflow-y: auto; /* Adiciona uma barra de rolagem se o texto for muito longo */
+    padding-right: 15px; /* Espaço para a barra de rolagem */
+}
+
+/* O botão de fechar (X) */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
