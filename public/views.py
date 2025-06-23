@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Projeto, MensagemContato, Patrocinador
 from .forms import FormularioContato
+from django.contrib import messages
 # from django.http import HttpResponse
 
 def sobre(request):
@@ -31,8 +32,11 @@ def pagina_contato(request):
                 email=form.cleaned_data['email'],
                 mensagem=form.cleaned_data['mensagem']
             )
-            
-            return redirect('sucesso') # Redireciona para uma página de sucesso
+            # ADICIONE a mensagem de sucesso
+            messages.success(request, 'Sua mensagem foi enviada com sucesso! Responderemos em breve.')
+
+            # REDIRECIONE de volta para a própria página de contato
+            return redirect('contato')
     else:
         # Se for a primeira vez na página (método GET), apenas exibe um formulário em branco
         form = FormularioContato()
@@ -41,7 +45,3 @@ def pagina_contato(request):
         'form': form
     }
     return render(request, 'public/contato.html', contexto)
-
-# View para a página de sucesso
-def pagina_sucesso(request):
-    return render(request, 'public/sucesso.html')
