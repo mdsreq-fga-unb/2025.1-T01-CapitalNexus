@@ -346,10 +346,19 @@ body {
 .content-grid {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 50px;
 }
 
-.about-section__image img,
+.about-section__image,
+.about-section__text {
+    flex-basis: 50%;
+}
+
+.about-section__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 .project-section__image img {
     max-width: 100%;
     height: auto;
