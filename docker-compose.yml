@@ -15,7 +15,6 @@ services:
  capital-nexus-web:
    volumes:
      - .:/app
-   user: root
    build: .
    container_name: capital-nexus
    ports:
