@@ -1,8 +1,9 @@
-{% extends 'public/layout.html' %}
- {% block title %}Capital Rocket Team{%endblock %} 
-{% block hero %}
-{% load static %}
-<section class="hero-section" style="background-image: url('{% static 'public/images/hero-sobre.jpg' %}');">
+{% extends 'public/layout.html' %} {% block title %}Capital Rocket
+Team{%endblock %} {% block hero %} {% load static %}
+<section
+  class="hero-section"
+  style="background-image: url('{% static 'public/images/hero-sobre.jpg' %}')"
+>
   <div class="hero-content">
     <h1 class="hero-title">Capital Rocket Team</h1>
     <p class="hero-tagline">Per ardua ad astra</p>
@@ -66,6 +67,27 @@
         projeto da equipe.
       </p>
       <a href="#" class="btn-project">Saiba mais</a>
+      <details class="project-item">
+        <summary class="project-summary">
+          <span class="summary-button">Saiba mais</span>
+        </summary>
+
+        <div class="project-details-content">
+          <section class="project-page">
+            <div class="project-grid">
+              <div class="project-grid__column">
+                {{ projeto.dimensoes|linebreaksbr }}
+              </div>
+              <div class="project-grid__column project-grid__main-column">
+                {{ projeto.situacao|linebreaksbr }}
+              </div>
+              <div class="project-grid__column">
+                {{ projeto.custo|linebreaksbr }}
+              </div>
+            </div>
+          </section>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -105,33 +127,15 @@
       class="section-title text-gold"
       style="text-align: center; margin-bottom: 40px"
     >
-      PATROCINADORES
+      Patrocinadores
     </h2>
     <div class="sponsors-grid">
+      {% for patrocinador in patrocinadores %}
       <div class="sponsor-card">
-        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 1" />
-        <p>Patrocinador</p>
+        <img src="{{ patrocinador.logo.url }}" alt="Logo do Patrocinador 1" />
+        <p>{{ patrocinador.nome }}</p>
       </div>
-      <div class="sponsor-card">
-        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 2" />
-        <p>Patrocinador</p>
-      </div>
-      <div class="sponsor-card">
-        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 3" />
-        <p>Patrocinador</p>
-      </div>
-      <div class="sponsor-card">
-        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 4" />
-        <p>Patrocinador</p>
-      </div>
-      <div class="sponsor-card">
-        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 5" />
-        <p>Patrocinador</p>
-      </div>
-      <div class="sponsor-card">
-        <img src="https://placehold.co/350x150" alt="Logo do Patrocinador 6" />
-        <p>Patrocinador</p>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

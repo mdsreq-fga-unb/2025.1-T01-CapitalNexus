@@ -170,14 +170,17 @@ body {
 
 /* --- Estilos para o Menu Mobile Dropdown --- */
 .menu-mobile {
-    background: #1c1c1c;
+    background: #000000;
     position: absolute;
     top: 88px;
     /* Altura da navbar, para começar logo abaixo */
     left: 0;
     width: 100%;
+    justify-content: center;
     display: flex;
+    text-align: center;
     flex-direction: column;
+    gap: 10px;
     /* Empilha os links */
     align-items: center;
     /* Centraliza os links */
@@ -186,6 +189,8 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+
+    z-index: 1000;
 }
 
 /* Classe 'active' que o JavaScript adiciona */
@@ -195,12 +200,12 @@ body {
     padding: 20px 0;
 }
 
-.menu-mobile a {
+.menu-mobile a:not(.btn-cta-mobile){
     color: white;
     /* Garante que o texto seja branco e visível */
-    font-size: 18px;
+    font-size: 22px;
     text-decoration: none;
-    padding: 12px 0;
+    padding: 12px;
     /* Aumenta a área de clique (melhor para dedos) */
     width: 100%;
     /* Faz o link ocupar toda a largura */
@@ -212,7 +217,7 @@ body {
 .btn-cta-mobile {
     /* Reutiliza o estilo do botão de desktop */
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     text-decoration: none;
     padding: 12px 20px;
@@ -235,7 +240,9 @@ body {
     .menu-desktop {
         display: none;
     }
-
+    .menu-mobile{
+        display: block;
+    }
     .menu-mobile-icon {
         display: flex;
         flex-direction: column;
@@ -251,7 +258,9 @@ body {
 
     /* --- RODAPÉ --- */
     .main-footer .container {
+        justify-content: center;
         flex-direction: column;
+        align-items: center;
         gap: 25px;
     }
 

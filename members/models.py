@@ -12,6 +12,9 @@ class Nucleo(models.Model):
     nome = models.CharField(max_length=64, primary_key=True)
     categoria = models.CharField(max_length=8)
 
+    class Meta:
+        verbose_name='Núcleo'
+        verbose_name_plural='Núcleos'
     def __str__(self):
         return self.nome
     
@@ -28,6 +31,8 @@ class MembroNucleo(models.Model):
 
     class Meta:
         unique_together = ('membro', 'nucleo')
+        verbose_name='Associação'
+        verbose_name_plural='Associações'
 
     def __str__(self):
-        return f"{self.membro.nome}, {self.nucleo.nome}, {self.cargo.posicao}"
+        return f"{self.membro.nome}, do núcleo {self.nucleo.nome} com o cargo de {self.cargo.posicao}"

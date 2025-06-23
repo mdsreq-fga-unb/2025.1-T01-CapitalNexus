@@ -16,6 +16,7 @@ services:
    volumes:
      - .:/app
    build: .
+   user: root
    container_name: capital-nexus
    ports:
      - "8000:8000"

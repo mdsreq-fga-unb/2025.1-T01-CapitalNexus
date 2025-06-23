@@ -25,12 +25,12 @@
           <span></span><span></span><span></span>
         </div>
       </nav>
-      <!-- <div class="menu-mobile">
-            <a href="{% url 'sobre' %}">Sobre</a>
-            <a href="{% url 'projetos' %}">Projetos</a>
-            <a href="{% url 'contato' %}">Contato</a>
+      <div class="menu-mobile" >
+            <a href="{% url 'sobre' %}">Sobre</a><br>
+            <a href="{% url 'projetos' %}">Projetos</a><br>
+            <a href="{% url 'contato' %}">Contato</a><br>
             <a href="#" class="btn-cta-mobile">Área do membro</a>
-        </div> -->
+        </div>
     </header>
     <main>
       {% block hero %} 
@@ -41,22 +41,35 @@
 
     <footer class="navbar">
       <div class="container">
-        <a href="/"  class="logo">
+        <a href="{% url 'sobre' %}"  class="logo">
           <img src="{% static 'public/images/Logo.png' %}" alt="Logo" />
         </a>
 
         <div class="nav-links">
           <a href="mailto:contato@capitalrocketteam.com"
-            >contato@capitalrocketteam.com</a
-          >
+            >E-mail</a
+          > <br>
           <a href="https://instagram.com/capitalrocketteam" target="_blank"
             >Instagram</a
-          >
+          > <br>
           <a href="https://linkedin.com/company/capitalrocketteam/" target="_blank"
             >LinkedIn</a
+          ><br>
+          <a href="https://www.youtube.com/@capitalrocketteam8708/videos"
+            >YouTube</a
           >
         </div>
       </div>
     </footer>
+    <script>
+        // 1. Selecionamos os dois elementos do HTML que vamos usar:
+        const mobileIcon = document.querySelector('.menu-mobile-icon');
+        const menuMobile = document.querySelector('.menu-mobile');
+        // 2. Adicionamos um "escutador de eventos" ao ícone.
+        mobileIcon.addEventListener('click', () => {
+            // 3. Quando o clique acontece, esta função é executada.
+            menuMobile.classList.toggle('active');
+        });
+    </script>
   </body>
 </html>

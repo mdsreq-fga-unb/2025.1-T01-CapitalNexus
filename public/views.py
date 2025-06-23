@@ -1,18 +1,22 @@
 from django.shortcuts import render, redirect
-from .models import Projeto, MensagemContato
+from .models import Projeto, MensagemContato, Patrocinador
 from .forms import FormularioContato
 # from django.http import HttpResponse
 
 def sobre(request):
-    return render(request, 'public/sobre.html')
+    lista_de_patrocinadores = Patrocinador.objects.all()
+    contexto = {
+        'patrocinadores': lista_de_patrocinadores
+    }
+    return render(request, 'public/sobre.html', contexto)
 
 def pagina_projetos(request):
     # Busca TODOS os objetos 'Projeto' do banco de dados
-    todos_os_projetos = Projeto.objects.all()
+    lista_de_projetos = Projeto.objects.all()
     
     # Envia a lista de projetos para o template através do dicionário de contexto
     contexto = {
-        'projetos': todos_os_projetos
+        'projetos': lista_de_projetos
     }
     return render(request, 'public/projetos.html', contexto)
 
