@@ -6,6 +6,20 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 - **S: Should have.** São requisitos de alta prioridade, mas não cruciais para o lançamento. São importantes e agregam alto valor aos usuários. Devem preencher o segundo lugar da fila de prioridade.
 - **Co: Could have.** São requisitos desejáveis, mas que não são necessários. Menor importantes que os requisitos do grupo "should have".
 - **W: Won't have.** Requisitos que não serão implementados, mas que podem ser incluídos futuramente.
+
+Esforço Técnico:
+- Alto: 4;
+- Médio: 3;
+- Baixo: 2;
+- Mínimo: 1.
+
+Matriz de priorização:
+● Ganhos Rápidos (Must have, Baixo Esforço Técnico (4) ): FAZER PRIMEIRO. Entregam muito valor com pouco esforço.
+● Grandes Projetos (Must have, Alto Esforço Técnico (4) ): PLANEJAR CUIDADOSAMENTE. São importantes, mas consomem
+muitos recursos.
+● Preenchimentos (Should have, Médio Esforço Técnico (3) ): FAZER QUANDO HOUVER TEMPO. Podem ser feitos entre tarefas
+maiores ou se não houver nada mais prioritário.
+● Reconsiderar (Could have, Alto Esforço Técnico (4) ): Consomem muito esforço para pouco retorno.
  
 **Objetivos específicos**
 
