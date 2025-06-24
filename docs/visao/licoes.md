@@ -12,7 +12,9 @@ A lição mais valiosa aprendida foi escolher as técnicas para as aividades da 
 
 ## Unidade 3
 
-A unidade 3 foi bastante importante para aprendermos diferentes técnicas para construção do ckalog do projeto. A utilização de PBB ou User Story Mapping ajudam bastante durante o desenvolvimento do projeto. A utilização de BDD's como critérios de aceitação auxiliam nbastante também a desenvolver os requisitos e também a testá-los.
+A unidade foi muito importante para aprendermos sobre diferentes técnicas para construir o backlog do projeto, o PBB e o
+USM auxiliam muito e ter tido a experiência de trabalhar com eles nas atividades foi muito agregador. A utilização de BDD como critério de aceitação também é muito interessante, principalmente pela forma como guia os desenvolvedores a fazer os requisitos. Concluindo, a unidade foi muito importante pata a equipe avaliar diferentes técnicas durante a construção do projeto.
+
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
@@ -20,3 +22,4 @@ A unidade 3 foi bastante importante para aprendermos diferentes técnicas para c
 |21/04|0.1|Lições aprendidas da unidade 1|Sophia|
 |26/05/25|0.2|Lições unidade 2|Sophia|
 |23/06/25|0.3|LIções unidade 3|Sophia|
+
