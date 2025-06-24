@@ -58,12 +58,12 @@ O backlog apresenta tema, épico, ID, declaração, critérios de aceitação, R
 
 ## Regras de negócio
 
-RN01 - O sistema deve autenticar o usuário através do google, com o domínio da Capital Rocket Team;
-RN02 - Todo núcleo tem obrigatoriamente um líder, e, se não tiver líder, o capitão assume o cargo de líder do núcleo. 
-RN03 - Um membro está em risco de expulsão ao faltar em 3 reuniões gerais seguidas sem justificativa e deve ser notificado sobre sua situação.
-RN04 - Toda vez que uma reunião é marcada ou tem sua data adiada, os membros são informados.
-RN05 - Um membro é notificado toda vez que leva uma falta em uma reunião.
-RN06 - O núcleo Gerência  possui 3 cargos: Capitão, Gerente e Co-Gerente. Obrigatoriamente os cargos de Capitão e de Gerente devem estar associados a um, e apenas um, membro da equipe.
+- RN01 - O sistema deve autenticar o usuário através do google, com o domínio da Capital Rocket Team;
+- RN02 - Todo núcleo tem obrigatoriamente um líder, e, se não tiver líder, o capitão assume o cargo de líder do núcleo. 
+- RN03 - Um membro está em risco de expulsão ao faltar em 3 reuniões gerais seguidas sem justificativa e deve ser notificado sobre sua situação.
+- RN04 - Toda vez que uma reunião é marcada ou tem sua data adiada, os membros são informados.
+- RN05 - Um membro é notificado toda vez que leva uma falta em uma reunião.
+- RN06 - O núcleo Gerência  possui 3 cargos: Capitão, Gerente e Co-Gerente. Obrigatoriamente os cargos de Capitão e de Gerente devem estar associados a um, e apenas um, membro da equipe.
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
