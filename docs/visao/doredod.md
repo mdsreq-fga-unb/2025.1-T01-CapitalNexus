@@ -22,17 +22,46 @@ O DoR delimita quando um **requisito está preparado para ser trabalhado**. Perm
 
 ## Definition of Done (DoD)
 
-O DoD define os critérios que precisam ser cumpridos para que uma funcionalidade seja considerada completa, demonstrando **qualidade do requisito produzido**. Para que seja considerado como *Done*, deve atender ao seguinte:
+O DoD define os critérios que precisam ser cumpridos para que uma funcionalidade seja considerada completa, demonstrando **qualidade do requisito produzido**. Para que uma tarefa ou User Story seja considerada **concluída ("Done")**, todas as perguntas a seguir devem ser respondidas afirmativamente.
 
-1. Esse requisito entrega um incremento do produto?
-1. Contempla critérios de aceite estabelecidos?
-1. Está documentado para uso?
-1. Foi revisado por outro desenvolvedor?
-1. Segue os padrões [estabelecidos de codificação](../contribuicao)?
-1. Foi testado?
+**1. Entrega de Valor**
+
+- O trabalho realizado entrega um incremento funcional e observável ao produto?
+- A entrega está claramente rastreada à sua origem? (A descrição do Pull Request ou da tarefa cita a **US**, **RN** ou **O.E.** correspondente?)
+
+**2. Cobertura dos Requisitos**
+
+- Todos os cenários (sucesso, falha e alternativos) descritos nos [**Critérios de Aceite (BDD)**](/backlog/geral/#backlog) foram implementados e são demonstráveis?
+
+**3. Qualidade de Testes**
+
+- Foram criados os **testes automatizados** (unitários e/ou de integração) necessários para a nova funcionalidade?
+- A **cobertura de código** para as novas alterações atinge o mínimo de 70% estabelecido?
+- Os fluxos principais foram validados **manualmente** em um ambiente de teste, confirmando o comportamento esperado?
+
+**4. Revisão por Pares (Code Review)**
+
+- O **Pull Request (PR)** foi revisado e aprovado por, pelo menos, um outro membro da equipe?
+- A revisão de código validou os critérios essenciais?
+    - **Conformidade:** O código segue os padrões estabelecidos?
+    - **Lógica:** A implementação atende corretamente aos requisitos?
+    - **Legibilidade:** O código é claro, bem nomeado e de fácil manutenção?
+    - **Segurança:** Não há dados sensíveis (senhas, tokens) expostos no código?
+    - **Performance:** Não foram introduzidos gargalos de performance óbvios?
+
+**5. Padrões de Código**
+
+- O código segue os **padrões de codificação** e o guia de estilo definidos pelo projeto?
+- As ferramentas de **Linter** e **Formatter** foram executadas e não apontam erros?
+
+**6. Documentação**
+
+- A **documentação técnica** foi devidamente atualizada? (Ex: `README.md`, comentários em lógicas complexas, novas variáveis de ambiente).
+- Se a funcionalidade impacta o usuário final, a **documentação de uso** (manuais, guias na Wiki) foi criada ou atualizada?
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 | **13/05/2025** | 0.1 | Definindo DoR, DoD e critérios de aceite | Wanjo Christopher |
 | **21/05/2025** | 0.1 | Corrige caminho do documento de contribuição | Wanjo Christopher |
+| **23/06/2025** | 0.1 | Melhora critérios DoD | Wanjo Christopher |
