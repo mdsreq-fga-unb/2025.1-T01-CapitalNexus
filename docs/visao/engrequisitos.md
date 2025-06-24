@@ -7,7 +7,7 @@ A Engenharia de Requisitos dispõe de diversas **técnicas e práticas**, que de
 
 - **Entrevista**: Na fase de Elicitação e Descoberta de requisitos, a técnica de entrevistas tem como principal objetivo não apenas **coletar requisitos**, mas também **compreender as expectativas** do cliente em relação à solução em desenvolvimento e **compreensão do problema**. Além disso, essa técnica é fundamental para **alinhar a equipe de desenvolvimento** com a visão do cliente (CRT), garantindo que todos compartilhem do mesmo entendimento sobre o projeto.
 - **User Story**: Foi utilizado User Story para que conseguissemos elicitar e descobrir os requisitos a partir do ponto de vista do usuário.
-- **Imersão**: Um membro da equipe foi responsável por participar do dia a dia com a equipe e descobrir requisitos a partir da convivência.
+- **Observação**: Um membro da equipe foi responsável por participar do dia a dia com a equipe e descobrir requisitos a partir da Observação.
 
 ### Análise e Consenso
 
