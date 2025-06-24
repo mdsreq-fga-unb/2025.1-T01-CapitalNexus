@@ -55,7 +55,7 @@ O DoD define os critérios que precisam ser cumpridos para que uma funcionalidad
 **6. Documentação**
 
 - A **documentação técnica** foi devidamente atualizada? (Ex: `README.md`, comentários em lógicas complexas, novas variáveis de ambiente).
-- Se a funcionalidade impacta o usuário final, a **documentação de uso** (manuais, guias na Wiki) foi criada ou atualizada?
+- Está documentado para uso com docstrings da biblioteca pydoc, com descrição, argumentos e retorno.
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
