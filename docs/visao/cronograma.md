@@ -27,7 +27,7 @@
 |**Iteração**|**Período**|**Atividades**|**Resultados**|
 | :- | :- | :- | :- |
 | 4 | 02/06 à 23/06 | Desenvolvimento (US01, US02, US04 - US06, US15, US17, US18) <br> Feedback do cliente <br> Ajustes | Feedback do sistema integrado |
-| 5 | 17/06 à 02/06 | Implantação da área pública <br> Desenvolvimento ( US08, US10-US12, US19-US21) <br> Feedback do cliente <br> Ajustes| Área pública da plataforma |
+| 5 | 24/06 à 02/06 | Implantação da área pública <br> Desenvolvimento ( US08, US10-US12, US19-US21) <br> Feedback do cliente <br> Ajustes| Área pública da plataforma |
 
 ## Transição (01/07 - 15/07)
 |**Iteração**|**Período**|**Atividades**|**Resultados**|
