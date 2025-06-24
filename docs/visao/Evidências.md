@@ -1,6 +1,6 @@
 ## Evidências
 
-### Feedback, imersão, reuniões e entrevistas com o cliente
+### Feedback, observação, reuniões e entrevistas com o cliente
 As reuniões com o cliente são feitas quando necessário, na etapa de concepção e elaboração foram feitas mais reuniões, porém do fim da elaboração à construção estão sendo feitas validações por meio
 do WhatsApp, um canal definido pela equipe e o cliente. A líder da equipe é ex-membro da equipe Capital Rocket Team e já tinha algum conhecimento das necessidades do cliente e passou o mês de abril
 convivendo no container da equipe e conversando com os membros para ir mais a fundo na elicitação e descoberta dos requisitos
