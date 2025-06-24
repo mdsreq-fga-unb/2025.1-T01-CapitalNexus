@@ -14,6 +14,7 @@ nav:
       - Interação entre equipe e cliente: visao/interacao.md
       - DoR e DoD: visao/doredod.md
       - Lições aprendidas: visao/licoes.md
+      - Política de contribuição: visao/contribuicao.md
       - Referências: visao/referencias.md 
   - Requisitos:
       - Requisitos funcionais: requisitos/reqfuncional.md
@@ -23,6 +24,10 @@ nav:
       - Priorização e Produto Mínimo Viável: backlog/mvp.md
   - Entregas:
       - Unidade 1: entregas/unidadeum.md
+      - Unidade 2: entregas/unidade2.md
+      - Unidade 3: 
+        - PBB: entregas/unidade3/PBB.md
+        - USM: entregas/unidade3/USM.md
 
 
 
@@ -37,6 +42,9 @@ theme:
     - navigation.instant
     - navigation.top
     - navigation.tracking
+    - content.code.select
+    - content.code.copy
+
 
   palette:
     - scheme: default
@@ -59,3 +67,12 @@ theme:
 
 extra_css:
   - stylesheets/styles.css
+
+markdown_extensions:
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.superfences

@@ -2,9 +2,10 @@
 
 ## Estratégia Priorizada
 
-- Abordagem: Híbrida;
-- Ciclo de vida: Iterativo incremental;
-- Processo: AUP.
+- Abordagem: **Híbrida**;
+- Ciclo de vida: **Iterativo incremental**;
+- Processo: **AUP**;
+- Frameworkde gerenciamento ágil: **Kanban**.
 
 ## Quadro Comparativo
 

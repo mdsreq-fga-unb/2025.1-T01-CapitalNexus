@@ -9,9 +9,9 @@ Nossa solução visa resolver desafios operacionais e de visibilidade social da 
 1. Otimizar o controle de estoque e materiais, facilitando o planejamento de orçamentos e a reposição de itens;
 
 Os itens acima concatenam nos seguintes objetivos específicos:
-1. Reduzir a perda de dados
-1. Reduzir a perda de tempo
-1. Facilitar a interação com patrocinadores
+
+1. Facilitar acesso à informação
+1. Reduzir perda de dados
 1. Fortalecer a imagem institucional da equipe
 
 Além disso, deve apoiar a comunicação entre os núcleos técnicos e destacar a liderança da equipe no setor aeroespacial nacional, evidenciada por marcos como o lançamento do primeiro foguete de propulsão híbrida do Brasil.
@@ -77,4 +77,4 @@ Como ferramenta de gestão e gerenciamento individual centrada, poupará tempo d
 |**18/04/25**|1.0|Primeira versão|Kaio, Maria, Pedro, Victor e Wanjo|
 |**01/05/25**|1.1|Refatorando parágrafo de Objetivos do Produto| Wanjo Christopher |
 |**02/05/25**|1.2|Correlacionando Objetivos do Projeto com Objetivos Específicos da Solução Proposta| Wanjo Christopher |
-|||||
+|**21/05/25**|1.3|Revisando objetivos especificos|Sophia|
