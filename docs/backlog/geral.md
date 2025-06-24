@@ -5,6 +5,25 @@ O backlog geral contém as funcionalidades e melhorias planejadas para o softwar
 
 Para a elicitação de requisitos, foi utilizada User Stories (Histórias de Usuários), seguindo o processo escolhido para o projeto.
 
+Temas:
+1. Gestão de Recursos Humanos
+2. Gestão de Publicidade
+3. Gestão de Estoques
+
+Épicos:
+E1: Sistema de cadastro de núcleos
+E2: Sistema de cadastro e perfil de membros
+E3: Sistema de controle de frequência
+E4: Análise de desempenho geral
+E5: Sistema de controle de publicidade
+E6: Sistema de controle de estoques
+E7: Análise de estoques
+
+Objetivos específico (O.E.):
+1. Facilitar acesso à informação
+2. Reduzir perda de dados
+3. Fortalecer a imagem institucional da equipe
+
 ## Lista do Baklog Geral
 
 ### Table 1: Backlog Geral

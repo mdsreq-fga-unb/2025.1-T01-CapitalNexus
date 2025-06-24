@@ -35,6 +35,8 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 | US 1.4    | Visualizar prontuário eletrônico completo       | Como Médico, quero visualizar de forma centralizada todos os dados clínicos do paciente — exames, tratamentos — para compreender o quadro clínico completo e embasar diagnóstico e tratamento. |
 | US 1.5    | Registrar notas médicas e evoluções no prontuário | Como Médico, quero inserir notas de atendimento e evoluções clínicas diretamente no PEP, para manter registro atualizado e detalhado de cada consulta. |
 | US 1.12   | Gerar prescrição eletrônica                     | Como Médico, quero criar prescrições digitais padronizadas e seguras, para reduzir erros de legibilidade e garantir integridade da informação. |
+| US 1.13   | Gerar alerta de alergias                              | Como Médico, quero receber alertas automáticos sobre alergias conhecidas do paciente durante prescrição, para evitar reações adversas. |
+| US 1.14   | Gerar alerta de interações medicamentosas             | Como Médico, quero que o sistema verifique automaticamente interações medicamentosas durante prescrição, para prevenir complicações. |
 | US 1.22   | Transferir paciente entre unidades              | Como Médico, quero transferir pacientes entre departamentos/unidades eletronicamente, para agilizar fluxo de atendimento e eliminar documentos físicos. |
 | US 1.23   | Encaminhar paciente a especialista              | Como Médico, quero encaminhar pacientes a outros especialistas de forma digital, para garantir continuidade do cuidado e acesso a expertise. |
 | US 1.24   | Compartilhar informações entre equipes médicas  | Como Médico, quero compartilhar informações relevantes do paciente com equipes médicas de forma segura e eficiente, para atendimento coordenado. |
@@ -139,7 +141,6 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 -   Detalhar tratamentos prescritos e em andamento.
 -   Apresentar informações de forma organizada e legível.
 -   Permitir navegação fácil entre seções (exames, tratamentos, histórico).
-
 
 ----------
 
