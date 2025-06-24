@@ -9,9 +9,15 @@ Outra lição valiosa é a importância de entender o que o cliente realmente ne
 ## Unidade 2
 
 A lição mais valiosa aprendida foi escolher as técnicas para as aividades da engenharia de requisitos que ais se encaixem com o seu processo. Nosso processo possui uma abordagem híbrida, que tem um pouco de formalidade mas se beneficia do ágil para o desenvolvimento, e a escolha de atividades simples porém adequadas facilitou bastante o nosso desenvolvimento e o contato com o cliente durante a unidade.
+
+## Unidade 3
+
+A unidade foi muito importante para aprendermos sobre diferentes técnicas para construir o backlog do projeto, o PBB e o
+ USM auxiliam muito e ter tido a experiência de trabalhar com eles nas atividades foi muito agregador. A utilização de BDD como critério de aceitação também é muito interessante, principalmente pela forma como guia os desenvolvedores a fazer os requisitos. Concluindo, a unidade foi muito importante pata a equipe avaliar diferentes técnicas durante a construção do projeto.
+
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |21/04|0.1|Lições aprendidas da unidade 1|Sophia|
 |26/05/25|0.2|Lições unidade 2|Sophia|
-|||||
+|23/06/25|0.3|Lições unidade 3|Sophia|
