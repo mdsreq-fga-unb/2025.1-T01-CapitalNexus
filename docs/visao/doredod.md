@@ -35,8 +35,7 @@ O DoD define os critérios que precisam ser cumpridos para que uma funcionalidad
 
 **3. Qualidade de Testes**
 
-- Foram criados os **testes automatizados** (unitários e/ou de integração) necessários para a nova funcionalidade?
-- A **cobertura de código** para as novas alterações atinge o mínimo de 70% estabelecido?
+- Foi criado o teste unitário necessário para a nova funcionalidade?
 - Os fluxos principais foram validados **manualmente** em um ambiente de teste, confirmando o comportamento esperado?
 
 **4. Revisão por Pares (Code Review)**
@@ -47,7 +46,6 @@ O DoD define os critérios que precisam ser cumpridos para que uma funcionalidad
     - **Lógica:** A implementação atende corretamente aos requisitos?
     - **Legibilidade:** O código é claro, bem nomeado e de fácil manutenção?
     - **Segurança:** Não há dados sensíveis (senhas, tokens) expostos no código?
-    - **Performance:** Não foram introduzidos gargalos de performance óbvios?
 
 **5. Padrões de Código**
 
