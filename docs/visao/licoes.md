@@ -14,4 +14,4 @@ A lição mais valiosa aprendida foi escolher as técnicas para as aividades da 
 | :- | :- | :- | :- |
 |21/04|0.1|Lições aprendidas da unidade 1|Sophia|
 |26/05/25|0.2|Lições unidade 2|Sophia|
-|||||
+|23/06/25|0.3|LIções unidade 3|Sophia|
