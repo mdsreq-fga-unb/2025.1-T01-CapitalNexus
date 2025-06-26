@@ -457,7 +457,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Cadastro bem-sucedido de um novo paciente
+**Cenário:** Cadastro bem-sucedido de um novo paciente
 
 Dado que a recepcionista está na tela de cadastro de pacientes
 
@@ -471,7 +471,7 @@ E exibe uma mensagem de confirmação "Paciente cadastrado com sucesso"
 
 E a recepcionista pode visualizar o cadastro do paciente na lista de pacientes.
 
-Cenário: Tentativa de cadastro com CPF duplicado
+**Cenário:** Tentativa de cadastro com CPF duplicado
 
 Dado que a recepcionista está na tela de cadastro de pacientes
 
@@ -481,7 +481,7 @@ Então o sistema impede o cadastro
 
 E exibe uma mensagem de erro indicando que o CPF já está em uso ("CPF já cadastrado").
 
-Cenário: Campos obrigatórios não preenchidos
+**Cenário:** Campos obrigatórios não preenchidos
 
 Dado que a recepcionista está na tela de cadastro de pacientes
 
@@ -499,7 +499,7 @@ E destaca os campos não preenchidos com uma mensagem de validação (ex: "Campo
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Visualização do histórico completo do paciente
+**Cenário:** Visualização do histórico completo do paciente
 
 Dado que o médico está logado e pesquisa um paciente
 
@@ -511,7 +511,7 @@ Então o sistema exibe um painel unificado com todas as consultas, exames, presc
 
 E o médico pode filtrar o histórico por data, unidade ou tipo de registro.
 
-Cenário: Histórico vazio ou inexistente
+**Cenário:** Histórico vazio ou inexistente
 
 Dado que o médico acessa o histórico de um paciente recém-cadastrado ou sem registros
 
@@ -529,7 +529,7 @@ E oferece a opção de adicionar novas informações.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Atualização de dados cadastrais bem-sucedida
+**Cenário:** Atualização de dados cadastrais bem-sucedida
 
 Dado que a recepcionista está na tela de edição do cadastro do paciente
 
@@ -543,7 +543,7 @@ E uma mensagem de confirmação é exibida "Dados atualizados com sucesso"
 
 E o paciente aparece com as informações atualizadas na busca.
 
-Cenário: Inconsistência na atualização de e-mail
+**Cenário:** Inconsistência na atualização de e-mail
 
 Dado que a recepcionista está na tela de edição do cadastro de pacientes
 
@@ -563,7 +563,7 @@ E exibe uma mensagem de erro "Formato de e-mail inválido".
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Acesso ao prontuário com exames e tratamentos
+**Cenário:** Acesso ao prontuário com exames e tratamentos
 
 Dado que o médico acessa o prontuário de um paciente
 
@@ -573,7 +573,7 @@ Então o sistema exibe a lista de exames realizados com seus resultados (incluin
 
 E exibe os tratamentos prescritos e em andamento com detalhes de dosagem e duração.
 
-Cenário: Exames ou tratamentos ausentes
+**Cenário:** Exames ou tratamentos ausentes
 
 Dado que o médico acessa o prontuário de um paciente sem exames ou tratamentos anteriores
 
@@ -591,7 +591,7 @@ E não há informações desnecessárias exibidas.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Registro de nota médica bem-sucedido
+**Cenário:** Registro de nota médica bem-sucedido
 
 Dado que o médico finaliza uma consulta
 
@@ -605,7 +605,7 @@ Então o sistema salva a nota com data, hora e identificação do médico
 
 E a nota fica visível no histórico de evoluções, ordenada cronologicamente.
 
-Cenário: Tentativa de salvar nota vazia
+**Cenário:** Tentativa de salvar nota vazia
 
 Dado que o médico está na área de "Notas e Evoluções"
 
@@ -623,7 +623,7 @@ E exibe uma mensagem de erro "A nota não pode estar vazia".
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Tentativa de acesso não autorizado bloqueada
+**Cenário:** Tentativa de acesso não autorizado bloqueada
 
 Dado que um usuário não autenticado tenta acessar dados de pacientes
 
@@ -635,7 +635,7 @@ E redireciona para a tela de login ou exibe uma mensagem de "Acesso negado"
 
 E registra a tentativa nos logs de segurança.
 
-Cenário: Conformidade com LGPD na exportação de dados
+**Cenário:** Conformidade com LGPD na exportação de dados
 
 Dado que uma requisição de dados de paciente é feita (conforme direito de acesso da LGPD)
 
@@ -645,7 +645,7 @@ Então os dados são criptografados ou pseudonimizados antes da exportação
 
 E o acesso a esses dados e a exportação são logados para fins de auditoria.
 
-Cenário: Dados sensíveis criptografados no banco de dados
+**Cenário:** Dados sensíveis criptografados no banco de dados
 
 Dado que informações sensíveis de pacientes (ex: CPF, dados de saúde) são armazenadas
 
@@ -663,7 +663,7 @@ E apenas usuários autorizados podem acessá-los em formato legível.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Visualização unificada da agenda
+**Cenário:** Visualização unificada da agenda
 
 Dado que o coordenador de agendamento acessa a tela de agendamento
 
@@ -673,7 +673,7 @@ Então o sistema exibe a disponibilidade de todos os médicos daquela especialid
 
 E os horários ocupados são claramente marcados, indicando o tipo de compromisso (consulta, cirurgia, etc.).
 
-Cenário: Filtragem da agenda por múltiplos critérios
+**Cenário:** Filtragem da agenda por múltiplos critérios
 
 Dado que o coordenador de agendamento está na tela de agendamento
 
@@ -691,7 +691,7 @@ E a performance da busca não é impactada negativamente.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Agendamento de consulta online bem-sucedido
+**Cenário:** Agendamento de consulta online bem-sucedido
 
 Dado que a paciente está logada no portal do paciente
 
@@ -705,7 +705,7 @@ E envia uma confirmação de agendamento para o e-mail ou SMS da paciente
 
 E a consulta aparece no painel de "Minhas Consultas" no portal.
 
-Cenário: Tentativa de agendar em horário indisponível
+**Cenário:** Tentativa de agendar em horário indisponível
 
 Dado que a paciente está no portal de agendamento
 
@@ -723,7 +723,7 @@ E exibe uma mensagem indicando que o horário não está mais disponível.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Remarcação de consulta pela equipe bem-sucedida
+**Cenário:** Remarcação de consulta pela equipe bem-sucedida
 
 Dado que o coordenador de agendamento seleciona uma consulta existente no sistema
 
@@ -735,7 +735,7 @@ Então o sistema atualiza a agenda do médico com o novo horário e libera o ant
 
 E notifica o paciente sobre a mudança por e-mail ou SMS.
 
-Cenário: Paciente remarca a consulta via portal
+**Cenário:** Paciente remarca a consulta via portal
 
 Dado que a paciente está logada no portal e visualiza uma consulta futura
 
@@ -757,7 +757,7 @@ E envia uma notificação de confirmação para a paciente.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Cancelamento de consulta pela equipe
+**Cenário:** Cancelamento de consulta pela equipe
 
 Dado que o coordenador de agendamento seleciona uma consulta para cancelamento no sistema
 
@@ -769,7 +769,7 @@ E libera o horário para novos agendamentos
 
 E envia uma notificação de cancelamento para o paciente por e-mail ou SMS.
 
-Cenário: Paciente cancela a consulta via portal
+**Cenário:** Paciente cancela a consulta via portal
 
 Dado que a paciente está logada no portal e visualiza uma consulta futura
 
@@ -789,7 +789,7 @@ E envia uma notificação de cancelamento para a paciente.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Envio de lembrete por SMS/e-mail
+**Cenário:** Envio de lembrete por SMS/e-mail
 
 Dado que uma consulta está agendada para acontecer nas próximas 24 horas (ou período configurável)
 
@@ -799,7 +799,7 @@ Então um SMS/e-mail é enviado ao paciente (conforme preferência)
 
 E a notificação inclui os detalhes da consulta (data, hora, médico, local).
 
-Cenário: Lembrete visível no portal do paciente
+**Cenário:** Lembrete visível no portal do paciente
 
 Dado que o paciente tem uma consulta agendada
 
@@ -817,7 +817,7 @@ E o paciente pode confirmar o recebimento do lembrete.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Geração de prescrição eletrônica bem-sucedida
+**Cenário:** Geração de prescrição eletrônica bem-sucedida
 
 Dado que o médico está na tela de prescrição de um paciente
 
@@ -833,7 +833,7 @@ E a prescrição é salva no prontuário do paciente
 
 E está disponível para a farmácia.
 
-Cenário: Prescrição com medicamento inválido/inexistente
+**Cenário:** Prescrição com medicamento inválido/inexistente
 
 Dado que o médico está na tela de prescrição
 
@@ -851,7 +851,7 @@ E exibe uma mensagem de erro "Medicamento não encontrado ou inválido".
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Alerta de alergia ao adicionar medicamento
+**Cenário:** Alerta de alergia ao adicionar medicamento
 
 Dado que o histórico do paciente registra uma alergia (ex: à Penicilina)
 
@@ -861,7 +861,7 @@ Então o sistema exibe um alerta pop-up "ATENÇÃO: Paciente alérgico a este co
 
 E o médico precisa confirmar a ação ou escolher outra medicação.
 
-Cenário: Paciente sem alergias registradas
+**Cenário:** Paciente sem alergias registradas
 
 Dado que o histórico do paciente não registra nenhuma alergia
 
@@ -879,7 +879,7 @@ E a prescrição prossegue normalmente.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Alerta de interação medicamentosa relevante
+**Cenário:** Alerta de interação medicamentosa relevante
 
 Dado que o médico está prescrevendo um novo medicamento
 
@@ -889,7 +889,7 @@ Então o sistema exibe um alerta de interação (ex: "Risco de interação grave
 
 E sugere informações sobre a interação ou alternativas para o médico.
 
-Cenário: Nenhuma interação medicamentosa detectada
+**Cenário:** Nenhuma interação medicamentosa detectada
 
 Dado que o médico está prescrevendo um medicamento
 
@@ -907,7 +907,7 @@ E a prescrição prossegue normalmente.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Recebimento e visualização de prescrição eletrônica
+**Cenário:** Recebimento e visualização de prescrição eletrônica
 
 Dado que uma prescrição eletrônica foi gerada por um médico
 
@@ -919,7 +919,7 @@ E a farmacêutica pode vincular a prescrição ao registro do paciente
 
 E o status da prescrição é atualizado para "recebida".
 
-Cenário: Prescrição não encontrada
+**Cenário:** Prescrição não encontrada
 
 Dado que a farmacêutica tenta buscar uma prescrição eletrônica específica
 
@@ -937,7 +937,7 @@ E não exibe dados de prescrição.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Registro bem-sucedido da dispensa de medicamento
+**Cenário:** Registro bem-sucedido da dispensa de medicamento
 
 Dado que a farmacêutica está dispensando medicamentos com base em uma prescrição válida
 
@@ -951,7 +951,7 @@ E registra a data, quantidade e identificação da farmacêutica no histórico d
 
 E gera um comprovante de dispensa para o paciente.
 
-Cenário: Tentativa de dispensar medicamento sem estoque
+**Cenário:** Tentativa de dispensar medicamento sem estoque
 
 Dado que a farmacêutica tenta dispensar um medicamento
 
@@ -969,7 +969,7 @@ E exibe um alerta "Estoque insuficiente para [Nome do Medicamento]".
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Consulta de informações detalhadas de medicamento
+**Cenário:** Consulta de informações detalhadas de medicamento
 
 Dado que a farmacêutica pesquisa por um medicamento no sistema
 
@@ -979,7 +979,7 @@ Então o sistema exibe informações como bula completa, composição, posologia
 
 E apresenta efeitos colaterais, contraindicações e interações medicamentosas.
 
-Cenário: Medicamento não encontrado no banco de dados
+**Cenário:** Medicamento não encontrado no banco de dados
 
 Dado que a farmacêutica pesquisa por um medicamento inexistente ou com nome incorreto
 
@@ -997,7 +997,7 @@ E sugere opções de busca ou verificação do nome.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Visualização do histórico de consultas e exames
+**Cenário:** Visualização do histórico de consultas e exames
 
 Dado que a paciente está logada no portal do paciente
 
@@ -1007,7 +1007,7 @@ Então o sistema exibe um resumo das suas consultas anteriores (data, médico, e
 
 E uma lista de exames realizados com link para resultados.
 
-Cenário: Histórico médico vazio
+**Cenário:** Histórico médico vazio
 
 Dado que a paciente está logada no portal e é recém-cadastrada ou não tem histórico
 
@@ -1025,7 +1025,7 @@ E não exibe informações incorretas.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Download de resultado de exame disponível
+**Cenário:** Download de resultado de exame disponível
 
 Dado que a paciente está logada no portal e um novo resultado de exame está disponível (ex: resultado de hemograma)
 
@@ -1035,7 +1035,7 @@ Então o sistema permite a visualização do laudo diretamente na tela
 
 E oferece a opção de download em formato PDF ou similar.
 
-Cenário: Exame ainda em processamento
+**Cenário:** Exame ainda em processamento
 
 Dado que a paciente acessa o portal e um exame foi recentemente coletado, mas o resultado ainda não está pronto
 
@@ -1053,7 +1053,7 @@ E não permite o acesso ao laudo.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Configuração e recebimento de lembrete de medicação
+**Cenário:** Configuração e recebimento de lembrete de medicação
 
 Dado que a paciente está logada no portal
 
@@ -1065,7 +1065,7 @@ Então o sistema registra a configuração do lembrete
 
 E envia notificações (no portal, e-mail ou push notification, conforme configurado) nos horários definidos.
 
-Cenário: Lembrete ignorado/desativado
+**Cenário:** Lembrete ignorado/desativado
 
 Dado que a paciente recebe um lembrete de medicação
 
@@ -1083,7 +1083,7 @@ E para de enviar notificações para aquela dose ou medicamento, conforme a aç�
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Edição de dados pessoais bem-sucedida
+**Cenário:** Edição de dados pessoais bem-sucedida
 
 Dado que a paciente está logada no portal
 
@@ -1099,7 +1099,7 @@ E exibe uma mensagem de sucesso "Dados atualizados"
 
 E as informações são refletidas em seu cadastro.
 
-Cenário: Tentativa de salvar dados inválidos
+**Cenário:** Tentativa de salvar dados inválidos
 
 Dado que a paciente está na seção "Meus Dados Cadastrais"
 
@@ -1117,7 +1117,7 @@ E exibe uma mensagem de erro "Formato de telefone inválido".
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Transferência eletrônica bem-sucedida de paciente
+**Cenário:** Transferência eletrônica bem-sucedida de paciente
 
 Dado que o médico finaliza o atendimento em um departamento/unidade
 
@@ -1131,7 +1131,7 @@ Então o sistema move o registro do paciente para o fluxo do novo departamento/u
 
 E a equipe de destino é notificada sobre a chegada do paciente com seu prontuário digital.
 
-Cenário: Tentativa de transferência para departamento inexistente
+**Cenário:** Tentativa de transferência para departamento inexistente
 
 Dado que o médico tenta transferir um paciente
 
@@ -1149,7 +1149,7 @@ E exibe uma mensagem de erro "Departamento/Unidade de destino inválida".
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Encaminhamento eletrônico a especialista bem-sucedido
+**Cenário:** Encaminhamento eletrônico a especialista bem-sucedido
 
 Dado que o médico identifica a necessidade de encaminhamento para outra especialidade
 
@@ -1165,7 +1165,7 @@ E notifica o especialista ou a equipe de agendamento sobre o novo encaminhamento
 
 E o encaminhamento fica registrado no prontuário do paciente.
 
-Cenário: Encaminhamento sem motivo preenchido
+**Cenário:** Encaminhamento sem motivo preenchido
 
 Dado que o médico está na tela de encaminhamento
 
@@ -1183,7 +1183,7 @@ E exibe uma mensagem de validação "Motivo do encaminhamento é obrigatório".
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Compartilhamento seguro de informações com equipe
+**Cenário:** Compartilhamento seguro de informações com equipe
 
 Dado que o médico precisa compartilhar dados específicos do prontuário com uma equipe multidisciplinar (ex: equipe de cirurgia)
 
@@ -1197,7 +1197,7 @@ Então o sistema permite o acesso controlado e logado a essas informações para
 
 E a equipe é notificada sobre o compartilhamento e o tempo de acesso.
 
-Cenário: Tentativa de compartilhamento com usuário sem permissão
+**Cenário:** Tentativa de compartilhamento com usuário sem permissão
 
 Dado que um médico tenta compartilhar informações sensíveis do paciente com um usuário que não possui a permissão de acesso a dados de saúde
 
@@ -1217,7 +1217,7 @@ E exibe uma mensagem "Usuário não possui permissão para acessar este tipo de 
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Coleta de dados de integração bem-sucedida
+**Cenário:** Coleta de dados de integração bem-sucedida
 
 Dado que há dados de consultas (agendamento), exames (laboratório) e faturamento (financeiro) em diferentes módulos do sistema
 
@@ -1227,7 +1227,7 @@ Então ele integra e padroniza as informações de todas as fontes automaticamen
 
 E as disponibiliza em um data warehouse ou base consolidada para a geração de relatórios.
 
-Cenário: Falha na integração de dados de uma fonte
+**Cenário:** Falha na integração de dados de uma fonte
 
 Dado que a rotina de coleta de dados é executada
 
@@ -1245,7 +1245,7 @@ E alerta o Diretor de Tecnologia sobre a interrupção da coleta de dados daquel
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Visualização do dashboard de desempenho em tempo real
+**Cenário:** Visualização do dashboard de desempenho em tempo real
 
 Dado que o diretor de tecnologia acessa o painel de monitoramento do sistema
 
@@ -1255,7 +1255,7 @@ Então o sistema exibe o tempo de resposta das requisições, uso de CPU e memó
 
 E apresenta o status dos serviços e aplicações críticas.
 
-Cenário: Alerta de alto consumo de recursos
+**Cenário:** Alerta de alto consumo de recursos
 
 Dado que o uso da CPU excede 80% por mais de 5 minutos
 
@@ -1273,7 +1273,7 @@ E registra o evento nos logs de desempenho para análise posterior.
 
 **BDD (Behavior-Driven Development):**
 
-Cenário: Detecção e alerta de tentativa de acesso não autorizado
+**Cenário:** Detecção e alerta de tentativa de acesso não autorizado
 
 Dado que ocorre uma tentativa de login com credenciais inválidas múltiplas vezes (ex: 5 vezes em 1 minuto)
 
@@ -1285,7 +1285,7 @@ E bloqueia temporariamente o acesso do IP de origem
 
 E registra a tentativa nos logs de segurança.
 
-Cenário: Monitoramento de integridade de arquivos críticos
+**Cenário:** Monitoramento de integridade de arquivos críticos
 
 Dado que um arquivo crítico do sistema é modificado sem autorização
 
