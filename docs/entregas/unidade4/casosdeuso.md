@@ -33,29 +33,74 @@ Para facilitar o entendimento do produto, foi utilizado Diagrama de Casos de Uso
 # Especificação dos Casos de Uso
 
 ## 1. Monitorar sistema
-### Breve descrição
+
+### Breve Descrição
+Este caso de uso permite que o administrador do sistema acompanhe, em tempo real ou em intervalos definidos, os indicadores de desempenho da plataforma ConnectCare.  
+Os dados analisados incluem número de usuários ativos, agendamentos realizados, taxa de satisfação, falhas técnicas e avaliações de usuários.  
+O objetivo é garantir a qualidade do serviço, identificar anomalias e orientar decisões estratégicas.
 
 
 ### Atores
+- **Administrador do sistema**
+
+### Fluxo de Eventos
+
+**Fluxo Principal**
+1. O administrador acessa a funcionalidade “Monitoramento do Sistema” no painel principal.
+2. O sistema exibe um dashboard com métricas atualizadas:
+   - usuários ativos,
+   - número de agendamentos,
+   - taxa de satisfação,
+   - falhas registradas.
+3. O administrador seleciona uma métrica específica para análise detalhada.
+4. O sistema exibe gráficos, estatísticas e filtros por data, região ou tipo de serviço.
+5. O administrador identifica irregularidades ou pontos de melhoria.
+6. O administrador pode registrar ações internas ou abrir solicitações técnicas.
+7. O caso de uso se encerra.
 
 
-### Fluxo de eventos
-*Fluxo principal*
-1. 
-2. 
+**Fluxos Alternativos**
 
-*Fluxo alternativo 1*
-No passo ...
-1. 
-2.
+**FA01 – Visualizar feedbacks dos usuários**
+- O administrador seleciona a aba “Avaliações”.
+- O sistema exibe os comentários e avaliações mais recentes dos usuários.
+- O administrador filtra por tipo de serviço, período ou região.
 
-*Fluxos de exceção*
-- *FE01 Nome da exceção*: 
-
-### Requisitos especiais
+ **FA02 – Exportar relatório de desempenho**
+- O administrador seleciona a opção “Exportar”.
+- O sistema apresenta os formatos disponíveis (PDF, CSV).
+- O administrador escolhe o formato e clica em “Gerar”.
+- O sistema gera o relatório e disponibiliza para download.
 
 
-### Regras de negócio
+**Fluxos de Exceção**
+
+**FE01 – Falha no carregamento de dados**
+- O sistema exibe a mensagem:  
+  **“Erro ao carregar dados do painel. Tente novamente mais tarde.”**
+- O sistema retorna ao passo 2 com dados parciais ou sugere nova tentativa.
+
+**FE02 – Falha na exportação**
+- O sistema exibe a mensagem:  
+  **“Erro ao exportar o relatório. Tente novamente.”**
+- O sistema retorna ao FA02.
+
+
+### Regras de Negócio (RN)
+- **RN01 – Acesso restrito**: Apenas administradores autenticados têm acesso ao painel de monitoramento.
+- **RN02 – Atualização periódica**: As métricas devem ser atualizadas automaticamente a cada 15 minutos ou sob demanda.
+- **RN03 – Conformidade com a LGPD**: Os dados devem ser anonimizados e armazenados de forma segura.
+
+
+### Pontos de Extensão
+
+**PE01 – Integração com alertas automatizados**
+- **Local**: Após o passo 4 do fluxo principal.  
+- **Descrição**: Se determinada métrica ultrapassar limites críticos (ex: falha > 10%), o sistema envia notificações automáticas para o administrador.
+
+**PE02 – Geração automática de relatório semanal**
+- **Local**: Após o passo 7 do fluxo principal.  
+- **Descrição**: O sistema pode gerar relatórios periódicos com base nos dados monitorados e enviá-los automaticamente por e-mail institucional.
 
 
 ## 2. Gerenciar serviços de saúde
@@ -105,30 +150,117 @@ No passo ...
 ### Regras de negócio
 
 
-## 4. Acessar serviços de saúde
+## 4. Gerenciar Campanhas 
 ### Breve descrição
-
+Este caso de uso permite que os Parceiros criem, modifiquem, visualizem e removam campanhas de saúde no sistema ConnectCare, visando promover ações de prevenção, conscientização e promoção da saúde para as comunidades.
 
 ### Atores
-
+- Parceiros.
 
 ### Fluxo de eventos
-*Fluxo principal*
-1. 
-2. 
+**Fluxo principal**
+1. O caso de uso inicia quando o Parceiro acessa a funcionalidade "Gerenciar Campanhas de Saúde" no sistema ConnectCare.
 
-*Fluxo alternativo 1*
-No passo ...
-1. 
-2.
+2. O sistema exibe uma lista de campanhas de saúde existentes (se houver) e as seguintes opções:
 
-*Fluxos de exceção*
-- *FE01 Nome da exceção*: 
+- Criar Nova Campanha
+
+- Editar Campanha
+
+- Visualizar Detalhes
+
+- Remover Campanha
+
+3. O Parceiro seleciona a opção "Visualizar Detalhes" para uma campanha existente.
+
+4. O sistema exibe todas as informações da campanha selecionada em um formato de somente leitura (ex: nome, descrição, público-alvo, período de início e fim, objetivos, recursos, status).
+
+5. O caso de uso é encerrado.
+
+
+**Fluxos alternativos**
+FA01 - Criar Nova Campanha
+
+1. No passo 2 do fluxo básico, o Parceiro seleciona a opção "Criar Nova Campanha".
+
+2. O sistema apresenta um formulário para entrada de dados da nova campanha, solicitando:
+
+- Nome da Campanha
+
+- Descrição
+
+- Público-alvo
+
+- Período de Início
+
+- Período de Fim
+
+- Objetivos
+
+- Recursos Necessários
+
+- Status (ex: Rascunho, Ativa, Finalizada)
+
+3. O Parceiro preenche os dados e clica em "Salvar" [FE01].
+
+4. O sistema valida os dados [RN01] [RN02] e registra a nova campanha no banco de dados.
+
+5. O sistema exibe a mensagem de sucesso: "Campanha criada com sucesso!".
+
+6. O caso de uso é encerrado.
+
+FA02 - Editar Campanha
+
+1. No passo 2 do fluxo básico, o Parceiro seleciona uma campanha da lista e escolhe a opção "Editar Campanha".
+
+2. O sistema carrega os dados da campanha selecionada em um formulário pré-preenchido.
+
+3. O Parceiro modifica os dados conforme necessário e clica em "Salvar" [FE01].
+
+4. O sistema valida os dados [RN01] [RN02] e atualiza as informações da campanha no banco de dados.
+
+5. O sistema exibe a mensagem de sucesso: "Campanha atualizada com sucesso!".
+
+6. O caso de uso é encerrado.
+
+FA03 - Remover Campanha
+
+1. No passo 2 do fluxo básico, o Parceiro seleciona uma campanha da lista e escolhe a opção "Remover Campanha".
+
+2. O sistema solicita uma confirmação da remoção com uma janela de diálogo (modal) com o aviso "Atenção! Você tem certeza que deseja remover esta campanha? Esta ação é permanente."
+
+3. Se o Parceiro confirmar a remoção, o sistema remove a campanha do banco de dados [RN03].
+
+4. O sistema exibe a mensagem de sucesso: "Campanha removida com sucesso!".
+
+5. O caso de uso é encerrado.
+
+
+**Fluxos de exceção**
+FE01: Dados Inválidos (FA01 passo 3, FA02 passo 3): Se os dados submetidos pelo Parceiro forem inválidos (ex: campos obrigatórios vazios, formato incorreto de data), o sistema não salva as informações, exibe mensagens de erro indicando qual(is) campo(s) precisa(m) ser corrigido(s) e permanece no formulário para correção.
+
+FE02: Nenhuma Campanha Cadastrada (Fluxo Principal passo 2): Se não houver campanhas cadastradas no sistema, o sistema informará ao Parceiro que "Não há campanhas cadastradas no momento." e pode sugerir a criação de uma nova.
+
+FE03: Falha na Conexão/Processamento: Em qualquer ponto onde o sistema tenta acessar o banco de dados ou processar informações (FA01 passo 4, FA02 passo 4, FA03 passo 3), se houver uma falha na conexão ou no processamento de dados, o sistema exibe uma mensagem de erro genérica (ex: "Erro ao processar a solicitação. Tente novamente mais tarde.") e o caso de uso é abortado.
 
 ### Requisitos especiais
 
+A interface deve ser intuitiva e fácil de usar.
+
+Todos os campos de entrada devem ser validados para garantir a integridade dos dados.
+
+Somente Parceiros autenticados e autorizados devem ter acesso a esta funcionalidade.
+
+Capacidade de filtrar e ordenar a lista de campanhas.
+
 
 ### Regras de negócio
+
+RN01 - Nome Único: Cada campanha deve ter um nome único no sistema.
+
+RN02 - Validação de Período: A "Período de Início" de uma campanha não pode ser posterior ao "Período de Fim".
+
+RN03 - Restrição de Remoção: Campanhas que já foram ativas ou que possuem dados de impacto registrados (e que seriam usados em "Monitorar Indicadores de Impacto de Campanhas") não podem ser removidas diretamente, apenas arquivadas ou desativadas (ou necessitam de permissão especial do administrador).
 
 
 ## 5. Gerenciar conta de profissional da saúde
@@ -376,5 +508,4 @@ N/A.
 | :- | :- | :- | :- |
 |**07/07/25**|0.1| Adiciona esqueleto |Sophia|
 |**07/07/25**|0.2|Adicionando o Caso de Uso número 6 |Pedro|
-|**07/07/25**|0.3| Adiciona UC de Gerenciar Dados Médicos | Wanjo Christopher |
-
+|**07/07/25**|0.3|Adicionando o Caso de Uso número 1 |Kaio|
