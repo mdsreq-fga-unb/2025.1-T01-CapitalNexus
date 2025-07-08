@@ -33,29 +33,74 @@ Para facilitar o entendimento do produto, foi utilizado Diagrama de Casos de Uso
 # Especificação dos Casos de Uso
 
 ## 1. Monitorar sistema
-### Breve descrição
+
+### Breve Descrição
+Este caso de uso permite que o administrador do sistema acompanhe, em tempo real ou em intervalos definidos, os indicadores de desempenho da plataforma ConnectCare.  
+Os dados analisados incluem número de usuários ativos, agendamentos realizados, taxa de satisfação, falhas técnicas e avaliações de usuários.  
+O objetivo é garantir a qualidade do serviço, identificar anomalias e orientar decisões estratégicas.
 
 
 ### Atores
+- **Administrador do sistema**
+
+### Fluxo de Eventos
+
+**Fluxo Principal**
+1. O administrador acessa a funcionalidade “Monitoramento do Sistema” no painel principal.
+2. O sistema exibe um dashboard com métricas atualizadas:
+   - usuários ativos,
+   - número de agendamentos,
+   - taxa de satisfação,
+   - falhas registradas.
+3. O administrador seleciona uma métrica específica para análise detalhada.
+4. O sistema exibe gráficos, estatísticas e filtros por data, região ou tipo de serviço.
+5. O administrador identifica irregularidades ou pontos de melhoria.
+6. O administrador pode registrar ações internas ou abrir solicitações técnicas.
+7. O caso de uso se encerra.
 
 
-### Fluxo de eventos
-*Fluxo principal*
-1. 
-2. 
+**Fluxos Alternativos**
 
-*Fluxo alternativo 1*
-No passo ...
-1. 
-2.
+**FA01 – Visualizar feedbacks dos usuários**
+- O administrador seleciona a aba “Avaliações”.
+- O sistema exibe os comentários e avaliações mais recentes dos usuários.
+- O administrador filtra por tipo de serviço, período ou região.
 
-*Fluxos de exceção*
-- *FE01 Nome da exceção*: 
-
-### Requisitos especiais
+ **FA02 – Exportar relatório de desempenho**
+- O administrador seleciona a opção “Exportar”.
+- O sistema apresenta os formatos disponíveis (PDF, CSV).
+- O administrador escolhe o formato e clica em “Gerar”.
+- O sistema gera o relatório e disponibiliza para download.
 
 
-### Regras de negócio
+**Fluxos de Exceção**
+
+**FE01 – Falha no carregamento de dados**
+- O sistema exibe a mensagem:  
+  **“Erro ao carregar dados do painel. Tente novamente mais tarde.”**
+- O sistema retorna ao passo 2 com dados parciais ou sugere nova tentativa.
+
+**FE02 – Falha na exportação**
+- O sistema exibe a mensagem:  
+  **“Erro ao exportar o relatório. Tente novamente.”**
+- O sistema retorna ao FA02.
+
+
+### Regras de Negócio (RN)
+- **RN01 – Acesso restrito**: Apenas administradores autenticados têm acesso ao painel de monitoramento.
+- **RN02 – Atualização periódica**: As métricas devem ser atualizadas automaticamente a cada 15 minutos ou sob demanda.
+- **RN03 – Conformidade com a LGPD**: Os dados devem ser anonimizados e armazenados de forma segura.
+
+
+### Pontos de Extensão
+
+**PE01 – Integração com alertas automatizados**
+- **Local**: Após o passo 4 do fluxo principal.  
+- **Descrição**: Se determinada métrica ultrapassar limites críticos (ex: falha > 10%), o sistema envia notificações automáticas para o administrador.
+
+**PE02 – Geração automática de relatório semanal**
+- **Local**: Após o passo 7 do fluxo principal.  
+- **Descrição**: O sistema pode gerar relatórios periódicos com base nos dados monitorados e enviá-los automaticamente por e-mail institucional.
 
 
 ## 2. Gerenciar serviços de saúde
@@ -332,3 +377,4 @@ No passo 2, o agente seleciona um relatório disponível.
 | :- | :- | :- | :- |
 |**07/07/25**|0.1|Adiciona esqueleto |Sophia|
 |**07/07/25**|0.2|Adicionando o Caso de Uso número 6 |Pedro|
+|**07/07/25**|0.3|Adicionando o Caso de Uso número 1 |Kaio|
