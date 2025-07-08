@@ -244,33 +244,91 @@ RN03 - Horários de atendimento: Os horários de atendimento não podem ultrapas
 
 RN04 - Foto de perfil: A foto deve ser uma imagem nítida do rosto do profissional e ter no máximo 5mb. É proibido o uso de logotipos, avatares, paisagens, personagens ou qualquer imagem que não seja do próprio profissional.
 
-## 6. Gerenciar dados médicos
-### Breve descrição
+## 6. Gerenciar Relatórios de Comunidade
 
+### Breve descrição
+Este caso de uso permite que um agente comunitário registre e visualize relatórios sobre o estado de saúde da comunidade atendida por meio da plataforma ConnectCare.  
+Os relatórios incluem dados coletados em visitas domiciliares, campanhas de saúde e observações gerais sobre fatores ambientais, sociais e epidemiológicos.  
+O objetivo é fornecer uma visão consolidada para apoiar decisões estratégicas em saúde pública.
 
 ### Atores
-
+- Agente comunitário  
+- Administrador do sistema
 
 ### Fluxo de eventos
-*Fluxo principal*
-1. 
-2. 
 
-*Fluxo alternativo 1*
-No passo ...
-1. 
-2.
+**Fluxo principal**
+1. O agente acessa a opção “Relatórios da Comunidade” no menu principal.  
+2. O sistema apresenta as opções:  
+   - Criar novo relatório  
+   - Visualizar relatórios anteriores  
+   - Exportar relatório  
+3. O agente seleciona “Criar novo relatório”.  
+4. O sistema apresenta um formulário com os campos:
+   - Período da coleta  
+   - Áreas visitadas  
+   - Problemas de saúde mais recorrentes  
+   - Número de atendimentos realizados  
+   - Observações adicionais  
+5. O agente preenche todos os campos obrigatórios.
+6. O agente confirma o envio do relatório.  
+7. O sistema valida os dados, armazena o relatório e disponibiliza uma visualização resumida.  
+8. O agente recebe uma notificação de confirmação.  
+9. O caso de uso se encerra.
 
-*Fluxos de exceção*
-- *FE01 Nome da exceção*: 
+**Fluxo alternativo 1 – Visualizar relatórios anteriores**
+No passo 2, o agente seleciona a opção “Visualizar relatórios anteriores”.
+1. O sistema exibe uma lista filtrável por data, área e tipo de relatório.  
+2. O agente seleciona um relatório e o sistema exibe o conteúdo completo.  
+
+**Fluxo alternativo 2 – Exportar relatório**
+No passo 2, o agente seleciona um relatório disponível.  
+1. O sistema oferece opções de exportação (PDF, CSV).  
+2. O agente escolhe o formato desejado.  
+3. O sistema gera o arquivo e disponibiliza o download.
+
+**Fluxos de exceção**
+- *FE01 – Campos obrigatórios não preenchidos*:  
+  “Todos os campos obrigatórios devem ser preenchidos antes de salvar o relatório.”  
+  O sistema retorna ao passo 5 do fluxo principal.  
+
+- *FE02 – Falha na exportação*:  
+  “Erro ao exportar o relatório. Tente novamente mais tarde.”  
+  O sistema retorna ao fluxo alternativo de exportação.
 
 ### Requisitos especiais
-
+- Os relatórios devem estar disponíveis para visualização offline, se necessário.
+- O sistema deve permitir exportação em formatos PDF e CSV.
+- O caso de uso deve ser acessível por dispositivos móveis de baixa performance.
 
 ### Regras de negócio
+
+- **RN01 – Preenchimento obrigatório**  
+  O sistema não permite salvar o relatório se campos obrigatórios estiverem vazios.
+
+- **RN02 – Acesso restrito**  
+  Apenas agentes autenticados podem criar relatórios. Apenas administradores podem visualizar relatórios consolidados de várias regiões.
+
+- **RN03 – Armazenamento seguro**  
+  Os relatórios devem ser armazenados seguindo normas da LGPD, com acesso controlado por perfil.
+
+- **RN04 – Relatórios como fonte de estatística pública**  
+  Os dados podem ser consolidados e utilizados de forma anônima para formulação de políticas públicas.
+
+### Pontos de Extensão
+
+- **PE01 – Integração com dados de campanhas e atendimentos individuais**  
+  *Local do Ponto de Extensão:* Após o passo 4  
+  *Descrição:* O sistema pode sugerir dados automáticos com base em atendimentos registrados na plataforma.
+
+- **PE02 – Geração de indicadores visuais**  
+  *Local do Ponto de Extensão:* Após o passo 7  
+  *Descrição:* O sistema pode gerar gráficos e tabelas para visualização rápida dos dados do relatório.
+
 
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**07/07/25**|0.1|Adiciona esqueleto |Sophia|
+|**07/07/25**|0.2|Adicionando o Caso de Uso número 6 |Pedro|
