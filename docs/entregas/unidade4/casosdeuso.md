@@ -47,26 +47,34 @@ O objetivo é garantir a qualidade do serviço, identificar anomalias e orientar
 
 **Fluxo Principal**
 1. O administrador acessa a funcionalidade “Monitoramento do Sistema” no painel principal.
+
 2. O sistema exibe um dashboard com métricas atualizadas:
    - usuários ativos,
    - número de agendamentos,
    - taxa de satisfação,
    - falhas registradas.
+
 3. O administrador seleciona uma métrica específica para análise detalhada.
+
 4. O sistema exibe gráficos, estatísticas e filtros por data, região ou tipo de serviço.
+
 5. O administrador identifica irregularidades ou pontos de melhoria.
+
 6. O administrador pode registrar ações internas ou abrir solicitações técnicas.
+
 7. O caso de uso se encerra.
 
 
 **Fluxos Alternativos**
 
 **FA01 – Visualizar feedbacks dos usuários**
+
 - O administrador seleciona a aba “Avaliações”.
 - O sistema exibe os comentários e avaliações mais recentes dos usuários.
 - O administrador filtra por tipo de serviço, período ou região.
 
  **FA02 – Exportar relatório de desempenho**
+
 - O administrador seleciona a opção “Exportar”.
 - O sistema apresenta os formatos disponíveis (PDF, CSV).
 - O administrador escolhe o formato e clica em “Gerar”.
@@ -76,11 +84,12 @@ O objetivo é garantir a qualidade do serviço, identificar anomalias e orientar
 **Fluxos de Exceção**
 
 **FE01 – Falha no carregamento de dados**
-- O sistema exibe a mensagem:  
-  **“Erro ao carregar dados do painel. Tente novamente mais tarde.”**
+
+- O sistema exibe a mensagem: **“Erro ao carregar dados do painel. Tente novamente mais tarde.”**
 - O sistema retorna ao passo 2 com dados parciais ou sugere nova tentativa.
 
 **FE02 – Falha na exportação**
+
 - O sistema exibe a mensagem:  
   **“Erro ao exportar o relatório. Tente novamente.”**
 - O sistema retorna ao FA02.
@@ -124,30 +133,49 @@ O objetivo é garantir a qualidade do serviço, identificar anomalias e orientar
 ### Regras de negócio
 
 
-## 3. Visualizar serviços de saúde
+## 3. Gerenciar Dados Médicos
 ### Breve descrição
-
+Permite a criação e atualização de dados de saúde na plataforma, incluindo registros clínicos por profissionais , informações de perfil por pacientes e relatórios de saúde por agentes comunitários.
 
 ### Atores
-
+1. Profissional de Saúde
+1. Paciente
+1. Agente Comunitário
 
 ### Fluxo de eventos
-*Fluxo principal*
-1. 
-2. 
+*Fluxo Base (F.B)* 
+1. O Profissional de Saúde, durante um atendimento, acessa o prontuário digital de um paciente.
+1. O ator seleciona a opção para adicionar um novo registro ao prontuário.
+1. O ator insere as informações clínicas, como diagnósticos, prescrições, orientações ou solicitações de exames.
+1. O sistema valida os dados inseridos para garantir a integridade das informações. [RN05] [FE01]
+1. O ator confirma a submissão.
+1.O sistema salva as novas informações no prontuário do paciente em tempo real e registra a identificação do profissional e a data/hora da alteração. [RN06] [RN08] [FE02]
 
-*Fluxo alternativo 1*
-No passo ...
-1. 
-2.
+*Fluxo alternativo 1 (F.A.01) - Paciente gerencia suas informações de perfil*
+No passo 1 do Fluxo Principal, o ator é um Paciente.
+1. O Paciente, logado no sistema, acessa a área de seu perfil pessoal.
+1. O ator insere ou atualiza suas "informações pessoais, como nome, idade e condições de saúde preexistentes". [RN07]
+1. O sistema valida e salva as informações no perfil do paciente.
+
+*Fluxo alternativo 2 (F.A.02) - Agente Comunitário registra visita domiciliar*
+No passo 1 do Fluxo Principal, o ator é um Agente Comunitário.
+1. O Agente Comunitário, logado na plataforma, seleciona a funcionalidade específica para "registrar visitas domiciliares".
+1. O ator preenche o relatório com as informações da visita, incluindo as "condições de saúde nas comunidades atendidas".
+1. O sistema salva o relatório, que pode ser usado para a "identificação de áreas prioritárias e na organização de campanhas preventivas".
 
 *Fluxos de exceção*
-- *FE01 Nome da exceção*: 
+- *F.E.01 Validação de dados falha*: No passo 4 do Fluxo Principal, se os dados inseridos forem inválidos ou incompletos conforme a RN05, o sistema impede o salvamento e informa ao ator quais campos precisam ser corrigidos.
+- *F.E.02 - Falha de conexão durante o salvamento*: No passo 6 do Fluxo Principal, se a conexão com a internet falhar, o sistema deve ser capaz de salvar um rascunho local para sincronização posterior, garantindo que o trabalho não seja perdido, visto que a plataforma é projetada para funcionar em conexões limitadas.
+
 
 ### Requisitos especiais
-
+N/A.
 
 ### Regras de negócio
+- RN05: Certos campos de um registro médico (ex: descrição do diagnóstico) são de preenchimento obrigatório para garantir um atendimento "preciso e eficiente".
+- RN06: Todas as adições e alterações no prontuário de um paciente devem ser registradas com a identificação do profissional e a data/hora da alteração para garantir um ambiente "seguro e confiável".
+- RN07: O Paciente só pode gerenciar suas informações básicas e "condições de saúde preexistentes", não podendo inserir registros clínicos como "diagnósticos, prescrições e orientações".
+- RN08: Profissionais de Saúde e Agentes Comunitários só podem gerenciar dados de pacientes e comunidades dentro de sua área de atuação designada.
 
 
 ## 4. Gerenciar Campanhas 
@@ -462,6 +490,9 @@ No passo 2, o agente seleciona um relatório disponível.
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
-|**07/07/25**|0.1|Adiciona esqueleto |Sophia|
+|**07/07/25**|0.1|Adiciona esqueleto e Caso de Uso número 5 |Sophia|
 |**07/07/25**|0.2|Adicionando o Caso de Uso número 6 |Pedro|
 |**07/07/25**|0.3|Adicionando o Caso de Uso número 1 |Kaio|
+|**08/07/25**|0.4|Adicionando o Caso de Uso número 4 |Maria|
+|**08/07/25**|0.5|Adicionando o Caso de Uso número 3 |Christopher|
+
