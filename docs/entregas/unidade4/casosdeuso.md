@@ -154,6 +154,7 @@ O caso de uso inicia quando o profissional da saúde clica no ícone "Meu Perfil
 - Excluir
 
 2 - O profissional seleciona a opção "Visualizar"
+
 3 - O sistema redireciona o profissional para a sua página de perfil, exibindo as informações
 
 - Foto de perfil
