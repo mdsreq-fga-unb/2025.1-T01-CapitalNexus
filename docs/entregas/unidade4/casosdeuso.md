@@ -52,8 +52,11 @@ O objetivo é garantir a qualidade do serviço, identificar anomalias e orientar
 2. O sistema exibe um dashboard com métricas atualizadas:
 
 usuários ativos,
+
 número de agendamentos,
+
 taxa de satisfação,
+
 falhas registradas.
 
 3. O administrador seleciona uma métrica específica para análise detalhada.
@@ -203,8 +206,11 @@ Este caso de uso permite que os Parceiros criem, modifiquem, visualizem e remova
 2. O sistema exibe uma lista de campanhas de saúde existentes (se houver) e as seguintes opções:
 
 Criar Nova Campanha
+
 Editar Campanha
+
 Visualizar Detalhes
+
 Remover Campanha
 
 3. O Parceiro seleciona a opção "Visualizar Detalhes" para uma campanha existente.
@@ -223,13 +229,20 @@ FA01 - Criar Nova Campanha
 2. O sistema apresenta um formulário para entrada de dados da nova campanha, solicitando:
 
 Nome da Campanha
+
 Descrição
+
 Público-alvo
+
 Período de Início
+
 Período de Fim
+
 Objetivos
+
 Recursos Necessários
-Status (ex: Rascunho, Ativa, Finalizada)
+
+Status (Rascunho, Ativa, Finalizada)
 
 3. O Parceiro preenche os dados e clica em "Salvar" [FE01].
 
