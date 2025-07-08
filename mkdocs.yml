@@ -30,6 +30,8 @@ nav:
         - PBB: entregas/unidade3/PBB.md
         - USM: entregas/unidade3/USM.md
         - Apresentação e incremento: entregas/unidade3/entrega.md
+      - Unidade 4:
+        - Casos de uso: entregas/unidade4/casosdeuso.md
 
 
 theme:
