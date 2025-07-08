@@ -1,0 +1,1755 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../unidade3/entrega/">
+      
+      
+      
+      <link rel="icon" href="../../../None">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Casos de uso - Capital Nexus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/styles.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#estudo-de-caso-connectcare" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="Capital Nexus" class="md-header__button md-logo" aria-label="Capital Nexus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Capital Nexus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Casos de uso
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mdsreq-fga-unb/2025.1-T01-CapitalNexus" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2025.1-T01-CapitalNexus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Capital Nexus" class="md-nav__button md-logo" aria-label="Capital Nexus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Capital Nexus
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mdsreq-fga-unb/2025.1-T01-CapitalNexus" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2025.1-T01-CapitalNexus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Visão do Produto e Projeto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Visão do Produto e Projeto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/cenario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cenário atual do cliente e do negócio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/solucao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Solução proposta
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/estrategias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Estratégias de engenharia de software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/engrequisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Engenharia de requisitos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/cronograma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cronograma
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/interacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interação entre equipe e cliente
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/doredod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DoR e DoD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/Evid%C3%AAncias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evidências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/licoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lições aprendidas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/contribuicao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Política de contribuição
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/referencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Referências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Requisitos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Requisitos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../requisitos/reqfuncional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requisitos funcionais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../requisitos/reqnaofuncional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requisitos não funcionais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Backlog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Backlog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backlog/geral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backlog Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backlog/mvp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Priorização e Produto Mínimo Viável
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Entregas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Entregas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidadeum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unidade 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidade2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unidade 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Unidade 3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unidade 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidade3/PBB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PBB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidade3/USM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidade3/entrega/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apresentação e incremento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Unidade 4
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Unidade 4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Casos de uso
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Casos de uso
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#atores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapeamento-de-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mapeamento de Casos de Uso
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#atores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapeamento-de-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mapeamento de Casos de Uso
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="estudo-de-caso-connectcare">Estudo de caso: ConnectCare</h1>
+<p>Em uma comunidade remota chamada Vila Esperança, onde o acesso a serviços de saúde é limitado, um grupo de desenvolvedores e ativistas sociais se reuniu para criar o "ConnectCare". A plataforma foi projetada para superar barreiras, como a falta de transporte e informações, facilitando o acesso dos moradores a cuidados médicos. O objetivo principal é garantir que comunidades vulneráveis tenham acesso facilitado e eficiente a serviços de saúde, promovendo bem-estar social e impacto positivo por meio da tecnologia.</p>
+<p>Para facilitar o entendimento do produto, foi utilizado Diagrama de Casos de Uso, que pode ser visualizado a seguir.</p>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/0d6cf692-ced8-43f7-ba5d-cdf58f6ce4ab" id="-FXvrC83u1Cn"></iframe></div>
+
+<h2 id="atores">Atores</h2>
+<ul>
+<li><em>Administrador</em>: Administrador do sistema, responsável pela manutenção e funcionamento do sistema.</li>
+<li><em>Paciente</em>: Público-alvo do sistema, pode localizar e acessar serviços de saúde essenciais.</li>
+<li><em>Profissional da saúde</em>: Gerencia os atendimentos e acessam informações de saúde dos pacientes.</li>
+<li><em>Agente comunitário</em>: Gerencia visitas domiciliares e relatórios de saúde das comunidades.</li>
+<li><em>Parceiro</em>: Gerencia campanhas de saúde e seus indicadores de desempenho.</li>
+</ul>
+<h2 id="mapeamento-de-casos-de-uso">Mapeamento de Casos de Uso</h2>
+<ol>
+<li>
+<p>Administrador</p>
+</li>
+<li>
+<p>Paciente</p>
+</li>
+<li>
+<p>Profissional da saúde</p>
+</li>
+<li>
+<p>Agente Comunitário</p>
+</li>
+<li>
+<p>Parceiros</p>
+</li>
+</ol>
+<h1 id="especificacao-dos-casos-de-uso">Especificação dos Casos de Uso</h1>
+<h2 id="1-monitorar-sistema">1. Monitorar sistema</h2>
+<h3 id="breve-descricao">Breve Descrição</h3>
+<p>Este caso de uso permite que o administrador do sistema acompanhe, em tempo real ou em intervalos definidos, os indicadores de desempenho da plataforma ConnectCare.<br />
+Os dados analisados incluem número de usuários ativos, agendamentos realizados, taxa de satisfação, falhas técnicas e avaliações de usuários.<br />
+O objetivo é garantir a qualidade do serviço, identificar anomalias e orientar decisões estratégicas.</p>
+<h3 id="atores_1">Atores</h3>
+<ul>
+<li><strong>Administrador do sistema</strong></li>
+</ul>
+<h3 id="fluxo-de-eventos">Fluxo de Eventos</h3>
+<p><strong>Fluxo Principal</strong></p>
+<ol>
+<li>
+<p>O administrador acessa a funcionalidade “Monitoramento do Sistema” no painel principal.</p>
+</li>
+<li>
+<p>O sistema exibe um dashboard com métricas atualizadas:</p>
+</li>
+</ol>
+<p>usuários ativos,</p>
+<p>número de agendamentos,</p>
+<p>taxa de satisfação,</p>
+<p>falhas registradas.</p>
+<ol>
+<li>
+<p>O administrador seleciona uma métrica específica para análise detalhada.</p>
+</li>
+<li>
+<p>O sistema exibe gráficos, estatísticas e filtros por data, região ou tipo de serviço.</p>
+</li>
+<li>
+<p>O administrador identifica irregularidades ou pontos de melhoria.</p>
+</li>
+<li>
+<p>O administrador pode registrar ações internas ou abrir solicitações técnicas.</p>
+</li>
+<li>
+<p>O caso de uso se encerra.</p>
+</li>
+</ol>
+<p><strong>Fluxos Alternativos</strong></p>
+<p><strong>FA01 – Visualizar feedbacks dos usuários</strong></p>
+<ul>
+<li>O administrador seleciona a aba “Avaliações”.</li>
+<li>O sistema exibe os comentários e avaliações mais recentes dos usuários.</li>
+<li>O administrador filtra por tipo de serviço, período ou região.</li>
+</ul>
+<p><strong>FA02 – Exportar relatório de desempenho</strong></p>
+<ul>
+<li>O administrador seleciona a opção “Exportar”.</li>
+<li>O sistema apresenta os formatos disponíveis (PDF, CSV).</li>
+<li>O administrador escolhe o formato e clica em “Gerar”.</li>
+<li>O sistema gera o relatório e disponibiliza para download.</li>
+</ul>
+<p><strong>Fluxos de Exceção</strong></p>
+<p><strong>FE01 – Falha no carregamento de dados</strong></p>
+<ul>
+<li>O sistema exibe a mensagem: <strong>“Erro ao carregar dados do painel. Tente novamente mais tarde.”</strong></li>
+<li>O sistema retorna ao passo 2 com dados parciais ou sugere nova tentativa.</li>
+</ul>
+<p><strong>FE02 – Falha na exportação</strong></p>
+<ul>
+<li>O sistema exibe a mensagem:<br />
+<strong>“Erro ao exportar o relatório. Tente novamente.”</strong></li>
+<li>O sistema retorna ao FA02.</li>
+</ul>
+<h3 id="regras-de-negocio-rn">Regras de Negócio (RN)</h3>
+<ul>
+<li><strong>RN01 – Acesso restrito</strong>: Apenas administradores autenticados têm acesso ao painel de monitoramento.</li>
+<li><strong>RN02 – Atualização periódica</strong>: As métricas devem ser atualizadas automaticamente a cada 15 minutos ou sob demanda.</li>
+<li><strong>RN03 – Conformidade com a LGPD</strong>: Os dados devem ser anonimizados e armazenados de forma segura.</li>
+</ul>
+<h3 id="pontos-de-extensao">Pontos de Extensão</h3>
+<p><strong>PE01 – Integração com alertas automatizados</strong></p>
+<ul>
+<li><strong>Local</strong>: Após o passo 4 do fluxo principal.  </li>
+<li><strong>Descrição</strong>: Se determinada métrica ultrapassar limites críticos (ex: falha &gt; 10%), o sistema envia notificações automáticas para o administrador.</li>
+</ul>
+<p><strong>PE02 – Geração automática de relatório semanal</strong></p>
+<ul>
+<li><strong>Local</strong>: Após o passo 7 do fluxo principal.  </li>
+<li><strong>Descrição</strong>: O sistema pode gerar relatórios periódicos com base nos dados monitorados e enviá-los automaticamente por e-mail institucional.</li>
+</ul>
+<h2 id="2-gerenciar-servicos-de-saude">2. Gerenciar serviços de saúde</h2>
+<h3 id="breve-descricao_1">Breve descrição</h3>
+<h3 id="atores_2">Atores</h3>
+<h3 id="fluxo-de-eventos_1">Fluxo de eventos</h3>
+<p><em>Fluxo principal</em>
+1. 
+2. </p>
+<p><em>Fluxos de exceção</em>
+- <em>FE01 Nome da exceção</em>: </p>
+<h3 id="requisitos-especiais">Requisitos especiais</h3>
+<h3 id="regras-de-negocio">Regras de negócio</h3>
+<h2 id="3-gerenciar-dados-medicos">3. Gerenciar Dados Médicos</h2>
+<h3 id="breve-descricao_2">Breve descrição</h3>
+<p>Permite a criação e atualização de dados de saúde na plataforma, incluindo registros clínicos por profissionais , informações de perfil por pacientes e relatórios de saúde por agentes comunitários.</p>
+<h3 id="atores_3">Atores</h3>
+<ol>
+<li>Profissional de Saúde</li>
+<li>Paciente</li>
+<li>Agente Comunitário</li>
+</ol>
+<h3 id="fluxo-de-eventos_2">Fluxo de eventos</h3>
+<ol>
+<li>O Profissional de Saúde, durante um atendimento, acessa o prontuário digital de um paciente.</li>
+<li>O ator seleciona a opção para adicionar um novo registro ao prontuário.</li>
+<li>O ator insere as informações clínicas, como diagnósticos, prescrições, orientações ou solicitações de exames.</li>
+<li>O sistema valida os dados inseridos para garantir a integridade das informações. [RN01] [FE01]</li>
+<li>O ator confirma a submissão.
+1.O sistema salva as novas informações no prontuário do paciente em tempo real e registra a identificação do profissional e a data/hora da alteração. [RN02] [RN04] [FE02]</li>
+</ol>
+<p><em>Fluxo alternativo 1 (F.A.01) - Paciente gerencia suas informações de perfil</em></p>
+<p>No passo 1 do Fluxo Principal, o ator é um Paciente.</p>
+<ol>
+<li>O Paciente, logado no sistema, acessa a área de seu perfil pessoal.</li>
+<li>O ator insere ou atualiza suas "informações pessoais, como nome, idade e condições de saúde preexistentes". [RN03]</li>
+<li>O sistema valida e salva as informações no perfil do paciente.</li>
+</ol>
+<p><em>Fluxo alternativo 2 (F.A.02) - Agente Comunitário registra visita domiciliar</em></p>
+<p>No passo 1 do Fluxo Principal, o ator é um Agente Comunitário.</p>
+<ol>
+<li>O Agente Comunitário, logado na plataforma, seleciona a funcionalidade específica para "registrar visitas domiciliares".</li>
+<li>O ator preenche o relatório com as informações da visita, incluindo as "condições de saúde nas comunidades atendidas".</li>
+<li>O sistema salva o relatório, que pode ser usado para a "identificação de áreas prioritárias e na organização de campanhas preventivas".</li>
+</ol>
+<p><em>Fluxos de exceção</em></p>
+<ul>
+<li>
+<p><em>F.E.01 Validação de dados falha</em>: No passo 4 do Fluxo Principal, se os dados inseridos forem inválidos ou incompletos conforme a RN01, o sistema impede o salvamento e informa ao ator quais campos precisam ser corrigidos.</p>
+</li>
+<li>
+<p><em>F.E.02 - Falha de conexão durante o salvamento</em>: No passo 6 do Fluxo Principal, se a conexão com a internet falhar, o sistema deve ser capaz de salvar um rascunho local para sincronização posterior, garantindo que o trabalho não seja perdido, visto que a plataforma é projetada para funcionar em conexões limitadas.</p>
+</li>
+</ul>
+<h3 id="requisitos-especiais_1">Requisitos especiais</h3>
+<p>N/A.</p>
+<h3 id="regras-de-negocio_1">Regras de negócio</h3>
+<ul>
+<li>RN01: Certos campos de um registro médico (ex: descrição do diagnóstico) são de preenchimento obrigatório para garantir um atendimento "preciso e eficiente".</li>
+<li>RN02: Todas as adições e alterações no prontuário de um paciente devem ser registradas com a identificação do profissional e a data/hora da alteração para garantir um ambiente "seguro e confiável".</li>
+<li>RN03: O Paciente só pode gerenciar suas informações básicas e "condições de saúde preexistentes", não podendo inserir registros clínicos como "diagnósticos, prescrições e orientações".</li>
+<li>RN04: Profissionais de Saúde e Agentes Comunitários só podem gerenciar dados de pacientes e comunidades dentro de sua área de atuação designada.</li>
+</ul>
+<h2 id="4-gerenciar-campanhas">4. Gerenciar Campanhas</h2>
+<h3 id="breve-descricao_3">Breve descrição</h3>
+<p>Este caso de uso permite que os Parceiros criem, modifiquem, visualizem e removam campanhas de saúde no sistema ConnectCare, visando promover ações de prevenção, conscientização e promoção da saúde para as comunidades.</p>
+<h3 id="atores_4">Atores</h3>
+<ul>
+<li>Parceiros.</li>
+</ul>
+<h3 id="fluxo-de-eventos_3">Fluxo de eventos</h3>
+<p><strong>Fluxo principal</strong></p>
+<ol>
+<li>
+<p>O caso de uso inicia quando o Parceiro acessa a funcionalidade "Gerenciar Campanhas de Saúde" no sistema ConnectCare.</p>
+</li>
+<li>
+<p>O sistema exibe uma lista de campanhas de saúde existentes (se houver) e as seguintes opções:</p>
+</li>
+</ol>
+<p>Criar Nova Campanha</p>
+<p>Editar Campanha</p>
+<p>Visualizar Detalhes</p>
+<p>Remover Campanha</p>
+<ol>
+<li>
+<p>O Parceiro seleciona a opção "Visualizar Detalhes" para uma campanha existente.</p>
+</li>
+<li>
+<p>O sistema exibe todas as informações da campanha selecionada em um formato de somente leitura (ex: nome, descrição, público-alvo, período de início e fim, objetivos, recursos, status).</p>
+</li>
+<li>
+<p>O caso de uso é encerrado.</p>
+</li>
+</ol>
+<p><strong>Fluxos alternativos</strong></p>
+<p>FA01 - Criar Nova Campanha</p>
+<ol>
+<li>
+<p>No passo 2 do fluxo básico, o Parceiro seleciona a opção "Criar Nova Campanha".</p>
+</li>
+<li>
+<p>O sistema apresenta um formulário para entrada de dados da nova campanha, solicitando:</p>
+</li>
+</ol>
+<p>Nome da Campanha</p>
+<p>Descrição</p>
+<p>Público-alvo</p>
+<p>Período de Início</p>
+<p>Período de Fim</p>
+<p>Objetivos</p>
+<p>Recursos Necessários</p>
+<p>Status (Rascunho, Ativa, Finalizada)</p>
+<ol>
+<li>
+<p>O Parceiro preenche os dados e clica em "Salvar" [FE01].</p>
+</li>
+<li>
+<p>O sistema valida os dados [RN01] [RN02] e registra a nova campanha no banco de dados.</p>
+</li>
+<li>
+<p>O sistema exibe a mensagem de sucesso: "Campanha criada com sucesso!".</p>
+</li>
+<li>
+<p>O caso de uso é encerrado.</p>
+</li>
+</ol>
+<p>FA02 - Editar Campanha</p>
+<ol>
+<li>
+<p>No passo 2 do fluxo básico, o Parceiro seleciona uma campanha da lista e escolhe a opção "Editar Campanha".</p>
+</li>
+<li>
+<p>O sistema carrega os dados da campanha selecionada em um formulário pré-preenchido.</p>
+</li>
+<li>
+<p>O Parceiro modifica os dados conforme necessário e clica em "Salvar" [FE01].</p>
+</li>
+<li>
+<p>O sistema valida os dados [RN01] [RN02] e atualiza as informações da campanha no banco de dados.</p>
+</li>
+<li>
+<p>O sistema exibe a mensagem de sucesso: "Campanha atualizada com sucesso!".</p>
+</li>
+<li>
+<p>O caso de uso é encerrado.</p>
+</li>
+</ol>
+<p>FA03 - Remover Campanha</p>
+<ol>
+<li>
+<p>No passo 2 do fluxo básico, o Parceiro seleciona uma campanha da lista e escolhe a opção "Remover Campanha".</p>
+</li>
+<li>
+<p>O sistema solicita uma confirmação da remoção com uma janela de diálogo (modal) com o aviso "Atenção! Você tem certeza que deseja remover esta campanha? Esta ação é permanente."</p>
+</li>
+<li>
+<p>Se o Parceiro confirmar a remoção, o sistema remove a campanha do banco de dados [RN03].</p>
+</li>
+<li>
+<p>O sistema exibe a mensagem de sucesso: "Campanha removida com sucesso!".</p>
+</li>
+<li>
+<p>O caso de uso é encerrado.</p>
+</li>
+</ol>
+<p><strong>Fluxos de exceção</strong>
+FE01: Dados Inválidos (FA01 passo 3, FA02 passo 3): Se os dados submetidos pelo Parceiro forem inválidos (ex: campos obrigatórios vazios, formato incorreto de data), o sistema não salva as informações, exibe mensagens de erro indicando qual(is) campo(s) precisa(m) ser corrigido(s) e permanece no formulário para correção.</p>
+<p>FE02: Nenhuma Campanha Cadastrada (Fluxo Principal passo 2): Se não houver campanhas cadastradas no sistema, o sistema informará ao Parceiro que "Não há campanhas cadastradas no momento." e pode sugerir a criação de uma nova.</p>
+<p>FE03: Falha na Conexão/Processamento: Em qualquer ponto onde o sistema tenta acessar o banco de dados ou processar informações (FA01 passo 4, FA02 passo 4, FA03 passo 3), se houver uma falha na conexão ou no processamento de dados, o sistema exibe uma mensagem de erro genérica (ex: "Erro ao processar a solicitação. Tente novamente mais tarde.") e o caso de uso é abortado.</p>
+<h3 id="requisitos-especiais_2">Requisitos especiais</h3>
+<p>A interface deve ser intuitiva e fácil de usar.</p>
+<p>Todos os campos de entrada devem ser validados para garantir a integridade dos dados.</p>
+<p>Somente Parceiros autenticados e autorizados devem ter acesso a esta funcionalidade.</p>
+<p>Capacidade de filtrar e ordenar a lista de campanhas.</p>
+<h3 id="regras-de-negocio_2">Regras de negócio</h3>
+<p>RN01 - Nome Único: Cada campanha deve ter um nome único no sistema.</p>
+<p>RN02 - Validação de Período: A "Período de Início" de uma campanha não pode ser posterior ao "Período de Fim".</p>
+<p>RN03 - Restrição de Remoção: Campanhas que já foram ativas ou que possuem dados de impacto registrados (e que seriam usados em "Monitorar Indicadores de Impacto de Campanhas") não podem ser removidas diretamente, apenas arquivadas ou desativadas (ou necessitam de permissão especial do administrador).</p>
+<h2 id="5-gerenciar-conta-de-profissional-da-saude">5. Gerenciar conta de profissional da saúde</h2>
+<h3 id="breve-descricao_4">Breve descrição</h3>
+<p>Este caso de uso permite que profissionais visualizem, editem, troquem de senha e excluam seu próprio perfil na ConnectCare</p>
+<h3 id="atores_5">Atores</h3>
+<ul>
+<li>Profissional da saúde</li>
+</ul>
+<h3 id="fluxo-de-eventos_4">Fluxo de eventos</h3>
+<p><strong>Fluxo principal</strong></p>
+<p>O caso de uso inicia quando o profissional da saúde clica no ícone "Meu Perfil"</p>
+<ol>
+<li>O sistema apresenta as seguintes opções:</li>
+</ol>
+<p>Visualizar
+Editar
+Trocar de senha
+Excluir</p>
+<p>2 - O profissional seleciona a opção "Visualizar"</p>
+<p>3 - O sistema redireciona o profissional para a sua página de perfil, exibindo as informações</p>
+<ul>
+<li>
+<p>Foto de perfil</p>
+</li>
+<li>
+<p>Nome</p>
+</li>
+<li>
+<p>E-mail de contato</p>
+</li>
+<li>
+<p>Especialidade</p>
+</li>
+<li>
+<p>Número de registro no conselho profissional</p>
+</li>
+<li>
+<p>Horários de atendimento</p>
+</li>
+</ul>
+<p>4 - O caso de uso é encerrado</p>
+<p><strong>Fluxos alternativos</strong></p>
+<p>FA01 - Editar</p>
+<p>No passo 2 do fluxo básico, o profissional seleciona a opção "Editar"</p>
+<ol>
+<li>
+<p>O sistema exibe um formulário com as informações do usuário que podem ser editadas:</p>
+</li>
+<li>
+<p>O profissiona edita os detalhes registrados no seu perfil [RN02] [RN03] [RN04] [FE01]</p>
+</li>
+<li>
+<p>O sistema valida as informações, salva e exibe a mensagem de sucesso: "Seu perfil foi atualizado com sucesso!"</p>
+</li>
+<li>
+<p>O caso de uso é encerrado</p>
+</li>
+</ol>
+<p>FA02- Trocar de Senha</p>
+<p>No passo 2 do fluxo básico, o profissional seleciona a opção "Trocar de senha"</p>
+<ol>
+<li>
+<p>O sistema exibe um formulário específico para alteração de senha, solicitando:</p>
+</li>
+<li>
+<p>Senha Atual</p>
+</li>
+<li>
+<p>Nova Senha</p>
+</li>
+<li>
+<p>Confirmar Nova Senha</p>
+</li>
+<li>
+<p>O profissional preenche os campos e clica em "Salvar".</p>
+</li>
+<li>
+<p>O sistema valida se a "Senha Atual" informada está correta e salva as alterações. [FE02]</p>
+</li>
+<li>
+<p>O sistema exibe a mensagem de sucesso: "Senha alterada com sucesso!.</p>
+</li>
+<li>
+<p>O sistema desloga o profissional e redireciona para a página de login.</p>
+</li>
+<li>
+<p>O caso de uso é encerrado.</p>
+</li>
+</ol>
+<p>FA03 - Excluir</p>
+<p>No passo 2 do fluxo básico, o profissional seleciona a opção "Excluir"</p>
+<ol>
+<li>
+<p>O sistema exibe uma janela de diálogo (modal) com o aviso "Atenção! Você tem certeza que deseja excluir sua conta? Esta ação é permanente e não pode ser desfeita. Os atendimentos realizados ainda poderão ser acessados pelos pacientes atendidos e pelo administrador do sistema." e solicita que o profissional digite sua senha atual no campo correspondente. </p>
+</li>
+<li>
+<p>O profissional digita a senha e clica no botão de confirmação final, com "Excluir minha conta permanentemente".</p>
+</li>
+<li>
+<p>O sistema valida se a "Senha Atual" informada está correta e executa a rotina de exclusão da conta. [FE02] [RN01]</p>
+</li>
+<li>
+<p>O sistema desloga o profissional e o redireciona para a página inicial pública do ConnectCare.</p>
+</li>
+<li>
+<p>O caso de uso é encerrado.</p>
+</li>
+</ol>
+<p><strong>Fluxos de exceção</strong></p>
+<p>FE01: Dados Inválidos (FA01): No passo 3 do FA01, se os dados forem inválidos, o sistema não salva as informações, exibe uma mensagem de erro indicando o(s) campo(s) problemático(s) e permanece no formulário de edição para correção.</p>
+<p>FE02: Senha Atual Incorreta (FA02 passo 3, FA03 passo 3): Se a senha atual informada para troca ou exclusão estiver incorreta, o sistema exibe a mensagem "Senha atual incorreta. Tente novamente." e não prossegue com a ação.</p>
+<p>FE03: Novas Senhas não Coincidem (FA02): Se no passo 2 a nova senha e sua confirmação não forem idênticas, o sistema exibe a mensagem "As novas senhas não coincidem." e limpa os campos para nova digitação.</p>
+<h3 id="requisitos-especiais_3">Requisitos especiais</h3>
+<p>Esse caso de uso deve ser acessível por dispositivo móvel.</p>
+<h3 id="regras-de-negocio_3">Regras de negócio</h3>
+<p>RN01 - Resolução CFM nº 1.821/2007:  O sistema deve seguir a resolução CFM nº 1.821/2007 que aprova as normas técnicas concernentes à digitalização e uso dos sistemas informatizados para a guarda e manuseio dos documentos dos prontuários dos pacientes, autorizando a eliminação do papel e a troca de informação identificada em saúde.</p>
+<p>RN02 - Número de registro no conselho profissional: O sistema deve integrar-se com os serviços públicos dos conselhos profissionais para verificar se o registro é válido e se o profissional está com o status "Ativo". Se a verificação falhar, o perfil não pode ser publicado.</p>
+<p>RN03 - Horários de atendimento: Os horários de atendimento não podem ultrapassar 8h diárias.</p>
+<p>RN04 - Foto de perfil: A foto deve ser uma imagem nítida do rosto do profissional e ter no máximo 5mb. É proibido o uso de logotipos, avatares, paisagens, personagens ou qualquer imagem que não seja do próprio profissional.</p>
+<h2 id="6-gerenciar-relatorios-de-comunidade">6. Gerenciar Relatórios de Comunidade</h2>
+<h3 id="breve-descricao_5">Breve descrição</h3>
+<p>Este caso de uso permite que um agente comunitário registre e visualize relatórios sobre o estado de saúde da comunidade atendida por meio da plataforma ConnectCare.<br />
+Os relatórios incluem dados coletados em visitas domiciliares, campanhas de saúde e observações gerais sobre fatores ambientais, sociais e epidemiológicos.<br />
+O objetivo é fornecer uma visão consolidada para apoiar decisões estratégicas em saúde pública.</p>
+<h3 id="atores_6">Atores</h3>
+<ul>
+<li>Agente comunitário  </li>
+<li>Administrador do sistema</li>
+</ul>
+<h3 id="fluxo-de-eventos_5">Fluxo de eventos</h3>
+<p><strong>Fluxo principal</strong>
+1. O agente acessa a opção “Relatórios da Comunidade” no menu principal.<br />
+2. O sistema apresenta as opções:<br />
+   - Criar novo relatório<br />
+   - Visualizar relatórios anteriores<br />
+   - Exportar relatório<br />
+3. O agente seleciona “Criar novo relatório”.<br />
+4. O sistema apresenta um formulário com os campos:
+   - Período da coleta<br />
+   - Áreas visitadas<br />
+   - Problemas de saúde mais recorrentes<br />
+   - Número de atendimentos realizados<br />
+   - Observações adicionais<br />
+5. O agente preenche todos os campos obrigatórios.
+6. O agente confirma o envio do relatório.<br />
+7. O sistema valida os dados, armazena o relatório e disponibiliza uma visualização resumida.<br />
+8. O agente recebe uma notificação de confirmação.<br />
+9. O caso de uso se encerra.</p>
+<p><strong>Fluxo alternativo 1 – Visualizar relatórios anteriores</strong>
+No passo 2, o agente seleciona a opção “Visualizar relatórios anteriores”.
+1. O sistema exibe uma lista filtrável por data, área e tipo de relatório.<br />
+2. O agente seleciona um relatório e o sistema exibe o conteúdo completo.  </p>
+<p><strong>Fluxo alternativo 2 – Exportar relatório</strong>
+No passo 2, o agente seleciona um relatório disponível.<br />
+1. O sistema oferece opções de exportação (PDF, CSV).<br />
+2. O agente escolhe o formato desejado.<br />
+3. O sistema gera o arquivo e disponibiliza o download.</p>
+<p><strong>Fluxos de exceção</strong>
+- <em>FE01 – Campos obrigatórios não preenchidos</em>:<br />
+  “Todos os campos obrigatórios devem ser preenchidos antes de salvar o relatório.”<br />
+  O sistema retorna ao passo 5 do fluxo principal.  </p>
+<ul>
+<li><em>FE02 – Falha na exportação</em>:<br />
+  “Erro ao exportar o relatório. Tente novamente mais tarde.”<br />
+  O sistema retorna ao fluxo alternativo de exportação.</li>
+</ul>
+<h3 id="requisitos-especiais_4">Requisitos especiais</h3>
+<ul>
+<li>Os relatórios devem estar disponíveis para visualização offline, se necessário.</li>
+<li>O sistema deve permitir exportação em formatos PDF e CSV.</li>
+<li>O caso de uso deve ser acessível por dispositivos móveis de baixa performance.</li>
+</ul>
+<h3 id="regras-de-negocio_4">Regras de negócio</h3>
+<ul>
+<li>
+<p><strong>RN01 – Preenchimento obrigatório</strong><br />
+  O sistema não permite salvar o relatório se campos obrigatórios estiverem vazios.</p>
+</li>
+<li>
+<p><strong>RN02 – Acesso restrito</strong><br />
+  Apenas agentes autenticados podem criar relatórios. Apenas administradores podem visualizar relatórios consolidados de várias regiões.</p>
+</li>
+<li>
+<p><strong>RN03 – Armazenamento seguro</strong><br />
+  Os relatórios devem ser armazenados seguindo normas da LGPD, com acesso controlado por perfil.</p>
+</li>
+<li>
+<p><strong>RN04 – Relatórios como fonte de estatística pública</strong><br />
+  Os dados podem ser consolidados e utilizados de forma anônima para formulação de políticas públicas.</p>
+</li>
+</ul>
+<h3 id="pontos-de-extensao_1">Pontos de Extensão</h3>
+<ul>
+<li>
+<p><strong>PE01 – Integração com dados de campanhas e atendimentos individuais</strong><br />
+<em>Local do Ponto de Extensão:</em> Após o passo 4<br />
+<em>Descrição:</em> O sistema pode sugerir dados automáticos com base em atendimentos registrados na plataforma.</p>
+</li>
+<li>
+<p><strong>PE02 – Geração de indicadores visuais</strong><br />
+<em>Local do Ponto de Extensão:</em> Após o passo 7<br />
+<em>Descrição:</em> O sistema pode gerar gráficos e tabelas para visualização rápida dos dados do relatório.</p>
+</li>
+</ul>
+<h2 id="historico-de-versao">Histórico de versão</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Data</strong></th>
+<th style="text-align: left;"><strong>Versão</strong></th>
+<th style="text-align: left;"><strong>Descrição</strong></th>
+<th style="text-align: left;"><strong>Autor</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>07/07/25</strong></td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">Adiciona esqueleto e Caso de Uso número 5</td>
+<td style="text-align: left;">Sophia</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>07/07/25</strong></td>
+<td style="text-align: left;">0.2</td>
+<td style="text-align: left;">Adicionando o Caso de Uso número 6</td>
+<td style="text-align: left;">Pedro</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>07/07/25</strong></td>
+<td style="text-align: left;">0.3</td>
+<td style="text-align: left;">Adicionando o Caso de Uso número 1</td>
+<td style="text-align: left;">Kaio</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>08/07/25</strong></td>
+<td style="text-align: left;">0.4</td>
+<td style="text-align: left;">Adicionando o Caso de Uso número 4</td>
+<td style="text-align: left;">Maria</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>08/07/25</strong></td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">Adicionando o Caso de Uso número 3</td>
+<td style="text-align: left;">Christopher</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.tabs.link", "header.autohide", "navigation.instant", "navigation.top", "navigation.tracking", "content.code.select", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
