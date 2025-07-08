@@ -244,33 +244,53 @@ RN03 - Horários de atendimento: Os horários de atendimento não podem ultrapas
 
 RN04 - Foto de perfil: A foto deve ser uma imagem nítida do rosto do profissional e ter no máximo 5mb. É proibido o uso de logotipos, avatares, paisagens, personagens ou qualquer imagem que não seja do próprio profissional.
 
-## 6. Gerenciar dados médicos
+## 6. Gerenciar Dados Médicos
 ### Breve descrição
-
+Permite a criação e atualização de dados de saúde na plataforma, incluindo registros clínicos por profissionais , informações de perfil por pacientes e relatórios de saúde por agentes comunitários.
 
 ### Atores
-
+1. Profissional de Saúde
+1. Paciente
+1. Agente Comunitário
 
 ### Fluxo de eventos
-*Fluxo principal*
-1. 
-2. 
+*Fluxo Base (F.B)* 
+1. O Profissional de Saúde, durante um atendimento, acessa o prontuário digital de um paciente.
+1. O ator seleciona a opção para adicionar um novo registro ao prontuário.
+1. O ator insere as informações clínicas, como diagnósticos, prescrições, orientações ou solicitações de exames.
+1. O sistema valida os dados inseridos para garantir a integridade das informações. [RN05] [FE01]
+1. O ator confirma a submissão.
+1.O sistema salva as novas informações no prontuário do paciente em tempo real e registra a identificação do profissional e a data/hora da alteração. [RN06] [RN08] [FE02]
 
-*Fluxo alternativo 1*
-No passo ...
-1. 
-2.
+*Fluxo alternativo 1 (F.A.01) - Paciente gerencia suas informações de perfil*
+No passo 1 do Fluxo Principal, o ator é um Paciente.
+1. O Paciente, logado no sistema, acessa a área de seu perfil pessoal.
+1. O ator insere ou atualiza suas "informações pessoais, como nome, idade e condições de saúde preexistentes". [RN07]
+1. O sistema valida e salva as informações no perfil do paciente.
+
+*Fluxo alternativo 2 (F.A.02) - Agente Comunitário registra visita domiciliar*
+No passo 1 do Fluxo Principal, o ator é um Agente Comunitário.
+1. O Agente Comunitário, logado na plataforma, seleciona a funcionalidade específica para "registrar visitas domiciliares".
+1. O ator preenche o relatório com as informações da visita, incluindo as "condições de saúde nas comunidades atendidas".
+1. O sistema salva o relatório, que pode ser usado para a "identificação de áreas prioritárias e na organização de campanhas preventivas".
 
 *Fluxos de exceção*
-- *FE01 Nome da exceção*: 
+- *F.E.01 Validação de dados falha*: No passo 4 do Fluxo Principal, se os dados inseridos forem inválidos ou incompletos conforme a RN05, o sistema impede o salvamento e informa ao ator quais campos precisam ser corrigidos.
+- *F.E.02 - Falha de conexão durante o salvamento*: No passo 6 do Fluxo Principal, se a conexão com a internet falhar, o sistema deve ser capaz de salvar um rascunho local para sincronização posterior, garantindo que o trabalho não seja perdido, visto que a plataforma é projetada para funcionar em conexões limitadas.
+
 
 ### Requisitos especiais
-
+N/A.
 
 ### Regras de negócio
-
+- RN04: Toda a manipulação e exibição de dados deve estar em conformidade com as regulamentações de proteção de dados.
+- RN05: Certos campos de um registro médico (ex: descrição do diagnóstico) são de preenchimento obrigatório para garantir um atendimento "preciso e eficiente".
+- RN06: Todas as adições e alterações no prontuário de um paciente devem ser registradas com a identificação do profissional e a data/hora da alteração para garantir um ambiente "seguro e confiável".
+- RN07: O Paciente só pode gerenciar suas informações básicas e "condições de saúde preexistentes", não podendo inserir registros clínicos como "diagnósticos, prescrições e orientações".
+- RN08: Profissionais de Saúde e Agentes Comunitários só podem gerenciar dados de pacientes e comunidades dentro de sua área de atuação designada.
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
-|**07/07/25**|0.1|Adiciona esqueleto |Sophia|
+|**07/07/25**|0.1| Adiciona esqueleto |Sophia|
+|**07/07/25**|0.2| Adiciona UC de Gerenciar Dados Médicos |Wanjo Chriustopher|
