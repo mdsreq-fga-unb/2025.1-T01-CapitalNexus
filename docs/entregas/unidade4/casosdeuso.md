@@ -142,6 +142,7 @@ Este caso de uso permite que profissionais visualizem, editem, troquem de senha 
 **Fluxo principal**
 
 O caso de uso inicia quando o profissional da saúde clica no ícone "Meu Perfil"
+
 1. O sistema apresenta as seguintes opções:
 
 - Visualizar
@@ -152,9 +153,8 @@ O caso de uso inicia quando o profissional da saúde clica no ícone "Meu Perfil
 
 - Excluir
 
-2. O profissional seleciona a opção "Visualizar"
-
-3. O sistema redireciona o profissional para a sua página de perfil, exibindo as informações
+2 - O profissional seleciona a opção "Visualizar"
+3 - O sistema redireciona o profissional para a sua página de perfil, exibindo as informações
 
 - Foto de perfil
 
@@ -168,7 +168,7 @@ O caso de uso inicia quando o profissional da saúde clica no ícone "Meu Perfil
 
 - Horários de atendimento
 
-4. O caso de uso é encerrado
+4 - O caso de uso é encerrado
 
 **Fluxos alternativos**
 
