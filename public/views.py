@@ -32,10 +32,10 @@ def pagina_contato(request):
                 email=form.cleaned_data['email'],
                 mensagem=form.cleaned_data['mensagem']
             )
-            # ADICIONE a mensagem de sucesso
+            # Adiciona a mensagem de sucesso
             messages.success(request, 'Sua mensagem foi enviada com sucesso! Responderemos em breve.')
 
-            # REDIRECIONE de volta para a própria página de contato
+            # Redireciona de volta para a própria página de contato
             return redirect('contato')
     else:
         # Se for a primeira vez na página (método GET), apenas exibe um formulário em branco

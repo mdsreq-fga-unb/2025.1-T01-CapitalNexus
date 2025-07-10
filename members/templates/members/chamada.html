@@ -1,0 +1,43 @@
+{% extends 'members/layout.html' %}
+{% load static %}
+
+{% block title %}Lista de Chamada{% endblock %}
+
+{% block dashboardcontent %}
+<section class="chamada-section">
+    <div class="container">
+        <h1 class="page-title">Lista de Chamada</h1>
+        <h2 class="chamada-subtitle">Reunião: <strong>{{ reuniao.titulo }}</strong></h2>
+        <p class="chamada-date">Data: {{ reuniao.data_hora|date:"d/m/Y H:i" }}</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ formset.management_form }}
+
+            <table class="chamada-table">
+                <thead>
+                    <tr>
+                        <th>Membro</th>
+                        <th>Status da Presença</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for membro, form in membros %}
+                        <tr>
+                            <td>
+                                {{ membro.nome }}
+                                {{ form.membro_matricula }} {# Renderiza o <input type="hidden"> com o ID #}
+                            </td>
+                            <td style="text-align: center;">
+                                {{ form.faltou }} {# Renderiza o <input type="checkbox"> #}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <button type="submit" class="btn-submit" style="margin-top: 30px;">Salvar Chamada</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

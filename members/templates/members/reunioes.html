@@ -1,0 +1,108 @@
+{% extends 'members/layout.html' %}
+{% load static %}
+
+{% block dashboard_title %}Reuniões{% endblock %}
+
+{% block page_title %}Gerenciamento de Reuniões{% endblock %}
+
+{% block dashboardcontent %}
+    <div class="page-header">
+            <p class="page-subtitle">Organize e acompanhe todas as reuniões do seu time</p>
+        
+        <!-- {% for group in user.groups.all %}
+            {% if group.name == 'Nucleo_Gestao' %}
+                <button type="button" id="btn-abrir-modal-reuniao" class="btn-new-meeting">+ Nova Reunião</button>
+            {% endif %}
+        {% endfor %} -->
+    </div>
+ 
+    <form class="filter-bar">
+        <input type="text" placeholder="Título">
+        <select name="opcoes">
+            <option value="Todos">Todos os Tipos</option>
+            <option value="RG">Reunião Geral</option>
+            <option value="PC">Ponto de Controle</option>
+        </select>
+        <input type="date" placeholder="Data">
+        <button type="submit">Aplicar Filtros</button>
+        <button type=button id="btn-abrir-modal-reuniao" class="btn-new-meeting">Marcar reunião</button>
+    </form>
+
+
+    <div class="reunioes-grid">
+        {% for reuniao in reunioes %}
+        <div class="reuniao-card">
+            <div class="card-header">
+                <h4>{{ reuniao.titulo }}</h4>
+                <span class="tag {% if reuniao.tipo == 'RG' %}tag-blue{% else %}tag-green{% endif %}">{{ reuniao.get_tipo_display }}</span>
+            </div>
+            <div class="card-body">
+                <p><i class="fa-regular fa-calendar"></i> {{ reuniao.data_hora|date:"d/m/Y H:i" }}</p>
+                <p><i class="fa-solid fa-location-dot"></i> {{ reuniao.local }}</p>
+            <div class="card-footer">
+                <!-- {% for group in user.groups.all %}
+                        {% if group.name == 'Nucleo_Gestao' %}
+                            <a href="#" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
+                            <a href="#" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a>
+                        {% endif %}
+                {% endfor %} -->
+
+                <a href="#" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
+                <a href="#" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a>
+                {% if reuniao.ata %}
+                    <a href="{{ reuniao.ata.url }}" target="_blank" class="card-button btn-minutes"><i class="fa-solid fa-file-lines"></i> Ver Ata</a>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <p>Nenhuma reunião encontrada.</p>
+        {% endfor %}
+    </div>
+
+    
+    <div id="nova-reuniao-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nova Reunião</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'marcar-reuniao' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <label for="{{ form_nova_reuniao.titulo.id_for_label }}">Título</label>
+                        {{ form_nova_reuniao.titulo }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form_nova_reuniao.data.id_for_label }}">{{ form_nova_reuniao.data.label }}</label>
+                        {{ form_nova_reuniao.data }}
+                        {{ form_nova_reuniao.data.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form_nova_reuniao.hora.id_for_label }}">{{ form_nova_reuniao.hora.label }}</label>
+                        {{ form_nova_reuniao.hora }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form_nova_reuniao.local.id_for_label }}">Local</label>
+                        {{ form_nova_reuniao.local }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form_nova_reuniao.tipo.id_for_label }}">Tipo</label>
+                        {{ form_nova_reuniao.tipo }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form_nova_reuniao.ata.id_for_label }}">Link da Ata (opcional)</label>
+                        {{ form_nova_reuniao.ata }}
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
