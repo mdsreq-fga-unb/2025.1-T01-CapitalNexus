@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User 
 
 class Membro(models.Model): 
     matricula = models.CharField(max_length=9, primary_key=True)
@@ -36,3 +37,48 @@ class MembroNucleo(models.Model):
 
     def __str__(self):
         return f"{self.membro.nome}, do núcleo {self.nucleo.nome} com o cargo de {self.cargo.posicao}"
+    
+class Reuniao(models.Model):
+    TIPO_CHOICES = [
+        ('RG', 'Reunião Geral'),
+        ('PC', 'Ponto de controle'),
+    ]
+    titulo = models.CharField(max_length=200)
+    data_hora = models.DateTimeField()
+    local = models.CharField(max_length=100)
+    tipo = models.CharField(max_length=2, choices=TIPO_CHOICES, default='PC')
+    ata = models.FileField(upload_to='atas/', blank=True, null=True)
+
+    class Meta:
+        ordering = ['data_hora']
+
+    def __str__(self):
+        return self.titulo
+    
+class Falta(models.Model):
+    membro = models.ForeignKey(Membro, on_delete=models.CASCADE)
+    reuniao = models.ForeignKey(Reuniao, on_delete=models.CASCADE)
+    
+    class Meta:
+        unique_together = ('membro', 'reuniao')
+
+    def __str__(self):
+        return f"Falta em {self.reuniao.titulo}"
+    
+class Justificativa(models.Model):
+    STATUS_ANALISE = [
+        ('PENDENTE', 'Pendente'),
+        ('ACEITA', 'Aceita'),
+        ('REJEITADA', 'Rejeitada'),
+    ]
+
+    falta = models.OneToOneField(Falta, on_delete=models.CASCADE)
+    texto_justificativa = models.TextField()
+    data_envio = models.DateTimeField(auto_now_add=True)
+    status_analise = models.CharField(max_length=20, choices=STATUS_ANALISE, default='PENDENTE')
+    feedback_analise = models.TextField(blank=True, null=True, help_text="Feedback do Núcleo X sobre a análise.")
+
+    def __str__(self):
+        return f"Justificativa de {self.falta.membro.nome} para falta em {self.falta.reuniao.titulo}."
+
+
