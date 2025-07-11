@@ -8,13 +8,38 @@ from .forms import FaltaForm, ReuniaoForm
 
 @login_required
 def home(request):
-    proximas_reunioes = Reuniao.objects.filter(data_hora__gte=timezone.now()).order_by('data_hora')[:3]
-    ultimas_atas = Reuniao.objects.filter(data_hora__gte=timezone.now()).exclude(ata='').order_by('data_hora')[:3]
+    """
+    View responsável pela página inicial da área dos membros.
 
-    contexto = {
-        'proximas_reunioes': proximas_reunioes,
-        'ultimas_atas': ultimas_atas,
-    }
+    Pega as informações do membro logado, além de susas faltas e advertências
+    para os cards do template.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+
+    Returns:
+        HttpResponse: Página HTML renderizada com a lista de projetos.
+    """
+    contexto = {} 
+
+    try:
+        membro_logado = Membro.objects.get(user=request.user)
+        minhas_faltas = Falta.objects.filter(membro=membro_logado).order_by('-data')
+        minhas_advertencias = Advertencias.objects.filter(membro=membro_logado).order_by('-data')
+        
+        total_faltas = minhas_faltas.count()
+        total_advertencias = minhas_advertencias.count()
+
+        contexto['minhas_faltas'] = minhas_faltas
+        contexto['minhas_advertencias'] = minhas_advertencias
+        contexto['total_faltas'] = total_faltas
+        contexto['total_advertencias'] = total_advertencias
+
+    except Membro.DoesNotExist:
+        pass
+
+    contexto['proximas_reunioes'] = Reuniao.objects.filter(data_hora__gte=timezone.now()).order_by('data_hora')[:3]
+
     return render(request, 'members/home.html', contexto)
 
 @login_required
@@ -46,6 +71,21 @@ def pagina_reunioes(request):
 
 @login_required
 def editar_reuniao(request, reuniao_id):
+    """
+    View para editar uma reunião existente.
+
+    Obtém a reunião pelo ID ou retorna 404 se não encontrada.
+    Se o método da requisição for POST, valida e salva as alterações no formulário.
+    Em caso de sucesso, adiciona uma mensagem e redireciona para a lista de reuniões.
+    Se for GET, exibe o formulário preenchido com os dados atuais da reunião.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+        reuniao_id (int): ID da reunião a ser editada.
+
+    Returns:
+        HttpResponse: Página com o formulário de edição ou redirecionamento após salvar.
+    """
     reuniao = get_object_or_404(Reuniao, id=reuniao_id)
 
     if request.method == 'POST':
@@ -53,7 +93,7 @@ def editar_reuniao(request, reuniao_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'A reunião foi atualizada com sucesso!')
-            return redirect('reunioes')
+            return redirect('membros:reunioes')
     else:
         form = ReuniaoForm(instance=reuniao)
 
@@ -63,11 +103,31 @@ def editar_reuniao(request, reuniao_id):
     }
     return render(request, 'members/editar_reuniao.html', contexto)
 
-
 @login_required
 def fazer_chamada(request, reuniao_id):
-    
+    """
+    View para registrar a lista de presença (chamada) de uma reunião.
+
+    Verifica se já existe uma lista de faltas para a reunião; caso positivo,
+    exibe uma mensagem de aviso e redireciona. Se não, exibe um formset para marcar
+    quem faltou.
+
+    No método POST, processa o formset para criar ou apagar registros de faltas
+    conforme os checkboxes selecionados.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+        reuniao_id (int): ID da reunião para a qual a chamada será feita.
+
+    Returns:
+        HttpResponse: Renderiza o formulário de chamada ou redireciona após salvar.
+    """
     reuniao = Reuniao.objects.get(id=reuniao_id)
+
+    if Falta.objects.filter(reuniao=reuniao).exists():
+        messages.warning(request, "Já foi cadastrada uma lista de presença para essa reunião! Confire os faltantes em Faltas e Advertências")
+        return redirect('membros:reunioes')
+
     membros = Membro.objects.all().order_by('nome')
     FaltaFormSet = formset_factory(FaltaForm, extra=0)
 
@@ -81,7 +141,6 @@ def fazer_chamada(request, reuniao_id):
                 
                 if membro_matricula:
                     membro = Membro.objects.get(matricula=membro_matricula)
-                    
                     # Se o checkbox foi MARCADO, apaga registro de falta.
                     if faltou:
                         Falta.objects.filter(reuniao=reuniao, membro=membro).delete()
@@ -90,7 +149,7 @@ def fazer_chamada(request, reuniao_id):
                         Falta.objects.get_or_create(reuniao=reuniao, membro=membro)
             
             messages.success(request, f"Faltas para a reunião '{reuniao.titulo}' foram salvas.")
-            return redirect('reunioes')
+            return redirect('membros:reunioes')
     else:
         # Prepara o formset, um para cada membro
         initial_data = [{'membro_matricula': membro.matricula} for membro in membros]
@@ -105,14 +164,26 @@ def fazer_chamada(request, reuniao_id):
 
 @login_required
 def marcar_reuniao(request):
+    """
+    View para marcar (criar) uma nova reunião.
+
+    No método POST, valida os dados do formulário e salva a nova reunião.
+    Exibe mensagem de sucesso e redireciona para a lista de reuniões.
+    Caso haja erro no formulário, exibe mensagem de erro e redireciona.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+
+    Returns:
+        HttpResponseRedirect: Redirecionamento para a lista de reuniões.
+    """
     if request.method == 'POST':
         form = ReuniaoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Reunião marcada com sucesso!')
-            return redirect('reunioes')
+            return redirect('membros:reunioes')
     
     messages.error(request, 'Houve um erro ao cadastrar a sua reunião. Veja se os dados informados estão no formato esperado e tente novamente.')
-    return redirect('reunioes')
+    return redirect('membros:reunioes')
     
-

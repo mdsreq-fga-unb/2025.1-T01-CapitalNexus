@@ -74,8 +74,16 @@ WSGI_APPLICATION = 'capital_nexus.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-DATABASES = {
+import sys 
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',  # banco em memória (super rápido)
+        }
+    }
+else:
+    DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.{}".format(config("DB_ENGINE")),
         "NAME": config("DB_NAME"),

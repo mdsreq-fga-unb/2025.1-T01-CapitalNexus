@@ -50,202 +50,33 @@
         <li><span>Nenhuma ata disponível.</span></li>
         {% endfor %}
       </ul>
-      <a href="#" class="panel-link">Ver todas as atas &rarr;</a>
+      <a href="{% url 'membros:reunioes' %}" class="panel-link">Ver todas as reuniões &rarr;</a>
     </div>
 
     <div class="panel">
       <h3>Suas Faltas e Advertências</h3>
       <div class="summary-cards">
-        <div class="summary-card"><strong>2</strong> Faltas</div>
-        <div class="summary-card"><strong>1</strong> Advertência</div>
+        <div class="summary-card"><strong>{{ total_faltas|default:0 }}</strong> Falta(s)</div>
+        <div class="summary-card"><strong>{{ total_advertencias|default:0 }}</strong> Advertência(s)</div>
       </div>
       <ul class="item-list">
-        <li class="item-red">
-          <span>Falta em Reunião Geral <small>25/05/2023</small></span>
-        </li>
-        <li class="item-red">
-          <span>Falta em Reunião de Setor <small>18/05/2023</small></span>
-        </li>
-        <li class="item-yellow">
-          <span>Atraso na entrega de relatório <small>10/05/2023</small></span>
-        </li>
+        {% for falta in minhas_faltas %}
+          <li class="item-yellow">
+            <span>Falta em {{ falta.reuniao.titulo }}<small>{{falta.reuniao.data_hora|date:"d/m/Y"}}</small></span>
+          </li>
+          {% empty %}
+            <li><span>Parabéns, nenhuma falta registrada!</span></li>
+        {% endfor %}
+        {% for advertencia in minhas_advertencias %}
+          <li class="item-red">
+            <span>{{advertencia.contexto}}<small>{{advertencia.data|date:"d/m/Y"}}</small></span>
+          </li>
+          {% empty %}
+            <li><span>Parabéns, nenhuma falta registrada!</span></li>
+        {% endfor %}
       </ul>
       <a href="#" class="panel-link">Ver detalhes &rarr;</a>
     </div>
   </div>
 
 {% endblock %}
-<!-- <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Início | CRT</title>
-    <link rel="stylesheet" href="{% static 'members/css/dashboard.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div class="dashboard-layout">
-      <aside class="sidebar">
-        <div class="sidebar-header">
-          <h3><i class="fa-solid fa-rocket"></i> Capital Rocket Team</h3>
-        </div>
-        <div class="user-profile">
-          <div class="user-avatar">JS</div>
-          <div class="user-info">
-            <span class="user-name">João Silva</span>
-            <span class="user-role">Engenharia Mecânica</span>
-          </div>
-        </div>
-        <nav class="sidebar-nav">
-          <ul>
-            <li class="active">
-              <a href="#"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-solid fa-users"></i> Reuniões</a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-solid fa-file-lines"></i> Atas</a>
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa-solid fa-triangle-exclamation"></i> Faltas e
-                Advert.</a
-              >
-            </li>
-            <li>
-              <a href="#"><i class="fa-solid fa-user-group"></i> Membros</a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-solid fa-box-archive"></i> Materiais</a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-
-      <main class="main-content">
-        <header class="main-header">
-          <h1>Dashboard</h1>
-          <div class="header-actions">
-            <div class="search-bar">
-              <i class="fa-solid fa-search"></i>
-              <input type="text" placeholder="Buscar..." />
-            </div>
-            <i class="fa-regular fa-bell notification-icon"></i>
-          </div>
-        </header>
-
-        <div class="stats-grid">
-          <div class="stat-card">
-            <i class="fa-solid fa-calendar-check icon-blue"></i>
-            <div class="stat-info">
-              <p>Próxima Reunião</p>
-              <strong>15/06/2023</strong>
-            </div>
-          </div>
-          <div class="stat-card">
-            <i class="fa-solid fa-chart-line icon-green"></i>
-            <div class="stat-info">
-              <p>Taxa de Presença</p>
-              <strong>92%</strong>
-            </div>
-          </div>
-          <div class="stat-card">
-            <i class="fa-solid fa-triangle-exclamation icon-yellow"></i>
-            <div class="stat-info">
-              <p>Advertências</p>
-              <strong>1</strong>
-            </div>
-          </div>
-          <div class="stat-card">
-            <i class="fa-solid fa-percent icon-purple"></i>
-            <div class="stat-info">
-              <p>Materiais Disponíveis</p>
-              <strong>24</strong>
-            </div>
-          </div>
-        </div>
-
-        <div class="panels-grid">
-          <div class="panel">
-            <h3>Próximas Reuniões</h3>
-            <ul class="item-list">
-              {% for reuniao in proximas_reunioes %}
-              <li>
-                <span>
-                  {{ reuniao.titulo }}
-                  <small>{{ reuniao.data_hora|date:"d/m/Y - H:i" }}</small>
-                  <small>{{ reuniao.local }}</small>
-                </span>
-                {% if reuniao.tipo == 'RG' %}
-                <span class="tag tag-blue">Reunião Geral</span>
-                {% else %}
-                <span class="tag tag-green">Ponto de controle</span>
-                {% endif %}
-              </li>
-              {% empty %}
-              <li><span>Nenhuma reunião agendada.</span></li>
-              {% endfor %}
-            </ul>
-            <a href="#" class="panel-link">Ver todas as reuniões &rarr;</a>
-          </div>
-
-          <div class="panel">
-            <h3>Últimas Atas</h3>
-            <ul class="item-list">
-              {% for reuniao in ultimas_atas %}
-              <li>
-                <span>
-                  Ata da Reunião: {{ reuniao.titulo }}
-                  <small
-                    >Reunião de: {{ reuniao.data_hora|date:"d/m/Y" }}</small
-                  >
-                </span>
-
-                <a
-                  href="{{ reuniao.ata.url }}"
-                  target="_blank"
-                  class="icon-link"
-                  title="Ver ata"
-                >
-                  <i class="fa-regular fa-eye"></i>
-                </a>
-              </li>
-              {% empty %}
-              <li><span>Nenhuma ata disponível.</span></li>
-              {% endfor %}
-            </ul>
-            <a href="#" class="panel-link">Ver todas as atas &rarr;</a>
-          </div>
-
-          <div class="panel">
-            <h3>Suas Faltas e Advertências</h3>
-            <div class="summary-cards">
-              <div class="summary-card"><strong>2</strong> Faltas</div>
-              <div class="summary-card"><strong>1</strong> Advertência</div>
-            </div>
-            <ul class="item-list">
-              <li class="item-red">
-                <span>Falta em Reunião Geral <small>25/05/2023</small></span>
-              </li>
-              <li class="item-red">
-                <span>Falta em Reunião de Setor <small>18/05/2023</small></span>
-              </li>
-              <li class="item-yellow">
-                <span
-                  >Atraso na entrega de relatório
-                  <small>10/05/2023</small></span
-                >
-              </li>
-            </ul>
-            <a href="#" class="panel-link">Ver detalhes &rarr;</a>
-          </div>
-        </div>
-      </main>
-    </div>
-  </body>
-</html> -->
