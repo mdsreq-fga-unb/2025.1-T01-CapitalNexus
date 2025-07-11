@@ -858,3 +858,29 @@ body {
     /* Cor do check roxa */
     cursor: pointer;
 }
+
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.alert-success {
+    background-color: #2475AB; /* Verde para sucesso */
+    border-color: #2475AB;
+}
+
+.alert-error {
+    background-color: #dc3545; /* Vermelho para erro */
+}
+
+.alert-warning {
+    background-color: #ff8b07; /* Laranja para aviso */
+    border-color: #ff8b07;
+}

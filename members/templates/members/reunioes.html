@@ -3,20 +3,15 @@
 
 {% block dashboard_title %}Reuniões{% endblock %}
 
-{% block page_title %}Gerenciamento de Reuniões{% endblock %}
+{% block page_title %}Reuniões{% endblock %}
 
 {% block dashboardcontent %}
     <div class="page-header">
             <p class="page-subtitle">Acompanhe as reuniões da equipe</p>
         
-        <!-- {% for group in user.groups.all %}
-            {% if group.name == 'Nucleo_Gestao' %}
-                <button type="button" id="btn-abrir-modal-reuniao" class="btn-new-meeting">+ Nova Reunião</button>
-            {% endif %}
-        {% endfor %} -->
     </div>
  
-    <form class="filter-bar" method="get" action="{% url 'reunioes' %}">
+    <form class="filter-bar" method="get" action="{% url 'membros:reunioes' %}">
         <input type="text" name="titulo" placeholder="Título" value="{{request.GET.titulo}}">
         <select name="tipo">
             <option value="">Todos os Tipos</option>
@@ -40,15 +35,13 @@
                 <p><i class="fa-regular fa-calendar"></i> {{ reuniao.data_hora|date:"d/m/Y H:i" }}</p>
                 <p><i class="fa-solid fa-location-dot"></i> {{ reuniao.local }}</p>
             <div class="card-footer">
-                <!-- {% for group in user.groups.all %}
-                        {% if group.name == 'Nucleo_Gestao' %} -->
-                            <a href="{% url 'editar-reuniao' reuniao.id %}" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
-                            <a href="#" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a>
-                        <!-- {% endif %}
-                {% endfor %} -->
+                    {% if user.membro.is_gestor or user.membro.is_gerente %}
+                        <a href="{% url 'membros:editar-reuniao' reuniao.id %}" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
+                        <a href="#" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a>
+                    {% endif %}
+                <!-- <a href="{% url 'membros:editar-reuniao' reuniao.id %}" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
+                <a href="{% url 'membros:chamada' reuniao.id %}" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a> -->
 
-                <a href="{% url 'editar-reuniao' reuniao.id %}" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
-                <a href="{% url 'chamada' reuniao.id %}" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a>
                 {% if reuniao.ata %}
                     <a href="{{ reuniao.ata.url }}" target="_blank" class="card-button btn-minutes"><i class="fa-solid fa-file-lines"></i> Ver Ata</a>
                 {% endif %}
@@ -66,7 +59,7 @@
                 <span class="close-button">&times;</span>
             </div>
             <div class="modal-body">
-                <form action="{% url 'marcar-reuniao' %}" method="post" enctype="multipart/form-data">
+                <form action="{% url 'membros:marcar-reuniao' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     
                     <div class="form-group">

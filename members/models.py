@@ -1,16 +1,37 @@
 from django.db import models
 from django.contrib.auth.models import User 
+from django.core.exceptions import ValidationError
 
 class Membro(models.Model): 
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
     matricula = models.CharField(max_length=9, primary_key=True)
     nome = models.CharField(max_length=100)
     email = models.EmailField()
+
+    def clean(self):
+        super().clean()
+        dominio = "@capitalrocketteam.com"
+        if not self.email.endswith(dominio):
+            raise ValidationError({'email': f"O e-mail deve ter o domínio '{dominio}'."})
+
+    def is_gestor(self):
+        # Verifica se este membro está associado ao 'Núcleo de Gestão' através do modelo MembroNucleo.
+        return self.membronucleo_set.filter(nucleo__nome='Gestão de Pessoas').exists()
+
+    def is_gerente(self):
+        # Verifica se este membro está associado ao núcleo de gerência
+        return self.membronucleo_set.filter(nucleo__nome='Gerência').exists()
+
+    def is_marketeiro(self):
+        # Verifica se este membro está associado ao núcleo de marketing
+        return self.membronucleo_set.filter(nucleo__nome='Marketing').exists()
 
     def __str__(self):
         return f"{self.nome}, {self.matricula}, {self.email}"
     
 class Nucleo(models.Model):
-    nome = models.CharField(max_length=64, primary_key=True)
+    nome = models.CharField(max_length=64)
     categoria = models.CharField(max_length=8)
 
     class Meta:
@@ -81,4 +102,13 @@ class Justificativa(models.Model):
     def __str__(self):
         return f"Justificativa de {self.falta.membro.nome} para falta em {self.falta.reuniao.titulo}."
 
+class Advertencias(models.Model):
+    membro = models.ForeignKey(Membro, on_delete=models.CASCADE)
+    contexto = models.CharField(max_length = 100)
+    data = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        unique_together=('membro', 'id')
+    
+    def __str__(self):
+        return f"Advertência do {self.membro.nome} por {self.contexto}."
