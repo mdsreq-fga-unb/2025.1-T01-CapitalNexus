@@ -5,7 +5,7 @@ from .models import Reuniao
 import datetime
 
 class FaltaForm(forms.Form):
-    membro_matricula = forms.IntegerField(widget=forms.HiddenInput())
+    membro_matricula = forms.CharField(widget=forms.HiddenInput())
     # O checkbox em si. required=False é importante, pois não marcar é uma ação válida (presente).
     faltou = forms.BooleanField(required=False)
 
@@ -32,9 +32,24 @@ class ReuniaoForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
+        """
+        Este método é executado sempre que o formulário é criado.
+        """
         super().__init__(*args, **kwargs)
         # Adiciona o atributo 'min' ao campo de data para validação no front-end
         self.fields['data'].widget.attrs['min'] = timezone.now().strftime('%Y-%m-%d')
+        
+        # Verificamos se o formulário foi iniciado com uma instância 
+        if self.instance and self.instance.pk:
+            # Se a instância tem uma data e hora já salvas...
+            if self.instance.data_hora:
+                # ...nós separamos os valores...
+                data_salva = self.instance.data_hora.date()
+                hora_salva = self.instance.data_hora.time()
+                
+                # ...e os colocamos como valores iniciais para os nossos campos de formulário.
+                self.initial['data'] = data_salva
+                self.initial['hora'] = hora_salva
 
     def clean(self):
         # 3. Este método é executado durante a validação para "limpar" e combinar os dados

@@ -7,7 +7,7 @@
 
 {% block dashboardcontent %}
     <div class="page-header">
-            <p class="page-subtitle">Organize e acompanhe todas as reuniões do seu time</p>
+            <p class="page-subtitle">Acompanhe as reuniões da equipe</p>
         
         <!-- {% for group in user.groups.all %}
             {% if group.name == 'Nucleo_Gestao' %}
@@ -16,14 +16,14 @@
         {% endfor %} -->
     </div>
  
-    <form class="filter-bar">
-        <input type="text" placeholder="Título">
-        <select name="opcoes">
-            <option value="Todos">Todos os Tipos</option>
-            <option value="RG">Reunião Geral</option>
-            <option value="PC">Ponto de Controle</option>
+    <form class="filter-bar" method="get" action="{% url 'reunioes' %}">
+        <input type="text" name="titulo" placeholder="Título" value="{{request.GET.titulo}}">
+        <select name="tipo">
+            <option value="">Todos os Tipos</option>
+            <option value="RG" {% if request.GET.tipo == 'RG' %}selected{% endif %}>Reunião Geral</option>
+            <option value="PC"{% if request.GET.tipo == 'PC' %}selected{% endif %}>Ponto de Controle</option>
         </select>
-        <input type="date" placeholder="Data">
+        <input type="date" placeholder="Data" value="{{ request.GET.data_hora}}">
         <button type="submit">Aplicar Filtros</button>
         <button type=button id="btn-abrir-modal-reuniao" class="btn-new-meeting">Marcar reunião</button>
     </form>
@@ -41,14 +41,14 @@
                 <p><i class="fa-solid fa-location-dot"></i> {{ reuniao.local }}</p>
             <div class="card-footer">
                 <!-- {% for group in user.groups.all %}
-                        {% if group.name == 'Nucleo_Gestao' %}
-                            <a href="#" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
+                        {% if group.name == 'Nucleo_Gestao' %} -->
+                            <a href="{% url 'editar-reuniao' reuniao.id %}" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
                             <a href="#" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a>
-                        {% endif %}
+                        <!-- {% endif %}
                 {% endfor %} -->
 
-                <a href="#" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
-                <a href="#" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a>
+                <a href="{% url 'editar-reuniao' reuniao.id %}" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
+                <a href="{% url 'chamada' reuniao.id %}" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a>
                 {% if reuniao.ata %}
                     <a href="{{ reuniao.ata.url }}" target="_blank" class="card-button btn-minutes"><i class="fa-solid fa-file-lines"></i> Ver Ata</a>
                 {% endif %}
@@ -59,7 +59,6 @@
         {% endfor %}
     </div>
 
-    
     <div id="nova-reuniao-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
