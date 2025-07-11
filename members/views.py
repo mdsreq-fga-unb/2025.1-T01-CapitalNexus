@@ -19,17 +19,28 @@ def home(request):
 
 @login_required
 def pagina_reunioes(request):
-    lista_de_reunioes = Reuniao.objects.all().order_by('-data_hora')
+    queryset = Reuniao.objects.all().order_by('-data_hora')
+
+    # Pegamos os valores dos filtros da URL (via request.GET)
+    titulo_query = request.GET.get('titulo')
+    tipo_query = request.GET.get('tipo')
+    data_query = request.GET.get('data')
+
+    # Aplicamos os filtros um por um, se eles existirem
+    if titulo_query:
+        queryset = queryset.filter(titulo__icontains=titulo_query)
+    
+    if tipo_query:
+        queryset = queryset.filter(tipo=tipo_query)
+
+    if data_query:
+        queryset = queryset.filter(data_hora__date__gte=data_query)
+
     form_nova_reuniao = ReuniaoForm()
 
-    forms_de_edicao = {
-        reuniao.id: ReuniaoForm(instance=reuniao) for reuniao in lista_de_reunioes
-    }
-
     contexto = {
-        'reunioes': lista_de_reunioes,
+        'reunioes': queryset, # Enviamos a lista já filtrada
         'form_nova_reuniao': form_nova_reuniao,
-        'forms_de_edicao': forms_de_edicao,
     }
     return render(request, 'members/reunioes.html', contexto)
 
@@ -50,13 +61,14 @@ def editar_reuniao(request, reuniao_id):
         'form': form,
         'reuniao': reuniao,
     }
-    return render(request, 'members/form_reuniao.html', contexto)
+    return render(request, 'members/editar_reuniao.html', contexto)
 
 
 @login_required
 def fazer_chamada(request, reuniao_id):
+    
     reuniao = Reuniao.objects.get(id=reuniao_id)
-    membros = Membro.objects.all()
+    membros = Membro.objects.all().order_by('nome')
     FaltaFormSet = formset_factory(FaltaForm, extra=0)
 
     if request.method == 'POST':
@@ -78,7 +90,7 @@ def fazer_chamada(request, reuniao_id):
                         Falta.objects.get_or_create(reuniao=reuniao, membro=membro)
             
             messages.success(request, f"Faltas para a reunião '{reuniao.titulo}' foram salvas.")
-            return redirect('chamada')
+            return redirect('reunioes')
     else:
         # Prepara o formset, um para cada membro
         initial_data = [{'membro_matricula': membro.matricula} for membro in membros]
@@ -87,7 +99,7 @@ def fazer_chamada(request, reuniao_id):
     contexto = {
         'reuniao': reuniao,
         'formset': formset,
-        'membros': zip(membros, formset) # 'zip' para facilitar a vida no template
+        'membros_e_forms': zip(membros, formset) # 'zip' para facilitar a vida no template
     }
     return render(request, 'members/chamada.html', contexto)
 
