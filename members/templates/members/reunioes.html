@@ -35,11 +35,7 @@
                 <p><i class="fa-regular fa-calendar"></i> {{ reuniao.data_hora|date:"d/m/Y H:i" }}</p>
                 <p><i class="fa-solid fa-location-dot"></i> {{ reuniao.local }}</p>
             <div class="card-footer">
-                    <!-- {% if user.membro.is_gestor or user.membro.is_gerente %} -->
-                        <a href="{% url 'membros:editar-reuniao' reuniao.id %}" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a>
-                    <!-- {% endif %} -->
-                <!-- <a href="{% url 'membros:editar-reuniao' reuniao.id %}" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
+                <a href="{% url 'membros:editar-reuniao' reuniao.id %}" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a> -->
                 <a href="{% url 'membros:chamada' reuniao.id %}" class="card-button btn-presence"><i class="fa-solid fa-list-check"></i> Lista de Presença</a> -->
 
                 {% if reuniao.ata %}
