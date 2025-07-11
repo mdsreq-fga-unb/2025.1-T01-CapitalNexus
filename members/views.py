@@ -24,8 +24,8 @@ def home(request):
 
     try:
         membro_logado = Membro.objects.get(user=request.user)
-        minhas_faltas = Falta.objects.filter(membro=membro_logado).order_by('-data')
-        minhas_advertencias = Advertencias.objects.filter(membro=membro_logado).order_by('-data')
+        minhas_faltas = Falta.objects.filter(membro=membro_logado)
+        minhas_advertencias = Advertencias.objects.filter(membro=membro_logado)
         
         total_faltas = minhas_faltas.count()
         total_advertencias = minhas_advertencias.count()
