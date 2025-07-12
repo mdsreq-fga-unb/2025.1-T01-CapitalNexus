@@ -12,9 +12,12 @@ O PBB Canvas, por sua vez, é uma ferramenta visual que estrutura o processo de 
 
 O Canvas de Product Backlog Building da empresa  _"HealthNet"_  foi realizada em equipe com o auxílio da plataforma Miro, por meio do template oficial projetado por Fábio Aguiar, criador do método PBB para desenvolvimento de soluções de software e definição do backlog de produtos.
 
-O Canvas PBB pode ser acessado pelo link abaixo:
 
 <iframe width="100%" height="600" src="https://miro.com/app/board/uXjVIqRN9A0=/" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+
+## PBB Board
+<img width="1073" height="543" alt="image" src="https://github.com/user-attachments/assets/62bd1d7b-db2c-4d2d-add0-c75f414665ea" />.
+
 
 ## 1.3. Histórias de Usuários:
 
