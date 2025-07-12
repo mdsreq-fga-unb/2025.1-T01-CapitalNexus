@@ -34,7 +34,9 @@ def home(request):
         contexto['minhas_advertencias'] = minhas_advertencias
         contexto['total_faltas'] = total_faltas
         contexto['total_advertencias'] = total_advertencias
-
+        contexto['membro'] = membro_logado
+        ultimas_atas = Reuniao.objects.filter(data_hora__lt=timezone.now()).exclude(ata='').order_by('-data_hora')[:3] 
+        contexto['ultimas_atas'] = ultimas_atas
     except Membro.DoesNotExist:
         pass
 
@@ -44,6 +46,7 @@ def home(request):
 
 @login_required
 def pagina_reunioes(request):
+    membro = Membro.objects.get(user=request.user)
     queryset = Reuniao.objects.all().order_by('-data_hora')
 
     # Pegamos os valores dos filtros da URL (via request.GET)
@@ -66,6 +69,7 @@ def pagina_reunioes(request):
     contexto = {
         'reunioes': queryset, # Enviamos a lista já filtrada
         'form_nova_reuniao': form_nova_reuniao,
+        'membro': membro,
     }
     return render(request, 'members/reunioes.html', contexto)
 
@@ -86,6 +90,7 @@ def editar_reuniao(request, reuniao_id):
     Returns:
         HttpResponse: Página com o formulário de edição ou redirecionamento após salvar.
     """
+    membro = Membro.objects.get(user=request.user)
     reuniao = get_object_or_404(Reuniao, id=reuniao_id)
 
     if request.method == 'POST':
@@ -100,6 +105,7 @@ def editar_reuniao(request, reuniao_id):
     contexto = {
         'form': form,
         'reuniao': reuniao,
+        'membro': membro,
     }
     return render(request, 'members/editar_reuniao.html', contexto)
 
@@ -122,6 +128,7 @@ def fazer_chamada(request, reuniao_id):
     Returns:
         HttpResponse: Renderiza o formulário de chamada ou redireciona após salvar.
     """
+    membro = Membro.objects.get(user=request.user)
     reuniao = Reuniao.objects.get(id=reuniao_id)
 
     if Falta.objects.filter(reuniao=reuniao).exists():
@@ -158,7 +165,8 @@ def fazer_chamada(request, reuniao_id):
     contexto = {
         'reuniao': reuniao,
         'formset': formset,
-        'membros_e_forms': zip(membros, formset) # 'zip' para facilitar a vida no template
+        'membros_e_forms': zip(membros, formset), # 'zip' para facilitar a vida no template
+        'membro': membro,
     }
     return render(request, 'members/chamada.html', contexto)
 
@@ -186,4 +194,3 @@ def marcar_reuniao(request):
     
     messages.error(request, 'Houve um erro ao cadastrar a sua reunião. Veja se os dados informados estão no formato esperado e tente novamente.')
     return redirect('membros:reunioes')
-    

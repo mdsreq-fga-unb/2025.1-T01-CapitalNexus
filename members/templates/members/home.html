@@ -31,23 +31,23 @@
       <h3>Últimas Atas</h3>
       <ul class="item-list">
         {% for reuniao in ultimas_atas %}
-        <li>
-          <span>
-            Ata da Reunião: {{ reuniao.titulo }}
-            <small>Reunião de: {{ reuniao.data_hora|date:"d/m/Y" }}</small>
-          </span>
+          <li>
+            <span>
+              Ata da Reunião: {{ reuniao.titulo }}
+              <small>Reunião de: {{ reuniao.data_hora|date:"d/m/Y" }}</small>
+            </span>
 
-          <a
-            href="{{ reuniao.ata.url }}"
-            target="_blank"
-            class="icon-link"
-            title="Ver ata"
-          >
-            <i class="fa-regular fa-eye"></i>
-          </a>
-        </li>
+            <a
+              href="{{ reuniao.ata.url }}"
+              target="_blank"
+              class="icon-link"
+              title="Ver ata"
+            >
+              <i class="fa-regular fa-eye"></i>
+            </a>
+          </li>
         {% empty %}
-        <li><span>Nenhuma ata disponível.</span></li>
+          <li><span>Nenhuma ata disponível.</span></li>
         {% endfor %}
       </ul>
       <a href="{% url 'membros:reunioes' %}" class="panel-link">Ver todas as reuniões &rarr;</a>
