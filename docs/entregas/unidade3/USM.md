@@ -82,91 +82,212 @@ Utilizamos a técnica de User Story Mapping (USM) para estruturar o Product Back
 
 ### 🔹 BB01 – Planejamento Inicial do Projeto
 
-**Criar novo projeto**
-- Iniciar novo projeto preenchendo nome, objetivo e disciplinas.
-- Salvar como rascunho e permitir edições futuras.
+#### US01
+**User Story:**  
+Como **Professor Coordenador**, quero **criar um novo projeto com nome, objetivo e disciplinas**, para que **eu possa começar a organizar e documentar desde o início**.
 
-**Definir objetivos pedagógicos**
-- Preencher e salvar objetivos pedagógicos.
-- Associar ao projeto com possibilidade de edição.
+**Critérios de Aceitação:**
+- O sistema deve permitir a criação de projeto com nome, objetivos e disciplinas.
+- O projeto pode ser salvo como rascunho.
+- O projeto pode ser editado posteriormente.
 
-**Estimar recursos necessários**
-- Listar e planejar recursos como materiais, equipe e orçamento.
+---
+
+#### US02
+**User Story:**  
+Como **Professor Coordenador**, quero **definir objetivos pedagógicos para o projeto**, para que **os professores participantes tenham clareza sobre as metas educacionais**.
+
+**Critérios de Aceitação:**
+- O sistema deve permitir a inserção e edição dos objetivos pedagógicos.
+- Os objetivos devem estar vinculados ao projeto.
+- Deve haver visualização clara dos objetivos para todos os envolvidos.
+
+---
+
+#### US03  
+**User Story:**  
+Como **Professor Coordenador**, quero **estimar os recursos necessários**, para que **possamos garantir o suporte adequado ao longo do projeto**.
+
+**Critérios de Aceitação:**
+- O sistema deve permitir a listagem de recursos (materiais, equipe, orçamento).
+- Os recursos devem ser associados ao projeto.
+- Deve ser possível revisar e atualizar os recursos estimados.
 
 ---
 
 ### 🔹 BB02 – Planejamento Detalhado
 
-**Criar cronograma**
-- Criar cronograma com marcos e datas editáveis.
+#### US04  
+**User Story:**  
+Como **Professor Coordenador**, quero **criar um cronograma com marcos e datas editáveis**, para que **eu possa planejar e acompanhar o progresso do projeto**.
 
-**Definir papéis e responsabilidades**
-- Atribuir papéis à equipe e notificar os membros.
+**Critérios de Aceitação:**
+- Deve ser possível adicionar marcos com nome, descrição e data.
+- O cronograma deve ser editável.
+- As alterações devem ser salvas e visíveis a todos os envolvidos.
 
-**Cadastrar critérios de avaliação**
-- Associar critérios às atividades do projeto.
+---
+
+#### US05  
+**User Story:**  
+Como **Coordenador Pedagógico**, quero **atribuir papéis e responsabilidades a cada membro da equipe**, para que **todos saibam o que é esperado de si**.
+
+**Critérios de Aceitação:**
+- Deve ser possível atribuir papéis aos usuários cadastrados.
+- As responsabilidades devem estar claramente descritas.
+- Os usuários devem ser notificados das suas atribuições.
+
+---
+
+#### US06  
+**User Story:**  
+Como **Coordenador Pedagógico**, quero **definir critérios de avaliação associados às atividades**, para que **os resultados possam ser medidos de forma justa e padronizada**.
+
+**Critérios de Aceitação:**
+- Deve ser possível criar, editar e excluir critérios de avaliação.
+- Os critérios devem estar associados a atividades específicas.
+- Os critérios devem estar acessíveis aos professores e coordenadores.
 
 ---
 
 ### 🔹 BB03 – Divulgação e Alinhamento
 
-**Enviar comunicados**
-- Gerar e personalizar comunicados para diferentes públicos.
+#### US07  
+**User Story:**  
+Como **Professor Coordenador**, quero **agendar reuniões de apresentação**, para que **todos os envolvidos entendam o escopo do projeto desde o início**.
 
-**Agendar reuniões de apresentação**
-- Agendar reuniões informativas e registrar a realização.
+**Critérios de Aceitação:**
+- Deve ser possível agendar reuniões com data, hora e descrição.
+- Os participantes devem receber notificações da reunião.
+- Deve ser possível registrar a realização da reunião.
+
+---
+
+#### US08  
+**User Story:**  
+Como **Professor Participante**, quero **receber comunicados personalizados**, para que **eu esteja sempre atualizado sobre as fases do projeto**.
+
+**Critérios de Aceitação:**
+- O sistema deve permitir o envio de comunicados para públicos distintos.
+- Os comunicados devem incluir título, mensagem e anexos opcionais.
+- Os usuários devem receber os comunicados via sistema e/ou e-mail.
 
 ---
 
 ### 🔹 BB04 – Cadastro e Autorização
 
-**Cadastrar alunos no projeto**
-- Incluir alunos com dados básicos e associá-los ao projeto.
+#### US09  
+**User Story:**  
+Como **Aluno**, quero **ser cadastrado no projeto com meus dados básicos**, para que **eu possa participar formalmente das atividades**.
 
-**Armazenar autorizações**
-- Anexar digitalmente autorizações dos responsáveis.
+**Critérios de Aceitação:**
+- O sistema deve permitir o cadastro de alunos com nome, série, turma e dados de contato.
+- O aluno deve ser vinculado ao projeto específico.
+- O coordenador deve conseguir visualizar a lista de alunos cadastrados.
+
+---
+
+#### US10  
+**User Story:**  
+Como **Pai/Responsável**, quero **autorizar digitalmente a participação do meu filho**, para que **ele possa integrar-se ao projeto sem complicações burocráticas**.
+
+**Critérios de Aceitação:**
+- Deve haver uma funcionalidade de envio de termo de autorização digital.
+- O responsável deve poder assinar eletronicamente.
+- O status da autorização deve ficar visível para os coordenadores.
 
 ---
 
 ### 🔹 BB05 – Execução e Acompanhamento
 
-**Registrar andamento das atividades**
-- Marcar progresso das tarefas e atualizar status.
+#### US11  
+**User Story:**  
+Como **Aluno**, quero **registrar o andamento das minhas atividades**, para que **eu possa acompanhar meu progresso**.
 
-**Marcar tarefas como concluídas**
-- Permitir encerramento de atividades e inserção de observações.
+**Critérios de Aceitação:**
+- O aluno deve poder registrar atualizações em suas tarefas.
+- O sistema deve armazenar um histórico dessas atualizações.
+- As atualizações devem ser visíveis pelos professores.
 
-**Visualizar status do projeto**
-- Visão consolidada do progresso do projeto.
+---
+
+#### US12  
+**User Story:**  
+Como **Professor Participante**, quero **marcar tarefas como concluídas**, para que **os coordenadores vejam o andamento da turma**.
+
+**Critérios de Aceitação:**
+- As tarefas devem ter um botão ou ação para marcar como "concluída".
+- Deve ser possível adicionar observações ao concluir uma tarefa.
+- O status de conclusão deve aparecer no painel do projeto.
+
+---
+
+#### US13  
+**User Story:**  
+Como **Professor Coordenador**, quero **visualizar o status geral do projeto**, para que **eu possa intervir quando necessário**.
+
+**Critérios de Aceitação:**
+- O sistema deve exibir uma visão geral do progresso das tarefas por aluno ou equipe.
+- Deve ser possível filtrar por status, responsável ou data.
+- Alertas devem ser exibidos para tarefas atrasadas ou pendentes.
 
 ---
 
 ### 🔹 BB06 – Gestão de Recursos e Equipe
 
-**Controlar materiais e recursos**
-- Registrar uso por etapa e alertar para limites de estoque.
+#### US14  
+**User Story:**  
+Como **Professor Coordenador**, quero **controlar materiais e recursos por etapa**, para que **o uso seja eficiente e não falte nada durante o projeto**.
 
-**Atribuir tarefas aos professores**
-- Distribuir atividades e disponibilizar visualização pessoal.
+**Critérios de Aceitação:**
+- Deve ser possível registrar recursos disponíveis e seu uso por atividade.
+- Alertas devem ser enviados quando os estoques estiverem baixos.
+- Um histórico de uso deve ser acessível para consulta.
 
 ---
 
 ### 🔹 BB07 – Avaliação e Resultados
 
-**Inserir evidências de aprendizagem**
-- Anexar documentos, fotos ou vídeos organizados por aluno e atividade.
+#### US15  
+**User Story:**  
+Como **Professor Participante**, quero **inserir evidências de aprendizagem dos alunos**, para que **os avaliadores tenham uma base real para análise**.
 
-**Gerar relatórios de progresso**
-- Relatórios por aluno, grupo e projeto com base nas evidências.
+**Critérios de Aceitação:**
+- Deve ser possível anexar fotos, vídeos ou documentos organizados por aluno.
+- Cada evidência deve ser vinculada a uma atividade ou critério.
+- As evidências devem ficar acessíveis a professores e coordenadores.
+
+---
+
+#### US16  
+**User Story:**  
+Como **Coordenador Pedagógico**, quero **avaliar o progresso dos alunos com base nas evidências**, para que **o desempenho seja bem documentado**.
+
+**Critérios de Aceitação:**
+- Deve haver uma interface para visualizar as evidências e atribuir avaliações.
+- Os relatórios devem ser gerados automaticamente por aluno, grupo ou projeto.
+- O sistema deve permitir comentários e feedbacks qualitativos.
 
 ---
 
 ### 🔹 BB08 – Comunicação Contínua
 
-**Publicar atualizações e avisos**
-- Coordenadores publicam em mural acessível com anexos e menções.
+#### US17  
+**User Story:**  
+Como **Professor Coordenador**, quero **publicar atualizações e avisos no mural**, para que **todos os stakeholders acompanhem as novidades**.
 
-**Permitir comentários nos projetos**
-- Comentários nas atividades com controle de visibilidade e notificações.
+**Critérios de Aceitação:**
+- Deve ser possível publicar avisos com texto, imagens e anexos.
+- Os avisos devem ter opção de menção a usuários.
+- Todos os usuários devem ser notificados ao receber um novo aviso.
 
+---
 
+#### US18  
+**User Story:**  
+Como **Aluno**, quero **visualizar e comentar nos avisos e atividades**, para que **eu possa tirar dúvidas e interagir com o projeto**.
+
+**Critérios de Aceitação:**
+- Os alunos devem poder comentar nas publicações visíveis a eles.
+- Os comentários devem permitir marcação de usuários e anexos simples.
+- Deve haver controle de visibilidade e moderação para os comentários.
