@@ -12,7 +12,7 @@ A Engenharia de Requisitos dispõe de diversas **técnicas e práticas**, que de
 ### Análise e Consenso
 
 - **Entrevista** : Na fase de Análise e Consenso, a técnica de entrevistas tem como principal objetivo analisar e refinar os requisitos obtidos na etapa de Elicitação e Descoberta. Durante a análise, busca-se **eliminar ambiguidades**, **resolver contradições** e **complementar informações ausentes** nos requisitos. Já no consenso, o foco é **alinhar as diferentes perspectivas** levantadas na elicitação, **priorizando requisitos** e **mediando conflitos** entre necessidades divergentes.
-- **Prompt IA** : O Prompt IA foi utilizado para fazer uma análise dos requisitos, resolver contradições e alinhas as perspectivas, de uma forma mais direta.
+- **Prompt IA** : O Prompt IA foi utilizado para fazer uma análise dos requisitos, resolver contradições e alinhar as perspectivas, de uma forma mais direta.
 
 ### Declaração de Requisitos
 
@@ -40,7 +40,8 @@ A Engenharia de Requisitos dispõe de diversas **técnicas e práticas**, que de
     1. Segue os padrões [estabelecidos de codificação](..\contribuicao)?
     1. Foi testado?
 - **Revisão em Pares**: A revisão em pares entre os membros do grupo auxiliará na **verificação dos requisitos**, verificando se estão sendo feitos de maneira correta.
-- **Feedback**: será utilizada a técnica de feedback com a CRT para **manter um backlog de produto verificado** e **validado** de acordo com as necessidades da solução.
+- **Feedback**: Será utilizada a técnica de feedback com a CRT para **manter um backlog de produto verificado** e **validado** de acordo com as necessidades da solução.
+- **Análise de Viabilidae**: Será utilizada a técnica de análise de viabilidade para garantir requisitos factíveis.
 
 ### Organização e Atualização de Requisitos    
 - **MoSCoW**: será utilizada a técnica de priorização de requisitos *MoSCoW* (*Must Have, Should Have, Could Have, Won't Have*), com objetivo de **gerar o Produto Mínimo Viável** (*MVP*).
@@ -54,21 +55,26 @@ O Processo do AUP (Agiled Unified Process) adota uma **filosofia pragmática e �
 
 |**Fases do AUP** |**Atividades ER** |**Prática** |**Técnica** |**Resultado Esperado** |
 | - | - | - | - | - |
-|**Concepção** |***Elicitação e Descoberta*** |Conversas e reuniões com a CRT |Entrevistas |Compreender e coletar requisitos |
-||***Análise e Consenso*** |Conversas e reuniões com a CRT |Entrevistas |Eliminar ambiguidades e preencher lacunas nos requisitos |
+|**Concepção** |***Elicitação e Descoberta*** |Conversas e reuniões abertas com a CRT |Entrevistas |Compreender e coletar requisitos de alto nível|
+||***Análise e Consenso*** |Conversas e reuniões abertas com a CRT |Entrevistas |Eliminar ambiguidades e preencher lacunas nos requisitos |
 ||***Declaração*** | User Story | Narrativas de Usuário |Descrição das funcionalidades que entregam valor de negócio |
 ||***Organização e Atualização*** |Priorização de Requisitos |MoSCoW |Priorização dos requisitos do ponto de vista do cliente |
+|***Verificação/Validação*** | Reuniões abertas com a CRT | Análise de Viabilidade | Garantir requisitos factíveis com a CRT|
 |**Elaboração** |***Verificação e Validação*** |Verificação de Requisitos|Aplicação da DoR| Lista de US prontas para serem desenvolvidas — Todo |
 | || Validação de Requisitos | Aplicação da DoD |Lista de US prontas para serem revisadas — Review |
 ||| Validação de Requisitos | Validação em Pares | Requisitos verificados: Done |
 ||| Verificação e Validação |Feedback | Resultados do Feedback |
 ||Organização e Atualização|Organização dos requisitos|Matriz de priorização |Mínimo Produto Viável (MVP) |
 ||***Representação*** |Prototipação |Prototipação Intertativa |Garantir entrega alinhada às expectativas do cliente |
+||***Elicitação e Descoberta*** | Conversas e reuniões abertas com a CRT | Entrevistas |Coletar e específicar requisitos |
 |**Construção**| ***Verificação e Validação*** | Validação de Requisitos | Validação em Pares |Requisitos verificados: Done |
 | || Validação de Requisitos | Aplicação da DoD |Lista de US prontas para serem revisadas — Review |
 ||***Organização e Atualização***| Organização de Backlog |Feedback |Organização de Backlog |
+||***Elicitação e Descoberta*** | Conversas e reuniões abertas com a CRT | Entrevistas | Específicar requisitos |
 |**Transição** | ***Verificação e Validação*** | Validação de Requisitos | Validação em Pares |Requisitos verificados: Done |
 | || Validação de Requisitos | Aplicação da DoD |Lista de US prontas para serem revisadas — Review |
+
+ ⚠️ Requisitos evoluem iterativamente. O processo de concepção do AUP define **linhas gerais**, focando no MVP.
 
 ## Histórico de versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
