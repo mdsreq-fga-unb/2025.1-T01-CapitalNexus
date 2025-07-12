@@ -83,4 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
             event.target.classList.remove('is-open');
         }
     });
+    function showTab(tab) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+        document.getElementById('tab-' + tab).classList.remove('hidden');
+    }
 });

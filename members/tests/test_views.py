@@ -140,3 +140,105 @@ class JustificarFaltaViewTest(TestCase):
         # Isso prova que a linha get_object_or_404(..., membro__user=request.user) funcionou,
         # pois não encontrou uma falta para o usuário logado com aquele ID.
         self.assertEqual(response.status_code, 404)
+class AvaliarJustificativasTest(TestCase):
+    """
+    Conjunto de testes para a funcionalidade de avaliação de justificativas.
+    """
+    def setUp(self):
+        """
+        Prepara o ambiente inicial para todos os testes desta classe.
+
+        Cria um gestor, um membro comum, uma reunião, uma falta para o membro
+        e uma justificativa pendente para essa falta.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+        print("Executando setUp para AvaliarJustificativasTest")
+
+        # 2. Criar usuário gestor e seu perfil de membro
+        self.gestor_user = User.objects.create_user('gestor', 'gestor@capitalrocketteam.com', 'password')
+        self.gestor_membro = Membro.objects.create(user=self.gestor_user, matricula='231020220', nome='Gestor Teste')
+        
+        # 3. Criar usuário membro comum e seu perfil
+        self.membro_user = User.objects.create_user('membro', 'membro@capitalrocketteam.com', 'password')
+        self.membro_comum = Membro.objects.create(user=self.membro_user, matricula='200012345', nome='Membro Comum')
+
+        # 4. Criar dados para a justificativa
+        self.reuniao = Reuniao.objects.create(titulo="Reunião de Teste", data_hora=timezone.now())
+        self.falta = Falta.objects.create(reuniao=self.reuniao, membro=self.membro_comum)
+        self.justificativa = Justificativa.objects.create(falta=self.falta, texto_justificativa="Justificativa de teste.")
+
+        # 5. URLs que serão usadas nos testes
+        self.url_lista = reverse('membros:justificativas')
+        self.url_processar = reverse('membros:processar', kwargs={'just_id': self.justificativa.id})
+
+    def test_gestor_pode_ver_pagina_de_avaliacao(self):
+        """
+        Testa se um usuário gestor consegue acessar a página de avaliação de justificativas.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+        print("Executando teste: test_gestor_pode_ver_pagina_de_avaliacao")
+        self.client.login(username='gestor', password='password')
+        response = self.client.get(self.url_lista)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'members/justificativas.html')
+        self.assertContains(response, self.justificativa.texto_justificativa) # Verifica se a justificativa pendente aparece
+
+    # def test_membro_comum_nao_pode_ver_pagina_de_avaliacao(self):
+    #     """
+    #     Testa se um membro comum é redirecionado ao tentar acessar a página de avaliação.
+
+    #     Args:
+    #         None
+
+    #     Returns:
+    #         None
+    #     """
+    #     print("Executando teste: test_membro_comum_nao_pode_ver_pagina_de_avaliacao")
+    #     # NOTA: Este teste espera que a verificação 'is_gestor' na sua view esteja ativa (não comentada)
+    #     self.client.login(username='membro', password='password')
+    #     response = self.client.get(self.url_lista)
+        
+    #     # Esperamos um redirecionamento (código 302)
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertRedirects(response, reverse('dashboard')) # Verifica se redirecionou para o dashboard
+
+    def test_gestor_pode_aprovar_justificativa(self):
+        """
+        Testa se um gestor pode aprovar uma justificativa com sucesso via POST.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+        print("Executando teste: test_gestor_pode_aprovar_justificativa")
+        self.client.login(username='gestor', password='password')
+        
+        # Dados que seriam enviados pelo formulário da modal
+        post_data = {
+            'decisao': 'ACEITA',
+            'feedback_analise': 'Justificativa aceita pela gestão.'
+        }
+
+        response = self.client.post(self.url_processar, data=post_data)
+
+        # Verifica o redirecionamento
+        self.assertRedirects(response, self.url_lista)
+
+        # Busca a justificativa no banco de dados novamente para verificar se ela foi alterada
+        self.justificativa.refresh_from_db()
+
+        # Afirma que o status foi realmente alterado para 'ACEITA'
+        self.assertEqual(self.justificativa.status_analise, 'ACEITA')
