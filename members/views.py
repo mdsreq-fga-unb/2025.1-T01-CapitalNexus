@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.forms import formset_factory
 from django.contrib.auth.decorators import login_required 
 from .models import *
-from .forms import FaltaForm, ReuniaoForm
+from .forms import FaltaForm, JustificativaForm, ReuniaoForm
 
 @login_required
 def home(request):
@@ -194,3 +194,69 @@ def marcar_reuniao(request):
     
     messages.error(request, 'Houve um erro ao cadastrar a sua reunião. Veja se os dados informados estão no formato esperado e tente novamente.')
     return redirect('membros:reunioes')
+
+@login_required
+def pagina_faltas_advertencias(request):
+    contexto = {
+        'minhas_faltas': Falta.objects.none(),
+        'minhas_advertencias': Advertencias.objects.none(),
+        'total_faltas': 0,
+        'total_advertencias': 0
+    }
+
+    try:
+        membro_logado = Membro.objects.get(user=request.user)
+
+        # Primeiro, calculamos os totais, antes de qualquer filtro
+        total_faltas = Falta.objects.filter(membro=membro_logado).count()
+        total_advertencias = Advertencias.objects.filter(membro=membro_logado).count()
+
+        # Adicionamos os totais ao contexto
+        contexto['total_faltas'] = total_faltas
+        contexto['total_advertencias'] = total_advertencias
+
+        # Pegamos o valor do filtro da URL
+        tipo_filtro = request.GET.get('tipo', 'todos')
+
+        # Filtramos as listas com base na escolha do usuário
+        if tipo_filtro == 'todos':
+            faltas_filtradas = Falta.objects.filter(membro=membro_logado).select_related('reuniao', 'justificativa')
+            advertencias_filtradas = Advertencias.objects.filter(membro=membro_logado)
+        elif tipo_filtro == 'falta':
+            faltas_filtradas = Falta.objects.filter(membro=membro_logado).select_related('reuniao', 'justificativa')
+            advertencias_filtradas = Advertencias.objects.none() # Retorna uma lista vazia
+        elif tipo_filtro == 'advertencia':
+            faltas_filtradas = Falta.objects.none() # Retorna uma lista vazia
+            advertencias_filtradas = Advertencias.objects.filter(membro=membro_logado)
+        
+        contexto['minhas_faltas'] = faltas_filtradas
+        contexto['minhas_advertencias'] = advertencias_filtradas
+        contexto['form_justificativa'] = JustificativaForm()
+        contexto['membro'] = membro_logado
+
+    except Membro.DoesNotExist:
+        pass
+
+    return render(request, 'members/faltaseadvertencias.html', contexto)
+
+@login_required
+def justificar_falta(request, falta_id):
+    # Encontra a falta específica que o usuário está tentando justificar
+    falta = get_object_or_404(Falta, id=falta_id, membro__user=request.user)
+
+    # Verifica se já não existe uma justificativa para esta falta
+    if hasattr(falta, 'justificativa'):
+        messages.error(request, "Esta falta já foi justificada.")
+        return redirect('membros:faltaseaqdvertencias')
+
+    if request.method == 'POST':
+        form = JustificativaForm(request.POST)
+        if form.is_valid():
+            nova_justificativa = form.save(commit=False) # Cria o objeto, mas não salva ainda
+            nova_justificativa.falta = falta # Associa a justificativa à falta correta
+            nova_justificativa.save() # Salva no banco de dados
+            messages.success(request, "Sua justificativa foi enviada para análise.")
+            return redirect('membros:faltaseadvertencias')
+    
+    messages.error(request, 'Houve um erro ao cadastrar suas justificativa. Veja se os dados informados estão no formato esperado e tente novamente.')
+    return redirect('membros:faltaseadvertencias')

@@ -1,7 +1,7 @@
 # meu_app/forms.py
 from django import forms
 from django.utils import timezone
-from .models import Reuniao
+from .models import Justificativa, Reuniao
 import datetime
 
 class FaltaForm(forms.Form):
@@ -80,3 +80,15 @@ class ReuniaoForm(forms.ModelForm):
         if commit:
             instance.save()
         return instance
+
+class JustificativaForm(forms.ModelForm):
+    class Meta:
+        model = Justificativa
+        # O usuário só precisa preencher a descrição. Os outros campos são automáticos.
+        fields = ['texto_justificativa']
+        widgets = {
+            'texto_justificativa': forms.Textarea(attrs={'rows': 5, 'placeholder': 'Descreva o motivo da sua ausência...'})
+        }
+        labels = {
+            'texto_justificativa': 'Sua Justificativa'
+        }

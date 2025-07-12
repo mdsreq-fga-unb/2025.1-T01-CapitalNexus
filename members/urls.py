@@ -9,4 +9,6 @@ urlpatterns = [
     path('reunioes/marcar/', views.marcar_reuniao, name='marcar-reuniao'),
     path('reunioes/<int:reuniao_id>/editar/', views.editar_reuniao, name='editar-reuniao'),
     path('reunioes/<int:reuniao_id>/chamada/', views.fazer_chamada, name='chamada'),
+    path('presencas/', views.pagina_faltas_advertencias, name='faltaseadvertencias'),
+    path('presencas/<int:falta_id>/justificar/', views.justificar_falta, name='justificar-falta'),
 ]
