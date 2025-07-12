@@ -13,6 +13,8 @@ Utilizamos a técnica de User Story Mapping (USM) para estruturar o Product Back
     allowfullscreen
 ></iframe>
 
+## 🗺️ USM Board
+![USM-board](../../assets/USM.png)
 
 ## 👥 Personas
 
