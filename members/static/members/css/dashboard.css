@@ -982,3 +982,86 @@ body {
 .action-icon:hover {
     color: #6a5acd; /* Cor roxa no hover */
 }
+
+.justificativas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* O card principal */
+.justificativa-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column; /* Faz o rodapé ir para baixo */
+}
+
+/* O cabeçalho do card */
+.justificativa-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.justificativa-card .card-header h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+/* O corpo com os detalhes */
+.justificativa-card .card-body {
+    padding: 20px;
+}
+
+.details-list dt { /* O "título" do dado (ex: "Reunião:") */
+    font-size: 13px;
+    font-weight: 600;
+    color: #8c98a9;
+    margin-bottom: 4px;
+}
+
+.details-list dd { /* O valor do dado (ex: "Reunião de Planejamento") */
+    font-size: 15px;
+    color: #333;
+    margin-left: 0; /* Reseta a margem padrão */
+    margin-bottom: 15px; /* Espaço entre cada par de detalhes */
+}
+
+.details-list dd:last-child {
+    margin-bottom: 0;
+}
+
+/* O rodapé do card */
+.justificativa-card .card-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px;
+    border-top: 1px solid #f0f0f0;
+    margin-top: auto; /* Empurra o rodapé para o fundo do card */
+}
+
+/* O botão de ação "Avaliar" */
+.card-button-action {
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.btn-avaliar {
+    background-color: #6a5acd; /* Roxo */
+    color: white;
+}
+
+.btn-avaliar:hover {
+    background-color: #594ab5;
+}

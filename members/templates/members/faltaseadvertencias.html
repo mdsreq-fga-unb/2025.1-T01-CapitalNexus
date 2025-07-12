@@ -7,10 +7,8 @@
 {% block dashboardcontent %}
     <div class="tabs-nav">
         <a href="{% url 'membros:faltaseadvertencias' %}" class="tab-link active">Minhas Presenças</a>
-        <!-- {% if membro.is_gestor %} -->
-            <a href="#" class="tab-link">Avaliar Justificativas</a>
-            <a href="#" class="tab-link">Gerenciar Advertências</a>
-        <!-- {% endif %} -->
+        <a href="{% url 'membros:justificativas' %}" class="tab-link">Avaliar Justificativas</a>
+        <a href="#" class="tab-link">Gerenciar Advertências</a>
     </div>
 
     <div class="stats-grid">

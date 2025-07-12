@@ -262,3 +262,54 @@ def justificar_falta(request, falta_id):
     
     messages.error(request, 'Houve um erro ao cadastrar suas justificativa. Veja se os dados informados estão no formato esperado e tente novamente.')
     return redirect('membros:faltaseadvertencias')
+
+@login_required
+def pagina_avaliar_justificativas(request):
+    membro = Membro.objects.get(user=request.user)
+    # 1. Busca todas as justificativas 
+    justificativas = Justificativa.objects.select_related(
+        'falta__reuniao', 'falta__membro__user'
+    )
+
+    # 2. Pega o ID da reunião da URL (ex: ?reuniao=5), se foi filtrado
+    reuniao_id_filtro = request.GET.get('reuniao')
+
+    status_filtro = request.GET.get('status')
+
+    # 3. Aplica o filtro na nossa lista se um ID de reunião foi enviado
+    if reuniao_id_filtro:
+        # Filtra a lista para mostrar apenas justificativas daquela reunião
+        justificativas = justificativas.filter(falta__reuniao__id=reuniao_id_filtro)
+    if status_filtro:
+        justificativas = justificativas.filter(status_analise=status_filtro)
+
+    # 4. Pega uma lista de reuniões únicas para popular o dropdown do filtro
+    reunioes = Reuniao.objects.all()
+
+    contexto = {
+        'justificativas': justificativas,
+        'filtro_reunioes': reunioes,
+        'membro': membro,
+    }
+    return render(request, 'members/justificativas.html', contexto)
+
+@login_required
+def processar_justificativa(request, just_id):
+    # if not request.user.membro.is_gestor():
+    #     return redirect('membros:home') # Segurança
+
+    justificativa = get_object_or_404(Justificativa, id=just_id)
+
+    if request.method == 'POST':
+        decisao = request.POST.get('decisao') # Pega o valor do botão clicado ('ACEITA' ou 'REJEITADA')
+        feedback = request.POST.get('feedback_analise')
+
+        if decisao in ['ACEITA', 'REJEITADA']:
+            justificativa.status_analise = decisao
+            justificativa.feedback_analise = feedback
+            
+
+            justificativa.save()
+            messages.success(request, f"A justificativa de {justificativa.falta.membro.nome} foi analisada.")
+        
+    return redirect('membros:justificativas')
