@@ -89,8 +89,11 @@ Utilizamos a técnica de User Story Mapping (USM) para estruturar o Product Back
 Como **Professor Coordenador**, quero **criar um novo projeto com nome, objetivo e disciplinas**, para que **eu possa começar a organizar e documentar desde o início**.
 
 **Critérios de Aceitação:**
+
 - O sistema deve permitir a criação de projeto com nome, objetivos e disciplinas.
+
 - O projeto pode ser salvo como rascunho.
+
 - O projeto pode ser editado posteriormente.
 
 ---
@@ -100,8 +103,11 @@ Como **Professor Coordenador**, quero **criar um novo projeto com nome, objetivo
 Como **Professor Coordenador**, quero **definir objetivos pedagógicos para o projeto**, para que **os professores participantes tenham clareza sobre as metas educacionais**.
 
 **Critérios de Aceitação:**
+
 - O sistema deve permitir a inserção e edição dos objetivos pedagógicos.
+
 - Os objetivos devem estar vinculados ao projeto.
+
 - Deve haver visualização clara dos objetivos para todos os envolvidos.
 
 ---
@@ -111,8 +117,11 @@ Como **Professor Coordenador**, quero **definir objetivos pedagógicos para o pr
 Como **Professor Coordenador**, quero **estimar os recursos necessários**, para que **possamos garantir o suporte adequado ao longo do projeto**.
 
 **Critérios de Aceitação:**
+
 - O sistema deve permitir a listagem de recursos (materiais, equipe, orçamento).
+
 - Os recursos devem ser associados ao projeto.
+
 - Deve ser possível revisar e atualizar os recursos estimados.
 
 ---
@@ -124,8 +133,11 @@ Como **Professor Coordenador**, quero **estimar os recursos necessários**, para
 Como **Professor Coordenador**, quero **criar um cronograma com marcos e datas editáveis**, para que **eu possa planejar e acompanhar o progresso do projeto**.
 
 **Critérios de Aceitação:**
+
 - Deve ser possível adicionar marcos com nome, descrição e data.
+
 - O cronograma deve ser editável.
+
 - As alterações devem ser salvas e visíveis a todos os envolvidos.
 
 ---
@@ -135,8 +147,11 @@ Como **Professor Coordenador**, quero **criar um cronograma com marcos e datas e
 Como **Coordenador Pedagógico**, quero **atribuir papéis e responsabilidades a cada membro da equipe**, para que **todos saibam o que é esperado de si**.
 
 **Critérios de Aceitação:**
+
 - Deve ser possível atribuir papéis aos usuários cadastrados.
+
 - As responsabilidades devem estar claramente descritas.
+
 - Os usuários devem ser notificados das suas atribuições.
 
 ---
@@ -146,8 +161,11 @@ Como **Coordenador Pedagógico**, quero **atribuir papéis e responsabilidades a
 Como **Coordenador Pedagógico**, quero **definir critérios de avaliação associados às atividades**, para que **os resultados possam ser medidos de forma justa e padronizada**.
 
 **Critérios de Aceitação:**
+
 - Deve ser possível criar, editar e excluir critérios de avaliação.
+
 - Os critérios devem estar associados a atividades específicas.
+
 - Os critérios devem estar acessíveis aos professores e coordenadores.
 
 ---
@@ -159,8 +177,11 @@ Como **Coordenador Pedagógico**, quero **definir critérios de avaliação asso
 Como **Professor Coordenador**, quero **agendar reuniões de apresentação**, para que **todos os envolvidos entendam o escopo do projeto desde o início**.
 
 **Critérios de Aceitação:**
+
 - Deve ser possível agendar reuniões com data, hora e descrição.
+
 - Os participantes devem receber notificações da reunião.
+
 - Deve ser possível registrar a realização da reunião.
 
 ---
@@ -170,8 +191,11 @@ Como **Professor Coordenador**, quero **agendar reuniões de apresentação**, p
 Como **Professor Participante**, quero **receber comunicados personalizados**, para que **eu esteja sempre atualizado sobre as fases do projeto**.
 
 **Critérios de Aceitação:**
+
 - O sistema deve permitir o envio de comunicados para públicos distintos.
+
 - Os comunicados devem incluir título, mensagem e anexos opcionais.
+
 - Os usuários devem receber os comunicados via sistema e/ou e-mail.
 
 ---
@@ -183,8 +207,11 @@ Como **Professor Participante**, quero **receber comunicados personalizados**, p
 Como **Aluno**, quero **ser cadastrado no projeto com meus dados básicos**, para que **eu possa participar formalmente das atividades**.
 
 **Critérios de Aceitação:**
+
 - O sistema deve permitir o cadastro de alunos com nome, série, turma e dados de contato.
+
 - O aluno deve ser vinculado ao projeto específico.
+
 - O coordenador deve conseguir visualizar a lista de alunos cadastrados.
 
 ---
@@ -194,8 +221,11 @@ Como **Aluno**, quero **ser cadastrado no projeto com meus dados básicos**, par
 Como **Pai/Responsável**, quero **autorizar digitalmente a participação do meu filho**, para que **ele possa integrar-se ao projeto sem complicações burocráticas**.
 
 **Critérios de Aceitação:**
+
 - Deve haver uma funcionalidade de envio de termo de autorização digital.
+
 - O responsável deve poder assinar eletronicamente.
+
 - O status da autorização deve ficar visível para os coordenadores.
 
 ---
@@ -207,8 +237,11 @@ Como **Pai/Responsável**, quero **autorizar digitalmente a participação do me
 Como **Aluno**, quero **registrar o andamento das minhas atividades**, para que **eu possa acompanhar meu progresso**.
 
 **Critérios de Aceitação:**
+
 - O aluno deve poder registrar atualizações em suas tarefas.
+
 - O sistema deve armazenar um histórico dessas atualizações.
+
 - As atualizações devem ser visíveis pelos professores.
 
 ---
@@ -218,8 +251,11 @@ Como **Aluno**, quero **registrar o andamento das minhas atividades**, para que 
 Como **Professor Participante**, quero **marcar tarefas como concluídas**, para que **os coordenadores vejam o andamento da turma**.
 
 **Critérios de Aceitação:**
+
 - As tarefas devem ter um botão ou ação para marcar como "concluída".
+
 - Deve ser possível adicionar observações ao concluir uma tarefa.
+
 - O status de conclusão deve aparecer no painel do projeto.
 
 ---
@@ -229,8 +265,11 @@ Como **Professor Participante**, quero **marcar tarefas como concluídas**, para
 Como **Professor Coordenador**, quero **visualizar o status geral do projeto**, para que **eu possa intervir quando necessário**.
 
 **Critérios de Aceitação:**
+
 - O sistema deve exibir uma visão geral do progresso das tarefas por aluno ou equipe.
+
 - Deve ser possível filtrar por status, responsável ou data.
+
 - Alertas devem ser exibidos para tarefas atrasadas ou pendentes.
 
 ---
@@ -242,8 +281,11 @@ Como **Professor Coordenador**, quero **visualizar o status geral do projeto**, 
 Como **Professor Coordenador**, quero **controlar materiais e recursos por etapa**, para que **o uso seja eficiente e não falte nada durante o projeto**.
 
 **Critérios de Aceitação:**
+
 - Deve ser possível registrar recursos disponíveis e seu uso por atividade.
+
 - Alertas devem ser enviados quando os estoques estiverem baixos.
+
 - Um histórico de uso deve ser acessível para consulta.
 
 ---
@@ -255,8 +297,11 @@ Como **Professor Coordenador**, quero **controlar materiais e recursos por etapa
 Como **Professor Participante**, quero **inserir evidências de aprendizagem dos alunos**, para que **os avaliadores tenham uma base real para análise**.
 
 **Critérios de Aceitação:**
+
 - Deve ser possível anexar fotos, vídeos ou documentos organizados por aluno.
+
 - Cada evidência deve ser vinculada a uma atividade ou critério.
+
 - As evidências devem ficar acessíveis a professores e coordenadores.
 
 ---
@@ -266,8 +311,11 @@ Como **Professor Participante**, quero **inserir evidências de aprendizagem dos
 Como **Coordenador Pedagógico**, quero **avaliar o progresso dos alunos com base nas evidências**, para que **o desempenho seja bem documentado**.
 
 **Critérios de Aceitação:**
+
 - Deve haver uma interface para visualizar as evidências e atribuir avaliações.
+
 - Os relatórios devem ser gerados automaticamente por aluno, grupo ou projeto.
+
 - O sistema deve permitir comentários e feedbacks qualitativos.
 
 ---
@@ -279,8 +327,11 @@ Como **Coordenador Pedagógico**, quero **avaliar o progresso dos alunos com bas
 Como **Professor Coordenador**, quero **publicar atualizações e avisos no mural**, para que **todos os stakeholders acompanhem as novidades**.
 
 **Critérios de Aceitação:**
+
 - Deve ser possível publicar avisos com texto, imagens e anexos.
+
 - Os avisos devem ter opção de menção a usuários.
+
 - Todos os usuários devem ser notificados ao receber um novo aviso.
 
 ---
@@ -290,6 +341,9 @@ Como **Professor Coordenador**, quero **publicar atualizações e avisos no mura
 Como **Aluno**, quero **visualizar e comentar nos avisos e atividades**, para que **eu possa tirar dúvidas e interagir com o projeto**.
 
 **Critérios de Aceitação:**
+
 - Os alunos devem poder comentar nas publicações visíveis a eles.
+
 - Os comentários devem permitir marcação de usuários e anexos simples.
+
 - Deve haver controle de visibilidade e moderação para os comentários.
