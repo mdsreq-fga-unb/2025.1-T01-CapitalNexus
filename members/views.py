@@ -257,6 +257,8 @@ def justificar_falta(request, falta_id):
             nova_justificativa.save() # Salva no banco de dados
             messages.success(request, "Sua justificativa foi enviada para análise.")
             return redirect('membros:faltaseadvertencias')
+    else:
+        form = JustificativaForm()
     
     messages.error(request, 'Houve um erro ao cadastrar suas justificativa. Veja se os dados informados estão no formato esperado e tente novamente.')
     return redirect('membros:faltaseadvertencias')
