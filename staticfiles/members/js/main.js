@@ -47,4 +47,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    const btnsAbrirModal = document.querySelectorAll('[data-target-modal]');
+        
+    // Adiciona o evento de clique para CADA um desses botões
+    btnsAbrirModal.forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            event.preventDefault(); // Impede a ação padrão do link
+            const modalId = btn.getAttribute('data-target-modal'); // Pega o valor (ex: '#minha-modal')
+            const modal = document.querySelector(modalId); // Encontra a modal com esse ID
+            
+            if (modal) {
+                // ADICIONAMOS a classe 'is-open'
+                modal.classList.add('is-open'); 
+            }
+        });
+    });
+
+    // Seleciona TODOS os botões de fechar (seja o 'X' ou o botão 'Cancelar')
+    const btnsFecharModal = document.querySelectorAll('.modal .close-button, .modal .btn-cancel');
+    btnsFecharModal.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Encontra a modal "mãe" do botão que foi clicado
+            const modal = btn.closest('.modal');
+            if (modal) {
+                //REMOVEMOS a classe 'is-open'
+                modal.classList.remove('is-open');
+            }
+        });
+    });
+
+    // Fecha se clicar fora da caixa de conteúdo
+    window.addEventListener('click', (event) => {
+        // Verifica se o clique foi no fundo escurecido (que tem a classe .modal E a classe .is-open)
+        if (event.target.classList.contains('is-open')) {
+            event.target.classList.remove('is-open');
+        }
+    });
 });

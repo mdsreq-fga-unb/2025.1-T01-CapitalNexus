@@ -884,3 +884,101 @@ body {
     background-color: #ff8b07; /* Laranja para aviso */
     border-color: #ff8b07;
 }
+
+/* Estilo para as Abas */
+.tabs-nav {
+    display: flex;
+    gap: 5px;
+    border-bottom: 2px solid #e5e5e5;
+    margin-bottom: 30px;
+}
+.tab-link {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #6c757d;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+    border: 2px solid transparent;
+}
+.tab-link.active {
+    color: #6a5acd;
+    border-color: #e5e5e5 #e5e5e5 #fff #e5e5e5;
+    border-bottom-color: #fff;
+    position: relative;
+    top: 2px;
+}
+
+/* =================== ESTILO DE TABELA DE DADOS =================== */
+
+.data-table-container {
+    width: 100%;
+    overflow-x: auto; /* Adiciona rolagem horizontal em telas pequenas */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaço entre as células */
+    min-width: 800px; /* Largura mínima antes da rolagem aparecer */
+}
+
+/* Estilo para todas as células (cabeçalho e corpo) */
+.data-table th, .data-table td {
+    padding: 16px;
+    text-align: left;
+    vertical-align: middle; /* Alinha o conteúdo no meio verticalmente */
+}
+
+/* Estilo para as linhas do corpo da tabela */
+.data-table tbody tr {
+    border-bottom: 1px solid #eef0f4; /* Linha cinza clara entre as linhas */
+    transition: background-color 0.2s ease;
+}
+
+.data-table tbody tr:last-child {
+    border-bottom: none; /* Remove a borda da última linha */
+}
+
+.data-table tbody tr:hover {
+    background-color: #f8f9fa; /* Efeito suave de hover */
+}
+
+/* Estilo para o cabeçalho da tabela */
+.data-table thead th {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8c98a9;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e5e5e5;
+}
+
+/* Estilo genérico para as "Pílulas" (Tags) */
+.tag {
+    padding: 5px 12px;
+    border-radius: 20px; /* Deixa bem arredondado */
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Cores específicas das pílulas de status */
+.tag-status-PENDENTE { background-color: #fff1d4; color: #ffab00; }
+.tag-status-ACEITA { background-color: #e3fcef; color: #2ecc71; }
+.tag-status-REJEITADA { background-color: #ffebe9; color: #e74c3c; }
+
+
+/* Estilo para a coluna de Ações */
+.actions-header, .actions-cell {
+    text-align: right; /* Alinha os ícones na direita */
+}
+
+.action-icon {
+    font-size: 18px;
+    text-decoration: none;
+    color: #8c98a9; /* Cinza sutil */
+    margin-left: 15px;
+    transition: color 0.2s ease;
+}
+
+.action-icon:hover {
+    color: #6a5acd; /* Cor roxa no hover */
+}

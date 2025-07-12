@@ -1,0 +1,140 @@
+{% extends 'members/layout.html' %}
+{% load static %}
+
+{% block dashboard_title %}Gerenciamento de Presenças{% endblock %}
+{% block page_title %}Gerenciamento de Presenças{% endblock %}
+
+{% block dashboardcontent %}
+    <div class="tabs-nav">
+        <a href="{% url 'membros:faltaseadvertencias' %}" class="tab-link active">Minhas Presenças</a>
+        <!-- {% if membro.is_gestor %} -->
+            <a href="#" class="tab-link">Avaliar Justificativas</a>
+            <a href="#" class="tab-link">Gerenciar Advertências</a>
+        <!-- {% endif %} -->
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Faltas Registradas</h3>
+            <p class="stat-number">{{ total_faltas }}</p>
+        </div>
+        <div class="stat-card">
+            <h3>Advertências registradas</h3>
+            <p class="stat-number">{{ total_advertencias }}</p>
+        </div>
+        </div>
+
+    <div class="panel" style="margin-top: 30px;">
+        <form class="filter-bar" method="get">
+            <select name="tipo">
+                <option value="todos">Todos os Incidentes</option>
+                <option value="falta" {% if request.GET.tipo == 'falta' %}selected{% endif %}>Faltas</option>
+                <option value="advertencia" {% if request.GET.tipo == 'advertencia' %}selected{% endif %}>Advertências</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
+
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Incidente</th>
+                        <th>Data</th>
+                        <th>Motivo</th>
+                        <th>Status</th>
+                        <th class="actions-header">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for falta in minhas_faltas %}
+                    <tr>
+                        <td>
+                            <strong>{{ falta.reuniao.titulo }}</strong>
+                        </td>
+                        <td>{{ falta.reuniao.data_hora|date:"d/m/Y" }}</td>
+                        <td>{{ falta.justificativa.texto_justificativa|default:"-"|truncatechars:50 }}</td>
+                        <td>
+                            {% if falta.justificativa.status_analise == 'ACEITA'%}
+                                <span class="tag tag-status-ACEITA">
+                                    {{ falta.justificativa.status_analise }}
+                                </span>
+                            {% elif falta.justificativa.status_analise == 'REJEITADA' %}
+                                <span class="tag tag-status-REJEITADA">
+                                    {{ falta.justificativa.status_analise }}
+                                </span>
+                            {% else %}
+                                <span class="tag tag-status-PENDENTE">
+                                    PENDENTE
+                                </span>
+                            {% endif %}
+                        </td>
+                        <td class="actions-cell">
+                            {% if not falta.justificativa %}
+                                <a href="#" class="action-icon action-edit" title="Justificar Falta" data-target-modal="#justificar-modal-{{ falta.id }}">
+                                    <i class="fa-solid fa-pen-to-square"></i> Justificar
+                                </a>
+                            {% else %}
+                                <a href="#" class="action-icon action-view" title="Já justificado">
+                                    -
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                        {% if request.GET.tipo == 'falta' or not request.GET.tipo or request.GET.tipo == 'todos' %}
+                            <tr><td colspan="5" style="text-align: center; padding: 20px; background-color: #f9f9f9;">Nenhuma falta registrada.</td></tr>
+                        {% endif %}
+                    {% endfor %}
+                    {% for advertencia in minhas_advertencias %}
+                    <tr>
+                        <td>
+                            <strong>Advertência</strong>
+                        </td>
+                        <td>{{ advertencia.data|date:"d/m/Y" }}</td>
+                        <td>{{ advertencia.contexto|default:"-"|truncatechars:50 }}</td>
+                        <td>
+                            -
+                        </td>
+                        <td>
+                            -
+                        </td>
+                    </tr>
+                    {% empty %}
+                        {% if request.GET.tipo == 'advertencia' or not request.GET.tipo or request.GET.tipo == 'todos' %}
+                             <tr><td colspan="5" style="text-align: center; padding: 20px; background-color: #f9f9f9;">Nenhuma advertência registrada.</td></tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% for falta in minhas_faltas %}
+        {% if not falta.justificativa %}
+        <div id="justificar-modal-{{ falta.id }}" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Justificar Ausência</h2>
+                    <span class="close-button">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Reunião:</strong> {{ falta.reuniao.titulo }}</p>
+                    <p><strong>Data:</strong> {{ falta.reuniao.data_hora|date:"d/m/Y" }}</p>
+                    <hr style="margin: 15px 0;">
+                    
+                    <form action="{% url 'membros:justificar-falta' falta.id %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="{{ form_justificativa.texto_justificativa.id_for_label }}">Sua Justificativa:</label>
+                            {{ form_justificativa.texto_justificativa }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn-cancel">Cancelar</button>
+                            <button type="submit" class="btn-save">Enviar Justificativa</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
