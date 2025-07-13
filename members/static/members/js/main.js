@@ -96,4 +96,40 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch(e) {
         console.error("Erro ao inicializar Select2:", e);
     }
+    // --- LÓGICA PARA A MODAL DE EDITAR MATERIAL ---
+    const editarModal = document.getElementById('editar-material-modal');
+    const editarForm = document.getElementById('editar-material-form');
+    const btnsEditarMaterial = document.querySelectorAll('.action-edit[data-material-id]');
+
+    btnsEditarMaterial.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+            event.preventDefault();
+            const materialId = btn.dataset.materialId;
+
+            try {
+                // 1. Busca os dados na nossa API
+                const response = await fetch(`/members/api/material/${materialId}/`);
+                const dados = await response.json();
+
+                // 2. Preenche o formulário da modal com os dados recebidos
+                editarForm.querySelector('[name="nome"]').value = dados.nome;
+                editarForm.querySelector('[name="tipo"]').value = dados.tipo;
+                editarForm.querySelector('[name="finalidade"]').value = dados.finalidade;
+                editarForm.querySelector('[name="quantidade_total"]').value = dados.quantidade_total;
+                editarForm.querySelector('[name="status"]').value = dados.status;
+                editarForm.querySelector('[name="em_uso_por"]').value = dados.em_uso_por_id;
+                editarForm.querySelector('[name="nucleo_responsavel"]').value = dados.nucleo_responsavel_id;
+
+                // 3. Define a URL de ação correta para o formulário
+                editarForm.action = `/members/materiais/${materialId}/editar/`;
+
+                // 4. Abre a modal
+                editarModal.classList.add('is-open');
+
+            } catch (error) {
+                console.error('Erro ao buscar dados do material:', error);
+                alert('Não foi possível carregar os dados para edição.');
+            }
+        });
+    });
 });

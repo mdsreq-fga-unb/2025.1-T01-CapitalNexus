@@ -13,8 +13,12 @@ urlpatterns = [
     path('presencas/<int:falta_id>/justificar/', views.justificar_falta, name='justificar-falta'),
     path('presencas/justificativas/', views.pagina_avaliar_justificativas, name='justificativas'),
     path('presencas/justificativas/<int:just_id>/processar/', views.processar_justificativa, name='processar'),
-    path('pesencas/advertencias/', views.pagina_gerenciar_advertencias, name='advertencias'),
+    path('presencas/advertencias/', views.pagina_gerenciar_advertencias, name='advertencias'),
     path('presencas/advertencias/registrar', views.registrar_advertencia, name='criar-advertencia'),
     path('advertencias/<int:advertencia_id>/editar/', views.editar_advertencia, name='editar-advertencia'),
     path('advertencias/<int:advertencia_id>/excluir/', views.excluir_advertencia, name='excluir-advertencia'),
+    path('materiais/', views.pagina_lista_de_materiais, name='materiais'),
+    path('materiais/novo/', views.novo_material, name='novo-material'),
+    path('materiais/<int:material_id>/editar/', views.editar_material, name='editar-material'),
+    path('api/material/<int:material_id>/', views.material_detalhes_api, name='api-material-detalhes'),
 ]
