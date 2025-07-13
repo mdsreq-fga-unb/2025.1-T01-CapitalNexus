@@ -1,7 +1,7 @@
 # meu_app/forms.py
 from django import forms
 from django.utils import timezone
-from .models import Advertencias, Justificativa, Reuniao, Material
+from .models import Advertencias, HistoricoReserva, Justificativa, Reuniao, Material, SolicitacaoMaterial
 import datetime
 
 class FaltaForm(forms.Form):
@@ -110,9 +110,61 @@ class MaterialForm(forms.ModelForm):
     class Meta:
         model = Material
         # Definimos os campos que o usuário pode preencher
-        fields = ['nome', 'tipo', 'finalidade', 'quantidade_total', 'nucleo_responsavel', 'status', 'em_uso_por']
+        fields = ['nome', 'tipo', 'finalidade', 'quantidade_total', 'nucleo_responsavel', 'status']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Deixa o campo 'em_uso_por' opcional, já que só é usado quando o status é 'EM_USO'
-        self.fields['em_uso_por'].required = False
+        # # Deixa o campo 'em_uso_por' opcional, já que só é usado quando o status é 'EM_USO'
+        # self.fields['em_uso_por'].required = False
+
+class ReservaForm(forms.ModelForm):
+    class Meta:
+        model = HistoricoReserva
+        fields = ['data_devolucao_prevista']
+        widgets = {
+            'data_devolucao_prevista': forms.DateInput(attrs={'type': 'date'})
+        }
+        labels = {
+            'data_devolucao_prevista': 'Data Prevista de Devolução'
+        }
+
+    def __init__(self, *args, **kwargs):
+        """
+        Este método é executado sempre que o formulário é criado.
+        Vamos usá-lo para adicionar a validação de front-end.
+        """
+        super().__init__(*args, **kwargs)
+        
+        # 1. Validação no Front-end: Define a data mínima no input HTML
+        hoje_formatado = timezone.now().strftime('%Y-%m-%d')
+        self.fields['data_devolucao_prevista'].widget.attrs['min'] = hoje_formatado
+
+
+    def clean_data_devolucao_prevista(self):
+        """
+        Esta é uma função de validação customizada para o campo 'data_devolucao_prevista'.
+        O Django a executa automaticamente durante a validação do formulário no back-end.
+        """
+        # 2. Validação no Back-end: Garante que a data não está no passado
+        data_selecionada = self.cleaned_data.get('data_devolucao_prevista')
+        hoje = timezone.now().date() # Pegamos apenas a data de hoje, sem a hora
+
+        # Garante que o campo foi preenchido antes de comparar
+        if data_selecionada and data_selecionada < hoje:
+            # Se a data selecionada for anterior a hoje, lança um erro de validação.
+            raise forms.ValidationError("A data de devolução não pode ser um dia no passado.")
+        
+        # Sempre retorne o dado "limpo" no final da função de validação
+        return data_selecionada
+    
+class SolicitacaoMaterialForm(forms.ModelForm):
+    class Meta:
+        model = SolicitacaoMaterial
+        # O usuário só precisa preencher estes campos. O resto é automático.
+        fields = ['nome_material', 'quantidade', 'justificativa', 'link_referencia']
+        labels = {
+            'nome_material': 'Nome do Material ou Equipamento',
+            'quantidade': 'Quantidade Necessária',
+            'justificativa': 'Finalidade de Uso / Justificativa',
+            'link_referencia': 'Link de Referência (opcional)',
+        }

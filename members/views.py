@@ -5,7 +5,7 @@ from django.forms import formset_factory
 from django.contrib.auth.decorators import login_required 
 from django.http import JsonResponse
 from .models import *
-from .forms import AdvertenciaForm, FaltaForm, JustificativaForm, ReuniaoForm, MaterialForm
+from .forms import AdvertenciaForm, FaltaForm, JustificativaForm, ReservaForm, ReuniaoForm, MaterialForm, SolicitacaoMaterialForm
 
 @login_required
 def home(request):
@@ -421,7 +421,7 @@ def excluir_advertencia(request, advertencia_id):
 def pagina_lista_de_materiais(request):
     membro = Membro.objects.get(user=request.user)
     # Começamos com todos os materiais
-    queryset = Material.objects.all().select_related('em_uso_por', 'nucleo_responsavel')
+    queryset = Material.objects.all().select_related('nucleo_responsavel').prefetch_related('historico__membro')
 
     # Pega os valores dos filtros da URL (via request.GET)
     nucleo_tab_query = request.GET.get('nucleo')
@@ -451,6 +451,8 @@ def pagina_lista_de_materiais(request):
         'nucleo_ativo': nucleo_tab_query or 'Todos os Núcleos'
     }
     contexto['form_novo_material'] = MaterialForm()
+    contexto['form_reserva'] = ReservaForm()
+    contexto['form_solicitacao'] = SolicitacaoMaterialForm()
     return render(request, 'members/materiais.html', contexto)
 
 @login_required
@@ -473,7 +475,7 @@ def material_detalhes_api(request, material_id):
     dados = {
         'nome': material.nome, 'tipo': material.tipo, 'finalidade': material.finalidade,
         'quantidade_total': material.quantidade_total, 'status': material.status,
-        'em_uso_por_id': material.em_uso_por.user.id if material.em_uso_por else '',
+        # 'em_uso_por_id': material.em_uso_por.user.id if material.em_uso_por else '',
         'nucleo_responsavel_id': material.nucleo_responsavel.id if material.nucleo_responsavel else '',
     }
     return JsonResponse(dados)
@@ -491,4 +493,84 @@ def editar_material(request, material_id):
             messages.success(request, 'Material atualizado com sucesso!')
         else:
             messages.error(request, 'Houve um erro ao atualizar. Verifique os dados.')
+    return redirect('membros:materiais')
+
+@login_required
+def reservar_material(request, material_id):
+    material = get_object_or_404(Material, id=material_id)
+    membro = get_object_or_404(Membro, user=request.user)
+
+    if material.status != 'DISPONIVEL':
+        messages.error(request, "Este material não está disponível para reserva.")
+        return redirect('membros:materiais')
+
+    if request.method == 'POST':
+        form = ReservaForm(request.POST)
+        if form.is_valid():
+            # Cria o registro no histórico
+            reserva = form.save(commit=False)
+            reserva.material = material
+            reserva.membro = membro
+            reserva.save()
+
+            # Atualiza o status do material
+            material.status = 'EM_USO'
+            material.save()
+
+            messages.success(request, f"Material '{material.nome}' reservado com sucesso!")
+            return redirect('membros:materiais')
+
+    # Se o formulário for inválido, redireciona com erro
+    messages.error(request, "Houve um erro ao reservar o material. Verifique a data informada e tente novamente.")
+    return redirect('membros:materiais')
+
+@login_required
+def devolver_material(request, material_id):
+    material = get_object_or_404(Material, id=material_id)
+    
+    # Apenas aceita a ação se for via POST (do formulário de confirmação)
+    if request.method == 'POST':
+        reserva_ativa = material.get_reserva_ativa()
+        if reserva_ativa and (reserva_ativa.membro.user == request.user or request.user.membro.is_gestor()):
+            # Atualiza o registro de histórico com a data de devolução
+            reserva_ativa.data_devolucao_real = timezone.now()
+            reserva_ativa.save()
+
+            # Atualiza o status do material de volta para disponível
+            material.status = 'DISPONIVEL'
+            material.save()
+            
+            messages.success(request, f"Material '{material.nome}' devolvido com sucesso.")
+        else:
+            messages.error(request, "Não foi possível processar a devolução.")
+
+    return redirect('membros:materiais')
+
+@login_required
+def marcar_material_disponivel(request, material_id):
+    # Garante que apenas gestores podem executar esta ação
+    # if not request.user.membro.is_gestor():
+    #     messages.error(request, "Você não tem permissão para esta ação.")
+    #     return redirect('membros:materiais')
+
+    if request.method == 'POST':
+        material = get_object_or_404(Material, id=material_id)
+        material.status = 'DISPONIVEL'
+        material.save()
+        messages.success(request, f"O material '{material.nome}' foi marcado como disponível.")
+    
+    return redirect('membros:materiais')
+
+@login_required
+def solicitar_material(request):
+    if request.method == 'POST':
+        form = SolicitacaoMaterialForm(request.POST)
+        if form.is_valid():
+            solicitacao = form.save(commit=False)
+            # Associamos o membro logado à solicitação
+            solicitacao.solicitante = request.user.membro
+            solicitacao.save()
+            messages.success(request, 'Sua solicitação de material foi enviada para análise!')
+        else:
+            messages.error(request, 'Houve um erro no formulário. Verifique os dados.')
     return redirect('membros:materiais')

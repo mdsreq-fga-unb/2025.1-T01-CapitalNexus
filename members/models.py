@@ -131,12 +131,60 @@ class Material(models.Model):
     finalidade = models.CharField(max_length=200)
     quantidade_total = models.PositiveIntegerField(default=1)
     
-    # Rastreia o status e quem está usando
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='DISPONIVEL')
-    em_uso_por = models.ForeignKey(Membro, on_delete=models.SET_NULL, null=True, blank=True, help_text="Membro que está atualmente com o material")
-    
+    # Rastreia o status 
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='DISPONIVEL')  
+
     # O núcleo responsável pelo material
     nucleo_responsavel = models.ForeignKey(Nucleo, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.nome
+    
+    def get_reserva_ativa(self):
+        """
+        Busca no histórico a última reserva para este material que ainda
+        não foi devolvida (ou seja, a reserva ativa).
+        """
+        # Acessa o histórico através do related_name="historico" que definimos
+        reserva = self.historico.filter(data_devolucao_real__isnull=True).first()
+        return reserva
+    
+class HistoricoReserva(models.Model):
+    material = models.ForeignKey(Material, on_delete=models.CASCADE, related_name="historico")
+    membro = models.ForeignKey(Membro, on_delete=models.SET_NULL, null=True, help_text="Membro que retirou o material")
+    data_retirada = models.DateTimeField(auto_now_add=True)
+    data_devolucao_prevista = models.DateField()
+    data_devolucao_real = models.DateTimeField(null=True, blank=True, help_text="Preenchido quando o material é devolvido")
+
+    class Meta:
+        ordering = ['-data_retirada']
+
+    def __str__(self):
+        return f"{self.material.nome} retirado por {self.membro.nome}"
+
+# meu_app/models.py
+
+class SolicitacaoMaterial(models.Model):
+    STATUS_CHOICES = [
+        ('PENDENTE', 'Pendente'),
+        ('APROVADA', 'Aprovada'),
+        ('REJEITADA', 'Rejeitada'),
+        ('COMPRADO', 'Comprado'),
+    ]
+
+    solicitante = models.ForeignKey(Membro, on_delete=models.CASCADE)
+    nome_material = models.CharField(max_length=150)
+    justificativa = models.TextField(help_text="Explique por que este material é necessário.")
+    quantidade = models.PositiveIntegerField(default=1)
+    link_referencia = models.URLField(max_length=500, blank=True, null=True, help_text="Link de onde comprar o produto (opcional)")
+    
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDENTE')
+    data_solicitacao = models.DateTimeField(auto_now_add=True)
+    feedback_gestao = models.TextField(blank=True, null=True, help_text="Feedback do gestor ao analisar o pedido.")
+
+    class Meta:
+        ordering = ['-data_solicitacao']
+
+    def __str__(self):
+        return f"Pedido de '{self.nome_material}' por {self.solicitante.nome}"
+

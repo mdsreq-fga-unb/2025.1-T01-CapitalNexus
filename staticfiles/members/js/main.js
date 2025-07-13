@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 editarForm.querySelector('[name="finalidade"]').value = dados.finalidade;
                 editarForm.querySelector('[name="quantidade_total"]').value = dados.quantidade_total;
                 editarForm.querySelector('[name="status"]').value = dados.status;
-                editarForm.querySelector('[name="em_uso_por"]').value = dados.em_uso_por_id;
                 editarForm.querySelector('[name="nucleo_responsavel"]').value = dados.nucleo_responsavel_id;
 
                 // 3. Define a URL de ação correta para o formulário
