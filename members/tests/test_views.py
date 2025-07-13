@@ -2,7 +2,7 @@ from django.utils import timezone
 from django.test import TestCase
 from django.contrib.auth.models import User 
 from django.urls import reverse 
-from members.models import Falta, Justificativa, Membro, Reuniao
+from members.models import Advertencias, Falta, Justificativa, Membro, Reuniao
 
 class DashboardViewTest(TestCase):
 
@@ -242,3 +242,141 @@ class AvaliarJustificativasTest(TestCase):
 
         # Afirma que o status foi realmente alterado para 'ACEITA'
         self.assertEqual(self.justificativa.status_analise, 'ACEITA')
+
+class GerenciarAdvertenciasTest(TestCase):
+    """
+    Conjunto de testes para as funcionalidades de listar, criar, editar
+    e excluir advertências.
+    """
+    def setUp(self):
+        """
+        Prepara o ambiente inicial para os testes.
+
+        Cria um usuário gestor, um membro comum, um núcleo e uma advertência
+        para ser usada nos testes de edição e exclusão.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+        # 1. Criar grupo, usuários e membros
+        # gestao_group = Group.objects.create(name='Nucleo_Gestao')
+        self.gestor_user = User.objects.create_user('gestor', 'gestor@capitalrocketteam.com', 'password')
+        # self.gestor_user.groups.add(gestao_group)
+        self.gestor_membro = Membro.objects.create(user=self.gestor_user, matricula='181012345', nome='Gestor Teste')
+
+        self.membro_user = User.objects.create_user('membro_comum', 'membro@capitalrocketteam.com', 'password')
+        self.membro_comum = Membro.objects.create(user=self.membro_user, matricula='191012345', nome='Membro Comum')
+
+        # 2. Criar a advertência que será usada para testar edição e exclusão
+        self.advertencia_existente = Advertencias.objects.create(
+            membro=self.membro_comum,
+            contexto="Contexto inicial para teste.",
+        )
+
+        # 3. URLs
+        self.url_lista = reverse('membros:advertencias')
+        self.url_nova = reverse('membros:criar-advertencia')
+        self.url_editar = reverse('membros:editar-advertencia', kwargs={'advertencia_id': self.advertencia_existente.id})
+        self.url_excluir = reverse('membros:excluir-advertencia', kwargs={'advertencia_id': self.advertencia_existente.id})
+
+    def test_gestor_pode_acessar_pagina_de_advertencias(self):
+        """
+        Testa se um gestor logado consegue acessar a lista de advertências.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+        self.client.login(username='gestor', password='password')
+        response = self.client.get(self.url_lista)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'members/advertencias.html')
+        self.assertContains(response, "Gerenciar Advertências") # Verifica se o conteúdo está na página
+
+    # def test_membro_comum_nao_pode_acessar_pagina_de_advertencias(self):
+    #     """
+    #     Testa se um membro comum é redirecionado ao tentar acessar a página.
+
+    #     Args:
+    #         None
+
+    #     Returns:
+    #         None
+    #     """
+    #     self.client.login(username='membro_comum', password='password')
+    #     response = self.client.get(self.url_lista)
+    #     self.assertEqual(response.status_code, 302) # Espera um redirecionamento
+    #     self.assertRedirects(response, reverse('membros:home'))
+
+    def test_gestor_pode_criar_nova_advertencia(self):
+        """
+        Testa se um gestor pode registrar uma nova advertência via POST.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+        self.client.login(username='gestor', password='password')
+        advertencias_antes = Advertencias.objects.count()
+        
+        form_data = {
+            'membro': self.membro_comum.matricula, # O ModelChoiceField espera o ID (PK)
+            'contexto': 'Nova advertência criada pelo teste.'
+        }
+        
+        response = self.client.post(self.url_nova, data=form_data)
+
+        self.assertEqual(Advertencias.objects.count(), advertencias_antes + 1)
+        self.assertRedirects(response, self.url_lista)
+
+    def test_gestor_pode_editar_advertencia(self):
+        """
+        Testa se um gestor pode atualizar o contexto de uma advertência.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+        self.client.login(username='gestor', password='password')
+        
+        form_data = {
+            'membro': self.membro_comum.matricula,
+            'contexto': 'Contexto ATUALIZADO.'
+        }
+        
+        response = self.client.post(self.url_editar, data=form_data)
+        self.assertRedirects(response, self.url_lista)
+
+        # Recarrega o objeto do banco de dados para pegar os dados atualizados
+        self.advertencia_existente.refresh_from_db()
+        
+        # Verifica se o campo foi realmente alterado
+        self.assertEqual(self.advertencia_existente.contexto, 'Contexto ATUALIZADO.')
+
+    def test_gestor_pode_excluir_advertencia(self):
+        """
+        Testa se um gestor pode excluir uma advertência.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+        self.client.login(username='gestor', password='password')
+        advertencias_antes = Advertencias.objects.count()
+
+        # A view de exclusão espera um POST para confirmar
+        response = self.client.post(self.url_excluir)
+
+        self.assertRedirects(response, self.url_lista)
+        self.assertEqual(Advertencias.objects.count(), advertencias_antes - 1)

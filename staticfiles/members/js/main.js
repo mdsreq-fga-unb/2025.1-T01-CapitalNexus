@@ -87,4 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
         document.getElementById('tab-' + tab).classList.remove('hidden');
     }
+    try {
+        $('#select-membro-advertencia').select2({
+            placeholder: "Digite para buscar um membro",
+            // Esta linha é MUITO IMPORTANTE para o Select2 funcionar dentro de uma modal
+            dropdownParent: $('#nova-advertencia-modal .modal-content')
+        });
+    } catch(e) {
+        console.error("Erro ao inicializar Select2:", e);
+    }
 });

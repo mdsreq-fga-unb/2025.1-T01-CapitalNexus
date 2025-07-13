@@ -1,7 +1,7 @@
 # meu_app/forms.py
 from django import forms
 from django.utils import timezone
-from .models import Justificativa, Reuniao
+from .models import Advertencias, Justificativa, Reuniao
 import datetime
 
 class FaltaForm(forms.Form):
@@ -91,4 +91,17 @@ class JustificativaForm(forms.ModelForm):
         }
         labels = {
             'texto_justificativa': 'Sua Justificativa'
+        }
+
+class AdvertenciaForm(forms.ModelForm):
+    class Meta:
+        model = Advertencias
+        fields = ['membro', 'contexto']
+        labels = {
+            'membro': 'Selecione um membro',
+            'contexto': 'Motivo / Contexto da Advertência'
+        }
+        widgets = {
+            'membro': forms.Select(attrs={'id': 'select-membro-advertencia'}),
+            'contexto': forms.Textarea(attrs={'rows': 4})
         }

@@ -19,6 +19,7 @@
             <option value="PC"{% if request.GET.tipo == 'PC' %}selected{% endif %}>Ponto de Controle</option>
         </select>
         <input type="date" placeholder="Data" value="{{ request.GET.data_hora}}">
+        <a href="{% url 'membros:reunioes' %}"class="botao-cancel">Limpar filtros</a>
         <button type="submit">Aplicar Filtros</button>
         <button type=button id="btn-abrir-modal-reuniao" class="btn-new-meeting">Marcar reunião</button>
     </form>
