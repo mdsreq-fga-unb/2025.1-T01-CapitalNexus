@@ -31,7 +31,7 @@ O cliente validou o protótipo e a área pública foi implantada no [site](https
 
 
 
-## Histórico de versão 
+## Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |23/06|0.1|Evidências|Sophia|

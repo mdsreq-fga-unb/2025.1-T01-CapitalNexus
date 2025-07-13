@@ -1,13 +1,13 @@
 # Estratégias de Engenharia de Software
 
-## Estratégia Priorizada
+## 🚀 Estratégia Priorizada
 
 - Abordagem: **Híbrida**;
 - Ciclo de vida: **Iterativo incremental**;
 - Processo: **AUP**;
 - Frameworkde gerenciamento ágil: **Kanban**.
 
-## Quadro Comparativo
+## 📊 Quadro Comparativo
 
 O quadro, a seguir, apresenta uma comparação entre as características do AUP (Processo Unificado Ágil) e o RAD (Rapid Application Development), visando auxiliar na justificativa da escolha do processo mais adequado ao projeto.
 
@@ -26,20 +26,18 @@ O quadro, a seguir, apresenta uma comparação entre as características do AUP 
 |**Limitação** |Requer equilíbrio entre formalidade e agilidade |Dependência de ferramentas CASE e frameworks de desenvolvimento rápido |
 |**Cenário de aplicação adequado**|Projetos que requerem alguma formalidade mas se beneficiam da adaptabilidade|Sistema de informação corporativo com ênfase em interface de usuário|
 
-## Justificativa
+## 💭 Justificativa
 
-Analisando o quadro anterior, optamos pela escolha do AUP (Processo Unificado Ágil) como o processo desenvolvimento.  Baseamos nossa escolha nos seguintes fatores:
+Analisando o quadro anterior, optamos pela escolha do **AUP (Processo Unificado Ágil)** como o processo desenvolvimento.  Baseamos nossa escolha nos seguintes fatores:
 
-1. Precisamos de um pouco de formalidade no projeto;
-1. A adaptabilidade com o ágil é essencial para cumprirmos com os prazos;
-1. Utilização de histórias de usuários;
-1. Realização das disciplinas em paralelo. 
+1. Precisamos de um pouco de **formalidade** no projeto;
+1. A **adaptabilidade com o ágil** é essencial para cumprirmos com os **prazos**;
+1. Utilização de **histórias de usuários**;
+1. Realização das **disciplinas em paralelo**. 
 
 
-## Histórico de versão 
+## 📜 Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**18/04/25**|1.0|Primeira versão|Equipe |
-|||||
-|||||
-|||||
+|**13/07/25**|2.0|Refinando visualmente o documento|Wanjo Christopher|
