@@ -48,8 +48,8 @@ maiores ou se não houver nada mais prioritário.
 | US16| Postar conteúdo               | Could have    | 4       | Reconsiderar           |     |
 | US17| Editar conteúdo               | Should have   | 4       | Grande projeto         |     |
 | US18| Excluir conteúdo              | Must have     | 3       | Ganho rápido           | X   |
-| US19| Cadastrar lista de materiais  | Must have     | 3       | Ganho rápido           | X   |
-| US20| Modificar lista de materiais  | Should have   | 3       | Preenchimento          | X   |
+| US19| Cadastrar material  | Must have     | 3       | Ganho rápido           | X   |
+| US20| Modificar material  | Should have   | 3       | Preenchimento          | X   |
 | US21| Visualizar lista de materiais| Must have     | 2       | Ganho rápido           | X   |
 | US22| Utilizar material disponível  | Should have   | 2       | Preenchimento          |     |
 | US23| Solicitar compra de material | Should have   | 4       | Grande projeto         | X   |
