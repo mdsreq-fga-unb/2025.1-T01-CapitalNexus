@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.forms import formset_factory
 from django.contrib.auth.decorators import login_required 
 from .models import *
-from .forms import FaltaForm, JustificativaForm, ReuniaoForm
+from .forms import AdvertenciaForm, FaltaForm, JustificativaForm, ReuniaoForm
 
 @login_required
 def home(request):
@@ -313,3 +313,105 @@ def processar_justificativa(request, just_id):
             messages.success(request, f"A justificativa de {justificativa.falta.membro.nome} foi analisada.")
         
     return redirect('membros:justificativas')
+
+@login_required
+def pagina_gerenciar_advertencias(request):
+    membro = Membro.objects.get(user=request.user)
+    # if not request.user.membro.is_gestor():
+    #     messages.error(request, "Você não tem permissão para acessar esta página.")
+    #     return redirect('membros:home')
+    advertencias_list = Advertencias.objects.all().prefetch_related('membro__membronucleo_set__nucleo')
+    advertencias_list = Advertencias.objects.all()
+    
+    nucleo_query = request.GET.get('nucleo')
+    membro_query = request.GET.get('membro')
+
+    # Aplica os filtros se eles foram enviados
+    if nucleo_query:
+        # Filtra atravessando os relacionamentos: Advertencia -> Membro -> MembroNucleo -> Nucleo
+        advertencias_list = advertencias_list.filter(membro__membronucleo__nucleo__nome=nucleo_query)
+    
+    if membro_query:
+        advertencias_list = advertencias_list.filter(membro__nome__icontains=membro_query)
+
+    # Buscamos todos os núcleos para popular o dropdown do filtro
+    nucleos = Nucleo.objects.all()
+    form_nova_advertencia = AdvertenciaForm()
+
+    contexto = {
+        'advertencias': advertencias_list,
+        'nucleos_para_filtro': nucleos,
+        'form_nova_advertencia': form_nova_advertencia,
+        'membro': membro,
+        'form_nova_advertencia': AdvertenciaForm(), # Para a modal
+    }
+
+    return render(request, 'members/advertencias.html', contexto)
+
+@login_required
+def registrar_advertencia(request):
+    # if not request.user.membro.is_gestor():
+    #     return redirect('membros:home')
+    
+    if request.method == 'POST':
+        form = AdvertenciaForm(request.POST)
+        if form.is_valid():
+            advertencia = form.save(commit=False)
+            advertencia.save()
+            messages.success(request, 'Advertência registrada com sucesso.')
+            return redirect('membros:advertencias')
+
+    messages.error(request, 'Ocorreu um erro ao registrar a advertência. Verifique os dados e tente novamente.')
+    return redirect('membros:advertencias')
+
+@login_required
+def editar_advertencia(request, advertencia_id):
+    membro = Membro.objects.get(user=request.user)
+    # Garante que apenas gestores podem editar
+    # if not request.user.membro.is_gestor():
+    #     messages.error(request, "Você não tem permissão para esta ação.")
+    #     return redirect('membros:advertencias')
+
+    # Busca a advertência específica ou retorna um erro 404
+    advertencia = get_object_or_404(Advertencias, id=advertencia_id)
+
+    if request.method == 'POST':
+        # Se o formulário for enviado, preenchemos com os dados e a instância
+        form = AdvertenciaForm(request.POST, instance=advertencia)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Advertência atualizada com sucesso!')
+            return redirect('membros:advertencias')
+    else:
+        # Se for a primeira visita, apenas mostramos o formulário preenchido
+        form = AdvertenciaForm(instance=advertencia)
+
+    contexto = {
+        'form': form,
+        'membro': membro,
+    }
+    return render(request, 'members/editar_advertencia.html', contexto)
+
+@login_required
+def excluir_advertencia(request, advertencia_id):
+    membro = Membro.objects.get(user=request.user)
+    # Garante que apenas gestores podem excluir
+    # if not request.user.membro.is_gestor():
+    #     messages.error(request, "Você não tem permissão para esta ação.")
+    #     return redirect('dashboard-advertencias')
+
+    advertencia = get_object_or_404(Advertencias, id=advertencia_id)
+
+    # Se o formulário de confirmação foi enviado
+    if request.method == 'POST':
+        membro_nome = advertencia.membro.nome # Guarda o nome antes de deletar
+        advertencia.delete() # Deleta o objeto do banco de dados
+        messages.success(request, f"A advertência para {membro_nome} foi excluída com sucesso.")
+        return redirect('membros:advertencias')
+
+    # Se a página for apenas visitada (GET), mostra a página de confirmação
+    contexto = {
+        'advertencia': advertencia,
+        'membro': membro,
+    }
+    return render(request, 'members/excluir_advertencia.html', contexto)

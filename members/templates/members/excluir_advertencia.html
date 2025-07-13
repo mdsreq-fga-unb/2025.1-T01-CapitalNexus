@@ -1,0 +1,30 @@
+{% extends 'members/layout.html' %}
+
+{% block dashboard_title %}Confirmar Exclusão{% endblock %}
+
+{% block page_title %}Confirmar Exclusão de Advertência{% endblock %}
+
+{% block dashboardcontent %}
+    <div class="modal.is-open">
+        
+        <h3 class="modal-header">Você tem certeza?</h3>
+
+        <p>Você está prestes a excluir permanentemente a seguinte advertência:</p>
+        
+        <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;" clas="modal-body">
+            <p><strong>Membro:</strong> {{ advertencia.membro.nome }}</p>
+            <p><strong>Contexto:</strong> {{ advertencia.contexto }}</p>
+            <p><strong>Data de Registro:</strong> {{ advertencia.data|date:"d/m/Y" }}</p>
+        </div>
+
+        <p><strong>Esta ação não pode ser desfeita.</strong></p>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="modal-footer">
+                <a href="{% url 'membros:advertencias' %}" class="botao-cancel">Cancelar</a>
+                <button type="submit" class="btn-save" style="background-color: #e74c3c;">Sim, excluir</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
