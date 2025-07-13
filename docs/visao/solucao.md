@@ -10,9 +10,9 @@ Nossa solução visa **resolver desafios operacionais e de visibilidade social d
 
 Os itens acima concatenam nos seguintes **Objetivos Específicos** (O.E):
 
-1. Facilitar acesso à informação (O.E.1)
-1. Reduzir perda de dados (O.E.2)
-1. Fortalecer a imagem institucional da equipe (O.E.3)
+1. **Facilitar acesso à informação** (O.E.1)
+1. **Reduzir perda de dados** (O.E.2)
+1. **Fortalecer a imagem institucional da equipe** (O.E.3)
 
 Além disso, deve apoiar a comunicação entre os núcleos técnicos e destacar a liderança da equipe no setor aeroespacial nacional, evidenciada por marcos como o lançamento do primeiro foguete de propulsão híbrida do Brasil.
 
@@ -29,11 +29,11 @@ A seguir está listado as principais características que a solução deverá te
 
 Considerando as características da solução proposta, foi selecionado algumas tecnologias para construção da solução:
 
-1. Linguagem de programação: Python;
-1. Framework: Django;
-1. Banco de Dados: PostgreSQL;
-1. IDE: Visual Studio Code;
-1. Integração contínua: GitHub.
+1. **Linguagem de programação**: Python;
+1. **Framework**: Django;
+1. **Banco de Dados**: PostgreSQL;
+1. **IDE**: Visual Studio Code;
+1. **Integração contínua**: GitHub.
 
 A utilização do Django com Python facilitará o desenvolvimento da solução, uma vez que o Django lida muito bem com perfis de administradores e autenticação. Além disso, o Python é uma ótima escolha para trabalhar com dados.
 
@@ -41,7 +41,7 @@ O Visual Studio Code oferece ótimo suporte ao desenvolvimento com Python e Djan
 
 ## Pesquisa de Mercado e Análise Competitiva
 
-Para a análise de mercado, buscamos sites de outras equipes de competição da Universidade de Brasília (UnB) e escolhemos os dois mais relevantes, levando em consideração que são os mais atualizados e completos. São eles o da UnBall, equipe de futebol de robôs e a DROID, de robótica autônoma.
+Para a **análise de mercado**, buscamos sites de outras equipes de competição da **Universidade de Brasília (UnB)** e escolhemos os dois mais relevantes, levando em consideração que são os mais atualizados e completos. São eles o da **UnBall**, equipe de futebol de robôs e a **DROID**, de robótica autônoma.
 
 Os sites analisados tem como objetivo apresentar sua equipe e buscar patrocínios, sendo comum entre eles a possibilidade de entrar em contato, ver histórico da equipe e uma breve apresentação do trabalho realizado. Em nenhum dos sites é notado alguma área para os integrantes e não aparenta ter ferramentas de gestão direta inclusa, pontos que nosso projeto planeja cobrir.
 
@@ -49,27 +49,27 @@ Nosso produto, como mostrado no item 2.1, tem objetivos e ideias que diferem dos
 
 ## Análise de Viabilidade 
 
-Para realizar a análise de viabilidade, passamos por diversos pontos detalhados, refinando cada aspecto e, com base nessa avaliação, concluímos que o projeto Nexus é, de fato, bastante viável.
+Para realizar a **análise de viabilidade**, passamos por diversos pontos detalhados, refinando cada aspecto e, com base nessa avaliação, concluímos que o projeto Nexus é, de fato, bastante **viável**.
 
-Em relação à viabilidade técnica, a equipe demonstra domínio das tecnologias envolvidas, transmitindo segurança quanto ao desenvolvimento e à futura manutenção da solução proposta para a Capital Rocket Team (CRT).
+Em relação à **viabilidade técnica**, a equipe demonstra **domínio das tecnologias** envolvidas, transmitindo segurança quanto ao desenvolvimento e à futura manutenção da solução proposta para a Capital Rocket Team (CRT).
 
-No que diz respeito ao prazo, a expectativa é que a solução esteja concluída até o final do semestre, permitindo que os membros já possam utilizá-la de forma funcional. Contudo, reconhecemos a possibilidade de ajustes no cronograma, caso surjam imprevistos ou a necessidade de estender o tempo para garantir a qualidade do produto final.
+No que diz respeito ao **prazo**, a expectativa é que a solução esteja **concluída até o final do semestre**, permitindo que os membros já possam utilizá-la de forma funcional. Contudo, reconhecemos a possibilidade de ajustes no cronograma, caso surjam imprevistos ou a necessidade de estender o tempo para garantir a qualidade do produto final.
 
-Sob o ponto de vista financeiro, os desenvolvedores serão voluntários, não gerando custos com mão de obra. Caberá ao cliente apenas arcar com despesas básicas, como o registro e manutenção do domínio do site, o que torna o projeto acessível e sustentável financeiramente.
+Sob o ponto de vista **financeiro**, os desenvolvedores serão voluntários, não gerando custos com mão de obra. Caberá ao cliente apenas arcar com despesas básicas, como o registro e manutenção do domínio do site, o que torna o projeto acessível e **sustentável financeiramente**.
 
-Quanto à viabilidade de mercado, o público-alvo contempla tanto os próprios membros da equipe quanto os patrocinadores e demais interessados em conhecer o trabalho. O sistema resolve uma dor real de forma eficiente e sustentável, além de agregar valor institucional.
+Quanto à **viabilidade de mercado**, o público-alvo contempla tanto os próprios membros da equipe quanto os patrocinadores e demais interessados em conhecer o trabalho. O sistema **resolve uma dor real de forma eficiente e sustentável**, além de agregar valor institucional.
 
-O diferencial da solução está em sua dupla funcionalidade: por um lado, oferece uma plataforma interna para gestão e organização dos membros; por outro, serve como vitrine institucional para apresentar ao público externo. Essa combinação torna o sistema único e altamente adequado às necessidades da equipe.
+O **diferencial** da solução está em sua **dupla funcionalidade**: por um lado, oferece uma **plataforma interna para gestão** e organização dos membros; por outro, serve como **vitrine institucional** para apresentar ao público externo. Essa combinação torna o sistema único e altamente adequado às necessidades da equipe.
 
 ## Impacto da Solução
 
-O projeto Nexus será para a Capital Rocket Team (CRT) um impacto direto nos pilares de trabalho diário e na visibilidade social no meio extensionista das equipes de competição. A intervenção acontecerá tanto na forma como a equipe opera em suas tarefas diárias quanto na captação externa de stakeholders.
+O projeto Nexus será para a Capital Rocket Team (CRT) um **impacto direto nos pilares de trabalho diário** e na **visibilidade social** no meio extensionista das equipes de competição. A intervenção acontecerá tanto na **forma como a equipe opera em suas tarefas diárias** quanto na **captação externa de stakeholders**.
 
-` `O nosso projeto é classificado como Software as a Service (SaaS) devido ao objetivo de entregar um produto de software pronto para uso (SUBHI, 2021), que terá como benefícios principais a unificação de ferramentas em um só lugar. Isso permitirá que a gestão de membros, o controle de materiais, a exibição da trajetória da equipe e a transparência financeira sejam de fácil acesso para todos da equipe.
+O nosso projeto é classificado como **Software as a Service (SaaS)** devido ao objetivo de entregar um produto de software pronto para uso (SUBHI, 2021), que terá como benefícios principais a **unificação de ferramentas em um só lugar**. Isso permitirá que a **gestão de membros**, o **controle de materiais**, a **exibição da trajetória da equipe** e a **transparência financeira** sejam de fácil acesso para todos da equipe.
 
-A centralização de informações facilitará não somente a organização dos colaboradores, mas também a captação de patrocinadores em potencial para seus projetos. Parte do sistema funcionará como uma vitrine estratégica, mostrando suas diversas conquistas. 
+A **centralização de informações** facilitará não somente a **organização dos colaboradores**, mas também a **captação de patrocinadores em potencial** para seus projetos. Parte do sistema funcionará como uma **vitrine estratégica**, mostrando suas diversas conquistas. 
 
-Como ferramenta de gestão e gerenciamento individual centrada, poupará tempo dos colaboradores no trabalho diário, como o registro de faltas em reuniões, advertência e strikes. Ademais, facilitará o controle de estoque, para que membros tenham acesso aos materiais que estão disponíveis e possam solicitar utilização ou reposição, realizando pedidos e adicionando o grau de urgência desse material, tudo pelo próprio site. 
+Como **ferramenta de gestão e gerenciamento individual centrada**, poupará **tempo dos colaboradores** no trabalho diário, como o registro de faltas em reuniões, advertência e strikes. Ademais, facilitará o **controle de estoque**, para que membros tenham acesso aos materiais que estão disponíveis e possam solicitar utilização ou reposição, realizando pedidos e adicionando o grau de urgência desse material, tudo pelo próprio site. 
 
 ## Histórico de Revisão
 
