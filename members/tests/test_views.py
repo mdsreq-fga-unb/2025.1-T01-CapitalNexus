@@ -2,7 +2,8 @@ from django.utils import timezone
 from django.test import TestCase
 from django.contrib.auth.models import User 
 from django.urls import reverse 
-from members.models import Advertencias, Falta, Justificativa, Membro, Reuniao
+from datetime import timedelta
+from members.models import Advertencias, Falta, HistoricoReserva, Justificativa, Material, Membro, Nucleo, Reuniao
 
 class DashboardViewTest(TestCase):
 
@@ -380,3 +381,131 @@ class GerenciarAdvertenciasTest(TestCase):
 
         self.assertRedirects(response, self.url_lista)
         self.assertEqual(Advertencias.objects.count(), advertencias_antes - 1)
+
+class MateriaisFuncionalidadeTest(TestCase):
+    """
+    Testa o ciclo de vida completo do gerenciamento de materiais:
+    listar, filtrar, reservar e devolver.
+    """
+    def setUp(self):
+        """
+        Prepara o ambiente com um gestor, um membro comum, um núcleo,
+        e dois materiais: um disponível e um em uso.
+        """
+        # --- Usuários e Permissões ---
+        # gestao_group = Group.objects.create(name='Nucleo_Gestao')
+        self.gestor_user = User.objects.create_user('gestor_mat', 'gestor@capitalrocketteam.com', 'password')
+        # self.gestor_user.groups.add(gestao_group)
+        self.gestor_membro = Membro.objects.create(user=self.gestor_user, matricula='202012345', nome='Gestor Materiais')
+
+        self.membro_user = User.objects.create_user('membro_mat', 'membro@capitalrocketteam.com', 'password')
+        self.membro_comum = Membro.objects.create(user=self.membro_user, matricula='191012345', nome='Membro Comum')
+
+        # --- Dados ---
+        self.nucleo = Nucleo.objects.create(nome='Desenvolvimento', categoria='TEC')
+        self.material_disponivel = Material.objects.create(
+            nome='Notebook Dell',
+            tipo='EQUIPAMENTO',
+            finalidade='Desenvolvimento de software',
+            quantidade_total=1,
+            status='DISPONIVEL',
+            nucleo_responsavel=self.nucleo
+        )
+        self.material_em_uso = Material.objects.create(
+            nome='Tablet Wacom',
+            tipo='EQUIPAMENTO',
+            finalidade='Design',
+            quantidade_total=1,
+            status='EM_USO', # Este material já começa em uso
+            nucleo_responsavel=self.nucleo
+        )
+        # Criamos o registro de histórico para o material que está em uso
+        self.reserva_ativa = HistoricoReserva.objects.create(
+            material=self.material_em_uso,
+            membro=self.membro_comum,
+            data_devolucao_prevista=timezone.now().date() + timedelta(days=5)
+        )
+
+        # --- URLs ---
+        self.url_lista = reverse('membros:materiais')
+        self.url_reservar = reverse('membros:reservar-material', kwargs={'material_id': self.material_disponivel.id})
+        self.url_devolver = reverse('membros:devolver-material', kwargs={'material_id': self.material_em_uso.id})
+
+
+    def test_lista_de_materiais_e_filtro(self):
+        """
+        Testa se a página de materiais carrega e se o filtro de status funciona.
+
+        Args:
+            None
+        Returns:
+            None
+        """
+        self.client.login(username='membro_mat', password='password')
+        
+        # Testa o acesso à página principal
+        response = self.client.get(self.url_lista)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Notebook Dell') # Verifica se o material disponível aparece
+        self.assertContains(response, 'Tablet Wacom')  # Verifica se o material em uso aparece
+
+        # Testa o filtro para mostrar apenas materiais "EM_USO"
+        response_filtrada = self.client.get(self.url_lista, {'status': 'EM_USO'})
+        self.assertContains(response_filtrada, 'Tablet Wacom')
+        self.assertNotContains(response_filtrada, 'Notebook Dell') # Garante que o disponível sumiu
+
+    def test_membro_pode_reservar_material_disponivel(self):
+        """
+        Testa o fluxo completo de reservar um material.
+
+        Args:
+            None
+        Returns:
+            None
+        """
+        self.client.login(username='membro_mat', password='password')
+        historico_antes = HistoricoReserva.objects.count()
+
+        # Dados que seriam enviados pelo formulário da modal
+        form_data = {
+            'data_devolucao_prevista': timezone.now().date() + timedelta(days=10)
+        }
+        
+        response = self.client.post(self.url_reservar, data=form_data)
+        
+        # Verifica o redirecionamento
+        self.assertRedirects(response, self.url_lista)
+        
+        # Verifica se um novo registro de histórico foi criado
+        self.assertEqual(HistoricoReserva.objects.count(), historico_antes + 1)
+
+        # Recarrega o estado do material do banco de dados
+        self.material_disponivel.refresh_from_db()
+        # Verifica se o status do material mudou para 'EM_USO'
+        self.assertEqual(self.material_disponivel.status, 'EM_USO')
+
+    def test_membro_pode_devolver_material(self):
+        """
+        Testa o fluxo completo de devolução de um material.
+
+        Args:
+            None
+        Returns:
+            None
+        """
+        # Loga como o membro que está com o material
+        self.client.login(username='membro_mat', password='password')
+
+        # Enviamos um POST para a URL de devolução (não precisa de dados no form)
+        response = self.client.post(self.url_devolver)
+        
+        self.assertRedirects(response, self.url_lista)
+
+        # Recarrega os objetos do banco
+        self.material_em_uso.refresh_from_db()
+        self.reserva_ativa.refresh_from_db()
+
+        # Verifica se o status do material voltou para 'DISPONIVEL'
+        self.assertEqual(self.material_em_uso.status, 'DISPONIVEL')
+        # Verifica se a data de devolução real foi preenchida no histórico
+        self.assertIsNotNone(self.reserva_ativa.data_devolucao_real)

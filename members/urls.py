@@ -21,4 +21,8 @@ urlpatterns = [
     path('materiais/novo/', views.novo_material, name='novo-material'),
     path('materiais/<int:material_id>/editar/', views.editar_material, name='editar-material'),
     path('api/material/<int:material_id>/', views.material_detalhes_api, name='api-material-detalhes'),
+    path('materiais/<int:material_id>/reservar/', views.reservar_material, name='reservar-material'),
+    path('materiais/<int:material_id>/devolver/', views.devolver_material, name='devolver-material'),
+    path('materiais/<int:material_id>/marcar-disponivel/', views.marcar_material_disponivel, name='marcar-material-disponivel'),
+    path('materiais/solicitar/', views.solicitar_material, name='solicitar-material'),
 ]
