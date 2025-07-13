@@ -1,6 +1,6 @@
 # Solução proposta 
 
-## Objetivos do Produto
+## 🎯 Objetivos do Produto
 
 Nossa solução visa **resolver desafios operacionais e de visibilidade social da Capital Rocket Team (CRT)**, com foco em **reduzir a perda de dados** e **de tempo** que a equipe enfrenta diariamente. Além disso, busca facilitar a interação com patrocinadores, permitindo que vizualisem de forma integral os feitos e a trajetória da equipe — motivando-os a se tornarem parceiros e possíveis investidores. Com isso, garantimos maior **eficiência na gestão** interna, o **fortalecimento da imagem institucional** e uma **conexão da equipe** ao público — complementar às plataformas já utilizadas, como o Instagram. A ferramenta será voltada para:
 
@@ -16,7 +16,7 @@ Os itens acima concatenam nos seguintes **Objetivos Específicos** (O.E):
 
 Além disso, deve apoiar a comunicação entre os núcleos técnicos e destacar a liderança da equipe no setor aeroespacial nacional, evidenciada por marcos como o lançamento do primeiro foguete de propulsão híbrida do Brasil.
 
-## Características da Solução 
+## 🧩 Características da Solução 
 
 A seguir está listado as principais características que a solução deverá ter para atender às necessidades da Capital Rock Team (CRT):
 
@@ -25,7 +25,7 @@ A seguir está listado as principais características que a solução deverá te
 1. Controle de estoque e materiais, permitindo o registro de entrada e saída de itens e a solicitação diretamente à equipe responsável, otimizando a logística interna. **(O.E.1 e O.E.2)**
 1. O design deverá ser responsivo e organizado que se adeque a diferentes tamanhos de telas e dispositivos, com menus intuitivos e navegação simples com ícones espaçados e fontes redondas, facilitando tanto o uso por membros da equipe quanto por visitantes externos interessados na equipe. **(O.E.3)**
 
-## Tecnologias a Serem Utilizadas
+## ⚙️ Tecnologias a Serem Utilizadas
 
 Considerando as características da solução proposta, foi selecionado algumas tecnologias para construção da solução:
 
@@ -39,7 +39,7 @@ A utilização do Django com Python facilitará o desenvolvimento da solução, 
 
 O Visual Studio Code oferece ótimo suporte ao desenvolvimento com Python e Django, e sua integração com o GitHub contribuirá para a organização do projeto e facilitará a colaboração entre os desenvolvedores.
 
-## Pesquisa de Mercado e Análise Competitiva
+## 🔍 Pesquisa de Mercado e Análise Competitiva
 
 Para a **análise de mercado**, buscamos sites de outras equipes de competição da **Universidade de Brasília (UnB)** e escolhemos os dois mais relevantes, levando em consideração que são os mais atualizados e completos. São eles o da **UnBall**, equipe de futebol de robôs e a **DROID**, de robótica autônoma.
 
@@ -47,7 +47,7 @@ Os sites analisados tem como objetivo apresentar sua equipe e buscar patrocínio
 
 Nosso produto, como mostrado no item 2.1, tem objetivos e ideias que diferem dos demais, com uma divisão de áreas entre o público geral e os membros da equipe, com o objetivo de incluir de uma área de acesso privado, visando desde a gestão de pessoas ao controle de estoques.
 
-## Análise de Viabilidade 
+## ⚖️ Análise de Viabilidade 
 
 Para realizar a **análise de viabilidade**, passamos por diversos pontos detalhados, refinando cada aspecto e, com base nessa avaliação, concluímos que o projeto Nexus é, de fato, bastante **viável**.
 
@@ -61,7 +61,7 @@ Quanto à **viabilidade de mercado**, o público-alvo contempla tanto os própri
 
 O **diferencial** da solução está em sua **dupla funcionalidade**: por um lado, oferece uma **plataforma interna para gestão** e organização dos membros; por outro, serve como **vitrine institucional** para apresentar ao público externo. Essa combinação torna o sistema único e altamente adequado às necessidades da equipe.
 
-## Impacto da Solução
+## 🌟 Impacto da Solução
 
 O projeto Nexus será para a Capital Rocket Team (CRT) um **impacto direto nos pilares de trabalho diário** e na **visibilidade social** no meio extensionista das equipes de competição. A intervenção acontecerá tanto na **forma como a equipe opera em suas tarefas diárias** quanto na **captação externa de stakeholders**.
 
@@ -71,7 +71,7 @@ A **centralização de informações** facilitará não somente a **organizaçã
 
 Como **ferramenta de gestão e gerenciamento individual centrada**, poupará **tempo dos colaboradores** no trabalho diário, como o registro de faltas em reuniões, advertência e strikes. Ademais, facilitará o **controle de estoque**, para que membros tenham acesso aos materiais que estão disponíveis e possam solicitar utilização ou reposição, realizando pedidos e adicionando o grau de urgência desse material, tudo pelo próprio site. 
 
-## Histórico de Revisão
+## 📜 Histórico de Versão
 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
@@ -79,3 +79,5 @@ Como **ferramenta de gestão e gerenciamento individual centrada**, poupará **t
 |**01/05/25**|1.1|Refatorando parágrafo de Objetivos do Produto| Wanjo Christopher |
 |**02/05/25**|1.2|Correlacionando Objetivos do Projeto com Objetivos Específicos da Solução Proposta| Wanjo Christopher |
 |**21/05/25**|1.3|Revisando objetivos especificos|Sophia|
+|**13/07/25**|2.0|Revisando objetivos e refatorando formatação|Wanjo Christopher|
+|**13/07/25**|2.0|Refinando visualmente o documento|Wanjo Christopher|

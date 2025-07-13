@@ -34,7 +34,7 @@
 | :- | :- | :- | :- |
 | 6 | 03/07 à 15/07 | Validação do cliente <br> Implantação da plataforma | Entrega do MVP |
 
-## Histórico de versão 
+## Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**18/04/25**|0.1|Cronograma inicial|Equipe |

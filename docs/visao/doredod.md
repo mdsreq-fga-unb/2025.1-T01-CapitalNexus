@@ -57,9 +57,9 @@ O DoD define os critérios que precisam ser cumpridos para que uma funcionalidad
 - A **documentação técnica** foi devidamente atualizada? (Ex: `README.md`, comentários em lógicas complexas, novas variáveis de ambiente).
 - Está documentado para uso com docstrings da biblioteca pydoc, com descrição, argumentos e retorno.
 
-## Histórico de versão 
+## Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 | **13/05/2025** | 0.1 | Definindo DoR, DoD e critérios de aceite | Wanjo Christopher |
-| **21/05/2025** | 0.1 | Corrige caminho do documento de contribuição | Wanjo Christopher |
-| **23/06/2025** | 0.1 | Melhora critérios DoD | Wanjo Christopher |
+| **21/05/2025** | 0.2 | Corrige caminho do documento de contribuição | Wanjo Christopher |
+| **23/06/2025** | 1.0 | Melhora critérios DoD | Wanjo Christopher |

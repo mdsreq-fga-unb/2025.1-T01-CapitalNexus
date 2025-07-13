@@ -33,7 +33,7 @@ Serão realizados testes com membros reais da equipe CRT, utilizando cenários s
 ### Critérios de aceitação claros
 Cada funcionalidade será validada com base em critérios de aceitação definidos previamente em conjunto com o cliente. Esses critérios garantirão que as entregas estejam completas, funcionais e com qualidade satisfatória.
 
-## Histórico de versão 
+## Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**18/04/25**|0.1|Definição de papéis da equipe |Equipe |

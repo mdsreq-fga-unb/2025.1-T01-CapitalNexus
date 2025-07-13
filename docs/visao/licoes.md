@@ -9,7 +9,7 @@ Outra lição valiosa é a importância de entender o que o cliente realmente ne
 ## Unidade 2
 
 A lição mais valiosa aprendida foi escolher as técnicas para as aividades da engenharia de requisitos que ais se encaixem com o seu processo. Nosso processo possui uma abordagem híbrida, que tem um pouco de formalidade mas se beneficia do ágil para o desenvolvimento, e a escolha de atividades simples porém adequadas facilitou bastante o nosso desenvolvimento e o contato com o cliente durante a unidade.
-## Histórico de versão 
+## Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |21/04|0.1|Lições aprendidas da unidade 1|Sophia|
