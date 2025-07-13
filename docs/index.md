@@ -15,7 +15,7 @@ Capital Nexus é uma solução web integrada para gestão operacional da equipe 
     <img src="assets/team/sophia.jpeg" alt="Sophia Silva" class="team-photo">
     <div class="team-info">
       <div class="name">Sophia Silva</div>
-      <a href="https://github.com/sophia-dev" class="github-link" target="_blank">@sophia-dev</a>
+      <a href="https://github.com/sophiassilva" class="github-link" target="_blank">@sophiassilva</a>
     </div>
   </div>
 
@@ -123,8 +123,8 @@ Capital Nexus é uma solução web integrada para gestão operacional da equipe 
       <div class="tech-item">
         <div class="tech-icon" style="background: #336791; color: #fff;">DB</div>
         <div>
-          <div class="tech-name">Django ORM</div>
-          <div class="tech-desc">Mapeamento objeto-relacional</div>
+          <div class="tech-name">PostgreSQL</div>
+          <div class="tech-desc">Banco de dados relacional</div>
         </div>
       </div>
     </div>
@@ -140,7 +140,7 @@ A[Frontend] -->|JavaScript| B(Navegador)
 A -->|HTML/CSS| B
 B -->|HTTP Requests| C[Backend]
 C -->|Python| D[Django]
-D -->|ORM| E[(Banco de Dados)]
+D -->|ORM| E[(PostgreSQL)]
 E -->|Query Results| D
 D -->|Responses| B
 ```
