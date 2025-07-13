@@ -466,13 +466,12 @@ O Canvas de Product Backlog Building da empresa  _"HealthNet"_  foi realizada em
 
 **Cenário:** Cadastro bem-sucedido de um novo paciente
 
-Dado que a recepcionista está na tela de cadastro de pacientes
+Dado que a recepcionista **(Maria)** está na tela de cadastro de pacientes
 
-Quando ela preenche todos os campos obrigatórios (nome completo, CPF, data de nascimento, telefone, e-mail, endereço)
-
+Quando ela preenche todos os campos obrigatórios (nome completo: João Silva Neto, CPF: 123.456.789-00, data de nascimento: 15/03/1980, telefone: (11) 98765-4321, e-mail: joao.silva@email.com, endereço: Rua A, 123, São Paulo)
 E clica em "Salvar"
 
-Então o sistema registra o paciente com sucesso
+Então o sistema com sucesso registra todas as informações fornecidas do paciente 
 
 E exibe uma mensagem de confirmação "Paciente cadastrado com sucesso"
 
@@ -480,9 +479,9 @@ E a recepcionista pode visualizar o cadastro do paciente na lista de pacientes.
 
 **Cenário:** Tentativa de cadastro com CPF duplicado
 
-Dado que a recepcionista está na tela de cadastro de pacientes
+Dado que a recepcionista **(Maria)** está na tela de cadastro de pacientes
 
-Quando ela tenta cadastrar um paciente com um CPF já existente no sistema
+Quando ela tenta cadastrar um paciente com um CPF já existente no sistema (João Silva Neto, CPF: 123.456.789-00)
 
 Então o sistema impede o cadastro
 
@@ -490,9 +489,9 @@ E exibe uma mensagem de erro indicando que o CPF já está em uso ("CPF já cada
 
 **Cenário:** Campos obrigatórios não preenchidos
 
-Dado que a recepcionista está na tela de cadastro de pacientes
+Dado que a recepcionista **(Maria)** está na tela de cadastro de pacientes
 
-Quando ela tenta salvar o cadastro sem preencher todos os campos obrigatórios
+Quando ela tenta salvar o cadastro sem preencher todos os campos obrigatórios(nome completo, CPF, data de nascimento, telefone, e-mail, endereço) 
 
 Então o sistema impede o cadastro
 
@@ -508,7 +507,7 @@ E destaca os campos não preenchidos com uma mensagem de validação (ex: "Campo
 
 **Cenário:** Visualização do histórico completo do paciente
 
-Dado que o médico está logado e pesquisa um paciente
+Dado que o médico **(Dr. João)** está logado e pesquisa um paciente
 
 Quando ele seleciona o paciente
 
@@ -520,7 +519,7 @@ E o médico pode filtrar o histórico por data, unidade ou tipo de registro.
 
 **Cenário:** Histórico vazio ou inexistente
 
-Dado que o médico acessa o histórico de um paciente recém-cadastrado ou sem registros
+Dado que o médico **(Dr. João)** acessa o histórico de um paciente recém-cadastrado ou sem registros
 
 Quando ele tenta visualizar o histórico
 
@@ -538,9 +537,9 @@ E oferece a opção de adicionar novas informações.
 
 **Cenário:** Atualização de dados cadastrais bem-sucedida
 
-Dado que a recepcionista está na tela de edição do cadastro do paciente
+Dado que a recepcionista **(Maria)** está na tela de edição do cadastro do paciente
 
-Quando ela modifica o telefone e o endereço
+Quando ela modifica o telefone((11) 96666-3333) para ((11) 96868-2134)e o endereço(Rua J, 321, São Paulo) para (Rua Y, 456, São Paulo)
 
 E clica em "Salvar Alterações"
 
@@ -552,7 +551,7 @@ E o paciente aparece com as informações atualizadas na busca.
 
 **Cenário:** Inconsistência na atualização de e-mail
 
-Dado que a recepcionista está na tela de edição do cadastro de pacientes
+Dado que a recepcionista **(Maria)** está na tela de edição do cadastro de pacientes
 
 Quando ela tenta atualizar o e-mail do paciente inserindo um formato inválido (ex: "email@.com" ou sem "@")
 
@@ -572,7 +571,7 @@ E exibe uma mensagem de erro "Formato de e-mail inválido".
 
 **Cenário:** Acesso ao prontuário com exames e tratamentos
 
-Dado que o médico acessa o prontuário de um paciente
+Dado que o médico **(Dr. João)** acessa o prontuário de um paciente
 
 Quando ele navega para as seções de "Exames" e "Tratamentos"
 
@@ -582,7 +581,7 @@ E exibe os tratamentos prescritos e em andamento com detalhes de dosagem e dura�
 
 **Cenário:** Exames ou tratamentos ausentes
 
-Dado que o médico acessa o prontuário de um paciente sem exames ou tratamentos anteriores
+Dado que o médico **(Dr. João)** acessa o prontuário de um paciente sem exames ou tratamentos anteriores
 
 Quando ele navega para as seções de "Exames" ou "Tratamentos"
 
@@ -600,7 +599,7 @@ E não há informações desnecessárias exibidas.
 
 **Cenário:** Registro de nota médica bem-sucedido
 
-Dado que o médico finaliza uma consulta
+Dado que o médico **(Dr. João)** finaliza uma consulta
 
 Quando ele acessa a área de "Notas e Evoluções" no prontuário do paciente
 
@@ -614,7 +613,7 @@ E a nota fica visível no histórico de evoluções, ordenada cronologicamente.
 
 **Cenário:** Tentativa de salvar nota vazia
 
-Dado que o médico está na área de "Notas e Evoluções"
+Dado que o médico **(Dr. João)** está na área de "Notas e Evoluções"
 
 Quando ele tenta salvar uma nota sem conteúdo
 
@@ -672,7 +671,7 @@ E apenas usuários autorizados podem acessá-los em formato legível.
 
 **Cenário:** Visualização unificada da agenda
 
-Dado que o coordenador de agendamento acessa a tela de agendamento
+Dado que o coordenador de agendamento **(Rafael)** acessa a tela de agendamento
 
 Quando ele seleciona uma especialidade e uma data
 
@@ -682,7 +681,7 @@ E os horários ocupados são claramente marcados, indicando o tipo de compromiss
 
 **Cenário:** Filtragem da agenda por múltiplos critérios
 
-Dado que o coordenador de agendamento está na tela de agendamento
+Dado que o coordenador de agendamento **(Rafael)** está na tela de agendamento
 
 Quando ele aplica filtros por médico específico, unidade e período de tempo
 
@@ -700,7 +699,7 @@ E a performance da busca não é impactada negativamente.
 
 **Cenário:** Agendamento de consulta online bem-sucedido
 
-Dado que a paciente está logada no portal do paciente
+Dado que a paciente **(Clara)** está logada no portal do paciente
 
 Quando ela seleciona uma especialidade, médico, data e horário disponíveis
 
@@ -714,7 +713,7 @@ E a consulta aparece no painel de "Minhas Consultas" no portal.
 
 **Cenário:** Tentativa de agendar em horário indisponível
 
-Dado que a paciente está no portal de agendamento
+Dado que a paciente **(Clara)** está no portal de agendamento
 
 Quando ela tenta selecionar um horário que já foi ocupado ou bloqueado
 
@@ -732,7 +731,7 @@ E exibe uma mensagem indicando que o horário não está mais disponível.
 
 **Cenário:** Remarcação de consulta pela equipe bem-sucedida
 
-Dado que o coordenador de agendamento seleciona uma consulta existente no sistema
+Dado que o coordenador de agendamento **(Rafael)** seleciona uma consulta existente no sistema
 
 Quando ele escolhe um novo horário disponível para a mesma consulta
 
@@ -744,7 +743,7 @@ E notifica o paciente sobre a mudança por e-mail ou SMS.
 
 **Cenário:** Paciente remarca a consulta via portal
 
-Dado que a paciente está logada no portal e visualiza uma consulta futura
+Dado que a paciente **(Clara)** está logada no portal e visualiza uma consulta futura
 
 Quando ela clica em "Remarcar" na sua consulta
 
@@ -766,7 +765,7 @@ E envia uma notificação de confirmação para a paciente.
 
 **Cenário:** Cancelamento de consulta pela equipe
 
-Dado que o coordenador de agendamento seleciona uma consulta para cancelamento no sistema
+Dado que o coordenador de agendamento **(Rafael)** seleciona uma consulta para cancelamento no sistema
 
 Quando ele confirma o cancelamento
 
@@ -778,7 +777,7 @@ E envia uma notificação de cancelamento para o paciente por e-mail ou SMS.
 
 **Cenário:** Paciente cancela a consulta via portal
 
-Dado que a paciente está logada no portal e visualiza uma consulta futura
+Dado que a paciente **(Clara)** está logada no portal e visualiza uma consulta futura
 
 Quando ela clica em "Cancelar" na sua consulta
 
@@ -808,13 +807,13 @@ E a notificação inclui os detalhes da consulta (data, hora, médico, local).
 
 **Cenário:** Lembrete visível no portal do paciente
 
-Dado que o paciente tem uma consulta agendada
+Dado que a paciente **(Clara)** tem uma consulta agendada
 
-Quando ele acessa o portal do paciente
+Quando ela acessa o portal do paciente
 
 Então um lembrete da próxima consulta é exibido no painel principal ou em uma seção de notificações dedicada
 
-E o paciente pode confirmar o recebimento do lembrete.
+E a paciente pode confirmar o recebimento do lembrete.
 
 ----------
 
@@ -826,7 +825,7 @@ E o paciente pode confirmar o recebimento do lembrete.
 
 **Cenário:** Geração de prescrição eletrônica bem-sucedida
 
-Dado que o médico está na tela de prescrição de um paciente
+Dado que o médico **(Dr. João)** está na tela de prescrição de um paciente
 
 Quando ele seleciona os medicamentos de um banco de dados
 
@@ -842,7 +841,7 @@ E está disponível para a farmácia.
 
 **Cenário:** Prescrição com medicamento inválido/inexistente
 
-Dado que o médico está na tela de prescrição
+Dado que o médico **(Dr. João)** está na tela de prescrição
 
 Quando ele tenta prescrever um medicamento que não existe no banco de dados do sistema
 
@@ -888,7 +887,7 @@ E a prescrição prossegue normalmente.
 
 **Cenário:** Alerta de interação medicamentosa relevante
 
-Dado que o médico está prescrevendo um novo medicamento
+Dado que o médico **(Dr. João)** está prescrevendo um novo medicamento
 
 Quando este medicamento possui uma interação clinicamente relevante com outro já prescrito ou em uso pelo paciente (registrado no histórico)
 
@@ -898,7 +897,7 @@ E sugere informações sobre a interação ou alternativas para o médico.
 
 **Cenário:** Nenhuma interação medicamentosa detectada
 
-Dado que o médico está prescrevendo um medicamento
+Dado que o médico **(Dr. joão)** está prescrevendo um medicamento
 
 Quando não há interações conhecidas com outros medicamentos no histórico do paciente ou na prescrição atual
 
@@ -918,17 +917,17 @@ E a prescrição prossegue normalmente.
 
 Dado que uma prescrição eletrônica foi gerada por um médico
 
-Quando a farmacêutica acessa o módulo de "Prescrições Pendentes" na farmácia
+Quando a farmacêutica **(Lívia)** acessa o módulo de "Prescrições Pendentes" na farmácia
 
 Então a prescrição é exibida no sistema em formato legível e completo
 
-E a farmacêutica pode vincular a prescrição ao registro do paciente
+E a farmacêutica **(Lívia)** pode vincular a prescrição ao registro do paciente
 
 E o status da prescrição é atualizado para "recebida".
 
 **Cenário:** Prescrição não encontrada
 
-Dado que a farmacêutica tenta buscar uma prescrição eletrônica específica
+Dado que a farmacêutica **(Lívia)** tenta buscar uma prescrição eletrônica específica
 
 Quando a prescrição não foi gerada ou não existe no sistema
 
@@ -946,7 +945,7 @@ E não exibe dados de prescrição.
 
 **Cenário:** Registro bem-sucedido da dispensa de medicamento
 
-Dado que a farmacêutica está dispensando medicamentos com base em uma prescrição válida
+Dado que a farmacêutica **(Lívia)** está dispensando medicamentos com base em uma prescrição válida
 
 Quando ela seleciona os medicamentos e as quantidades a serem dispensadas
 
@@ -960,7 +959,7 @@ E gera um comprovante de dispensa para o paciente.
 
 **Cenário:** Tentativa de dispensar medicamento sem estoque
 
-Dado que a farmacêutica tenta dispensar um medicamento
+Dado que a farmacêutica **(Lívia)** tenta dispensar um medicamento
 
 Quando a quantidade solicitada excede o estoque disponível
 
@@ -978,7 +977,7 @@ E exibe um alerta "Estoque insuficiente para [Nome do Medicamento]".
 
 **Cenário:** Consulta de informações detalhadas de medicamento
 
-Dado que a farmacêutica pesquisa por um medicamento no sistema
+Dado que a farmacêutica **(Lívia)** pesquisa por um medicamento no sistema
 
 Quando ela seleciona o medicamento nos resultados da busca
 
@@ -988,7 +987,7 @@ E apresenta efeitos colaterais, contraindicações e interações medicamentosas
 
 **Cenário:** Medicamento não encontrado no banco de dados
 
-Dado que a farmacêutica pesquisa por um medicamento inexistente ou com nome incorreto
+Dado que a farmacêutica **(Lívia)** pesquisa por um medicamento inexistente ou com nome incorreto
 
 Quando ela realiza a busca
 
@@ -1006,7 +1005,7 @@ E sugere opções de busca ou verificação do nome.
 
 **Cenário:** Visualização do histórico de consultas e exames
 
-Dado que a paciente está logada no portal do paciente
+Dado que a paciente **(Clara)** está logada no portal do paciente
 
 Quando ela clica na seção "Meu Histórico Médico"
 
@@ -1016,7 +1015,7 @@ E uma lista de exames realizados com link para resultados.
 
 **Cenário:** Histórico médico vazio
 
-Dado que a paciente está logada no portal e é recém-cadastrada ou não tem histórico
+Dado que a paciente **(Clara)** está logada no portal e é recém-cadastrada ou não tem histórico
 
 Quando ela acessa a seção "Meu Histórico Médico"
 
@@ -1034,7 +1033,7 @@ E não exibe informações incorretas.
 
 **Cenário:** Download de resultado de exame disponível
 
-Dado que a paciente está logada no portal e um novo resultado de exame está disponível (ex: resultado de hemograma)
+Dado que a paciente **(Clara)** está logada no portal e um novo resultado de exame está disponível (ex: resultado de hemograma)
 
 Quando ela clica no exame desejado na lista de resultados
 
@@ -1044,7 +1043,7 @@ E oferece a opção de download em formato PDF ou similar.
 
 **Cenário:** Exame ainda em processamento
 
-Dado que a paciente acessa o portal e um exame foi recentemente coletado, mas o resultado ainda não está pronto
+Dado que a paciente **(Clara)** acessa o portal e um exame foi recentemente coletado, mas o resultado ainda não está pronto
 
 Quando ela verifica a seção de "Resultados de Exames"
 
@@ -1062,7 +1061,7 @@ E não permite o acesso ao laudo.
 
 **Cenário:** Configuração e recebimento de lembrete de medicação
 
-Dado que a paciente está logada no portal
+Dado que a paciente **(Clara)** está logada no portal
 
 Quando ela acessa a seção de "Medicamentos"
 
@@ -1074,7 +1073,7 @@ E envia notificações (no portal, e-mail ou push notification, conforme configu
 
 **Cenário:** Lembrete ignorado/desativado
 
-Dado que a paciente recebe um lembrete de medicação
+Dado que a paciente **(Clara)** recebe um lembrete de medicação
 
 Quando ela clica em "Marcar como tomado" ou "Desativar lembrete"
 
@@ -1092,7 +1091,7 @@ E para de enviar notificações para aquela dose ou medicamento, conforme a aç�
 
 **Cenário:** Edição de dados pessoais bem-sucedida
 
-Dado que a paciente está logada no portal
+Dado que a paciente **(Clara)** está logada no portal
 
 Quando ela acessa a seção "Meus Dados Cadastrais"
 
@@ -1108,7 +1107,7 @@ E as informações são refletidas em seu cadastro.
 
 **Cenário:** Tentativa de salvar dados inválidos
 
-Dado que a paciente está na seção "Meus Dados Cadastrais"
+Dado que a paciente **(Clara)** está na seção "Meus Dados Cadastrais"
 
 Quando ela tenta salvar um número de telefone com formato inválido (ex: menos de 8 dígitos)
 
@@ -1126,7 +1125,7 @@ E exibe uma mensagem de erro "Formato de telefone inválido".
 
 **Cenário:** Transferência eletrônica bem-sucedida de paciente
 
-Dado que o médico finaliza o atendimento em um departamento/unidade
+Dado que o médico **(Dr. João)** finaliza o atendimento em um departamento/unidade
 
 Quando ele seleciona a opção "Transferir Paciente" no prontuário
 
@@ -1140,7 +1139,7 @@ E a equipe de destino é notificada sobre a chegada do paciente com seu prontuá
 
 **Cenário:** Tentativa de transferência para departamento inexistente
 
-Dado que o médico tenta transferir um paciente
+Dado que o médico **(Dr. João)** tenta transferir um paciente
 
 Quando ele seleciona um departamento ou unidade que não está cadastrado no sistema
 
@@ -1158,7 +1157,7 @@ E exibe uma mensagem de erro "Departamento/Unidade de destino inválida".
 
 **Cenário:** Encaminhamento eletrônico a especialista bem-sucedido
 
-Dado que o médico identifica a necessidade de encaminhamento para outra especialidade
+Dado que o médico **(Dr. João)** identifica a necessidade de encaminhamento para outra especialidade
 
 Quando ele acessa a função "Encaminhar Paciente" no prontuário
 
@@ -1174,7 +1173,7 @@ E o encaminhamento fica registrado no prontuário do paciente.
 
 **Cenário:** Encaminhamento sem motivo preenchido
 
-Dado que o médico está na tela de encaminhamento
+Dado que o médico **(Dr. joão)** está na tela de encaminhamento
 
 Quando ele tenta enviar o encaminhamento sem preencher o campo "Motivo do Encaminhamento"
 
@@ -1192,7 +1191,7 @@ E exibe uma mensagem de validação "Motivo do encaminhamento é obrigatório".
 
 **Cenário:** Compartilhamento seguro de informações com equipe
 
-Dado que o médico precisa compartilhar dados específicos do prontuário com uma equipe multidisciplinar (ex: equipe de cirurgia)
+Dado que o médico **(Dr. joão)** precisa compartilhar dados específicos do prontuário com uma equipe multidisciplinar (ex: equipe de cirurgia)
 
 Quando ele seleciona as informações a serem compartilhadas
 
@@ -1206,7 +1205,7 @@ E a equipe é notificada sobre o compartilhamento e o tempo de acesso.
 
 **Cenário:** Tentativa de compartilhamento com usuário sem permissão
 
-Dado que um médico tenta compartilhar informações sensíveis do paciente com um usuário que não possui a permissão de acesso a dados de saúde
+Dado que um médico **(Dr. joão)** tenta compartilhar informações sensíveis do paciente com um usuário que não possui a permissão de acesso a dados de saúde
 
 Quando ele tenta adicionar o usuário à lista de compartilhamento
 
@@ -1254,7 +1253,7 @@ E alerta o Diretor de Tecnologia sobre a interrupção da coleta de dados daquel
 
 **Cenário:** Visualização do dashboard de desempenho em tempo real
 
-Dado que o diretor de tecnologia acessa o painel de monitoramento do sistema
+Dado que o diretor de tecnologia **(Sr. Roberto)** acessa o painel de monitoramento do sistema
 
 Quando ele visualiza os gráficos e métricas de desempenho
 
