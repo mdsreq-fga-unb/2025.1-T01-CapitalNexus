@@ -1,7 +1,7 @@
 # meu_app/forms.py
 from django import forms
 from django.utils import timezone
-from .models import Advertencias, Justificativa, Reuniao
+from .models import Advertencias, Justificativa, Reuniao, Material
 import datetime
 
 class FaltaForm(forms.Form):
@@ -105,3 +105,14 @@ class AdvertenciaForm(forms.ModelForm):
             'membro': forms.Select(attrs={'id': 'select-membro-advertencia'}),
             'contexto': forms.Textarea(attrs={'rows': 4})
         }
+
+class MaterialForm(forms.ModelForm):
+    class Meta:
+        model = Material
+        # Definimos os campos que o usuário pode preencher
+        fields = ['nome', 'tipo', 'finalidade', 'quantidade_total', 'nucleo_responsavel', 'status', 'em_uso_por']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Deixa o campo 'em_uso_por' opcional, já que só é usado quando o status é 'EM_USO'
+        self.fields['em_uso_por'].required = False

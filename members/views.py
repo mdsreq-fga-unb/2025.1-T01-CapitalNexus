@@ -3,8 +3,9 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
 from django.forms import formset_factory
 from django.contrib.auth.decorators import login_required 
+from django.http import JsonResponse
 from .models import *
-from .forms import AdvertenciaForm, FaltaForm, JustificativaForm, ReuniaoForm
+from .forms import AdvertenciaForm, FaltaForm, JustificativaForm, ReuniaoForm, MaterialForm
 
 @login_required
 def home(request):
@@ -415,3 +416,79 @@ def excluir_advertencia(request, advertencia_id):
         'membro': membro,
     }
     return render(request, 'members/excluir_advertencia.html', contexto)
+
+@login_required
+def pagina_lista_de_materiais(request):
+    membro = Membro.objects.get(user=request.user)
+    # Começamos com todos os materiais
+    queryset = Material.objects.all().select_related('em_uso_por', 'nucleo_responsavel')
+
+    # Pega os valores dos filtros da URL (via request.GET)
+    nucleo_tab_query = request.GET.get('nucleo')
+    nome_query = request.GET.get('nome')
+    tipo_query = request.GET.get('tipo')
+    status_query = request.GET.get('status')
+    
+    # Aplica o filtro da ABA de núcleo
+    if nucleo_tab_query and nucleo_tab_query != 'Todos os Núcleos':
+        queryset = queryset.filter(nucleo_responsavel__nome=nucleo_tab_query)
+
+    # Aplica os outros filtros
+    if nome_query:
+        queryset = queryset.filter(nome__icontains=nome_query)
+    if tipo_query:
+        queryset = queryset.filter(tipo=tipo_query)
+    if status_query:
+        queryset = queryset.filter(status=status_query)
+
+    # Buscamos todos os núcleos para popular as abas de navegação
+    nucleos = Nucleo.objects.all()
+
+    contexto = {
+        'membro': membro,
+        'materiais': queryset,
+        'nucleos_para_tabs': nucleos,
+        'nucleo_ativo': nucleo_tab_query or 'Todos os Núcleos'
+    }
+    contexto['form_novo_material'] = MaterialForm()
+    return render(request, 'members/materiais.html', contexto)
+
+@login_required
+def novo_material(request):
+    # if not request.user.membro.is_gestor():
+    #     return redirect('membros:materiais')
+    
+    if request.method == 'POST':
+        form = MaterialForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Novo material cadastrado com sucesso!')
+        else:
+            messages.error(request, 'Houve um erro ao cadastrar o material. Verifique os dados e tente novamente.')
+    return redirect('membros:materiais')
+
+def material_detalhes_api(request, material_id):
+    material = get_object_or_404(Material, id=material_id)
+    # Transforma os dados do modelo em um formato que o JavaScript entende (JSON)
+    dados = {
+        'nome': material.nome, 'tipo': material.tipo, 'finalidade': material.finalidade,
+        'quantidade_total': material.quantidade_total, 'status': material.status,
+        'em_uso_por_id': material.em_uso_por.user.id if material.em_uso_por else '',
+        'nucleo_responsavel_id': material.nucleo_responsavel.id if material.nucleo_responsavel else '',
+    }
+    return JsonResponse(dados)
+
+@login_required
+def editar_material(request, material_id):
+    # if not request.user.membro.is_gestor():
+    #     return redirect('membros:materiais')
+    
+    material = get_object_or_404(Material, id=material_id)
+    if request.method == 'POST':
+        form = MaterialForm(request.POST, instance=material)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Material atualizado com sucesso!')
+        else:
+            messages.error(request, 'Houve um erro ao atualizar. Verifique os dados.')
+    return redirect('membros:materiais')

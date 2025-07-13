@@ -112,3 +112,31 @@ class Advertencias(models.Model):
     
     def __str__(self):
         return f"Advertência do {self.membro.nome} por {self.contexto}."
+    
+class Material(models.Model):
+    TIPO_CHOICES = [
+        ('EQUIPAMENTO', 'Equipamento'),
+        ('CONSUMIVEL', 'Consumível'),
+        ('ELETRONICO', 'Eletrônico'),
+        ('OUTRO', 'Outro'),
+    ]
+    STATUS_CHOICES = [
+        ('DISPONIVEL', 'Disponível'),
+        ('EM_USO', 'Em uso'),
+        ('MANUTENCAO', 'Em manutenção'),
+    ]
+
+    nome = models.CharField(max_length=100)
+    tipo = models.CharField(max_length=20, choices=TIPO_CHOICES)
+    finalidade = models.CharField(max_length=200)
+    quantidade_total = models.PositiveIntegerField(default=1)
+    
+    # Rastreia o status e quem está usando
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='DISPONIVEL')
+    em_uso_por = models.ForeignKey(Membro, on_delete=models.SET_NULL, null=True, blank=True, help_text="Membro que está atualmente com o material")
+    
+    # O núcleo responsável pelo material
+    nucleo_responsavel = models.ForeignKey(Nucleo, on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return self.nome

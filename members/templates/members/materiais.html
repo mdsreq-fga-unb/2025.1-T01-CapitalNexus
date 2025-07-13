@@ -1,0 +1,112 @@
+{% extends 'members/layout.html' %}
+
+{% block dashboard_title %}Materiais{% endblock %}
+{% block page_title %}Gerenciamento de Materiais{% endblock %}
+
+{% block dashboardcontent %}
+    <p class="page-subtitle">Visualize, reserve e solicite materiais para os núcleos.</p>
+
+    <form class="filter-bar" method="get">
+        <input type="text" name="nome" placeholder="Nome do material..." value="{{ request.GET.nome }}">
+        <select name="tipo">
+            <option value="">Todos os Tipos</option>
+            {% for value, display in view.get_form.fields.tipo.choices %}
+                 <option value="{{ value }}" {% if request.GET.tipo == value %}selected{% endif %}>{{ display }}</option>
+            {% endfor %}
+        </select>
+        <select name="status">
+            <option value="">Todos os Status</option>
+             {% for value, display in view.get_form.fields.status.choices %}
+                 <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ display }}</option>
+            {% endfor %}
+        </select>
+        <a href="{% url 'membros:materiais' %}" class="botao-cancel">Limpar filtros</a>
+        <button type="submit" class="btn-filter">Aplicar Filtros</button>
+        <a href="#" class="btn-new-meeting" data-target-modal="#novo-material-modal">Adicionar Material</a>
+        <a href="#" class="btn-new-meeting">Solicitar Material</a>
+    </form>
+
+    <div class="tabs-nav" style="margin-top: 30px;">
+        <a href="{% url 'membros:materiais' %}" class="tab-link {% if nucleo_ativo == 'Todos os Núcleos' %}active{% endif %}">Todos os Núcleos</a>
+        {% for nucleo in nucleos_para_tabs %}
+            <a href="?nucleo={{ nucleo.nome }}" class="tab-link {% if nucleo_ativo == nucleo.nome %}active{% endif %}">{{ nucleo.nome }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="panel" style="margin-top: 0; border-top-left-radius: 0;">
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th><th>Tipo</th><th>Finalidade</th><th>Qtd.</th><th>Status</th><th>Núcleo</th><th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for material in materiais %}
+                    <tr>
+                        <td><strong>{{ material.nome }}</strong></td>
+                        <td>{{ material.get_tipo_display }}</td>
+                        <td>{{ material.finalidade }}</td>
+                        <td>{{ material.quantidade_total }}</td>
+                        <td>
+                            <span class="tag {% if material.status == 'DISPONIVEL' %}tag-green{% else %}tag-status-pendente{% endif %}">
+                                {{ material.get_status_display }}
+                                {% if material.status == 'EM_USO' and material.em_uso_por %}
+                                    <small>({{ material.em_uso_por.nome }})</small>
+                                {% endif %}
+                            </span>
+                        </td>
+                        <td>{{ material.nucleo_responsavel.nome|default:"-" }}</td>
+                        <td class="actions-cell">
+                            <a href="#" class="action-icon" title="Solicitar/Reservar"><i class="fa-solid fa-hand-holding-hand"></i></a>
+                                <a href="#" class="action-icon action-edit" title="Editar" data-material-id="{{ material.id }}">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                                <a href="#" class="action-icon action-delete" title="Excluir"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="7">Nenhum material encontrado com os filtros atuais.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="novo-material-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Novo Material</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'membros:novo-material' %}" method="post" class="form-layout">
+                    {% csrf_token %}
+                    {{ form_novo_material.as_p }} {# Renderização simples para o form #}
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="editar-material-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Editar Material</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="editar-material-form" action="" method="post" class="form-layout">
+                    {% csrf_token %}
+                    {{ form_novo_material.as_p }}
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
