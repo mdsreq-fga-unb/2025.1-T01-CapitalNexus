@@ -1,6 +1,7 @@
 # meu_app/forms.py
 from django import forms
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 from .models import Advertencias, Cargo, HistoricoReserva, Justificativa, Nucleo, Reuniao, Material, SolicitacaoMaterial
 import datetime
 
@@ -52,6 +53,10 @@ class ReuniaoForm(forms.ModelForm):
                 self.initial['hora'] = hora_salva
 
     def clean(self):
+        """
+        Este método é executado durante a validação para "limpar" e combinar os dados dos campos 'data' e 'hora'.
+        Também garante que a data/hora da reunião não está no passado.
+        """
         # 3. Este método é executado durante a validação para "limpar" e combinar os dados
         cleaned_data = super().clean()
         data_form = cleaned_data.get("data")
@@ -74,6 +79,9 @@ class ReuniaoForm(forms.ModelForm):
         return cleaned_data
 
     def save(self, commit=True):
+        """
+        Sobrescreve o método save para usar o campo combinado 'data_hora' antes de salvar a instância.
+        """
         # 4. Sobrescrevemos o método save para usar nosso campo combinado
         instance = super().save(commit=False)
         instance.data_hora = self.cleaned_data['data_hora']
@@ -113,6 +121,9 @@ class MaterialForm(forms.ModelForm):
         fields = ['nome', 'tipo', 'finalidade', 'quantidade_total', 'nucleo_responsavel', 'status']
 
     def __init__(self, *args, **kwargs):
+        """
+        Este método é executado sempre que o formulário é criado.
+        """
         super().__init__(*args, **kwargs)
         # # Deixa o campo 'em_uso_por' opcional, já que só é usado quando o status é 'EM_USO'
         # self.fields['em_uso_por'].required = False
@@ -144,6 +155,7 @@ class ReservaForm(forms.ModelForm):
         """
         Esta é uma função de validação customizada para o campo 'data_devolucao_prevista'.
         O Django a executa automaticamente durante a validação do formulário no back-end.
+        Garante que a data não está no passado.
         """
         # 2. Validação no Back-end: Garante que a data não está no passado
         data_selecionada = self.cleaned_data.get('data_devolucao_prevista')
@@ -169,12 +181,23 @@ class SolicitacaoMaterialForm(forms.ModelForm):
             'link_referencia': 'Link de Referência (opcional)',
         }
 
+def validar_dominio(value):
+    """
+    Verifica se o e-mail termina com @capitalrocketteam.com.
+    Caso não seja vaidado, um ValidationError será lancado.
+    """
+    if not value.endswith('@capitalrocketteam.com'):
+        raise ValidationError(
+            'O e-mail deve pertencer ao domínio @capitalrocketteam.com',
+            params={'value': value},
+        )
+
 class NovoMembroForm(forms.Form):
     # Campos para o modelo User
     username = forms.CharField(label="Nome de Usuário (para login)")
     first_name = forms.CharField(label="Primeiro Nome")
     last_name = forms.CharField(label="Sobrenome")
-    email = forms.EmailField()
+    email = forms.EmailField(validators=[validar_dominio])
     password = forms.CharField(widget=forms.PasswordInput, label="Senha")
 
     # Campos para o modelo Membro
@@ -187,7 +210,7 @@ class NovoMembroForm(forms.Form):
 class EditarMembroForm(forms.Form):
     # CORREÇÃO: Trocamos first_name e last_name por um único campo 'nome'
     nome = forms.CharField(label="Nome Completo", max_length=100)
-    email = forms.EmailField()
+    email = forms.EmailField(validators=[validar_dominio])
 
     # O resto dos campos continua igual
     # matricula = forms.CharField(label="Matrícula", max_length=9, disabled=True)
