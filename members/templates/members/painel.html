@@ -10,6 +10,7 @@
             <table class="data-table">
                 <thead>
                     <tr>
+                        <th>Status</th>
                         <th>Remetente</th>
                         <th>Mensagem (Início)</th>
                         <th>Data de Envio</th>
@@ -18,6 +19,13 @@
                 <tbody>
                     {% for msg in page_obj %}
                     <tr>
+                        <td>
+                            {% if not msg.lido %}
+                                <span class="tag tag-status-ACEITA">Nova</span>
+                            {% else %}
+                                <span class="tag tag-blue">Lida</span>
+                            {% endif %}
+                        </td>
                         <td>
                             <strong>{{ msg.nome }}</strong>
                             <small>{{ msg.email }}</small>
@@ -42,6 +50,30 @@
         </div>
         <br>
         <br>
+        <div class="page-header">
+        <p class="page-subtitle">Adicione, edite ou remova os projetos exibidos no site público.</p>
+        <a href="{% url 'membros:novo-projeto' %}" class="botao-cancel">+ Novo Projeto</a>
+    </div>
+    <div class="panel">
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead><tr><th>Imagem</th><th>Título</th><th class="actions-header">Ações</th></tr></thead>
+                <tbody>
+                    {% for projeto in projetos %}
+                    <tr>
+                        <td><img src="{{ projeto.imagem.url }}" alt="{{ projeto.titulo }}" width="100"></td>
+                        <td><strong>{{ projeto.titulo }}</strong></td>
+                        <td class="actions-cell">
+                            <a href="{% url 'membros:editar-projeto' projeto.pk %}" class="action-icon action-edit"><i class="fa-solid fa-pencil"></i></a>
+                            <a href="{% url 'membros:excluir-projeto' projeto.pk %}" class="action-icon action-delete"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
 <div class="panel">
     <p class="modal-header">Núcleos cadastrados.</p>
         <div class="data-table-container">

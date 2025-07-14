@@ -5,7 +5,7 @@
 
 {% block dashboardcontent %}
     <div class="modal.is-open">
-        <h3 class="modal-header">{{ membro.nome }}</h3>
+        <h3 class="modal-header">{{ membro_editar.nome }}</h3>
         <form method="post" class="modal-body">
             {% csrf_token %}
             {% for field in form %}

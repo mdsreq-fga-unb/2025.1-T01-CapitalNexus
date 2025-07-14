@@ -6,7 +6,8 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required 
 from django.http import JsonResponse
 
-from public.models import MensagemContato
+from public.forms import ProjetoForm
+from public.models import MensagemContato, Projeto
 from .models import *
 from .forms import *
 
@@ -663,7 +664,8 @@ def membro_editar(request, matricula):
     # if not request.user.membro.is_gestor():
     #     messages.error(request, "Você não tem permissão.")
     #     return redirect('membros:membros')
-    membro = get_object_or_404(Membro, matricula=matricula)
+    membro_editar = get_object_or_404(Membro, matricula=matricula)
+    membro = Membro.objects.get(user=request.user)
 
     if request.method == 'POST':
         form = EditarMembroForm(request.POST)
@@ -671,36 +673,36 @@ def membro_editar(request, matricula):
             dados = form.cleaned_data
             
             # --- LÓGICA DE SALVAMENTO ATUALIZADA ---
-            user = membro.user
+            user = membro_editar.user
             user.email = dados['email'] # O email ainda pertence ao User
             user.save()
 
             # Agora atualizamos o nome diretamente no objeto Membro
-            membro.nome = dados['nome']
-            membro.email =dados['email']
-            membro.save()
+            membro_editar.nome = dados['nome']
+            membro_editar.email =dados['email']
+            membro_editar.save()
             # --- FIM DA LÓGICA DE SALVAMENTO ---
 
             # Lógica para atualizar associações de núcleo e cargo (continua a mesma)
-            membro.membronucleo_set.all().delete()
+            membro_editar.membronucleo_set.all().delete()
             for nucleo in dados['nucleos']:
-                MembroNucleo.objects.create(membro=membro, nucleo=nucleo, cargo=dados['cargo'])
+                MembroNucleo.objects.create(membro=membro_editar, nucleo=nucleo, cargo=dados['cargo'])
             
-            messages.success(request, f"Dados de {membro.nome} atualizados com sucesso!")
+            messages.success(request, f"Dados de {membro_editar.nome} atualizados com sucesso!")
             return redirect('membros:membros')
     else:
         # --- LÓGICA DE PREENCHIMENTO ATUALIZADA ---
-        associacoes = membro.membronucleo_set.all()
+        associacoes = membro_editar.membronucleo_set.all()
         initial_data = {
-            'nome': membro.nome, # Usamos o nome do Membro
-            'email': membro.user.email,
-            'matricula': membro.matricula,
+            'nome': membro_editar.nome, # Usamos o nome do Membro
+            'email': membro_editar.user.email,
+            'matricula': membro_editar.matricula,
             'cargo': associacoes.first().cargo if associacoes.exists() else None,
             'nucleos': [assoc.nucleo for assoc in associacoes],
         }
         form = EditarMembroForm(initial=initial_data)
 
-    contexto = {'form': form, 'membro': membro}
+    contexto = {'form': form, 'membro_editar': membro_editar, 'membro': membro}
     return render(request, 'members/editar_membro.html', contexto)
 
 @login_required
@@ -708,21 +710,23 @@ def membro_excluir(request, matricula):
     # if not request.user.membro.is_gestor():
     #     messages.error(request, "Você não tem permissão.")
     #     return redirect('membros:membros')
-
-    membro = get_object_or_404(Membro, matricula=matricula)
+    membro = Membro.objects.get(user=request.user)
+    membro_excluir = get_object_or_404(Membro, matricula=matricula)
     if request.method == 'POST':
-        user = membro.user
+        user = membro_excluir.user
         user.delete() # Ao deletar o User, o Membro e outras associações com CASCADE serão deletados
-        messages.success(request, f"Membro '{membro.nome}' foi excluído com sucesso.")
+        messages.success(request, f"Membro '{membro_excluir.nome}' foi excluído com sucesso.")
         return redirect('membros:membros')
 
-    return render(request, 'members/excluir_membro.html', {'membro': membro})
+    return render(request, 'members/excluir_membro.html', {'membro_excluir': membro_excluir, 'membro': membro})
 
 @login_required
 def pagina_painel_administrativo(request):
-    if not request.user.membro.is_gestor():
-        messages.error(request, "Você não tem permissão.")
-        return redirect('membros:home')
+    # if not request.user.membro.is_gestor():
+    #     messages.error(request, "Você não tem permissão.")
+    #     return redirect('membros:home')
+
+    membro = Membro.objects.get(user=request.user)
     
     # Busca todas as mensagens, ordenando pelas mais novas
     mensagens_list = MensagemContato.objects.all().order_by('-data_envio')
@@ -731,17 +735,22 @@ def pagina_painel_administrativo(request):
     paginator = Paginator(mensagens_list, 15) # 15 mensagens por página
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    projetos = Projeto.objects.all()
     
     contexto = {
         'nucleos': Nucleo.objects.all(),
         'page_obj': page_obj,
+        'membro': membro,
+        'projetos': projetos
     }
+
     return render(request, 'members/painel.html', contexto)
 
 @login_required
 def nucleo_editar(request, pk):
     # if not request.user.membro.is_gestor():
     #     return redirect('membros:membros')
+    membro = Membro.objects.get(user=request.user)
     
     nucleo = get_object_or_404(Nucleo, pk=pk)
     if request.method == 'POST':
@@ -753,7 +762,7 @@ def nucleo_editar(request, pk):
     else:
         form = NucleoForm(instance=nucleo)
         
-    contexto = {'form': form, 'nucleo': nucleo}
+    contexto = {'form': form, 'nucleo': nucleo, 'membro': membro}
     return render(request, 'members/editar_nucleo.html', contexto)
 
 @login_required
@@ -771,3 +780,42 @@ def marcar_mensagem_lida(request, mensagem_id):
         return JsonResponse({'status': 'ok'})
     
     return JsonResponse({'status': 'error', 'message': 'Requisição inválida'}, status=400)
+
+@login_required
+def projeto_editar(request, pk=None): # pk=None indica que pode ser criação
+    # if not request.user.membro.is_gestor():
+    #     messages.error(request, "Acesso negado.")
+    #     return redirect('membros:home')
+    
+    membro = Membro.objects.get(user=request.user)
+    if pk: # Se um pk (ID) foi passado, estamos editando
+        projeto = get_object_or_404(Projeto, pk=pk)
+    else: # Senão, estamos criando um novo
+        projeto = None
+
+    if request.method == 'POST':
+        form = ProjetoForm(request.POST, request.FILES, instance=projeto)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Projeto salvo com sucesso!')
+            return redirect('membros:painel')
+    else:
+        form = ProjetoForm(instance=projeto)
+
+    contexto = {'form': form, 'membro': membro}
+    return render(request, 'members/editar_projeto.html', contexto)
+
+@login_required
+def projeto_excluir(request, pk):
+    # if not request.user.membro.is_gestor():
+    #     messages.error(request, "Acesso negado.")
+    #     return redirect('membros:home')
+    membro = Membro.objects.get(user=request.user)
+
+    projeto = get_object_or_404(Projeto, pk=pk)
+    if request.method == 'POST':
+        projeto.delete()
+        messages.success(request, 'Projeto excluído com sucesso.')
+        return redirect('membros:painel')
+        
+    return render(request, 'members/excluir_projeto.html', {'objeto': projeto, 'tipo': 'Projeto', 'membro': membro})

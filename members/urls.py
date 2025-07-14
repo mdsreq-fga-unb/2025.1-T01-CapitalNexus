@@ -32,4 +32,7 @@ urlpatterns = [
     path('painel/', views.pagina_painel_administrativo, name='painel'),
     path('painel/nucleo/<str:pk>/editar/', views.nucleo_editar, name='editar-nucleo'),
     path('api/mensagens/<int:mensagem_id>/marcar-lida/', views.marcar_mensagem_lida, name='marcar-mensagem-lida'),
+    path('painel/projetos/novo/', views.projeto_editar, name='novo-projeto'),
+    path('painel/projetos/<int:pk>/editar/', views.projeto_editar, name='editar-projeto'),
+    path('painel/projetos/<int:pk>/excluir/', views.projeto_excluir, name='excluir-projeto'),
 ]

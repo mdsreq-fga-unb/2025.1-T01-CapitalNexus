@@ -4,7 +4,7 @@
 {% block dashboardcontent %}
     <div class="modal.is-open">
         <h3 class="modal-header">Você tem certeza?</h3>
-        <p>Você está prestes a excluir permanentemente o membro <strong>{{ membro.nome }}</strong> e sua conta de usuário associada.</p>
+        <p>Você está prestes a excluir permanentemente o membro <strong>{{ membro_excluir.nome }}</strong> e sua conta de usuário associada.</p>
         <p><strong>Esta ação não pode ser desfeita.</strong></p>
         <form method="post">
             {% csrf_token %}

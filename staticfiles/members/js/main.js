@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const mensagemId = btn.dataset.messageId;
                 try {
                     // Faz a chamada POST para nossa API
-                    await fetch(`/api/mensagens/${mensagemId}/marcar-lida/`, {
+                    await fetch(`/members/api/mensagens/${mensagemId}/marcar-lida/`, {
                         method: 'POST',
                         headers: {
                             'X-CSRFToken': csrftoken, // Token de segurança
