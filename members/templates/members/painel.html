@@ -1,0 +1,97 @@
+{% extends 'members/layout.html' %}
+{% block dashboard_title %}Painel administrativo{% endblock %}
+{% block page_title %}Painel administrativo{% endblock %}
+
+{% block dashboardcontent %}
+   <p class="page-subtitle">Painel do administrador para funcionalidades específicas.</p>
+    <div class="panel">
+        <div class="modal-header">Visualize as solicitações de contato enviadas pelo site público.</div>
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Remetente</th>
+                        <th>Mensagem (Início)</th>
+                        <th>Data de Envio</th>
+                        <th class="actions-header">Ações</th> </tr>
+                </thead>
+                <tbody>
+                    {% for msg in page_obj %}
+                    <tr>
+                        <td>
+                            <strong>{{ msg.nome }}</strong>
+                            <small>{{ msg.email }}</small>
+                        </td>
+                        <td>{{ msg.mensagem|truncatechars:70 }}</td>
+                        <td>{{ msg.data_envio|date:"d/m/Y H:i" }}</td>
+                        <td class="actions-cell">
+                            <a href="#" 
+                            class="action-icon action-view-message" 
+                            title="Ver Mensagem Completa" 
+                            data-target-modal="#mensagem-modal-{{ msg.id }}"
+                            data-message-id="{{ msg.id }}">  <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="5">Nenhuma mensagem de contato recebida.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <br>
+        <br>
+<div class="panel">
+    <p class="modal-header">Núcleos cadastrados.</p>
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nome do Núcleo</th>
+                        <th>Categoria</th>
+                        <th class="actions-header">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nucleo in nucleos %}
+                    <tr>
+                        <td><strong>{{ nucleo.nome }}</strong></td>
+                        {% if nucleo.get_categoria_display == "Gestão" %}
+                            <td>Gestão</td>
+                        {% else %}
+                            <td>Técnico</td>
+                        {% endif %}
+                        <td class="actions-cell">
+                            <a href="{% url 'membros:editar-nucleo' nucleo.pk %}" class="action-icon action-edit" title="Editar"><i class="fa-solid fa-pencil"></i></a>
+                            </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+     {% for msg in page_obj %}
+    <div id="mensagem-modal-{{ msg.id }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mensagem de {{ msg.nome }}</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="message-header">
+                    <p><strong>Email:</strong> <a href="mailto:{{ msg.email }}">{{ msg.email }}</a></p>
+                    <p><strong>Enviado em:</strong> {{ msg.data_envio|date:"d/m/Y \à\s H:i" }}</p>
+                </div>
+                <hr style="margin: 15px 0; border-color: #444;">
+                <div class="message-body">
+                    <p>{{ msg.mensagem|linebreaksbr }}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel">Fechar</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

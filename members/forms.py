@@ -1,7 +1,8 @@
 # meu_app/forms.py
 from django import forms
 from django.utils import timezone
-from .models import Advertencias, Cargo, HistoricoReserva, Justificativa, Nucleo, Reuniao, Material, SolicitacaoMaterial
+from django.core.exceptions import ValidationError
+from .models import *
 import datetime
 
 class FaltaForm(forms.Form):
@@ -184,6 +185,23 @@ class NovoMembroForm(forms.Form):
     nucleo = forms.ModelChoiceField(queryset=Nucleo.objects.all())
     cargo = forms.ModelChoiceField(queryset=Cargo.objects.all())
 
+    def clean_email(self):
+        """
+        Verifica se o email pertence ao domínio permitido.
+        """
+        # Pega o dado do email já "limpo" pelo Django
+        email = self.cleaned_data['email']
+        dominio_permitido = "@capitalrocketteam.com"
+        
+        # Usamos .lower() para garantir que a verificação não seja sensível a maiúsculas/minúsculas
+        if not email.lower().endswith(dominio_permitido):
+            # Se o email não terminar com o domínio, lança um erro de validação.
+            # Esta mensagem aparecerá para o usuário abaixo do campo de email.
+            raise ValidationError(f"Permitido apenas e-mails do domínio '{dominio_permitido}'.")
+        
+        # Se a validação passar, sempre retorne o dado limpo no final.
+        return email
+
 class EditarMembroForm(forms.Form):
     # CORREÇÃO: Trocamos first_name e last_name por um único campo 'nome'
     nome = forms.CharField(label="Nome Completo", max_length=100)
@@ -196,3 +214,23 @@ class EditarMembroForm(forms.Form):
         queryset=Nucleo.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
+    def clean_email(self):
+        """
+        Verifica se o email pertence ao domínio permitido.
+        """
+        email = self.cleaned_data['email']
+        dominio_permitido = "@capitalrocketteam.com"
+        
+        if not email.lower().endswith(dominio_permitido):
+            raise ValidationError(f"Permitido apenas e-mails do domínio '{dominio_permitido}'.")
+        
+        return email
+
+class NucleoForm(forms.ModelForm):
+    class Meta:
+        model = Nucleo
+        fields = ['nome', 'categoria']
+        labels = {
+            'nome': 'Nome do Núcleo',
+            'categoria': 'Categoria (ex: TEC, ADM)'
+        }

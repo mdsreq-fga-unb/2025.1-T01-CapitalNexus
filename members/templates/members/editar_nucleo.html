@@ -1,0 +1,18 @@
+{% extends 'members/layout.html' %}
+
+{% block dashboard_title %}Editar Núcleo{% endblock %}
+{% block page_title %}Editar Núcleo{% endblock %}
+
+{% block dashboardcontent %}
+    <div class="modal.is-open">
+        <h3 class="modal-header">{{ nucleo.nome }}</h3>
+        <form method="post" class="modal-body">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="modal-footer">
+                <a href="{% url 'membros:membros' %}" class="botao-cancel">Cancelar</a>
+                <button type="submit" class="btn-save">Salvar Alterações</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

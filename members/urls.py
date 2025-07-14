@@ -29,4 +29,7 @@ urlpatterns = [
     path('membros/novo/', views.membro_novo, name='membro-novo'),
     path('membros/<str:matricula>/editar/', views.membro_editar, name='editar-membro'),
     path('membros/<str:matricula>/excluir/', views.membro_excluir, name='excluir-membro'),
+    path('painel/', views.pagina_painel_administrativo, name='painel'),
+    path('painel/nucleo/<str:pk>/editar/', views.nucleo_editar, name='editar-nucleo'),
+    path('api/mensagens/<int:mensagem_id>/marcar-lida/', views.marcar_mensagem_lida, name='marcar-mensagem-lida'),
 ]

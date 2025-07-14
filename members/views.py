@@ -2,8 +2,11 @@ from django.contrib import messages
 from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
 from django.forms import formset_factory
+from django.core.paginator import Paginator 
 from django.contrib.auth.decorators import login_required 
 from django.http import JsonResponse
+
+from public.models import MensagemContato
 from .models import *
 from .forms import *
 
@@ -579,7 +582,12 @@ def solicitar_material(request):
 def pagina_lista_membros(request):
     membro = Membro.objects.get(user=request.user)
     # Começamos com todos os membros
-    membros_list = Membro.objects.all().select_related('user').prefetch_related('membronucleo_set__nucleo', 'membronucleo_set__cargo')
+    membros = (
+        Membro.objects.all()
+        .order_by('nome') 
+        .select_related('user')
+        .prefetch_related('membronucleo_set__nucleo', 'membronucleo_set__cargo')
+    )
 
     # Pegamos os valores dos filtros da URL
     nome_query = request.GET.get('nome')
@@ -588,18 +596,23 @@ def pagina_lista_membros(request):
 
     # Aplicamos os filtros
     if nome_query:
-        membros_list = membros_list.filter(nome__icontains=nome_query)
+        membros_list = membros.filter(nome__icontains=nome_query)
     if cargo_query:
-        membros_list = membros_list.filter(membronucleo__cargo__posicao=cargo_query)
+        membros_list = membros.filter(membronucleo__cargo__posicao=cargo_query)
     if nucleo_query:
-        membros_list = membros_list.filter(membronucleo__nucleo__nome=nucleo_query)
+        membros_list = membros.filter(membronucleo__nucleo__nome=nucleo_query)
+
+    membros = membros.distinct()
+    paginator = Paginator(membros, 15) # 15 mensagens por página
+    page_number = request.GET.get('page')
+    membros_list = paginator.get_page(page_number)
 
     # Buscamos todos os cargos e núcleos para popular os dropdowns dos filtros
     todos_cargos = Cargo.objects.all()
     todos_nucleos = Nucleo.objects.all()
 
     contexto = {
-        'membros': membros_list.distinct(), # .distinct() evita membros duplicados se ele estiver em vários núcleos filtrados
+        'membros': membros_list,
         'cargos_para_filtro': todos_cargos,
         'nucleos_para_filtro': todos_nucleos,
         'membro': membro,
@@ -664,6 +677,7 @@ def membro_editar(request, matricula):
 
             # Agora atualizamos o nome diretamente no objeto Membro
             membro.nome = dados['nome']
+            membro.email =dados['email']
             membro.save()
             # --- FIM DA LÓGICA DE SALVAMENTO ---
 
@@ -703,3 +717,57 @@ def membro_excluir(request, matricula):
         return redirect('membros:membros')
 
     return render(request, 'members/excluir_membro.html', {'membro': membro})
+
+@login_required
+def pagina_painel_administrativo(request):
+    if not request.user.membro.is_gestor():
+        messages.error(request, "Você não tem permissão.")
+        return redirect('membros:home')
+    
+    # Busca todas as mensagens, ordenando pelas mais novas
+    mensagens_list = MensagemContato.objects.all().order_by('-data_envio')
+    
+    # Adiciona paginação para não sobrecarregar a tela
+    paginator = Paginator(mensagens_list, 15) # 15 mensagens por página
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    contexto = {
+        'nucleos': Nucleo.objects.all(),
+        'page_obj': page_obj,
+    }
+    return render(request, 'members/painel.html', contexto)
+
+@login_required
+def nucleo_editar(request, pk):
+    # if not request.user.membro.is_gestor():
+    #     return redirect('membros:membros')
+    
+    nucleo = get_object_or_404(Nucleo, pk=pk)
+    if request.method == 'POST':
+        form = NucleoForm(request.POST, instance=nucleo)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Núcleo atualizado com sucesso!')
+            return redirect('membros:painel')
+    else:
+        form = NucleoForm(instance=nucleo)
+        
+    contexto = {'form': form, 'nucleo': nucleo}
+    return render(request, 'members/editar_nucleo.html', contexto)
+
+@login_required
+def marcar_mensagem_lida(request, mensagem_id):
+    # Garante que apenas gestores podem executar a ação
+    if not request.user.membro.is_gestor():
+        return JsonResponse({'status': 'error', 'message': 'Não autorizado'}, status=403)
+    
+    # Apenas aceita requisições POST por segurança
+    if request.method == 'POST':
+        mensagem = get_object_or_404(MensagemContato, id=mensagem_id)
+        if not mensagem.lido:
+            mensagem.lido = True
+            mensagem.save()
+        return JsonResponse({'status': 'ok'})
+    
+    return JsonResponse({'status': 'error', 'message': 'Requisição inválida'}, status=400)

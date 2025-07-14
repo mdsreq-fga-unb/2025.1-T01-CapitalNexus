@@ -49,19 +49,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     const btnsAbrirModal = document.querySelectorAll('[data-target-modal]');
         
-    // Adiciona o evento de clique para CADA um desses botões
-    btnsAbrirModal.forEach(btn => {
-        btn.addEventListener('click', (event) => {
-            event.preventDefault(); // Impede a ação padrão do link
-            const modalId = btn.getAttribute('data-target-modal'); // Pega o valor (ex: '#minha-modal')
-            const modal = document.querySelector(modalId); // Encontra a modal com esse ID
+    // // Adiciona o evento de clique para CADA um desses botões
+    // btnsAbrirModal.forEach(btn => {
+    //     btn.addEventListener('click', (event) => {
+    //         event.preventDefault(); // Impede a ação padrão do link
+    //         const modalId = btn.getAttribute('data-target-modal'); // Pega o valor (ex: '#minha-modal')
+    //         const modal = document.querySelector(modalId); // Encontra a modal com esse ID
             
-            if (modal) {
-                // ADICIONAMOS a classe 'is-open'
-                modal.classList.add('is-open'); 
-            }
-        });
-    });
+    //         if (modal) {
+    //             // ADICIONAMOS a classe 'is-open'
+    //             modal.classList.add('is-open'); 
+    //         }
+    //     });
+    // });
 
     // Seleciona TODOS os botões de fechar (seja o 'X' ou o botão 'Cancelar')
     const btnsFecharModal = document.querySelectorAll('.modal .close-button, .modal .btn-cancel');
@@ -131,4 +131,75 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    const clickableRows = document.querySelectorAll('.clickable-row');
+    
+    clickableRows.forEach(row => {
+        row.addEventListener('click', () => {
+            // Pega a URL que colocamos no atributo 'data-href'
+            const href = row.dataset.href;
+            
+            // Se o atributo href existir, navega o navegador para essa página
+            if (href) {
+                window.location.href = href;
+            }
+        });
+    });
+    // Função para pegar o token CSRF dos cookies (essencial para POST com fetch)
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+
+
+    // Seleciona TODOS os botões que servem para abrir uma modal
+        
+    btnsAbrirModal.forEach(btn => {
+        btn.addEventListener('click', async (event) => { // Tornamos a função assíncrona com 'async'
+            event.preventDefault();
+            const modalId = btn.getAttribute('data-target-modal');
+            const modal = document.querySelector(modalId);
+
+            // --- NOVA LÓGICA DE MARCAR COMO LIDO ---
+            // Verificamos se o botão clicado é para ver uma mensagem
+            if (btn.classList.contains('action-view-message')) {
+                const mensagemId = btn.dataset.messageId;
+                try {
+                    // Faz a chamada POST para nossa API
+                    await fetch(`/api/mensagens/${mensagemId}/marcar-lida/`, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': csrftoken, // Token de segurança
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    // Atualiza a tag na página sem precisar recarregar
+                    const statusTag = btn.closest('tr').querySelector('.tag');
+                    if (statusTag) {
+                        statusTag.classList.remove('tag-blue');
+                        statusTag.classList.add('tag-gray');
+                        statusTag.textContent = 'Lida';
+                    }
+                } catch (error) {
+                    console.error("Erro ao marcar mensagem como lida:", error);
+                }
+            }
+            // --- FIM DA NOVA LÓGICA ---
+            
+            if (modal) {
+                modal.classList.add('is-open');
+            }
+        });
+    });
+
 });

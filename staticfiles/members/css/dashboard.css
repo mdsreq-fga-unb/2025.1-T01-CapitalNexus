@@ -1130,25 +1130,52 @@ body {
 .tag-nucleo-2 { background-color: #dcfce7; color: #22c55e; }
 .tag-nucleo-3 { background-color: #fef3c7; color: #f59e0b; }
 
-.checkbox-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 10px;
-    padding: 8px 0;
+/* ======================= PÁGINA DE DETALHE DA MENSAGEM ======================= */
+
+/* O painel principal que contém a mensagem */
+.message-detail-panel {
+    /* Reutiliza o estilo da classe .panel, mas podemos adicionar especificidades */
+    max-width: 900px; /* Limita a largura para melhor leitura em telas grandes */
+    margin: 20px auto; /* Centraliza o painel na área de conteúdo */
 }
 
-.checkbox-grid-container label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: normal;
-    background: #f9f9f9;
-    padding: 6px 8px;
-    border-radius: 6px;
-    transition: background 0.2s ease;
-    cursor: pointer;
+/* O cabeçalho da mensagem (De, Email, Data) */
+.message-header {
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eef0f4; /* Linha separadora sutil */
 }
 
-.checkbox-grid-container label:hover {
-    background: #eee;
+.message-header h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.message-header p {
+    font-size: 15px;
+    color: #6c757d; /* Cinza para informações secundárias */
+    margin-bottom: 5px;
+}
+
+.message-header p strong {
+    color: #495057; /* Um cinza um pouco mais escuro para os títulos */
+}
+
+/* Estilo para o link do email */
+.message-header a {
+    color: #6a5acd; /* Cor roxa padrão do dashboard */
+    text-decoration: none;
+}
+
+.message-header a:hover {
+    text-decoration: underline;
+}
+
+/* O corpo principal da mensagem */
+.message-body p {
+    font-size: 16px;
+    line-height: 1.7; /* Aumenta o espaçamento entre linhas para facilitar a leitura */
+    color: #333;
+    white-space: pre-wrap; /* Preserva as quebras de linha e espaços do texto original */
 }

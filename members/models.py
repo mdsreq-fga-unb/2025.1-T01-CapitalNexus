@@ -31,14 +31,32 @@ class Membro(models.Model):
         return f"{self.nome}, {self.matricula}, {self.email}"
     
 class Nucleo(models.Model):
+    # 1. Definimos as opções como uma lista de tuplas
+    CATEGORIA_CHOICES = [
+        ('TECNICO', 'Técnico'),
+        ('GESTAO', 'Gestão'),
+    ]
+
     nome = models.CharField(max_length=64)
-    categoria = models.CharField(max_length=8)
+    # 2. Adicionamos o argumento 'choices' ao nosso campo
+    categoria = models.CharField(max_length=8, choices=CATEGORIA_CHOICES)
 
     class Meta:
         verbose_name='Núcleo'
         verbose_name_plural='Núcleos'
+        
     def __str__(self):
         return self.nome
+    
+# class Nucleo(models.Model):
+#     nome = models.CharField(max_length=64)
+#     categoria = models.CharField(max_length=8)
+
+#     class Meta:
+#         verbose_name='Núcleo'
+#         verbose_name_plural='Núcleos'
+#     def __str__(self):
+#         return self.nome
     
 class Cargo(models.Model):
     posicao = models.CharField(max_length=64)

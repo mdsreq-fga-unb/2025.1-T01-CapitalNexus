@@ -95,6 +95,14 @@ else:
 }
 
 
+SUPABASE_URL = config("SUPABASE_URL")
+SUPABASE_KEY = config("SUPABASE_KEY")
+SUPABASE_BUCKET_NAME = config("SUPABASE_BUCKET_NAME")
+
+if not DEBUG:
+    DEFAULT_FILE_STORAGE = 'storages.backends.supabase.SupabaseStorage'
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
