@@ -1,0 +1,1 @@
+web: gunicorn capital_nexus.wsgi
