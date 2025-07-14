@@ -128,7 +128,7 @@ Inclua:
 Abra uma *issue* ou entre em contato com um dos mantenedores do projeto.
 
 
-## Histórico de Versão 
+## 📜 Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 | **21/05/25** | 1.0 | Adiciona documento de política de contribuição ao git pages | Sophia e Christopher|

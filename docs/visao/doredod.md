@@ -10,7 +10,7 @@ Esta seção apresenta os conceitos de Definition of Ready (DoR) e Definition of
 |1. Actionable immediately by the team<br>2. Negotiable, open to modification<br>3. Valuable <br>4. Time estimate<br>5. Testable <br>6. Size proper for the team<br>| 1. Code review <br>2. Integrated <br>3. Tests <br>4. Commit standard <br>|
 
 
-## Definition of Ready (DoR)
+## 📋 Definition of Ready (DoR)
 O DoR delimita quando um **requisito está preparado para ser trabalhado**. Permitindo a equipe que avalie o trabalho que será feito antes de começar a desenvolver. Para que seja considerado como *Ready*, serão levadas em consideração se:
 
 1. O requisito está representado por uma história de usuário?
@@ -20,7 +20,7 @@ O DoR delimita quando um **requisito está preparado para ser trabalhado**. Perm
 1. O requisito agrega valor e está associado à algum dos objetivos específicos da solução?
 1. As dependências do requisitos estão mapeadas (se houver)?
 
-## Definition of Done (DoD)
+## 🏁 Definition of Done (DoD)
 
 O DoD define os critérios que precisam ser cumpridos para que uma funcionalidade seja considerada completa, demonstrando **qualidade do requisito produzido**. Para que uma tarefa ou User Story seja considerada **concluída ("Done")**, todas as perguntas a seguir devem ser respondidas afirmativamente.
 
@@ -57,9 +57,10 @@ O DoD define os critérios que precisam ser cumpridos para que uma funcionalidad
 - A **documentação técnica** foi devidamente atualizada? (Ex: `README.md`, comentários em lógicas complexas, novas variáveis de ambiente).
 - Está documentado para uso com docstrings da biblioteca pydoc, com descrição, argumentos e retorno.
 
-## Histórico de Versão 
+## 📜 Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 | **13/05/2025** | 0.1 | Definindo DoR, DoD e critérios de aceite | Wanjo Christopher |
 | **21/05/2025** | 0.2 | Corrige caminho do documento de contribuição | Wanjo Christopher |
 | **23/06/2025** | 1.0 | Melhora critérios DoD | Wanjo Christopher |
+|**13/07/25**|2.1|Refinando visualmente o documento|Wanjo Christopher|
