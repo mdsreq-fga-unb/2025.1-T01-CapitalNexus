@@ -1065,3 +1065,90 @@ body {
 .btn-avaliar:hover {
     background-color: #594ab5;
 }
+
+/* ======================= PÁGINA DE GERENCIAMENTO DE MEMBROS ======================= */
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.member-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.member-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.member-card-header .user-cell {
+    gap: 12px;
+}
+.member-card-header .user-cell strong {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.member-card-body .tag-cargo {
+    display: inline-block;
+    background-color: #e8e7ff;
+    color: #6a5acd;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.member-card-body .contact-info {
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.member-card-footer {
+    margin-top: auto; /* Empurra para o fundo */
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tag-nucleo-1 { background-color: #dbeafe; color: #3b82f6; }
+.tag-nucleo-2 { background-color: #dcfce7; color: #22c55e; }
+.tag-nucleo-3 { background-color: #fef3c7; color: #f59e0b; }
+
+.checkbox-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    padding: 8px 0;
+}
+
+.checkbox-grid-container label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    background: #f9f9f9;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+    cursor: pointer;
+}
+
+.checkbox-grid-container label:hover {
+    background: #eee;
+}

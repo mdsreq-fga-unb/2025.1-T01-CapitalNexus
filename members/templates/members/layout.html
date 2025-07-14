@@ -41,10 +41,7 @@
         <nav class="sidebar-nav">
           <ul>
             <li>
-              <a href="{% url 'membros:home'%}"><i class="fa-solid fa-chart-pie"></i> Home</a>
-            </li>
-            <li>
-              <a href="{% url 'membros:reunioes' %}"><i class="fa-solid fa-users"></i> Reuniões</a>
+              <a href="{% url 'membros:home'%}"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
             </li>
             <li>
               <a href="{% url 'membros:faltaseadvertencias' %}"
@@ -53,10 +50,13 @@
               >
             </li>
             <li>
-              <a href="#"><i class="fa-solid fa-user-group"></i> Membros</a>
+              <a href="{% url 'membros:materiais' %}"><i class="fa-solid fa-box-archive"></i> Materiais</a>
             </li>
             <li>
-              <a href="{% url 'membros:materiais' %}"><i class="fa-solid fa-box-archive"></i> Materiais</a>
+              <a href="{% url 'membros:membros' %}"><i class="fa-solid fa-user-group"></i> Membros</a>
+            </li>
+            <li>
+              <a href="{% url 'membros:reunioes' %}"><i class="fa-solid fa-users"></i> Reuniões</a>
             </li>
             <li>
               <a href="{% url 'publico:sobre' %}"><i></i> Retornar ao site</a>
