@@ -1,8 +1,8 @@
-# Requisitos de software
+# Requisitos Não Funcionais
 
-Os requisitos não funcionais especificam as qualidades e restrições do sistema, como desempenho, segurança e usabilidade, que não estão diretamente relacionadas às funcionalidades oferecidas, mas são essenciais para garantir a qualidade do software. Para a especificação, escolhemos utilizar o modelo URPS+ para classificar os requisitos não funcionais, que engloba categorias como Usabilidade, Confiabilidade, Desempenho e Suportabilidade.
+Os requisitos não funcionais especificam as **qualidades** e **restrições** do sistema, como **desempenho**, **segurança** e **usabilidade**, que não estão diretamente relacionadas às **funcionalidades** oferecidas, mas são essenciais para garantir a **qualidade** do software. Para a especificação, escolhemos utilizar o modelo **URPS+** para classificar os requisitos não funcionais, que engloba categorias como **Usabilidade**, **Confiabilidade**, **Desempenho** e **Suportabilidade**.
 
-## Lista de Requisitos Não Funcionais
+## 🛡️ Lista de Requisitos Não Funcionais
 
 | ID   | Especificação | Detalhamento |
 |------|-------------------| --------------------------------------------------------------------------------------------------------------------|
@@ -13,9 +13,10 @@ Os requisitos não funcionais especificam as qualidades e restrições do sistem
 |RNF05|Suportabilidade|O sistema deve ter todas as suas funcionalidades documentadas utilizando docstring da biblioteca pydoc, preenchendo descrição da funcionalidade, parâmetros e retorno, para gerar a documentação do sistema em HTML e facilitar a manutenibilidade.|
 |RNF06|Restrição de design|Restrição de design: A área pública deve seguir a identidade visual da Capital Rocket Team, utilizando o logotipo da equipe na barra de navegação e a paleta de cores no design. O logotipo e a paleta estão disponíveis em: [Identidade Visual CRT](https://unbbr.sharepoint.com/:b:/s/Requisitos592-Desenvolvedores/Ef8Dt9_B_kRHtq5AZ5KKEU4Bmu0yK7gabL0uf1F2MqgU_w?e=UdYyem)|
 
-## Histórico de Versão 
+## 📜 Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**05/05/25**|0.1|Levantamento inicial de requisitos|Equipe|
 |**25/05/25**|0.2|Correção de requisitos não funcionais|Sophia|
 |**04/06/25**|0.3|Detalhamento dos requisitosa não funcionais|Sophia|
+|**13/07/25**|1.0|Refinando visualmente o documento|Wanjo Christopher|

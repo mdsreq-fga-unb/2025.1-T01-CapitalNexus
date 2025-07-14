@@ -499,7 +499,7 @@ No passo 2, o agente seleciona um relatório disponível.
 
 
 
-## Histórico de Versão 
+## 📜 Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**07/07/25**|0.1|Adiciona esqueleto e Caso de Uso número 5 |Sophia|

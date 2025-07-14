@@ -1,5 +1,7 @@
+## 🎯 Definição do MVP
 O MVP refere-se ao conjunto mínimo de funcionalidades que permite que o produto seja lançado e utilizado pelos clientes. Ele foca nos recursos essenciais necessários para testar o mercado e validar as principais hipóteses de valor de negócio.
 
+### 📊 Técnica MoSCoW
 A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que separa as funcionalidades em quatro categorias:
 
 - **Mo: Must have.** São os requisitos que **devem** estar contido no projeto. Falhar na entrega desses requisitos é o mesmo que dizer que o projeto foi uma falha.
@@ -7,7 +9,7 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 - **Co: Could have.** São requisitos desejáveis, mas que não são necessários. Menor importantes que os requisitos do grupo "should have".
 - **W: Won't have.** Requisitos que não serão implementados, mas que podem ser incluídos futuramente.
 
-**Esforço Técnico:**
+### ⚡ Esforço Técnico
 
 - Alto: 4;
 
@@ -17,7 +19,7 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 
 - Mínimo: 1.
 
-### Matriz de priorização:
+### 📈 Matriz de priorização:
 
 | Categoria         | Critérios                                               | Ação                       | Resultado                                      |
 |-------------------|--------------------------------------------------------|----------------------------|------------------------------------------------|
@@ -26,13 +28,13 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 | **Preenchimentos**    | **Should have** <br> Médio Esforço Técnico (3)                 | Fazer quando houver tempo  | Podem ser feitos entre tarefas maiores          |
 | **Reconsiderar**      | **Could have** <br> Alto Esforço Técnico (4)                   | Reconsiderar               | Muito esforço para pouco retorno                |
 
-**Objetivos específicos (O.E.)**
+### 🎖️ **Objetivos específicos (O.E.)**
 
 1. **Facilitar acesso à informação**
 1. **Reduzir perda de dados**
 1. **Fortalecer a imagem institucional da equipe**
 
-
+## 📋 Backlog Priorizado
 | US   | Nome                           | Prioridade    | Esforço | Matriz de Priorização | MVP |
 |------|--------------------------------|---------------|---------|------------------------|-----|
 | **US01**| Cadastrar núcleo               | Should have   | 3       | Preenchimento          |     |
@@ -62,7 +64,7 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 
 ---
 
-## Histórico de Versão 
+## 📜 Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**02/05/25**| 0.1 | Construindo o documento de MVP | Equipe |
@@ -73,3 +75,4 @@ A equipe optou por utilizar a técnica de priorização de backlog MoSCoW, que s
 |**25/05/25**|0.4|Atualizando requisitos 1 - 3|Sophia|
 |**23/06/25**|0.5|Atualizando a tabela do MVP|Pedro|
 |**13/07/25**|1.0|Organiza e corrige matriz de priorização|Wanjo Christopher|
+|**13/07/25**|1.1|Refinando visualmente o documento|Wanjo Christopher|

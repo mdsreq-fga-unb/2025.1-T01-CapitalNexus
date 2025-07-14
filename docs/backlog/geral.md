@@ -4,13 +4,14 @@ O backlog geral apresenta as funcionalidades e melhorias planejadas para o softw
 
 A elicitação de requisitos utilizou User Stories (Histórias de Usuários), conforme o processo definido para o projeto.
 
-**Temas:**
+## 🏗️ Estrutura do Backlog
+### Temas
 
 1. Gestão de **Pessoas**
 2. Gestão de **Publicidade**
 3. Gestão de **Estoques**
 
-**Épicos (E):**
+### Épicos (E)
 
 1. Sistema de cadastro de núcleos **(E1)**
 1. Sistema de cadastro e perfil de membros **(E2)**
@@ -20,13 +21,13 @@ A elicitação de requisitos utilizou User Stories (Histórias de Usuários), co
 1. Sistema de controle de estoques **(E6)**
 1. Sistema de análise de estoques **(E7)**
 
-**Objetivos específicos (O.E.):**
+### Objetivos específicos (O.E.)
 
 1. **Facilitar acesso à informação** 
 2. **Reduzir perda de dados**
 3. **Fortalecer a imagem institucional da equipe**
 
-## Backlog
+## 📋 Backlog
 O backlog apresenta tema, épico, ID, declaração, critérios de aceitação, RF, objetivos específicos e regras de negócio associados. Utilize Shift + Scroll para vizualisar toda a tabela.
 
 | Tema | Épico | ID | Declaração | Critérios de aceitação | RF | Ο.Ε. | RN |
@@ -56,7 +57,7 @@ O backlog apresenta tema, épico, ID, declaração, critérios de aceitação, R
 | | | US23 | Eu, como membro, quero solicitar a compra de materiais para que seja disponibilizado. | **Cenário de Sucesso: Solicitar compra material**<br> **Dado** que o membro "Abel" está na lista de materiais,<br> **Quando** ele clica em "Solicitar compra", e preenche o formulário com dados válidos (Nome = Fibra de vidro, Quantidade = 5, Finalidade= Fazer aletas do foguete) e clica em "Enviar",<br> **Então** aparece a mensagem "Solicitação enviada!" e o formulário é enviado ao núcleo administrativo-financeiro.<br><br> **Cenário de Falha: Tentar solicitar sem um motivo**<br> **Dado** que o membro "Abel" está preenchendo o formulário de solicitação,<br> **Quando** ele clica em "Solicitar compra", e preenche o formulário com dados incompletos (Nome = Fibra de vidro, Quantidade = 5, Finalidade=) e clica em "Enviar",<br> **Então** o sistema exibe a mensagem "Esse campo é obrigatório" e o envio não é concluído. | RF23 | 2 | |
 | | | US24 | Eu, como membro do adm-fin, quero gerar um relatório de materiais em falta e as solicitações dos membros para eu avaliar a necessidade de compra. | **Cenário de Sucesso: Gerar relatório de materiais**<br> **Dado** que um membro do adm-fin está na área de relatórios,<br> **Quando** ele clica em "Gerar Relatório" e seleciona a opção "Materiais",<br> **Então** um relatório contendo a quantidade em estoque, materiais mais pedidos e mais usados é gerado e disponibilizado para download.<br><br> **Cenário de Falha: Tentativa de gerar relatório sem dados suficientes**<br> **Dado** que um membro do adm-fin tenta gerar o relatório de materiais,<br> **Quando** não há nenhum item cadastrado ou nenhuma solicitação feita,<br> **Então** o sistema exibe a mensagem "Não há dados suficientes para gerar o relatório de materiais". | RF24 | 1 | |
 
-## Regras de negócio
+## ⚖️ Regras de negócio
 
 - **RN01** - O sistema deve autenticar o usuário através do google, com o domínio da Capital Rocket Team;
 - **RN02** - Todo núcleo tem obrigatoriamente um líder, e, se não tiver líder, o capitão assume o cargo de líder do núcleo. 
@@ -65,11 +66,12 @@ O backlog apresenta tema, épico, ID, declaração, critérios de aceitação, R
 - **RN05** - Um membro é notificado toda vez que leva uma falta em uma reunião.
 - **RN06** - O núcleo Gerência  possui 3 cargos: Capitão, Gerente e Co-Gerente. Obrigatoriamente os cargos de Capitão e de Gerente devem estar associados a um, e apenas um, membro da equipe.
 
-## Histórico de Versão 
+## 📜 Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 |**04/05/25**|0.1|Lista preliminar de US|Sophia|
 |**20/05/25**|0.2|Adicionando critérios de aceitação|Sophia|
 |**25/05/25**|0.3|Adicionando requisitos não funcionais e regras de negócio|Sophia|
-|**04/06/25**|0.4|Corrigindo valor de negócio e adicionando regras de negócio| Sophia, Wanjo|
-|**23/06/25**|0.5|Corrigindo BDD's e listas quebradas| Wanjo |
+|**04/06/25**|0.4|Corrigindo valor de negócio e adicionando regras de negócio| Sophia, Wanjo Christopher|
+|**23/06/25**|0.5|Corrigindo BDD's e listas quebradas| Wanjo Christopher |
+|**13/07/25**|1.0|Refinando visualmente o documento|Wanjo Christopher|
