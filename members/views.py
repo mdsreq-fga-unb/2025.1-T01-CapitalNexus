@@ -575,7 +575,6 @@ def solicitar_material(request):
             messages.error(request, 'Houve um erro no formulário. Verifique os dados.')
     return redirect('membros:materiais')
 
-
 @login_required
 def pagina_lista_membros(request):
     membro = Membro.objects.get(user=request.user)
