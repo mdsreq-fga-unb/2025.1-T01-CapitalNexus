@@ -84,7 +84,7 @@ O Processo do AUP (Agiled Unified Process) adota uma **filosofia pragmática e �
 
  ⚠️ Requisitos evoluem iterativamente. O processo de concepção do AUP define **linhas gerais**, focando no MVP.
 
-## Histórico de Versão 
+## 📜 Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|
 | :- | :- | :- | :- |
 | **12/05/2025** | 0.1 | Descrição das técnicas utilizadas | Wanjo Christopher |
