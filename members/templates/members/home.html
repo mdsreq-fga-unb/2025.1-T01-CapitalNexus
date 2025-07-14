@@ -24,7 +24,7 @@
         <li><span>Nenhuma reunião agendada.</span></li>
         {% endfor %}
       </ul>
-      <a href="#" class="panel-link">Ver todas as reuniões &rarr;</a>
+      <a href="{% url 'membros:reunioes1 %}" class="panel-link">Ver todas as reuniões &rarr;</a>
     </div>
 
     <div class="panel">
@@ -75,7 +75,7 @@
             <li><span>Parabéns, nenhuma advertência registrada!</span></li>
         {% endfor %}
       </ul>
-      <a href="#" class="panel-link">Ver detalhes &rarr;</a>
+      <a href="{% url 'membros:faltaseadvertencias' %}" class="panel-link">Ver detalhes &rarr;</a>
     </div>
   </div>
 

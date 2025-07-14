@@ -22,7 +22,9 @@
         </select>
         <a href="{% url 'membros:materiais' %}" class="botao-cancel">Limpar filtros</a>
         <button type="submit" class="btn-filter">Aplicar Filtros</button>
-        <button type="button" class="'btn-new-meeting" data-target-modal="#novo-material-modal">Adicionar material</button>
+        {% if membro.is_gerente or membro.is_admfin %}
+            <button type="button" class="'btn-new-meeting" data-target-modal="#novo-material-modal">Adicionar material</button>
+        {% endif%}
         <button type="button" class="'btn-new-meeting" data-target-modal="#solicitar-material-modal">Solicitar compra</button>
     </form>
 
@@ -82,10 +84,12 @@
                                     </button>
                                 </form>
                             {% endif %}
+                            {% if membro.is_gerente or membro.is_admfin %}
 
                                 <a href="#" class="action-icon action-edit" title="Editar" data-material-id="{{ material.id }}">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
+                            {% endif %}
 
                         </td>
                         <!-- <td class="actions-cell">

@@ -1,22 +1,56 @@
-from django.test import TestCase
+from django.test import Client, TestCase
+from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.urls import reverse
-from members.models import Membro, Reuniao
+from members.forms import EditarMembroForm, NovoMembroForm
+from members.models import Cargo, Membro, MembroNucleo, Nucleo, Reuniao
 
+
+class NovoMembroFormTest(TestCase):
+    def test_email_com_dominio_invalido(self):
+        form_data = {
+            'username': 'novo',
+            'first_name': 'Novo',
+            'last_name': 'Membro',
+            'email': 'teste@gmail.com',
+            'password': 'senha123',
+            'matricula': '123456789',
+            'nucleo': None,  # Simulação sem queryset real
+            'cargo': None
+        }
+        form = NovoMembroForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('email', form.errors)
+
+class EditarMembroFormTest(TestCase):
+    def test_email_com_dominio_invalido(self):
+        form_data = {
+            'nome': 'Fulano Teste',
+            'email': 'invalido@gmail.com',
+            'cargo': None,  # Simulação sem queryset real
+            'nucleos': []
+        }
+        form = EditarMembroForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('email', form.errors)
 
 class ReuniaoCreateViewTest(TestCase):
 
     def setUp(self):
-        """Prepara o ambiente para os testes de criação de reunião."""
-        print("Executando setUp para ReuniaoCreateViewTest")
-        # Criamos um usuário de teste
-        self.user = User.objects.create_user(username='testuser', password='testpassword123')
-        # Criamos o perfil para ele
-        Membro.objects.create(user=self.user)
+        self.client = Client()
+        self.user = User.objects.create_user(username='gerente', password='123')
+        self.nucleo = Nucleo.objects.create(nome='Gerência')  # ou outro nome válido
+        self.cargo = Cargo.objects.create(posicao='Gerente')
+        self.membro = Membro.objects.create(
+            user=self.user, 
+            matricula="000000004", 
+            nome="Teste", 
+            email="teste@capitalrocketteam.com"
+        )
+        MembroNucleo.objects.create(membro=self.membro, nucleo=self.nucleo, cargo=self.cargo)
         
         # Fazemos o login com o cliente de teste
-        self.client.login(username='testuser', password='testpassword123')
+        self.client.login(username='gerente', password='123')
         
         # Pegamos a URL para a página de criação de reunião
         self.create_url = reverse('membros:marcar-reuniao')

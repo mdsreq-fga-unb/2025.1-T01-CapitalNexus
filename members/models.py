@@ -26,6 +26,10 @@ class Membro(models.Model):
     def is_marketeiro(self):
         # Verifica se este membro está associado ao núcleo de marketing
         return self.membronucleo_set.filter(nucleo__nome='Marketing').exists()
+    
+    def is_admfin(self):
+        # Verifica se este membro está associado ao núcleo de administrativo financeiro
+        return self.membronucleo_set.filter(nucleo__nome='Administrativo Financeiro').exists()
 
     def __str__(self):
         return f"{self.nome}, {self.matricula}, {self.email}"

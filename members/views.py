@@ -51,6 +51,19 @@ def home(request):
 
 @login_required
 def pagina_reunioes(request):
+    """
+    View responsável por exibir a lista de reuniões com suporte a filtros.
+
+    Esta página permite que o usuário visualize todas as reuniões cadastradas,
+    aplicando filtros opcionais por título, tipo ou data mínima. Além disso,
+    carrega o formulário para cadastro de uma nova reunião e os dados do membro logado.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+
+    Returns:
+        HttpResponse: Página HTML com a lista de reuniões.
+    """
     membro = Membro.objects.get(user=request.user)
     queryset = Reuniao.objects.all().order_by('-data_hora')
 
@@ -95,6 +108,9 @@ def editar_reuniao(request, reuniao_id):
     Returns:
         HttpResponse: Página com o formulário de edição ou redirecionamento após salvar.
     """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:reunioes')
     membro = Membro.objects.get(user=request.user)
     reuniao = get_object_or_404(Reuniao, id=reuniao_id)
 
@@ -133,6 +149,9 @@ def fazer_chamada(request, reuniao_id):
     Returns:
         HttpResponse: Renderiza o formulário de chamada ou redireciona após salvar.
     """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:reunioes')
     membro = Membro.objects.get(user=request.user)
     reuniao = Reuniao.objects.get(id=reuniao_id)
 
@@ -190,6 +209,9 @@ def marcar_reuniao(request):
     Returns:
         HttpResponseRedirect: Redirecionamento para a lista de reuniões.
     """
+    if not request.user.membro.is_gerente():
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:reunioes')
     if request.method == 'POST':
         form = ReuniaoForm(request.POST, request.FILES)
         if form.is_valid():
@@ -202,6 +224,19 @@ def marcar_reuniao(request):
 
 @login_required
 def pagina_faltas_advertencias(request):
+    """
+    View que exibe as faltas e advertências do membro logado.
+
+    Esta página permite ao usuário visualizar seu histórico de faltas e advertências,
+    exibindo os totais e permitindo filtragem (por exemplo, mostrar apenas faltas,
+    apenas advertências ou ambos).
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+
+    Returns:
+        HttpResponse: Página HTML com as faltas e advertências do usuário.
+    """
     contexto = {
         'minhas_faltas': Falta.objects.none(),
         'minhas_advertencias': Advertencias.objects.none(),
@@ -246,13 +281,23 @@ def pagina_faltas_advertencias(request):
 
 @login_required
 def justificar_falta(request, falta_id):
+    """
+    Permite que o membro justifique uma falta, caso ainda não tenha uma justificativa enviada.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+        falta_id (int): ID da falta que o usuário deseja justificar.
+
+    Returns:
+        HttpResponse: Redireciona para a página de faltas e advertências, com mensagens de sucesso ou erro.
+    """
     # Encontra a falta específica que o usuário está tentando justificar
     falta = get_object_or_404(Falta, id=falta_id, membro__user=request.user)
 
     # Verifica se já não existe uma justificativa para esta falta
     if hasattr(falta, 'justificativa'):
         messages.error(request, "Esta falta já foi justificada.")
-        return redirect('membros:faltaseaqdvertencias')
+        return redirect('membros:faltaseadvertencias')
 
     if request.method == 'POST':
         form = JustificativaForm(request.POST)
@@ -270,6 +315,18 @@ def justificar_falta(request, falta_id):
 
 @login_required
 def pagina_avaliar_justificativas(request):
+    """
+    Permite que gestores ou gerentes visualizem e filtrem justificativas de faltas.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP contendo possíveis filtros via query string.
+
+    Returns:
+        HttpResponse: Redireciona com mensagem de erro se o usuário não tiver permissão, ou exibe a página com a lista de justificativas.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:faltaseadvertencias')
     membro = Membro.objects.get(user=request.user)
     # 1. Busca todas as justificativas 
     justificativas = Justificativa.objects.select_related(
@@ -300,8 +357,19 @@ def pagina_avaliar_justificativas(request):
 
 @login_required
 def processar_justificativa(request, just_id):
-    # if not request.user.membro.is_gestor():
-    #     return redirect('membros:home') # Segurança
+    """
+    Permite que um gestor ou gerente aceite ou rejeite uma justificativa de falta.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP com a decisão e feedback.
+        just_id (int): ID da justificativa a ser processada.
+
+    Returns:
+        HttpResponse: Redireciona com mensagens de sucesso ou erro, conforme o resultado da ação.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:faltaseadvertencias')
 
     justificativa = get_object_or_404(Justificativa, id=just_id)
 
@@ -321,10 +389,20 @@ def processar_justificativa(request, just_id):
 
 @login_required
 def pagina_gerenciar_advertencias(request):
+    """
+    Exibe a página de gerenciamento de advertências para membros autorizados.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+
+    Returns:
+        HttpResponse: Página HTML com a lista de advertências, formulário de nova advertência e filtros.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:faltaseadvertencias')
+    
     membro = Membro.objects.get(user=request.user)
-    # if not request.user.membro.is_gestor():
-    #     messages.error(request, "Você não tem permissão para acessar esta página.")
-    #     return redirect('membros:home')
     advertencias_list = Advertencias.objects.all().prefetch_related('membro__membronucleo_set__nucleo')
     advertencias_list = Advertencias.objects.all()
     
@@ -355,8 +433,18 @@ def pagina_gerenciar_advertencias(request):
 
 @login_required
 def registrar_advertencia(request):
-    # if not request.user.membro.is_gestor():
-    #     return redirect('membros:home')
+    """
+    Permite que gestores ou gerentes registrem uma nova advertência para um membro.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP contendo os dados do formulário.
+
+    Returns:
+        HttpResponse: Redireciona para a página de advertências com mensagens de sucesso ou erro.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:faltaseadvertencias')
     
     if request.method == 'POST':
         form = AdvertenciaForm(request.POST)
@@ -371,11 +459,20 @@ def registrar_advertencia(request):
 
 @login_required
 def editar_advertencia(request, advertencia_id):
+    """
+    Permite que gestores ou gerentes editem uma advertência existente.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP contendo dados para edição.
+        advertencia_id (int): ID da advertência que será editada.
+
+    Returns:
+        HttpResponse: Redireciona para a página de advertências com mensagem de sucesso.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:faltaseadvertencias')
     membro = Membro.objects.get(user=request.user)
-    # Garante que apenas gestores podem editar
-    # if not request.user.membro.is_gestor():
-    #     messages.error(request, "Você não tem permissão para esta ação.")
-    #     return redirect('membros:advertencias')
 
     # Busca a advertência específica ou retorna um erro 404
     advertencia = get_object_or_404(Advertencias, id=advertencia_id)
@@ -399,11 +496,21 @@ def editar_advertencia(request, advertencia_id):
 
 @login_required
 def excluir_advertencia(request, advertencia_id):
+    """
+    Permite que gestores ou gerentes excluam uma advertência específica.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+        advertencia_id (int): ID da advertência a ser excluída.
+
+    Returns:
+        HttpResponse: Redireciona para a página de advertências com mensagem de sucesso ou erro.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:faltaseadvertencias')
     membro = Membro.objects.get(user=request.user)
     # Garante que apenas gestores podem excluir
-    # if not request.user.membro.is_gestor():
-    #     messages.error(request, "Você não tem permissão para esta ação.")
-    #     return redirect('dashboard-advertencias')
 
     advertencia = get_object_or_404(Advertencias, id=advertencia_id)
 
@@ -423,6 +530,15 @@ def excluir_advertencia(request, advertencia_id):
 
 @login_required
 def pagina_lista_de_materiais(request):
+    """
+    Exibe a página com a lista de materiais disponíveis e formulários relacionados.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+
+    Returns:
+        HttpResponse: Página HTML contendo materiais, formulários para novo material, reserva e solicitação.
+    """
     membro = Membro.objects.get(user=request.user)
     # Começamos com todos os materiais
     queryset = Material.objects.all().select_related('nucleo_responsavel').prefetch_related('historico__membro')
@@ -461,8 +577,19 @@ def pagina_lista_de_materiais(request):
 
 @login_required
 def novo_material(request):
-    # if not request.user.membro.is_gestor():
-    #     return redirect('membros:materiais')
+    """
+    Cadastra um novo material no sistema, restrito a usuários com permissão de gerente ou admfin.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP contendo dados do formulário.
+
+    Returns:
+        HttpResponseRedirect: Redireciona para a página de materiais, com mensagens de sucesso ou erro.
+    """
+
+    if not (request.user.membro.is_gerente() or request.user.membro.is_admfin()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:materiais')
     
     if request.method == 'POST':
         form = MaterialForm(request.POST)
@@ -474,6 +601,16 @@ def novo_material(request):
     return redirect('membros:materiais')
 
 def material_detalhes_api(request, material_id):
+    """
+    Retorna os detalhes de um material específico em formato JSON para uso via API.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP.
+        material_id (int): ID do material a ser consultado.
+
+    Returns:
+        JsonResponse: Dados do material em formato JSON.
+    """
     material = get_object_or_404(Material, id=material_id)
     # Transforma os dados do modelo em um formato que o JavaScript entende (JSON)
     dados = {
@@ -486,8 +623,19 @@ def material_detalhes_api(request, material_id):
 
 @login_required
 def editar_material(request, material_id):
-    # if not request.user.membro.is_gestor():
-    #     return redirect('membros:materiais')
+    """
+    Atualiza os dados de um material existente, se o formulário enviado for válido.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP contendo dados do formulário.
+        material_id (int): ID do material que será atualizado.
+
+    Returns:
+        HttpResponseRedirect: Redireciona para a página de materiais, exibindo mensagens de sucesso ou erro.
+    """
+    if not (request.user.membro.is_gerente() or request.user.membro.is_admfin()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:materiais')
     
     material = get_object_or_404(Material, id=material_id)
     if request.method == 'POST':
@@ -501,6 +649,16 @@ def editar_material(request, material_id):
 
 @login_required
 def reservar_material(request, material_id):
+    """
+    Permite que um membro faça a reserva de um material, desde que ele esteja disponível.
+
+    Args:
+        request (HttpRequest): Objeto da requisição HTTP (espera método POST para reservar).
+        material_id (int): ID do material que será reservado.
+
+    Returns:
+        HttpResponseRedirect: Redireciona para a página de materiais, com mensagem de sucesso ou erro.
+    """
     material = get_object_or_404(Material, id=material_id)
     membro = get_object_or_404(Membro, user=request.user)
 
@@ -530,6 +688,16 @@ def reservar_material(request, material_id):
 
 @login_required
 def devolver_material(request, material_id):
+    """
+    Processa a devolução de um material reservado, desde que seja feita por quem reservou ou por um gestor.
+
+    Args:
+        request (HttpRequest): Requisição HTTP recebida. Deve ser do tipo POST para processar a devolução.
+        material_id (int): ID do material que será devolvido.
+
+    Returns:
+        HttpResponseRedirect: Redireciona para a página de materiais, com mensagem de sucesso ou erro.
+    """
     material = get_object_or_404(Material, id=material_id)
     
     # Apenas aceita a ação se for via POST (do formulário de confirmação)
@@ -552,10 +720,19 @@ def devolver_material(request, material_id):
 
 @login_required
 def marcar_material_disponivel(request, material_id):
-    # Garante que apenas gestores podem executar esta ação
-    # if not request.user.membro.is_gestor():
-    #     messages.error(request, "Você não tem permissão para esta ação.")
-    #     return redirect('membros:materiais')
+    """
+    Marca um material como disponível novamente após análise de um gerente ou administrador financeiro.
+
+    Args:
+        request (HttpRequest): Requisição HTTP feita pelo usuário autenticado.
+        material_id (int): ID do material a ser marcado como disponível.
+
+    Returns:
+        HttpResponseRedirect: Redireciona para a página de materiais, exibindo uma mensagem de sucesso ou erro.
+    """
+    if not (request.user.membro.is_gerente() or request.user.membro.is_admfin()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:materiais')
 
     if request.method == 'POST':
         material = get_object_or_404(Material, id=material_id)
@@ -567,6 +744,16 @@ def marcar_material_disponivel(request, material_id):
 
 @login_required
 def solicitar_material(request):
+    """
+    Cria uma nova solicitação de material a partir dos dados enviados por um formulário.
+
+    Args:
+        request (HttpRequest): Requisição HTTP contendo os dados do formulário submetido via POST.
+
+    Returns:
+        HttpResponseRedirect: Redireciona para a página de materiais após processar o formulário,
+        exibindo mensagens de sucesso ou erro conforme o resultado da validação.
+    """
     if request.method == 'POST':
         form = SolicitacaoMaterialForm(request.POST)
         if form.is_valid():
@@ -581,6 +768,15 @@ def solicitar_material(request):
 
 @login_required
 def pagina_lista_membros(request):
+    """
+    Exibe a página de listagem dos membros com seus respectivos dados relacionados.
+
+    Args:
+        request (HttpRequest): Objeto de requisição contendo informações do usuário autenticado e possíveis filtros passados via URL.
+
+    Returns:
+        HttpResponse: Resposta renderizada com a lista de membros e seus dados associados (usuário, núcleos, cargos) além de funcionalidade de edição.
+    """
     membro = Membro.objects.get(user=request.user)
     # Começamos com todos os membros
     membros = (
@@ -623,8 +819,20 @@ def pagina_lista_membros(request):
 
 @login_required
 def membro_novo(request):
-    # if not request.user.membro.is_gestor():
-    #     return redirect('members:membros')
+    """
+    Permite que um gerente registre um novo membro no sistema a partir de um formulário preenchido.
+
+    Args:
+        request (HttpRequest): Objeto de requisição HTTP contendo dados do formulário via POST, 
+        além de informações do usuário autenticado.
+
+    Returns:
+        HttpResponseRedirect: Redireciona para a página de membros com mensagens de sucesso ou erro, 
+        dependendo do resultado da operação.
+    """
+    if not request.user.membro.is_gerente():
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:membros')
 
     if request.method == 'POST':
         form = NovoMembroForm(request.POST)
@@ -661,9 +869,20 @@ def membro_novo(request):
 
 @login_required
 def membro_editar(request, matricula):
-    # if not request.user.membro.is_gestor():
-    #     messages.error(request, "Você não tem permissão.")
-    #     return redirect('membros:membros')
+    """
+    Permite que um gestor ou gerente edite os dados de um membro específico com base na matrícula.
+
+    Args:
+        request (HttpRequest): Objeto de requisição HTTP contendo dados do formulário via POST 
+        e o usuário autenticado.
+        matricula (str): Matrícula do membro que será editado.
+
+    Returns:
+        HttpResponseRedirect: Redireciona para a página de membros após a edição com uma mensagem de sucesso dependendo do resultado.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:membros')
     membro_editar = get_object_or_404(Membro, matricula=matricula)
     membro = Membro.objects.get(user=request.user)
 
@@ -671,8 +890,6 @@ def membro_editar(request, matricula):
         form = EditarMembroForm(request.POST)
         if form.is_valid():
             dados = form.cleaned_data
-            
-            # --- LÓGICA DE SALVAMENTO ATUALIZADA ---
             user = membro_editar.user
             user.email = dados['email'] # O email ainda pertence ao User
             user.save()
@@ -683,7 +900,7 @@ def membro_editar(request, matricula):
             membro_editar.save()
             # --- FIM DA LÓGICA DE SALVAMENTO ---
 
-            # Lógica para atualizar associações de núcleo e cargo (continua a mesma)
+            # Lógica para atualizar associações de núcleo e cargo
             membro_editar.membronucleo_set.all().delete()
             for nucleo in dados['nucleos']:
                 MembroNucleo.objects.create(membro=membro_editar, nucleo=nucleo, cargo=dados['cargo'])
@@ -691,7 +908,6 @@ def membro_editar(request, matricula):
             messages.success(request, f"Dados de {membro_editar.nome} atualizados com sucesso!")
             return redirect('membros:membros')
     else:
-        # --- LÓGICA DE PREENCHIMENTO ATUALIZADA ---
         associacoes = membro_editar.membronucleo_set.all()
         initial_data = {
             'nome': membro_editar.nome, # Usamos o nome do Membro
@@ -707,9 +923,20 @@ def membro_editar(request, matricula):
 
 @login_required
 def membro_excluir(request, matricula):
-    # if not request.user.membro.is_gestor():
-    #     messages.error(request, "Você não tem permissão.")
-    #     return redirect('membros:membros')
+    """
+    Permite que um gerente exclua um membro do sistema, com base na matrícula fornecida.
+
+    Args:
+        request (HttpRequest): Objeto de requisição HTTP contendo o usuário autenticado e, se for POST, a confirmação de exclusão.
+        matricula (str): Matrícula do membro que será excluído.
+
+    Returns:
+        HttpResponseRedirect: Redireciona para a listagem de membros, com uma mensagem de sucesso.
+    """
+    if not request.user.membro.is_gerente():
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:membros')
+    
     membro = Membro.objects.get(user=request.user)
     membro_excluir = get_object_or_404(Membro, matricula=matricula)
     if request.method == 'POST':
@@ -722,9 +949,20 @@ def membro_excluir(request, matricula):
 
 @login_required
 def pagina_painel_administrativo(request):
-    # if not request.user.membro.is_gestor():
-    #     messages.error(request, "Você não tem permissão.")
-    #     return redirect('membros:home')
+    """
+    Exibe o painel administrativo para usuários com permissões específicas.
+
+    Args:
+        request (HttpRequest): Objeto de requisição HTTP contendo o usuário autenticado.
+
+    Returns:
+        HttpResponse: Página HTML com os dados do painel administrativo, 
+        ou redireciona com mensagem de erro caso o usuário não tenha permissão.
+    """
+
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente() or request.user.membro.is_marketeiro() or request.user.membro.is_admfin()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:home')
 
     membro = Membro.objects.get(user=request.user)
     
@@ -747,9 +985,20 @@ def pagina_painel_administrativo(request):
     return render(request, 'members/painel.html', contexto)
 
 @login_required
-def nucleo_editar(request, pk):
-    # if not request.user.membro.is_gestor():
-    #     return redirect('membros:membros')
+def projeto_editar(request, pk=None): # pk=None indica que pode ser criação
+    """
+    Cria ou edita um projeto, dependendo se o ID (pk) é fornecido.
+
+    Args:
+        request (HttpRequest): Objeto de requisição HTTP.
+        pk (int | None): ID do projeto a editar; None para criar novo.
+
+    Returns:
+        HttpResponse: Renderiza formulário para criação/edição ou redireciona após salvar.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente() or request.user.membro.is_marketeiro() or request.user.membro.is_admfin()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:home')
     membro = Membro.objects.get(user=request.user)
     
     nucleo = get_object_or_404(Nucleo, pk=pk)
@@ -767,8 +1016,20 @@ def nucleo_editar(request, pk):
 
 @login_required
 def marcar_mensagem_lida(request, mensagem_id):
-    # Garante que apenas gestores podem executar a ação
-    if not request.user.membro.is_gestor():
+    """
+    Marca uma mensagem de contato como lida, desde que o usuário tenha permissão adequada.
+
+    Args:
+        request (HttpRequest): Requisição HTTP, que deve ser do tipo POST e feita por um membro autorizado.
+        mensagem_id (int): ID da mensagem a ser marcada como lida.
+
+    Returns:
+        JsonResponse: 
+            - {'status': 'ok'} se a operação for bem-sucedida.
+            - {'status': 'error', 'message': 'Não autorizado'} se o usuário não tiver permissão.
+            - {'status': 'error', 'message': 'Requisição inválida'} se não for uma requisição POST.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente() or request.user.membro.is_marketeiro() or request.user.membro.is_admfin()):
         return JsonResponse({'status': 'error', 'message': 'Não autorizado'}, status=403)
     
     # Apenas aceita requisições POST por segurança
@@ -782,10 +1043,40 @@ def marcar_mensagem_lida(request, mensagem_id):
     return JsonResponse({'status': 'error', 'message': 'Requisição inválida'}, status=400)
 
 @login_required
+def nucleo_editar(request, pk):
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:home')
+    
+    nucleo = get_object_or_404(Nucleo, pk=pk)
+    if request.method == 'POST':
+        form = NucleoForm(request.POST, instance=nucleo)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Núcleo atualizado com sucesso!')
+            return redirect('membros:painel')
+    else:
+        form = NucleoForm(instance=nucleo)
+        
+    contexto = {'form': form, 'nucleo': nucleo}
+    return render(request, 'membros/editar_nucleo.html', contexto)
+
+@login_required
 def projeto_editar(request, pk=None): # pk=None indica que pode ser criação
-    # if not request.user.membro.is_gestor():
-    #     messages.error(request, "Acesso negado.")
-    #     return redirect('membros:home')
+    """
+    Cria ou edita um projeto, dependendo se o ID (pk) é fornecido.
+
+    Args:
+        request (HttpRequest): Objeto de requisição HTTP.
+        pk (int | None): ID do projeto a editar; None para criar novo.
+
+    Returns:
+        HttpResponse: Renderiza formulário para criação/edição ou redireciona após salvar.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente() or request.user.membro.is_marketeiro() or request.user.membro.is_admfin()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:home')
+
     
     membro = Membro.objects.get(user=request.user)
     if pk: # Se um pk (ID) foi passado, estamos editando
@@ -807,9 +1098,19 @@ def projeto_editar(request, pk=None): # pk=None indica que pode ser criação
 
 @login_required
 def projeto_excluir(request, pk):
-    # if not request.user.membro.is_gestor():
-    #     messages.error(request, "Acesso negado.")
-    #     return redirect('membros:home')
+    """
+    Exclui um projeto especificado pelo ID.
+
+    Args:
+        request (HttpRequest): Objeto de requisição HTTP.
+        pk (int): ID do projeto a ser excluído.
+
+    Returns:
+        HttpResponse: Redireciona após exclusão ou renderiza confirmação.
+    """
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente() or request.user.membro.is_marketeiro()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:home')
     membro = Membro.objects.get(user=request.user)
 
     projeto = get_object_or_404(Projeto, pk=pk)
