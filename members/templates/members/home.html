@@ -1,0 +1,82 @@
+{% extends 'members/layout.html' %} {% load static %} 
+{% block dashboard_title%}Início{% endblock %} 
+{% block page_title %}Capital Rocket Team{% endblock %} 
+{% block dashboardcontent %}
+
+  <div class="panels-grid">
+    <div class="panel">
+      <h3>Próximas Reuniões</h3>
+      <ul class="item-list">
+        {% for reuniao in proximas_reunioes %}
+        <li>
+          <span>
+            {{ reuniao.titulo }}
+            <small>{{ reuniao.data_hora|date:"d/m/Y - H:i" }}</small>
+            <small>{{ reuniao.local }}</small>
+          </span>
+          {% if reuniao.tipo == 'RG' %}
+          <span class="tag tag-blue">Reunião Geral</span>
+          {% else %}
+          <span class="tag tag-green">Ponto de controle</span>
+          {% endif %}
+        </li>
+        {% empty %}
+        <li><span>Nenhuma reunião agendada.</span></li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'membros:reunioes' %}" class="panel-link">Ver todas as reuniões &rarr;</a>
+    </div>
+
+    <div class="panel">
+      <h3>Últimas Atas</h3>
+      <ul class="item-list">
+        {% for reuniao in ultimas_atas %}
+          <li>
+            <span>
+              Ata da Reunião: {{ reuniao.titulo }}
+              <small>Reunião de: {{ reuniao.data_hora|date:"d/m/Y" }}</small>
+            </span>
+
+            <a
+              href="{{ reuniao.ata.url }}"
+              target="_blank"
+              class="icon-link"
+              title="Ver ata"
+            >
+              <i class="fa-regular fa-eye"></i>
+            </a>
+          </li>
+        {% empty %}
+          <li><span>Nenhuma ata disponível.</span></li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'membros:reunioes' %}" class="panel-link">Ver todas as reuniões &rarr;</a>
+    </div>
+
+    <div class="panel">
+      <h3>Suas Faltas e Advertências</h3>
+      <div class="summary-cards">
+        <div class="summary-card"><strong>{{ total_faltas|default:0 }}</strong> Falta(s)</div>
+        <div class="summary-card"><strong>{{ total_advertencias|default:0 }}</strong> Advertência(s)</div>
+      </div>
+      <ul class="item-list">
+        {% for falta in minhas_faltas %}
+          <li class="item-yellow">
+            <span>Falta em {{ falta.reuniao.titulo }}<small>{{falta.reuniao.data_hora|date:"d/m/Y"}}</small></span>
+          </li>
+          {% empty %}
+            <li><span>Parabéns, nenhuma falta registrada!</span></li>
+        {% endfor %}
+        {% for advertencia in minhas_advertencias %}
+          <li class="item-red">
+            <span>{{advertencia.contexto}}<small>{{advertencia.data|date:"d/m/Y"}}</small></span>
+          </li>
+          {% empty %}
+            <li><span>Parabéns, nenhuma advertência registrada!</span></li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'membros:faltaseadvertencias' %}" class="panel-link">Ver detalhes &rarr;</a>
+    </div>
+  </div>
+
+{% endblock %}

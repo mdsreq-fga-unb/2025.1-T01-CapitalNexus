@@ -1,0 +1,204 @@
+{% extends 'members/layout.html' %}
+{% block dashboard_title %}Painel administrativo{% endblock %}
+{% block page_title %}Painel administrativo{% endblock %}
+
+{% block dashboardcontent %}
+   <p class="page-subtitle">Painel do administrador para funcionalidades específicas.</p>
+    <div class="panel">
+        <div class="modal-header">Visualize as solicitações de contato enviadas pelo site público.</div>
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Remetente</th>
+                        <th>Mensagem (Início)</th>
+                        <th>Data de Envio</th>
+                        <th class="actions-header">Ações</th> </tr>
+                </thead>
+                <tbody>
+                    {% for msg in page_obj %}
+                    <tr>
+                        <td>
+                            {% if not msg.lido %}
+                                <span class="tag tag-status-ACEITA">Nova</span>
+                            {% else %}
+                                <span class="tag tag-blue">Lida</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <strong>{{ msg.nome }}</strong>
+                            <small>{{ msg.email }}</small>
+                        </td>
+                        <td>{{ msg.mensagem|truncatechars:70 }}</td>
+                        <td>{{ msg.data_envio|date:"d/m/Y H:i" }}</td>
+                        <td class="actions-cell">
+                            <a href="#" 
+                            class="action-icon action-view-message" 
+                            title="Ver Mensagem Completa" 
+                            data-target-modal="#mensagem-modal-{{ msg.id }}"
+                            data-message-id="{{ msg.id }}">  <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="5">Nenhuma mensagem de contato recebida.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <br>
+        <br>
+        <div class="page-header">
+        <p class="page-subtitle">Adicione, edite ou remova os projetos exibidos no site público.</p>
+        <a href="{% url 'membros:novo-projeto' %}" class="botao-cancel">+ Novo Projeto</a>
+    </div>
+    <div class="panel">
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead><tr><th>Imagem</th><th>Título</th><th class="actions-header">Ações</th></tr></thead>
+                <tbody>
+                    {% for projeto in projetos %}
+                    <tr>
+                        <td><img src="{{ projeto.imagem.url }}" alt="{{ projeto.titulo }}" width="100"></td>
+                        <td><strong>{{ projeto.titulo }}</strong></td>
+                        <td class="actions-cell">
+                            <a href="{% url 'membros:editar-projeto' projeto.pk %}" class="action-icon action-edit"><i class="fa-solid fa-pencil"></i></a>
+                            <a href="{% url 'membros:excluir-projeto' projeto.pk %}" class="action-icon action-delete"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+<div class="panel">
+    <p class="modal-header">Núcleos cadastrados.</p>
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nome do Núcleo</th>
+                        <th>Categoria</th>
+                        <th class="actions-header">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nucleo in nucleos %}
+                    <tr>
+                        <td><strong>{{ nucleo.nome }}</strong></td>
+                        {% if nucleo.get_categoria_display == "Gestão" %}
+                            <td>Gestão</td>
+                        {% else %}
+                            <td>Técnico</td>
+                        {% endif %}
+                        <td class="actions-cell">
+                            <a href="{% url 'membros:editar-nucleo' nucleo.pk %}" class="action-icon action-edit" title="Editar"><i class="fa-solid fa-pencil"></i></a>
+                            </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+     {% for msg in page_obj %}
+    <div id="mensagem-modal-{{ msg.id }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mensagem de {{ msg.nome }}</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="message-header">
+                    <p><strong>Email:</strong> <a href="mailto:{{ msg.email }}">{{ msg.email }}</a></p>
+                    <p><strong>Enviado em:</strong> {{ msg.data_envio|date:"d/m/Y \à\s H:i" }}</p>
+                </div>
+                <hr style="margin: 15px 0; border-color: #444;">
+                <div class="message-body">
+                    <p>{{ msg.mensagem|linebreaksbr }}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel">Fechar</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <br><br>
+    <p class="page-subtitle">Analise, aprove ou rejeite os pedidos de novos materiais feitos pelos membros.</p>
+
+    <form class="filter-bar" method="get">
+        <select name="status">
+            <option value="TODOS" {% if request.GET.status == 'TODOS' %}selected{% endif %}>Todos os Status</option>
+            <option value="PENDENTE" {% if request.GET.status == 'PENDENTE' or not request.GET.status %}selected{% endif %}>Pendente</option>
+            <option value="APROVADA" {% if request.GET.status == 'APROVADA' %}selected{% endif %}>Aprovada</option>
+            <option value="REJEITADA" {% if request.GET.status == 'REJEITADA' %}selected{% endif %}>Rejeitada</option>
+            <option value="COMPRADO" {% if request.GET.status == 'COMPRADO' %}selected{% endif %}>Comprado</option>
+        </select>
+        <button type="submit" class="btn-filter">Filtrar</button>
+        <a href="{% url 'membros:painel' %}" class="botao-cancel">Limpar Filtro</a>
+    </form>
+
+    <div class="justificativas-grid"> {# Reutilizando o estilo da grade de justificativas #}
+        {% for solicitacao in solicitacoes %}
+        <div class="justificativa-card">
+            <div class="card-header">
+                <h4>{{ solicitacao.solicitante.nome }}</h4>
+                <span class="tag tag-status-{{ solicitacao.status|upper }}">{{ solicitacao.get_status_display }}</span>
+            </div>
+            <div class="card-body">
+                <dl class="details-list">
+                    <dt>Material Solicitado:</dt>
+                    <dd>{{ solicitacao.nome_material }} (Qtd: {{ solicitacao.quantidade }})</dd>
+                    <dt>Justificativa:</dt>
+                    <dd>{{ solicitacao.justificativa }}</dd>
+                    {% if solicitacao.link_referencia %}
+                        <dt>Link de Referência:</dt>
+                        <dd><a href="{{ solicitacao.link_referencia }}" target="_blank">Ver link</a></dd>
+                    {% endif %}
+                </dl>
+            </div>
+            <div class="card-footer" style="justify-content: flex-end;">
+                {% if solicitacao.status == 'PENDENTE' %}
+                    <a href="#" class="card-button-action btn-avaliar" data-target-modal="#avaliar-solicitacao-modal-{{ solicitacao.id }}">Avaliar</a>
+                {% else %}
+                    <p style="font-size: 14px; color: #888;">Já avaliado</p>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <div class="panel"><p>Nenhuma solicitação encontrada com os filtros atuais.</p></div>
+        {% endfor %}
+    </div>
+
+    {% for solicitacao in solicitacoes %}
+    <div id="avaliar-solicitacao-modal-{{ solicitacao.id }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Avaliar Solicitação</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Solicitante:</strong> {{ solicitacao.solicitante.nome }}</p>
+                <p><strong>Material:</strong> {{ solicitacao.nome_material }}</p>
+                <p><strong>Justificativa:</strong></p>
+                <p style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">{{ solicitacao.justificativa }}</p>
+
+                <form action="{% url 'membros:processar-solicitacao' solicitacao.id %}" method="post" class="form-layout" style="margin-top: 20px;">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="feedback_gestao">Feedback (opcional):</label>
+                        <textarea name="feedback_gestao" rows="3" class="form-control"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="decisao" value="REJEITADA" class="btn-cancel" style="background-color: #e74c3c; color: white;">Rejeitar</button>
+                        <button type="submit" name="decisao" value="APROVADA" class="btn-save"><i class="fa-solid fa-check"></i> Aprovar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

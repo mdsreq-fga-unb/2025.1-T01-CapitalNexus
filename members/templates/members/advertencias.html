@@ -1,0 +1,91 @@
+{% extends 'members/layout.html' %}
+{% load static %}
+
+{% block dashboard_title %}Gerenciamento de Presenças{% endblock %}
+{% block page_title %}Gerenciamento de Presenças{% endblock %}
+
+{% block dashboardcontent %}
+    <div class="tabs-nav">
+        <a href="{% url 'membros:faltaseadvertencias' %}" class="tab-link">Minhas Presenças</a>
+        {% if membro.is_gerente or membro.is_gestor %}
+            <a href="{% url 'membros:justificativas' %}" class="tab-link">Avaliar Justificativas</a>
+            <a href="{% url 'membros:advertencias' %}" class="tab-link active">Gerenciar Advertências</a>
+        {% endif %}
+    </div>
+
+     <div class="page-header">
+        <form class="filter-bar" method="get">
+            <input type="text" name="membro" placeholder="Buscar membro..." value="{{ request.GET.membro }}">
+            <select name="nucleo">
+                <option value="">Todos os Núcleos</option>
+                {% for nucleo in nucleos_para_filtro %}
+                    <option value="{{ nucleo.nome }}" {% if request.GET.nucleo == nucleo.nome %}selected{% endif %}>
+                        {{ nucleo.nome }}
+                    </option>
+                {% endfor %}
+            </select>
+            <a href="{% url 'membros:advertencias' %}"class="botao-cancel">Limpar filtros</a>
+            <button type="submit" class="btn-filter">Aplicar Filtros</button>
+            <button type="button" id="btn-abrir-modal-advertencia" data-target-modal="#nova-advertencia-modal" class="btn-new-meeting">Cadastrar Advertência</button>
+        </form>
+
+    </div>
+
+    <div class="justificativas-grid"> 
+        {% for adv in advertencias %}
+        <div class="justificativa-card">
+            <div class="card-header">
+                <h4>{{ adv.membro.nome }}</h4>
+                </div>
+            <div class="card-body">
+                <dl class="details-list">
+                    <dt>Núcleo(s):</dt>
+                    <dd>
+                        {% for associacao in adv.membro.membronucleo_set.all %}
+                            <span class="tag tag-nucleo">{{ associacao.nucleo.nome }}</span>
+                        {% empty %}
+                            <span>Nenhum núcleo associado.</span>
+                        {% endfor %}
+                    </dd> 
+                    <dt>Motivo:</dt>
+                    <dd>{{ adv.contexto }}</dd>
+                    <dt>Data:</dt>
+                    <dd>Registrada em {{ adv.data|date:"d/m/Y" }}</dd>
+                </dl>
+            </div>
+            <div class="card-footer" style="justify-content: flex-end;">
+                <a href="{% url 'membros:editar-advertencia' adv.id %}" class="card-button btn-edit"><i class="fa-solid fa-pencil"></i> Editar</a>
+                <a href="{% url 'membros:excluir-advertencia' adv.id %}" class="card-button" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i> Excluir</a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="panel"><p>Nenhuma advertência registrada.</p></div>
+        {% endfor %}
+    </div>
+
+    <div id="nova-advertencia-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nova Advertência</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'membros:criar-advertencia' %}" method="post" class="form-layout">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form_nova_advertencia.membro.id_for_label }}">Membro</label>
+                        {{ form_nova_advertencia.membro }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form_nova_advertencia.contexto.id_for_label }}">Motivo / Contexto</label>
+                        {{ form_nova_advertencia.contexto }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -6,5 +6,5 @@ python-decouple==3.8
 psycopg2-binary==2.9.10
 gunicorn==23.0.0
 Pillow==11.2.1
-dj-database-url==2.1.0
-whitenoise==6.6.0
+coverage==7.9.2
+supabase==2.16.0

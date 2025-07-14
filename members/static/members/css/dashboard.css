@@ -1,0 +1,1180 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Reset Básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* ======================= LAYOUT GERAL ======================= */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ======================= SIDEBAR ======================= */
+.sidebar {
+    width: 300px;
+    background-color: #1a2a4d;
+    /* Azul escuro */
+    color: #fff;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar-header h3 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ffcc29;
+    color: #1a2a4d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-role {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-nav li.active a,
+.sidebar-nav li a:hover {
+    background-color: #2c3e6b;
+    /* Azul um pouco mais claro */
+}
+
+.sidebar-nav li i {
+    width: 20px;
+    text-align: center;
+}
+
+/* ======================= CONTEÚDO PRINCIPAL ======================= */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.main-header h1 {
+    font-size: 28px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.notification-icon {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* --- Grids --- */
+.stats-grid,
+.panels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.panels-grid {
+    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/* --- Cards e Painéis --- */
+.stat-card,
+.panel {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-card .icon-blue {
+    color: #3498db;
+}
+
+.stat-card .icon-green {
+    color: #2ecc71;
+}
+
+.stat-card .icon-yellow {
+    color: #f1c40f;
+}
+
+.stat-card .icon-purple {
+    color: #9b59b6;
+}
+
+.stat-card i {
+    font-size: 32px;
+}
+
+.stat-card p {
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.panel h3 {
+    margin-bottom: 20px;
+}
+
+.panel .panel-link {
+    display: block;
+    text-align: right;
+    margin-top: 20px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.item-list {
+    list-style: none;
+}
+
+.item-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.item-list li:last-child {
+    border-bottom: none;
+}
+
+.item-list small {
+    display: block;
+    opacity: 0.7;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.item-list .tag {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.tag-blue {
+    background-color: #3498db;
+}
+
+.tag-green {
+    background-color: #2ecc71;
+}
+
+.icon-link i {
+    font-size: 18px;
+}
+
+.summary-cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.summary-card {
+    flex: 1;
+    background-color: #f4f6f9;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.item-red {
+    color: #e74c3c;
+}
+
+.item-yellow {
+    color: #f1c40f;
+}
+
+/* ======================= RESPONSIVIDADE ======================= */
+
+/* Esconde o botão hamburger no desktop por padrão */
+.mobile-sidebar-btn {
+    display: none;
+}
+
+@media (max-width: 992px) {
+
+    /* --- ESTRUTURA GERAL DO DASHBOARD --- */
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 250px;
+        height: 100%;
+        z-index: 1001;
+        transform: translateX(-100%);
+        transition: transform 0.4s ease-in-out;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .mobile-sidebar-btn {
+        display: block;
+        background: none;
+        border: none;
+        color: #1a2a4d;
+        font-size: 24px;
+        cursor: pointer;
+        order: -1;
+        margin-right: 15px;
+    }
+
+    .main-header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .main-header h1 {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .main-content {
+        padding: 15px 10px;
+        overflow-x: hidden;
+    }
+
+    /* Centraliza e ajusta a área de ações (busca + sino) */
+    .header-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Ajusta a barra de busca */
+    .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        padding: 5px 10px;
+        flex: 1;
+        max-width: 300px;
+    }
+
+    .search-bar i {
+        margin-right: 5px;
+        color: #888;
+    }
+
+    .search-bar input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* Ícone de notificação */
+    .notification-icon {
+        font-size: 20px;
+        color: #1a2a4d;
+    }
+
+    /* Posiciona o menu no canto esquerdo superior */
+    .mobile-sidebar-btn {
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: #1a2a4d;
+        cursor: pointer;
+    }
+
+    /* --- PÁGINA PRINCIPAL DO DASHBOARD (HOME) --- */
+    .stats-grid,
+    .panels-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Tabelas responsivas */
+    .data-table-container {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .data-table-container table {
+        min-width: 400px;
+    }
+
+    /* --- PÁGINA DE REUNIÕES --- */
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .filter-bar button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .reunioes-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .reuniao-card .card-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 5px 0;
+    }
+
+    .reuniao-card .card-button {
+        flex: 1 1 48%;
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+
+    .reuniao-card .card-button:nth-child(2) {
+        border-right: none;
+    }
+
+    /* --- MODAIS --- */
+    .modal-content {
+        width: 95%;
+        margin: auto;
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-header h2 {
+        font-size: 18px;
+    }
+}
+
+
+
+/* ======================= PÁGINA DE REUNIÕES ======================= */
+
+/* Estilos para o novo cabeçalho da página (título + botão) */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    /* Título na esquerda, botão na direita */
+    align-items: center;
+    margin-bottom: 30px;
+    /* Espaço antes da barra de filtros */
+}
+
+.btn-new-meeting {
+    background-color: #6a5acd;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-new-meeting:hover {
+    background-color: #594ab5;
+}
+
+.page-subtitle {
+    margin-top: -25px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #6c757d;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    /* Permite quebrar linha no mobile */
+}
+
+.filter-bar input,
+.filter-bar select,
+.filter-bar button {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.filter-bar button {
+    background-color: #6a5acd;
+    /* Roxo do botão */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.reunioes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.reuniao-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.reuniao-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.reuniao-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.reuniao-card .tag {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 12px;
+    color: #fff;
+}
+
+.tag-blue {
+    background-color: #3498db;
+}
+
+.tag-green {
+    background-color: #2ecc71;
+}
+
+.reuniao-card .card-body {
+    padding: 0 20px 20px 20px;
+    color: #6c757d;
+}
+
+.reuniao-card .card-body p {
+    margin-bottom: 10px;
+}
+
+.reuniao-card .card-body i {
+    margin-right: 8px;
+    width: 16px;
+}
+
+.reuniao-card .card-footer {
+    display: flex;
+    border-top: 1px solid #f0f0f0;
+    margin-top: auto;
+    /* Empurra o rodapé do card para baixo */
+}
+
+.reuniao-card .card-button {
+    flex: 1;
+    text-align: center;
+    padding: 15px 10px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #6c757d;
+    transition: background-color 0.2s ease;
+}
+
+.reuniao-card .card-button:not(:last-child) {
+    border-right: 1px solid #f0f0f0;
+}
+
+.reuniao-card .card-button:hover {
+    background-color: #f8f9fa;
+}
+
+.btn-presence {
+    color: #2ecc71;
+}
+
+.btn-minutes {
+    color: #f1c40f;
+}
+
+/* ======================= ESTILO DA NOVA MODAL (DESIGN DO PRINT) ======================= */
+
+/* 1. O fundo da tela (overlay) - Começa escondido! */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* 2. O estado ABERTO da modal: visível e centralizada. */
+/* Esta classe será adicionada pelo JavaScript quando o usuário clicar no botão. */
+.modal.is-open {
+    display: flex;
+    /* Torna a modal visível E usa flex para centralizar */
+    align-items: center;
+    justify-content: center;
+}
+
+/* 2. A caixa branca da modal */
+.modal-content {
+    background-color: #ffffff;
+    color: #333;
+    /* Cor do texto dentro da modal será escura */
+    width: 90%;
+    max-width: 500px;
+    /* Largura máxima da modal */
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* 3. O cabeçalho da modal ("Marcar Reunião) */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    font-size: 22px;
+    color: #333;
+    /* Texto escuro para o título */
+}
+
+.close-button {
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* 4. O corpo da modal, onde fica o formulário */
+.modal-body .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.modal-body label {
+    font-weight: 600;
+    /* Negrito um pouco mais leve */
+    font-size: 14px;
+    color: #555;
+    /* Cinza escuro para os labels */
+}
+
+.modal-body input,
+.modal-body select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    /* Borda cinza clara */
+    background-color: #f7f7f7;
+    /* Fundo cinza bem claro */
+    font-size: 16px;
+    color: #333;
+    /* Cor do texto digitado */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de foco (borda roxa, como no print) */
+.modal-body input:focus,
+.modal-body select:focus {
+    outline: none;
+    border-color: #6a5acd;
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2);
+}
+
+/* 5. O rodapé da modal (botões) */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinha os botões à direita */
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.modal-footer button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+}
+
+.modal-footer button:hover {
+    opacity: 0.85;
+}
+
+.btn-cancel {
+    background-color: #e9ecef;
+    /* Cinza claro */
+    color: #495057;
+    /* Texto escuro */
+}
+
+.btn-save {
+    background-color: #6a5acd;
+    /* Roxo */
+    color: white;
+}
+
+.botao-cancel {
+    /* --- Comportamento de Bloco --- */
+    display: inline-block;
+    /* Permite que o link tenha padding, margem, etc. */
+
+    /* --- Aparência Visual --- */
+    background-color: #e9ecef;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    /* Garante que não haja bordas inesperadas */
+
+    /* --- Estilo do Texto --- */
+    color: #495057;
+    text-decoration: none;
+    /* Remove o sublinhado do link */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    /* Garante que o texto fique no centro */
+
+    /* --- Interatividade --- */
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.botao-cancel:hover {
+    opacity: 0.85;
+    /* Deixa o botão um pouco transparente, indicando que é clicável */
+}
+
+/* Estilo para a célula do checkbox na tabela de chamada */
+.attendance-table .checkbox-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.attendance-table input[type="checkbox"] {
+    width: 22px;
+    /* Deixa o checkbox um pouco maior */
+    height: 22px;
+    cursor: pointer;
+}
+
+/* ======================= PÁGINA DE LISTA DE CHAMADA ======================= */
+
+.attendance-panel {
+    padding: 30px;
+}
+
+/* .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-header .page-subtitle {
+    margin: 0;
+}
+.page-header .page-subtitle strong {
+    font-size: 22px;
+    color: #333;
+}  */
+
+.btn-back {
+    font-weight: bold;
+    color: #6c757d;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-back:hover {
+    background-color: #f0f0f0;
+}
+
+/* --- Tabela de Chamada --- */
+.attendance-table th,
+.attendance-table td {
+    vertical-align: middle;
+    /* Alinha o conteúdo das células verticalmente */
+}
+
+/* Célula do nome do membro */
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.user-details strong {
+    font-size: 16px;
+    color: #333;
+}
+
+.user-details small {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Célula do checkbox */
+.checkbox-cell {
+    text-align: center;
+}
+
+.checkbox-cell input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #6a5acd;
+    /* Cor do check roxa */
+    cursor: pointer;
+}
+
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.alert-success {
+    background-color: #2475AB; /* Verde para sucesso */
+    border-color: #2475AB;
+}
+
+.alert-error {
+    background-color: #dc3545; /* Vermelho para erro */
+}
+
+.alert-warning {
+    background-color: #ff8b07; /* Laranja para aviso */
+    border-color: #ff8b07;
+}
+
+/* Estilo para as Abas */
+.tabs-nav {
+    display: flex;
+    gap: 5px;
+    border-bottom: 2px solid #e5e5e5;
+    margin-bottom: 30px;
+}
+.tab-link {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #6c757d;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+    border: 2px solid transparent;
+}
+.tab-link.active {
+    color: #6a5acd;
+    border-color: #e5e5e5 #e5e5e5 #fff #e5e5e5;
+    border-bottom-color: #fff;
+    position: relative;
+    top: 2px;
+}
+
+/* =================== ESTILO DE TABELA DE DADOS =================== */
+
+.data-table-container {
+    width: 100%;
+    overflow-x: auto; /* Adiciona rolagem horizontal em telas pequenas */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaço entre as células */
+    min-width: 800px; /* Largura mínima antes da rolagem aparecer */
+}
+
+/* Estilo para todas as células (cabeçalho e corpo) */
+.data-table th, .data-table td {
+    padding: 16px;
+    text-align: left;
+    vertical-align: middle; /* Alinha o conteúdo no meio verticalmente */
+}
+
+/* Estilo para as linhas do corpo da tabela */
+.data-table tbody tr {
+    border-bottom: 1px solid #eef0f4; /* Linha cinza clara entre as linhas */
+    transition: background-color 0.2s ease;
+}
+
+.data-table tbody tr:last-child {
+    border-bottom: none; /* Remove a borda da última linha */
+}
+
+.data-table tbody tr:hover {
+    background-color: #f8f9fa; /* Efeito suave de hover */
+}
+
+/* Estilo para o cabeçalho da tabela */
+.data-table thead th {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8c98a9;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e5e5e5;
+}
+
+/* Estilo genérico para as "Pílulas" (Tags) */
+.tag {
+    padding: 5px 12px;
+    border-radius: 20px; /* Deixa bem arredondado */
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Cores específicas das pílulas de status */
+.tag-status-PENDENTE { background-color: #fff1d4; color: #ffab00; }
+.tag-status-ACEITA { background-color: #e3fcef; color: #2ecc71; }
+.tag-status-REJEITADA { background-color: #ffebe9; color: #e74c3c; }
+
+
+/* Estilo para a coluna de Ações */
+.actions-header, .actions-cell {
+    text-align: right; /* Alinha os ícones na direita */
+}
+
+.action-icon {
+    font-size: 18px;
+    text-decoration: none;
+    color: #8c98a9; /* Cinza sutil */
+    margin-left: 15px;
+    transition: color 0.2s ease;
+}
+
+.action-icon:hover {
+    color: #6a5acd; /* Cor roxa no hover */
+}
+
+.justificativas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* O card principal */
+.justificativa-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column; /* Faz o rodapé ir para baixo */
+}
+
+/* O cabeçalho do card */
+.justificativa-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.justificativa-card .card-header h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+/* O corpo com os detalhes */
+.justificativa-card .card-body {
+    padding: 20px;
+}
+
+.details-list dt { /* O "título" do dado (ex: "Reunião:") */
+    font-size: 13px;
+    font-weight: 600;
+    color: #8c98a9;
+    margin-bottom: 4px;
+}
+
+.details-list dd { /* O valor do dado (ex: "Reunião de Planejamento") */
+    font-size: 15px;
+    color: #333;
+    margin-left: 0; /* Reseta a margem padrão */
+    margin-bottom: 15px; /* Espaço entre cada par de detalhes */
+}
+
+.details-list dd:last-child {
+    margin-bottom: 0;
+}
+
+/* O rodapé do card */
+.justificativa-card .card-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px;
+    border-top: 1px solid #f0f0f0;
+    margin-top: auto; /* Empurra o rodapé para o fundo do card */
+}
+
+/* O botão de ação "Avaliar" */
+.card-button-action {
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.btn-avaliar {
+    background-color: #6a5acd; /* Roxo */
+    color: white;
+}
+
+.btn-avaliar:hover {
+    background-color: #594ab5;
+}
+
+/* ======================= PÁGINA DE GERENCIAMENTO DE MEMBROS ======================= */
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.member-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.member-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.member-card-header .user-cell {
+    gap: 12px;
+}
+.member-card-header .user-cell strong {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.member-card-body .tag-cargo {
+    display: inline-block;
+    background-color: #e8e7ff;
+    color: #6a5acd;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.member-card-body .contact-info {
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.member-card-footer {
+    margin-top: auto; /* Empurra para o fundo */
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tag-nucleo-1 { background-color: #dbeafe; color: #3b82f6; }
+.tag-nucleo-2 { background-color: #dcfce7; color: #22c55e; }
+.tag-nucleo-3 { background-color: #fef3c7; color: #f59e0b; }
+
+/* ======================= PÁGINA DE DETALHE DA MENSAGEM ======================= */
+
+/* O painel principal que contém a mensagem */
+.message-detail-panel {
+    /* Reutiliza o estilo da classe .panel, mas podemos adicionar especificidades */
+    max-width: 900px; /* Limita a largura para melhor leitura em telas grandes */
+    margin: 20px auto; /* Centraliza o painel na área de conteúdo */
+}
+
+/* O cabeçalho da mensagem (De, Email, Data) */
+.message-header {
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eef0f4; /* Linha separadora sutil */
+}
+
+.message-header h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.message-header p {
+    font-size: 15px;
+    color: #6c757d; /* Cinza para informações secundárias */
+    margin-bottom: 5px;
+}
+
+.message-header p strong {
+    color: #495057; /* Um cinza um pouco mais escuro para os títulos */
+}
+
+/* Estilo para o link do email */
+.message-header a {
+    color: #6a5acd; /* Cor roxa padrão do dashboard */
+    text-decoration: none;
+}
+
+.message-header a:hover {
+    text-decoration: underline;
+}
+
+/* O corpo principal da mensagem */
+.message-body p {
+    font-size: 16px;
+    line-height: 1.7; /* Aumenta o espaçamento entre linhas para facilitar a leitura */
+    color: #333;
+    white-space: pre-wrap; /* Preserva as quebras de linha e espaços do texto original */

@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      {% block dashboard_title %}Dashboard{% endblock %} | CRT Gestão
+    </title>
+
+    <link rel="stylesheet" href="{% static 'members/css/dashboard.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"/>
+  </head>
+  <body>
+    {% if messages %}
+        <div class="messages-container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <span class="close-alert-btn">&times;</span>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="dashboard-layout">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h3><i class="fa-solid fa-rocket"></i> Capital Rocket Team</h3>
+        </div>
+        <div class="user-profile">
+          <div class="user-avatar">{{ membro.nome.0|upper }}</div>
+          <div class="user-info">
+            <span class="user-name">{{ membro.nome }}</span>
+            {% if membronucleo %}
+            <span class="user-role">{{ membronucleo.nucleo.nome }}</span>
+            {% endif %}
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="{% url 'membros:home'%}"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+            </li>
+            {% if membro.is_gerente %}
+              <li>
+                <a href="{% url 'admin:index'%}"><i class="fa-solid fa-gears"></i> Django Admin/a>
+              </li>
+            {% endif %}
+            <li>
+              <a href="{% url 'membros:faltaseadvertencias' %}"><i class="fa-solid fa-triangle-exclamation"></i> Faltas e advertências</a>
+            </li>
+            <li>
+              <a href="{% url 'membros:materiais' %}"><i class="fa-solid fa-box-archive"></i> Materiais</a>
+            </li>
+            <li>
+              <a href="{% url 'membros:membros' %}"><i class="fa-solid fa-user-group"></i> Membros</a>
+            </li>
+            {% if membro.is_gerente or membro.is_gestor or membro.is_marketeiro %}
+              <li>
+                  <a href="{% url 'membros:painel' %}"><i class="fa-solid fa-gear"></i> Painel do administrador</a>
+              </li>
+            {% endif %}
+            <li>
+              <a href="{% url 'membros:reunioes' %}"><i class="fa-solid fa-users"></i> Reuniões</a>
+            </li>
+            <li>
+              <a href="{% url 'publico:sobre' %}"><i class="fa-solid fa-arrow-left"></i> Retornar ao site</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <header class="main-header">
+          <button id="mobile-sidebar-toggle" class="mobile-sidebar-btn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <h1>{% block page_title %}Dashboard{% endblock %}</h1>
+
+          <div class="header-actions">
+            <div class="search-bar">
+              <i class="fa-solid fa-search"></i>
+              <input type="text" placeholder="Buscar..." />
+            </div>
+            <i class="fa-regular fa-bell notification-icon"></i>
+          </div>
+        </header>
+
+        {% block dashboardcontent %} {% endblock %}
+      </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{% static 'members/js/main.js' %}"></script>
+  </body>
+</html>

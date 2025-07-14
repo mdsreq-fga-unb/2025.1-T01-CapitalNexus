@@ -43,3 +43,27 @@ class MensagemContato(models.Model):
 
     def __str__(self):
         return f"Mensagem de {self.nome} em {self.data_envio.strftime('%d/%m/%Y %H:%M')}"
+    
+class ApresentacaoEquipe(models.Model):
+    titulo = models.CharField(max_length=100, default="A Equipe")
+    descricao = models.TextField()
+    foto_equipe = models.ImageField(upload_to='fotos_equipe/')
+    
+    # Garante que só haverá uma entrada para esta seção
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super(ApresentacaoEquipe, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.titulo
+
+class Topico(models.Model):
+    titulo = models.CharField(max_length=100)
+    descricao = models.TextField()
+    ordem = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['ordem']
+
+    def __str__(self):
+        return self.titulo
