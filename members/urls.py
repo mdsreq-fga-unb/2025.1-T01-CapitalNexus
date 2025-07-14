@@ -35,4 +35,5 @@ urlpatterns = [
     path('painel/projetos/novo/', views.projeto_editar, name='novo-projeto'),
     path('painel/projetos/<int:pk>/editar/', views.projeto_editar, name='editar-projeto'),
     path('painel/projetos/<int:pk>/excluir/', views.projeto_excluir, name='excluir-projeto'),
+    path('painel/solicitacoes/<int:solicitacao_id>/processar/', views.processar_solicitacao, name='processar-solicitacao'),
 ]

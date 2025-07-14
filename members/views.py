@@ -974,14 +974,22 @@ def pagina_painel_administrativo(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     projetos = Projeto.objects.all()
-    
+    solicitacoes_list = SolicitacaoMaterial.objects.all().select_related('solicitante')
+    # Pega o valor do filtro de status da URL
+    status_filtro = request.GET.get('status', 'PENDENTE') # Padrão para 'PENDENTE'
+
+    # Aplica o filtro
+    if status_filtro and status_filtro != 'TODOS':
+        solicitacoes_list = solicitacoes_list.filter(status=status_filtro)
+
     contexto = {
         'nucleos': Nucleo.objects.all(),
         'page_obj': page_obj,
         'membro': membro,
-        'projetos': projetos
+        'projetos': projetos,
+        'solicitacoes': solicitacoes_list,
+        'tab': 'solicitacoes'
     }
-
     return render(request, 'members/painel.html', contexto)
 
 @login_required
@@ -1120,3 +1128,23 @@ def projeto_excluir(request, pk):
         return redirect('membros:painel')
         
     return render(request, 'members/excluir_projeto.html', {'objeto': projeto, 'tipo': 'Projeto', 'membro': membro})
+
+@login_required
+def processar_solicitacao(request, solicitacao_id):
+    if not (request.user.membro.is_gestor() or request.user.membro.is_gerente() or request.user.membro.is_marketeiro()):
+        messages.error(request, "Você não tem permissão para realizar essa ação.")
+        return redirect('membros:home')
+
+    solicitacao = get_object_or_404(SolicitacaoMaterial, id=solicitacao_id)
+
+    if request.method == 'POST':
+        decisao = request.POST.get('decisao') # 'APROVADA' ou 'REJEITADA'
+        feedback = request.POST.get('feedback_gestao')
+
+        if decisao in ['APROVADA', 'REJEITADA', 'COMPRADO']:
+            solicitacao.status = decisao
+            solicitacao.feedback_gestao = feedback
+            solicitacao.save()
+            messages.success(request, f"A solicitação de '{solicitacao.nome_material}' foi analisada.")
+        
+    return redirect('membros:painel')
