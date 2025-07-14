@@ -39,7 +39,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 | US 1.5    | Registrar notas médicas e evoluções no prontuário | Como Médico, quero inserir notas de atendimento e evoluções clínicas diretamente no PEP, para manter registro atualizado e detalhado de cada consulta. |
 | US 1.12   | Gerar prescrição eletrônica                     | Como Médico, quero criar prescrições digitais padronizadas e seguras, para reduzir erros de legibilidade e garantir integridade da informação. |
 | US 1.13   | Gerar alerta de alergias                              | Como Médico, quero receber alertas automáticos sobre alergias conhecidas do paciente durante prescrição, para evitar reações adversas. |
-| US 1.14   | Gerar alerta de interações medicamentosas             | Como Médico, quero que o sistema verifique automaticamente interações medicamentosas durante prescrição, para prevenir complicações. |
+| US 1.14   | Gerar alerta de interações medicamentosas             | Como Médico, quero prescrever medicamentos com segurança, para evitar interações medicamentosas e prevenir complicações nos pacientes. |
 | US 1.22   | Transferir paciente entre unidades              | Como Médico, quero transferir pacientes entre departamentos/unidades eletronicamente, para agilizar fluxo de atendimento e eliminar documentos físicos. |
 | US 1.23   | Encaminhar paciente a especialista              | Como Médico, quero encaminhar pacientes a outros especialistas de forma digital, para garantir continuidade do cuidado e acesso a expertise. |
 | US 1.24   | Compartilhar informações entre equipes médicas  | Como Médico, quero compartilhar informações relevantes do paciente com equipes médicas de forma segura e eficiente, para atendimento coordenado. |
@@ -53,7 +53,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 | US 1.7    | Visualizar disponibilidade de médicos        | Como Coordenador, quero visualizar agendas de todos os profissionais de saúde de modo integrado, para facilitar agendamento e otimizar distribuição de consultas. |
 | US 1.9    | Remarcar consultas                           | Como Coordenador, quero reagendar consultas de pacientes de forma ágil, para acomodar necessidades dos pacientes e otimizar agenda dos médicos. |
 | US 1.10   | Cancelar consultas                            | Como Coordenador, quero cancelar consultas de pacientes de forma simples, para liberar horários e gerenciar agenda com eficiência. |
-| US 1.11   | Enviar lembretes automáticos de consulta      | Como Coordenador, quero que o sistema envie lembretes automáticos por SMS/e‑mail/portal, para reduzir faltas e melhorar experiência do paciente. |
+| US 1.11   |  Reduzir faltas por meio de lembretes de consulta     | Como Coordenador, quero reduzir as faltas em consultas agendadas, para melhorar a experiência dos pacientes e otimizar a agenda da equipe médica. |
 
 **1.3.4 Persona: Paciente (Sra. Clara)**
 
@@ -84,10 +84,10 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 | Código US | Título                                        | História de Usuário |
 |-----------|------------------------------------------------|----------------------|
-| US 1.6    | Garantir segurança e privacidade de dados      | Como Diretor de Tecnologia, quero que o sistema implemente medidas de segurança robustas e cumpra a LGPD, para proteger dados sensíveis e evitar multas ou vazamentos. |
-| US 1.25   | Coletar dados automaticamente para relatórios     | Como Diretor de Tecnologia, quero que o sistema colete dados de diferentes fontes automaticamente, para garantir precisão e abrangência sem intervenção manual. |
-| US 1.26   | Monitorar o desempenho do sistema         | Como Diretor de Tecnologia, quero dashboards e alertas para monitorar desempenho e estabilidade do sistema, para identificar e resolver problemas proativamente. |
-| US 1.27   | Monitorar a segurança do sistema          | Como Diretor de Tecnologia, quero funcionalidades para monitorar e garantir a segurança dos dados e infraestrutura, para proteger contra ameaças cibernéticas e vazamentos. |
+| US 1.6    | Garantir segurança e privacidade de dados      | Como Diretor de Tecnologia, quero assegurar a proteção dos dados sensíveis da instituição, para evitar vazamentos, garantir conformidade com a LGPD e proteger a reputação da organização. |
+| US 1.25   | Coletar dados automaticamente para relatórios     | Como Diretor de Tecnologia, eu quero acessar relatórios completos e atualizados com dados de diferentes fontes, para tomar decisões estratégicas com base em informações confiáveis e sem depender de coleta manual. |
+| US 1.26   | Monitorar o desempenho do sistema         | Como Diretor de Tecnologia, quero acompanhar o desempenho e a estabilidade do sistema em tempo real, para identificar e resolver problemas. |
+| US 1.27   | Monitorar a segurança do sistema          | Como Diretor de Tecnologia, quero acompanhar continuamente a segurança dos dados e da infraestrutura, para detectar ameaças cibernéticas e agir rapidamente para evitar vazamentos ou danos. |
 
 
 ## 1.4. Critérios de Aceitação das Histórias de Usuários
@@ -99,10 +99,11 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 **Critérios de Aceitação:**
 
 -   Registrar nome completo, CPF, data de nascimento, telefone, e-mail e endereço.
--   Validar CPF único para cada paciente.
--   Exibir campos obrigatórios.
--   Confirmar cadastro bem-sucedido.
--   Permitir buscar paciente após cadastro.
+-   Validar CPF único para cada paciente, impedindo duplicatas no sistema.
+-   Exibir campos obrigatórios com indicação visual clara(ex: asterisco vermelho).
+-   Confirmar cadastro bem-sucedido com mensagem de feedback ao usuário.
+-   Permitir busca do paciente cadastrado por nome ou cpf após o cadastro.
+-   Em caso de erro, exibir mensagens claras explicando o problema (ex: CPF inválido).
 
 ----------
 
@@ -112,10 +113,10 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Exibir histórico unificado de todas as unidades.
--   Incluir consultas anteriores, exames, prescrições e evoluções.
+-   Exibir histórico unificado de todas as unidades. As informações exibidas para cada item do histórico devem incluir: data, tipo de registro (consulta, exame, prescrição, evolução), nome do profissional e a unidade de atendimento.
+-   Incluir consultas anteriores (data, hora, nome do médico, especialidade, motivo), exames (nome do exame, data da realização, laboratório, médico solicitante e um link clicável para o laudo completo em pdf), prescrições (data, nome do medicamento, dosagem, frequência, duração e nome do médico) e evoluções (data, hora, nome do médico e texto completo com a evolução clínica).
 -   Permitir filtro por data, unidade ou tipo de registro.
--   Garantir acesso seguro e rápido.
+-   Garantir acesso seguro e rápido, exigindo autenticação prévia do médico (login e senha), somente médicos com permissão podem vizualizar o histórico.
 
 ----------
 
@@ -126,8 +127,8 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 **Critérios de Aceitação:**
 
 -   Permitir alteração de nome, CPF, data de nascimento, telefone, e-mail e endereço.
--   Validar formatos de e-mail e telefone.
--   Confirmar atualização bem-sucedida.
+-   Validar formatos de e-mail e telefone. Se o formato for inválido, uma mensagem de erro clara deve ser exibida ao lado do campo, impedindo a atualização.
+-   Confirmar atualização bem-sucedida com uma mensagem de confirmação e permanecer na tela de edição com os dados atualizados.
 -   Manter histórico de alterações (opcional).
 
 ----------
@@ -138,12 +139,12 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Exibir lista de exames realizados com resultados.
--   Exibir alerta de alergias
+-   Exibir lista de exames realizados, incluindo nome do exame, data da realização, laboratório, médico solicitante e um link clicável para o laudo completo em pdf.
+-   Exibir alerta de alergias ao olhar o prontuário
 -   Exibir alerta de interações medicamentosas
--   Detalhar tratamentos prescritos e em andamento.
--   Apresentar informações de forma organizada e legível.
--   Permitir navegação fácil entre seções (exames, tratamentos, histórico).
+-   Detalhar tratamentos prescritos e em andamento com nome do medicamento, dosagem, via de administração, frequência, duração do tratamento, data de início/fim e nome do médico prescritor..
+-   Apresentar informações de forma organizada e legível, utilizando seções claras (ex: "Exames", "Tratamentos", "Histórico de Consultas"), fontes padronizadas e uso de negrito para títulos e informações chave.
+-   Permitir navegação fácil entre seções com abas no topo ou um menu lateral.
 
 ----------
 
@@ -155,22 +156,22 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 -   Permitir adicionar novas notas de evolução.
 -   Registrar data, hora e identificação do médico automaticamente.
--   Exibir notas cronologicamente no prontuário.
+-   Exibir notas cronologicamente na seção de evolução no prontuário.
 -   Permitir edição das notas (com controle de versão, se aplicável).
 
 ----------
 
 **PBI 1.6: Garantir Segurança e Privacidade dos Dados do Paciente**
 
-**História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **que o sistema implemente medidas de segurança robustas e garanta a conformidade com regulamentações de proteção de dados (LGPD)**, para **proteger as informações sensíveis dos pacientes e evitar multas ou vazamentos**.
+**História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **assegurar a segurança e a conformidade legal no tratamento dos dados dos pacientes**, para **proteger informações sensíveis e evitar vazamentos ou penalidades.**.
 
 **Critérios de Aceitação:**
 
 -   Criptografar dados sensíveis.
--   Implementar controle de acesso baseado em função (RBAC).
--   Auditar e registrar todas as ações de acesso e modificação de dados.
--   Anonimizar/pseudonimizar dados para relatórios e análises (conforme LGPD).
--   Fornecer mecanismos para exclusão de dados (direito ao esquecimento).
+-   Implementar controle de acesso baseado em função (RBAC),  garantindo que as permissões de acesso aos dados sejam definidas por função .
+-   Auditar e registrar todas as ações de acesso e modificação de dados, incluindo: usuário, data e hora, tipo de ação (leitura, escrita, exclusão), IP de origem e os dados específicos afetados..
+-   Anonimizar/pseudonimizar dados para relatórios e análises (conforme LGPD), utilizando técnicas que impossibilitem a reidentificação direta do paciente sem acesso a uma chave de reversão controlada e segura..
+-   Fornecer mecanismos para exclusão de dados (direito ao esquecimento), após solicitação formal e verificação de não haver retenção legal obrigatória..
 
 ----------
 
@@ -194,9 +195,9 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 **Critérios de Aceitação:**
 
 -   Permitir escolher especialidade, médico, data e horário disponíveis.
--   Confirmar agendamento via e-mail ou SMS.
--   Exibir consulta agendada no painel do paciente.
--   Validar dados do paciente para agendamento.
+-   Confirmar agendamento via notificação no e-mail ou SMS, contendo: data, hora, médico, especialidade e endereço da unidade.
+-   Exibir consulta agendada no painel do paciente mostrando: data, hora, nome do médico, especialidade e status ("Confirmada").
+-   Validar dados do paciente para agendamento e permitir o agendamento apenas para ele, garantindo que o paciente seja o titular do agendamento.
 
 ----------
 
@@ -206,10 +207,10 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Permitir remarcar consulta existente para novo horário/data.
--   Atualizar agenda do médico automaticamente.
--   Notificar paciente sobre a remarcação.
--   Disponibilizar a função de remarcação para o paciente via portal.
+-   Permitir remarcar consulta existente para novo horário/data, exibindo a disponibilidade do médico.
+-   Atualizar agenda do médico automaticamente, liberando o horário antigo e ocupando o novo horário.
+-   Notificar paciente sobre a remarcação via e-mail e/ou SMS, com as informações da nova consulta (data, hora, médico, especialidade e local).
+-   Disponibilizar a função de remarcação para o paciente via portal, permitindo remarcar consultas com no mínimo 24 horas de antecedência em relação ao horário original..
 
 ----------
 
@@ -219,23 +220,23 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Permitir cancelar consulta existente.
--   Remover consulta da agenda do médico.
--   Notificar paciente sobre o cancelamento.
+-   Permitir cancelar consulta existente (via busca por paciente ou lista de agendamentos) e cancelá-la. Uma janela de confirmação deve ser exibida antes do cancelamento efetivo.
+-   Remover consulta da agenda do médico e tornar o horário imediatamente disponível para outros agendamentos.
+-   Notificar paciente sobre o cancelamento via e-mail e/ou SMS.
 -   Disponibilizar a função de cancelamento para o paciente via portal.
 
 ----------
 
 **PBI 1.11: Enviar Notificações Automáticas de Lembrete de Consulta**
 
-**História de Usuário:** Como um **Coordenador de Agendamento (Rafael)**, eu quero **que o sistema envie lembretes automáticos de consultas por SMS, e-mail ou via portal do paciente**, para **reduzir o número de faltas e melhorar a experiência do paciente**.
+**História de Usuário:** Como um **Coordenador de Agendamento (Rafael)**, eu quero **reduzir o número de faltas em consultas agendadas**, para **melhorar a experiência do paciente e otimizar a utilização dos horários disponíveis.**.
 
 **Critérios de Aceitação:**
 
 -   Enviar lembrete X horas antes da consulta (configurável).
--   Permitir configurar canal de notificação (SMS/e-mail/portal).
+-   Permitir configurar canal de notificação (SMS/e-mail/portal) em seu perfil.
 -   Incluir data, hora, médico e local na notificação.
--   Atualizar status da notificação no sistema.
+-   Atualizar status da notificação no sistema (ex: "Enviado", "Falha no Envio", "Lido") no registro da consulta no sistema..
 
 ----------
 
@@ -245,7 +246,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Permitir selecionar medicamentos de um banco de dados.
+-   Permitir selecionar medicamentos de um banco de dados integrado.
 -   Preencher dosagem, via, frequência e duração do tratamento.
 -   Gerar prescrição em formato legível e padronizado.
 -   Permitir assinatura digital da prescrição (se aplicável).
@@ -259,7 +260,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Verificar histórico de alergias do paciente ao adicionar medicamento.
+-   Verificar histórico de alergias do paciente ao adicionar medicamento ao digitar ou selecionar um medicamento no campo de prescrição.
 -   Exibir alerta claro e imediato em caso de alergia.
 -   Exigir confirmação ou alteração da prescrição em caso de alerta.
 -   Registrar ação do médico após o alerta.
@@ -268,14 +269,14 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **PBI 1.14: Gerar Alerta Automático de Interações Medicamentosas ao Prescrever**
 
-**História de Usuário:** Como um **Médico (Dr. João)**, eu quero **que o sistema verifique automaticamente interações entre medicamentos prescritos**, para **prevenir complicações e garantir a eficácia do tratamento**.
+**História de Usuário:** Como um **Médico (Dr. João)**, eu quero **prescrever medicamentos com segurança**, para **prevenir complicações e garantir a eficácia do tratamento dos pacientes**.
 
 **Critérios de Aceitação:**
 
--   Analisar interações entre novos medicamentos e os já prescritos/em uso.
+-   Analisar interações entre novos medicamentos e os já prescritos/em uso pelo paciente, utilizando uma base de dados de interações medicamentosas.
 -   Exibir alerta de interação medicamentosa com nível de gravidade.
--   Sugerir informações ou alternativas para o médico.
--   Registrar a decisão do médico em relação à interação.
+-  Sugerir informações adicionais (ex: mecanismo da interação, possíveis efeitos adversos) e, quando possível, alternativas terapêuticas para o médico.
+-  Registrar a decisão do médico em relação à interação, incluindo: medicamentos envolvidos, interação detectada, nível de gravidade, decisão do médico e uma justificativa.
 
 ----------
 
@@ -286,8 +287,8 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 **Critérios de Aceitação:**
 
 -   Exibir prescrições eletrônicas em uma fila de atendimento.
--   Apresentar todas as informações da prescrição de forma legível.
--   Permitir vincular a prescrição ao registro do paciente.
+-   Apresentar todas as informações da prescrição de forma legível  e completa (medicamentos, dosagem, via, frequência, duração, dados do paciente e dados do médico).
+-   Permitir vincular a prescrição ao registro do paciente na farmácia, preferencialmente por busca de CPF ou nome do paciente..
 -   Atualizar status da prescrição para "recebida".
 
 ----------
@@ -312,8 +313,8 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Fornecer acesso a bula completa do medicamento.
--   Incluir informações sobre composição, posologia, efeitos colaterais.
+-   Fornecer acesso a bula completa do medicamento integrada diretamente ao sistema ou por um link para uma base de dados oficial e atualizada.
+-   Incluir informações sobre composição, posologia, efeitos colaterais contraindicações e interações medicamentosas.
 -   Detalhar contraindicações e interações medicamentosas.
 -   Permitir busca rápida por nome do medicamento.
 
@@ -325,10 +326,10 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Exibir lista de consultas anteriores (data, médico, especialidade).
--   Apresentar resumo de diagnósticos e procedimentos.
+-   Exibir lista de consultas anteriores (data, médico, especialidade, unidade da consulta e o motivo).
+-   Apresentar resumo de diagnósticos e procedimentos,com as datas correspondentes. Este resumo deve ser alimentado pelos dados do prontuário eletrônico.
 -   Garantir acesso seguro por login e senha.
--   Permitir filtrar o histórico.
+-   Permitir filtrar o histórico por data (intervalo), tipo de registro (consulta, exames, etc.) e especialidade.
 
 ----------
 
@@ -338,10 +339,10 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Exibir lista de exames realizados.
+-   Exibir lista de exames realizados,  incluindo: nome do exame, data da realização, laboratório e status (ex: "Disponível", "Processando").
 -   Permitir visualizar o laudo do exame no portal.
 -   Disponibilizar opção de download do laudo em PDF.
--   Notificar paciente quando novo resultado estiver disponível.
+-   Notificar paciente quando novo resultado estiver disponível via e-mail ou portal.
 
 ----------
 
@@ -364,10 +365,10 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Permitir edição de nome, telefone, e-mail e endereço.
+-   Permitir edição de nome, telefone, e-mail e endereço, a alteração do cpf só poderá ser realizada exigindo contato com a recepção.
 -   Validar formato dos dados inseridos.
 -   Confirmar atualização bem-sucedida.
--   Garantir segurança na atualização dos dados.
+-   Atualizar os dados com autenticação de login e senha para garantir a segurança das informações.
 
 ----------
 
@@ -378,7 +379,7 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 **Critérios de Aceitação:**
 
 -   Permitir selecionar o paciente e o departamento/unidade de destino.
--   Transferir eletronicamente o prontuário completo.
+-   Transferir eletronicamente o prontuário completo,  garantindo que todas as informações clínicas (consultas, exames, prescrições, evoluções) estejam acessíveis no departamento/unidade de destino.
 -   Notificar a equipe do departamento/unidade de destino.
 -   Registrar a transferência no histórico do paciente.
 
@@ -390,10 +391,10 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **Critérios de Aceitação:**
 
--   Permitir gerar encaminhamento digital.
+-   Permitir gerar encaminhamento digital através de um formulário específico no prontuário do paciente.
 -   Informar especialista, motivo e observações do encaminhamento.
 -   Notificar o especialista ou a equipe de agendamento.
--   Registrar o encaminhamento no prontuário.
+-   Registrar o encaminhamento no prontuário na seção de histórico de encaminhamentos, com a data, o especialista de destino e o motivo..
 
 ----------
 
@@ -413,20 +414,20 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **PBI 1.25: Coletar Dados para Relatórios Automaticamente (de Múltiplos Sistemas)**
 
-**História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **que o sistema colete dados de diferentes fontes para a geração de relatórios automaticamente**, para **garantir a precisão e a abrangência das informações sem intervenção manual**.
+**História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **dispor de relatórios completos e atualizados com dados consolidados de múltiplas fontes**, para **tomar decisões estratégicas baseadas em informações precisas e sem depender de coleta manual**.
 
 **Critérios de Aceitação:**
 
 -   Integrar-se com todos os módulos do sistema (agendamento, financeiro, PEP).
 -   Coletar dados de forma automatizada e programada.
 -   Padronizar e consolidar os dados para relatórios.
--   Garantir a integridade e consistência dos dados coletados.
+-   Garantir a integridade e consistência dos dados coletados, através de mecanismos de validação e conciliação com alertas em caso de inconsistências.
 
 ----------
 
 **PBI 1.26: Monitorar o Desempenho do Sistema**
 
-**História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **ter acesso a painéis e alertas para monitorar o desempenho e a estabilidade do sistema**, para **proativamente identificar e resolver problemas de performance antes que afetem os usuários**.
+**História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **acompanhar o desempenho e a estabilidade do sistema em tempo real,** para **identificar e resolver problemas que possam impactar os usuários**.
 
 **Critérios de Aceitação:**
 
@@ -439,11 +440,11 @@ O Canvas PBB pode ser acessado pelo link abaixo:
 
 **PBI 1.27: Monitorar a Segurança do Sistema**
 
-**História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **que o sistema contenha funcionalidades para monitorar e garantir a segurança dos dados e da infraestrutura**, para **proteger contra ameaças cibernéticas e vazamentos de informações sensíveis**.
+**História de Usuário:** Como um **Diretor de Tecnologia (Sr. Roberto)**, eu quero **monitorar continuamente a segurança dos dados e da infraestrutura**, para **proteger a organização contra ameaças cibernéticas e vazamentos de informações sensíveis**.
 
 **Critérios de Aceitação:**
 
--   Monitorar tentativas de acesso não autorizado.
+-   Monitorar tentativas de acesso não autorizado,  incluindo: tentativas de login falhas, acesso a recursos sem permissão.
 -   Detectar e alertar sobre atividades suspeitas ou anomalias.
 -   Registrar logs de segurança detalhados.
 -   Realizar varreduras de vulnerabilidade programadas.
