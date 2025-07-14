@@ -8,8 +8,8 @@
     <div class="tabs-nav">
         <a href="{% url 'membros:faltaseadvertencias' %}" class="tab-link">Minhas Presenças</a>
         {% if membro.is_gerente or membro.is_gestor %}
-            <a href="{% url 'membros:justificativas' %}" class="tab-link active">Avaliar Justificativas</a>
-            <a href="{% url 'membros:advertencias' %}" class="tab-link">Gerenciar Advertências</a>
+            <a href="{% url 'membros:justificativas' %}" class="tab-link">Avaliar Justificativas</a>
+            <a href="{% url 'membros:advertencias' %}" class="tab-link active">Gerenciar Advertências</a>
         {% endif %}
     </div>
 
