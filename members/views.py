@@ -665,6 +665,7 @@ def membro_editar(request, matricula):
 
             # Agora atualizamos o nome diretamente no objeto Membro
             membro.nome = dados['nome']
+            membro.email = dados['email']
             membro.save()
             # --- FIM DA LÓGICA DE SALVAMENTO ---
 
