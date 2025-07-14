@@ -5,7 +5,7 @@ from django.forms import formset_factory
 from django.contrib.auth.decorators import login_required 
 from django.http import JsonResponse
 from .models import *
-from .forms import AdvertenciaForm, FaltaForm, JustificativaForm, ReservaForm, ReuniaoForm, MaterialForm, SolicitacaoMaterialForm
+from .forms import *
 
 @login_required
 def home(request):
@@ -574,3 +574,133 @@ def solicitar_material(request):
         else:
             messages.error(request, 'Houve um erro no formulário. Verifique os dados.')
     return redirect('membros:materiais')
+
+
+@login_required
+def pagina_lista_membros(request):
+    membro = Membro.objects.get(user=request.user)
+    # Começamos com todos os membros
+    membros_list = Membro.objects.all().select_related('user').prefetch_related('membronucleo_set__nucleo', 'membronucleo_set__cargo')
+
+    # Pegamos os valores dos filtros da URL
+    nome_query = request.GET.get('nome')
+    cargo_query = request.GET.get('cargo')
+    nucleo_query = request.GET.get('nucleo')
+
+    # Aplicamos os filtros
+    if nome_query:
+        membros_list = membros_list.filter(nome__icontains=nome_query)
+    if cargo_query:
+        membros_list = membros_list.filter(membronucleo__cargo__posicao=cargo_query)
+    if nucleo_query:
+        membros_list = membros_list.filter(membronucleo__nucleo__nome=nucleo_query)
+
+    # Buscamos todos os cargos e núcleos para popular os dropdowns dos filtros
+    todos_cargos = Cargo.objects.all()
+    todos_nucleos = Nucleo.objects.all()
+
+    contexto = {
+        'membros': membros_list.distinct(), # .distinct() evita membros duplicados se ele estiver em vários núcleos filtrados
+        'cargos_para_filtro': todos_cargos,
+        'nucleos_para_filtro': todos_nucleos,
+        'membro': membro,
+    }
+    contexto['form_novo_membro'] = NovoMembroForm()
+    return render(request, 'members/membros.html', contexto)
+
+@login_required
+def membro_novo(request):
+    # if not request.user.membro.is_gestor():
+    #     return redirect('members:membros')
+
+    if request.method == 'POST':
+        form = NovoMembroForm(request.POST)
+        if form.is_valid():
+            dados = form.cleaned_data
+            try:
+                # 1. Cria o User
+                novo_user = User.objects.create_user(
+                    username=dados['username'],
+                    password=dados['password'],
+                    email=dados['email'],
+                    first_name=dados['first_name'],
+                    last_name=dados['last_name']
+                )
+                # 2. Cria o Membro, ligando-o ao User
+                novo_membro = Membro.objects.create(
+                    user=novo_user,
+                    matricula=dados['matricula'],
+                    nome=f"{dados['first_name']} {dados['last_name']}",
+                    email=dados['email']
+                )
+                # 3. Cria a associação entre Membro e Núcleo/Cargo
+                MembroNucleo.objects.create(
+                    membro=novo_membro,
+                    nucleo=dados['nucleo'],
+                    cargo=dados['cargo']
+                )
+                messages.success(request, f"Membro '{novo_membro.nome}' adicionado com sucesso!")
+                return redirect('membros:membros')
+            except Exception as e:
+                messages.error(request, f"Ocorreu um erro: {e}")
+    
+    return redirect('membros:membros')
+
+@login_required
+def membro_editar(request, matricula):
+    # if not request.user.membro.is_gestor():
+    #     messages.error(request, "Você não tem permissão.")
+    #     return redirect('membros:membros')
+    membro = get_object_or_404(Membro, matricula=matricula)
+
+    if request.method == 'POST':
+        form = EditarMembroForm(request.POST)
+        if form.is_valid():
+            dados = form.cleaned_data
+            
+            # --- LÓGICA DE SALVAMENTO ATUALIZADA ---
+            user = membro.user
+            user.email = dados['email'] # O email ainda pertence ao User
+            user.save()
+
+            # Agora atualizamos o nome diretamente no objeto Membro
+            membro.nome = dados['nome']
+            membro.save()
+            # --- FIM DA LÓGICA DE SALVAMENTO ---
+
+            # Lógica para atualizar associações de núcleo e cargo (continua a mesma)
+            membro.membronucleo_set.all().delete()
+            for nucleo in dados['nucleos']:
+                MembroNucleo.objects.create(membro=membro, nucleo=nucleo, cargo=dados['cargo'])
+            
+            messages.success(request, f"Dados de {membro.nome} atualizados com sucesso!")
+            return redirect('membros:membros')
+    else:
+        # --- LÓGICA DE PREENCHIMENTO ATUALIZADA ---
+        associacoes = membro.membronucleo_set.all()
+        initial_data = {
+            'nome': membro.nome, # Usamos o nome do Membro
+            'email': membro.user.email,
+            'matricula': membro.matricula,
+            'cargo': associacoes.first().cargo if associacoes.exists() else None,
+            'nucleos': [assoc.nucleo for assoc in associacoes],
+        }
+        form = EditarMembroForm(initial=initial_data)
+
+    contexto = {'form': form, 'membro': membro}
+    return render(request, 'members/editar_membro.html', contexto)
+
+@login_required
+def membro_excluir(request, matricula):
+    # if not request.user.membro.is_gestor():
+    #     messages.error(request, "Você não tem permissão.")
+    #     return redirect('membros:membros')
+
+    membro = get_object_or_404(Membro, matricula=matricula)
+    if request.method == 'POST':
+        user = membro.user
+        user.delete() # Ao deletar o User, o Membro e outras associações com CASCADE serão deletados
+        messages.success(request, f"Membro '{membro.nome}' foi excluído com sucesso.")
+        return redirect('membros:membros')
+
+    return render(request, 'members/excluir_membro.html', {'membro': membro})

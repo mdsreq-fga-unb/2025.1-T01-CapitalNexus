@@ -1,0 +1,31 @@
+{% extends 'members/layout.html' %}
+
+{% block dashboard_title %}Editar Membro{% endblock %}
+{% block page_title %}Editar Membro{% endblock %}
+
+{% block dashboardcontent %}
+    <div class="modal.is-open">
+        <h3 class="modal-header">{{ membro.nome }}</h3>
+        <form method="post" class="modal-body">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {% if field != 'nucleo' %}
+                        {{ field.label_tag }}
+                        {{ field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                    
+                    {% if field.errors %}
+                        <div class="errorlist">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <div class="modal-footer">
+                <a href="{% url 'membros:membros' %}" class="botao-cancel">Cancelar</a>
+                <button type="submit" class="btn-save">Salvar Alterações</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

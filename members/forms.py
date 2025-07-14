@@ -1,7 +1,7 @@
 # meu_app/forms.py
 from django import forms
 from django.utils import timezone
-from .models import Advertencias, HistoricoReserva, Justificativa, Reuniao, Material, SolicitacaoMaterial
+from .models import Advertencias, Cargo, HistoricoReserva, Justificativa, Nucleo, Reuniao, Material, SolicitacaoMaterial
 import datetime
 
 class FaltaForm(forms.Form):
@@ -168,3 +168,31 @@ class SolicitacaoMaterialForm(forms.ModelForm):
             'justificativa': 'Finalidade de Uso / Justificativa',
             'link_referencia': 'Link de Referência (opcional)',
         }
+
+class NovoMembroForm(forms.Form):
+    # Campos para o modelo User
+    username = forms.CharField(label="Nome de Usuário (para login)")
+    first_name = forms.CharField(label="Primeiro Nome")
+    last_name = forms.CharField(label="Sobrenome")
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput, label="Senha")
+
+    # Campos para o modelo Membro
+    matricula = forms.CharField(max_length=9)
+
+    # Campos para a associação MembroNucleo
+    nucleo = forms.ModelChoiceField(queryset=Nucleo.objects.all())
+    cargo = forms.ModelChoiceField(queryset=Cargo.objects.all())
+
+class EditarMembroForm(forms.Form):
+    # CORREÇÃO: Trocamos first_name e last_name por um único campo 'nome'
+    nome = forms.CharField(label="Nome Completo", max_length=100)
+    email = forms.EmailField()
+
+    # O resto dos campos continua igual
+    # matricula = forms.CharField(label="Matrícula", max_length=9, disabled=True)
+    cargo = forms.ModelChoiceField(queryset=Cargo.objects.all(), label="Cargo Principal")
+    nucleos = forms.ModelMultipleChoiceField(
+        queryset=Nucleo.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+    )
