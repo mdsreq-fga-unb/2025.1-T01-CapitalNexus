@@ -142,54 +142,108 @@ falhas registradas.
 
 ## 3. Gerenciar Dados Médicos
 ### Breve descrição
-Permite a criação e atualização de dados de saúde na plataforma, incluindo registros clínicos por profissionais , informações de perfil por pacientes e relatórios de saúde por agentes comunitários.
+
+Este caso de uso permite que o paciente visualize seu histórico de saúde consolidado, anexe documentos pessoais (como exames de outros laboratórios), gerencie as permissões de acesso dos profissionais de saúde e exporte seus dados.
 
 ### Atores
-1. Profissional de Saúde
-1. Paciente
-1. Agente Comunitário
+
+Paciente
+
+
+### Pré-condição
+O Paciente deve estar autenticado (logado) no sistema ConnectCare.
 
 ### Fluxo de eventos
+**Fluxo Principal** 
 
-1. O Profissional de Saúde, durante um atendimento, acessa o prontuário digital de um paciente.
-1. O ator seleciona a opção para adicionar um novo registro ao prontuário.
-1. O ator insere as informações clínicas, como diagnósticos, prescrições, orientações ou solicitações de exames.
-1. O sistema valida os dados inseridos para garantir a integridade das informações. [RN01] [FE01]
-1. O ator confirma a submissão.
-1.O sistema salva as novas informações no prontuário do paciente em tempo real e registra a identificação do profissional e a data/hora da alteração. [RN02] [RN04] [FE02]
+1 O caso de uso inicia quando o Paciente clica na opção "Meu Prontuário".
 
-*Fluxo alternativo 1 (F.A.01) - Paciente gerencia suas informações de perfil*
+2 O sistema exibe uma interface centralizada com o histórico de saúde do paciente, contendo as opções:
 
-No passo 1 do Fluxo Principal, o ator é um Paciente.
+- Visualizar Consultas
 
-1. O Paciente, logado no sistema, acessa a área de seu perfil pessoal.
-1. O ator insere ou atualiza suas "informações pessoais, como nome, idade e condições de saúde preexistentes". [RN03]
-1. O sistema valida e salva as informações no perfil do paciente.
+- Gerenciar permissões de acesso
 
-*Fluxo alternativo 2 (F.A.02) - Agente Comunitário registra visita domiciliar*
+- Exportar dados
 
-No passo 1 do Fluxo Principal, o ator é um Agente Comunitário.
+- Documentos anexados
 
-1. O Agente Comunitário, logado na plataforma, seleciona a funcionalidade específica para "registrar visitas domiciliares".
-1. O ator preenche o relatório com as informações da visita, incluindo as "condições de saúde nas comunidades atendidas".
-1. O sistema salva o relatório, que pode ser usado para a "identificação de áreas prioritárias e na organização de campanhas preventivas".
+3 O Paciente seleciona a opção consultas
 
-*Fluxos de exceção*
+4 O paciente visualiza a lista de consultas que ele fez na plataform
 
-- *F.E.01 Validação de dados falha*: No passo 4 do Fluxo Principal, se os dados inseridos forem inválidos ou incompletos conforme a RN01, o sistema impede o salvamento e informa ao ator quais campos precisam ser corrigidos.
+5 O caso de uso é encerrado.
 
-- *F.E.02 - Falha de conexão durante o salvamento*: No passo 6 do Fluxo Principal, se a conexão com a internet falhar, o sistema deve ser capaz de salvar um rascunho local para sincronização posterior, garantindo que o trabalho não seja perdido, visto que a plataforma é projetada para funcionar em conexões limitadas.
+**Fluxos Alternativos**
 
+FA01 - Anexar Documento Pessoal
 
-### Requisitos especiais
-N/A.
+No passo 2 do fluxo principal, o paciente seleciona a opção "Documentos Anexados"
+1 O paciente clica em "Anexar documentos" 
+2 O sistema exibe um formulário solicitando:
 
-### Regras de negócio
-- RN01: Certos campos de um registro médico (ex: descrição do diagnóstico) são de preenchimento obrigatório para garantir um atendimento "preciso e eficiente".
-- RN02: Todas as adições e alterações no prontuário de um paciente devem ser registradas com a identificação do profissional e a data/hora da alteração para garantir um ambiente "seguro e confiável".
-- RN03: O Paciente só pode gerenciar suas informações básicas e "condições de saúde preexistentes", não podendo inserir registros clínicos como "diagnósticos, prescrições e orientações".
-- RN04: Profissionais de Saúde e Agentes Comunitários só podem gerenciar dados de pacientes e comunidades dentro de sua área de atuação designada.
+- Título do Documento (ex: "Exame de Sangue - Laboratório X")
 
+- Data do Documento
+
+- Tipo de Documento (Exame, Laudo, Atestado, etc.)
+
+- Campo para upload de arquivo.
+
+3 O Paciente preenche as informações, seleciona o arquivo do seu dispositivo e clica em "Salvar". [FE01]
+
+4 O sistema valida o arquivo, o armazena de forma segura associado ao prontuário do paciente e exibe a mensagem: "Documento anexado com sucesso!".
+
+5 O caso de uso é encerrado.
+
+FA02 - Gerenciar Permissões de Acesso
+
+No passo 2 do fluxo principal, o paciente seleciona a opção "Gerenciar permissões de acesso"
+
+1 O sistema exibe uma lista de todos os profissionais de saúde que já interagiram com o paciente na plataforma.
+
+2 Para cada profissional, o sistema mostra o status de acesso atual ("Acesso Ativo", "Acesso Expirado", "Acesso Revogado"). [RN02]
+
+3 O Paciente seleciona um profissional e modifica sua permissão de "Acesso Ativo" para "Revogar Acesso". [RN03]
+
+4 O sistema salva a alteração e exibe a mensagem: "Permissão de acesso atualizada.".
+
+5 O caso de uso é encerrado.
+
+FA03 - Exportar Dados 
+
+No passo 2 do fluxo principal, o paciente seleciona a opção "Exportar dados"
+
+1 O paciente seleciona o formato desejado ("PDF compilado" ou "CSV") e o intervalo de datas.
+2 O Paciente confirma a exportação.
+3 O sistema gera um arquivo seguro e protegido, contendo as informações do prontuário, e o disponibiliza para download. [FE02]
+4  O caso de uso é encerrado.
+
+## Fluxos de Exceção
+
+FE01: Falha no Upload (FA01): Se o arquivo selecionado pelo paciente for maior que o limite (ex: 10MB) ou de um formato não suportado (ex: .exe), o sistema recusa o upload e exibe a mensagem: "Erro: O arquivo é muito grande ou possui um formato inválido. Use apenas PDF, JPG ou PNG.".
+
+FE02: Erro na Geração do Relatório (FA03): Se ocorrer um problema técnico durante a compilação dos dados para exportação, o sistema exibe a mensagem: "Não foi possível gerar seu relatório no momento. Por favor, tente novamente mais tarde.".
+
+## Requisitos Especiais
+
+RE01 - Segurança e Privacidade (LGPD): Todos os dados de saúde devem ser criptografados (em repouso e em trânsito). O sistema deve estar em total conformidade com a Lei Geral de Proteção de Dados (LGPD), garantindo os direitos do titular.
+
+RE02 - Auditoria (Log de Acesso): Todas as visualizações, inserções e alterações no prontuário do paciente (seja pelo paciente ou por um profissional) devem ser registradas em um log de auditoria. O paciente deve ter acesso fácil a esse log para saber quem viu seus dados e quando.
+
+RE03 - Usabilidade e Clareza: A interface deve ser intuitiva e clara para um usuário leigo, evitando jargões médicos excessivos ou explicando-os quando necessário.
+
+RE04 - Acessibilidade Móvel: A funcionalidade deve ser completamente acessível e fácil de usar em dispositivos móveis.
+
+## Regras de Negócio
+
+RN01 - Paciente como Controlador dos Dados: O paciente é o controlador de seus dados pessoais de saúde. Os profissionais de saúde e a plataforma ConnectCare atuam como operadores, tratando os dados com base no consentimento do paciente e para a finalidade de prestação de serviço de saúde.
+
+RN02 - Política de Acesso Padrão: Um profissional de saúde que realiza um atendimento ganha acesso temporário ao prontuário do paciente (ex: por 90 dias após a consulta). O paciente pode revogar ou estender esse acesso a qualquer momento através do fluxo FA02.
+
+RN03 - Revogação de Acesso: Uma vez que o acesso de um profissional é revogado, ele não poderá mais visualizar os dados do prontuário do paciente, exceto as informações de atendimentos que ele mesmo realizou (para fins legais e de histórico profissional).
+
+RN04 - Integridade do Registro Clínico: O paciente pode adicionar informações e documentos ao seu prontuário, mas não pode alterar ou excluir registros feitos por um profissional de saúde (como diagnósticos, prescrições e evoluções clínicas). Essa medida garante a integridade e o valor legal do prontuário.
 
 ## 4. Gerenciar Campanhas 
 ### Breve descrição
