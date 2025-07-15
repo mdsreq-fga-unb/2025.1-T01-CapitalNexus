@@ -809,7 +809,7 @@ def pagina_lista_membros(request):
     todos_nucleos = Nucleo.objects.all()
 
     contexto = {
-        'membros': membros_list,
+        'membros': membros_list.distinct(), # .distinct() evita membros duplicados se ele estiver em vários núcleos filtrados
         'cargos_para_filtro': todos_cargos,
         'nucleos_para_filtro': todos_nucleos,
         'membro': membro,

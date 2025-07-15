@@ -41,15 +41,16 @@
         <nav class="sidebar-nav">
           <ul>
             <li>
+              <a href="{% url 'admin:index'%}"><i class="fa-solid fa-gears"></i> Administração - Django</a>
+            </li>
+            <li>
               <a href="{% url 'membros:home'%}"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
             </li>
-            {% if membro.is_gerente %}
-              <li>
-                <a href="{% url 'admin:index'%}"><i class="fa-solid fa-gears"></i> Django Admin/a>
-              </li>
-            {% endif %}
             <li>
-              <a href="{% url 'membros:faltaseadvertencias' %}"><i class="fa-solid fa-triangle-exclamation"></i> Faltas e advertências</a>
+              <a href="{% url 'membros:faltaseadvertencias' %}"
+                ><i class="fa-solid fa-triangle-exclamation"></i> Faltas e
+                advertências</a
+              >
             </li>
             <li>
               <a href="{% url 'membros:materiais' %}"><i class="fa-solid fa-box-archive"></i> Materiais</a>
@@ -57,16 +58,14 @@
             <li>
               <a href="{% url 'membros:membros' %}"><i class="fa-solid fa-user-group"></i> Membros</a>
             </li>
-            {% if membro.is_gerente or membro.is_gestor or membro.is_marketeiro %}
-              <li>
-                  <a href="{% url 'membros:painel' %}"><i class="fa-solid fa-gear"></i> Painel do administrador</a>
-              </li>
-            {% endif %}
+            <li>
+                <a href="{% url 'membros:painel' %}"><i class="fa-solid fa-gear"></i> Painel do administrador</a>
+            </li>
             <li>
               <a href="{% url 'membros:reunioes' %}"><i class="fa-solid fa-users"></i> Reuniões</a>
             </li>
             <li>
-              <a href="{% url 'publico:sobre' %}"><i class="fa-solid fa-arrow-left"></i> Retornar ao site</a>
+              <a href="{% url 'publico:sobre' %}"><i></i> Retornar ao site</a>
             </li>
           </ul>
         </nav>
