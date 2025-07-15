@@ -28,19 +28,19 @@ SECRET_KEY = config("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['seu-app.onrender.com']
+ALLOWED_HOSTS = ['capital-nexus.onrender.com']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'members',
+    'public',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'members',
-    'public',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +76,6 @@ WSGI_APPLICATION = 'capital_nexus.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
         'default': dj_database_url.config(
         default=os.getenv('DATABASE_URL')
@@ -91,7 +90,35 @@ DATABASES = {
     # }
 }
 
+# import sys 
+# if 'test' in sys.argv:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': ':memory:',  # banco em memória (super rápido)
+#         }
+#     }
+# else:
+#     DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.{}".format(config("DB_ENGINE")),
+#         "NAME": config("DB_NAME"),
+#         "USER": config("DB_USER"),
+#         "PASSWORD": config("DB_PASSWORD"),    
+#         "HOST": config("DB_HOST"),
+#         "PORT": config("DB_PORT"),
+#     }
+# }
 
+
+SUPABASE_URL = config("SUPABASE_URL")
+SUPABASE_KEY = config("SUPABASE_KEY")
+SUPABASE_BUCKET_NAME = config("SUPABASE_BUCKET_NAME")
+
+if not DEBUG:
+    DEFAULT_FILE_STORAGE = 'capital_nexus.storage_backends.SupabaseStorage'
+
+CSRF_TRUSTED_ORIGINS = [f"https://{host}" for host in ALLOWED_HOSTS if host]
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
@@ -147,3 +174,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if not DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True  # Para comunicação segura
+    EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+# Para desenvolvimento, continua usando o console
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+LOGIN_REDIRECT_URL = 'membros:home'
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = '/' 

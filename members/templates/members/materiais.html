@@ -1,0 +1,245 @@
+{% extends 'members/layout.html' %}
+
+{% block dashboard_title %}Materiais{% endblock %}
+{% block page_title %}Gerenciamento de Materiais{% endblock %}
+
+{% block dashboardcontent %}
+    <p class="page-subtitle">Visualize, reserve e solicite materiais para os núcleos.</p>
+
+    <form class="filter-bar" method="get">
+        <input type="text" name="nome" placeholder="Nome do material..." value="{{ request.GET.nome }}">
+        <select name="tipo">
+            <option value="">Todos os Tipos</option>
+            {% for value, display in view.get_form.fields.tipo.choices %}
+                 <option value="{{ value }}" {% if request.GET.tipo == value %}selected{% endif %}>{{ display }}</option>
+            {% endfor %}
+        </select>
+        <select name="status">
+            <option value="">Todos os Status</option>
+             {% for value, display in view.get_form.fields.status.choices %}
+                 <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ display }}</option>
+            {% endfor %}
+        </select>
+        <a href="{% url 'membros:materiais' %}" class="botao-cancel">Limpar filtros</a>
+        <button type="submit" class="btn-filter">Aplicar Filtros</button>
+        {% if membro.is_gerente or membro.is_admfin %}
+            <button type="button" class="'btn-new-meeting" data-target-modal="#novo-material-modal">Adicionar material</button>
+        {% endif%}
+        <button type="button" class="'btn-new-meeting" data-target-modal="#solicitar-material-modal">Solicitar compra</button>
+    </form>
+
+    <div class="tabs-nav" style="margin-top: 30px;">
+        <a href="{% url 'membros:materiais' %}" class="tab-link {% if nucleo_ativo == 'Todos os Núcleos' %}active{% endif %}">Todos os Núcleos</a>
+        {% for nucleo in nucleos_para_tabs %}
+            <a href="?nucleo={{ nucleo.nome }}" class="tab-link {% if nucleo_ativo == nucleo.nome %}active{% endif %}">{{ nucleo.nome }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="panel" style="margin-top: 0; border-top-left-radius: 0;">
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th><th>Tipo</th><th>Finalidade</th><th>Qtd.</th><th>Status</th><th>Núcleo</th><th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for material in materiais %}
+                    <tr>
+                        <td><strong>{{ material.nome }}</strong></td>
+                        <td>{{ material.get_tipo_display }}</td>
+                        <td>{{ material.finalidade }}</td>
+                        <td>{{ material.quantidade_total }}</td>
+                        <td class="actions-cell">
+                            {% with reserva_ativa=material.get_reserva_ativa %}
+                                <span class="tag {% if material.status == 'DISPONIVEL' %}tag-green{% elif material.status == 'MANUTENCAO' %}tag-status-REJEITADA{% else %}tag-status-PENDENTE{% endif %}">
+                                    {{ material.get_status_display }}
+                                    {% if reserva_ativa %}
+                                        <small>({{ reserva_ativa.membro.nome }})</small>
+                                     {% elif reserva_ativa.membro.user == user %}
+                                        <a href="#" class="action-icon" title="Devolver" data-target-modal="#devolver-modal-{{ material.id }}" style="color: #2ecc71;">
+                                            <i class="fa-solid fa-arrow-left-long"></i>
+                                        </a>
+                                    {% endif %}
+                                </span>
+                            {% endwith %}
+                        </td>
+                        <td>{{ material.nucleo_responsavel.nome|default:"-" }}</td>
+                        <td class="actions-cell">
+                            
+                            {% if material.status == 'DISPONIVEL' %}
+                                <a href="#" class="action-icon" title="Reservar" data-target-modal="#reservar-modal-{{ material.id }}">
+                                    <i class="fa-solid fa-hand-holding-hand"></i>
+                                </a>
+                            
+                            {% elif material.get_reserva_ativa and material.get_reserva_ativa.membro.user == user %}
+                                <a href="#" class="action-icon" title="Devolver" data-target-modal="#devolver-modal-{{ material.id }}" style="color: #2ecc71;">
+                                    <i class="fa-solid fa-arrow-left-long"></i>
+                                </a>
+                            {% elif material.status == 'MANUTENCAO' %}
+                                <form action="{% url 'membros:marcar-material-disponivel' material.id %}" method="post" style="display: inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="action-icon" title="Marcar como Disponível" style="color: #3498db; background: none; border: none; cursor: pointer;">
+                                        <i class="fa-solid fa-check-circle"></i>
+                                    </button>
+                                </form>
+                            {% endif %}
+                            {% if membro.is_gerente or membro.is_admfin %}
+
+                                <a href="#" class="action-icon action-edit" title="Editar" data-material-id="{{ material.id }}">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                            {% endif %}
+
+                        </td>
+                        <!-- <td class="actions-cell">
+                            <a href="#" class="action-icon" title="Solicitar/Reservar" data-target-modal="#reservar-modal-{{ material.id }}">
+                                <i class="fa-solid fa-hand-holding-hand"></i>
+                            </a>
+                                <a href="#" class="action-icon action-edit" title="Editar" data-material-id="{{ material.id }}">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                        </td> -->
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="7">Nenhum material encontrado com os filtros atuais.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% for material in materiais %}
+        {% if material.status == 'DISPONIVEL' %}
+            <div id="reservar-modal-{{ material.id }}" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Reservar Material</h2>
+                        <span class="close-button">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <h3>{{ material.nome }}</h3>
+                        <p><strong>Tipo:</strong> {{ material.get_tipo_display }} | <strong>Núcleo:</strong> {{ material.nucleo_responsavel.nome }}</p>
+                        <hr style="margin: 15px 0;">
+
+                        <form action="{% url 'membros:reservar-material' material.id %}" method="post" class="form-layout">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Seu Nome</label>
+                                <input type="text" value="{{ user.membro.nome }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form_reserva.data_devolucao_prevista.id_for_label }}">Data Prevista de Devolução</label>
+                                {{ form_reserva.data_devolucao_prevista }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-cancel">Cancelar</button>
+                                <button type="submit" class="btn-save">Reservar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% elif material.status == 'EM_USO' %}
+            <div id="devolver-modal-{{ material.id }}" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Confirmar Devolução</h2>
+                        <span class="close-button">&times;</span>
+                    </div>
+                    <div class="modal-body" style="text-align: center;">
+                        <p style="font-size: 18px; line-height: 1.6;">
+                            Tem certeza que deseja devolver o material <strong>{{ material.nome }}</strong>?
+                            <br>Ele ficará disponível para outros membros.
+                        </p>
+                        <form action="{% url 'membros:devolver-material' material.id %}" method="post" class="form-layout" style="margin-top: 20px;">
+                            {% csrf_token %}
+                            <div class="modal-footer">
+                                <button type="button" class="btn-cancel">Cancelar</button>
+                                <button type="submit" class="btn-save">Confirmar Devolução</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+    {% endfor %}
+    <div id="novo-material-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Novo Material</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'membros:novo-material' %}" method="post" class="form-layout">
+                    {% csrf_token %}
+                    {{ form_novo_material.as_p }} {# Renderização simples para o form #}
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="editar-material-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Editar Material</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="editar-material-form" action="" method="post" class="form-layout">
+                    {% csrf_token %}
+                    {{ form_novo_material.as_p }}
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="solicitar-material-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Solicitar compra de Material</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Preencha os dados do material que você precisa para que a gestão possa avaliar a compra.</p>
+                <hr style="margin: 15px 0;">
+                                <form action="{% url 'membros:solicitar-material' %}" method="post" class="form-layout">
+                    {% csrf_token %}
+
+                    {% for field in form_solicitacao %}
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.errors %}
+                                <div class="errorlist">{{ field.errors }}</div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Enviar Solicitação</button>
+                    </div>
+                </form>
+
+                <!-- <form action="{% url 'membros:solicitar-material' %}" method="post" class="form-layout">
+                    {% csrf_token %}
+                    {{ form_solicitacao.as_p }}
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Enviar Solicitação</button>
+                    </div>
+                </form> -->
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

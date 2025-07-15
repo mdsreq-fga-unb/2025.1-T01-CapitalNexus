@@ -1,0 +1,77 @@
+{% extends 'public/layout.html' %}
+{% load static %}
+
+{% block title %}Login | Capital Rocket Team{% endblock %}
+
+{% block content %}
+<style>    .login-container {
+        max-width: 450px;
+        margin: 80px auto;
+        padding: 40px;
+        background-color: #1a1a1a;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+        text-align: center;
+    }
+    .login-container h2 {
+        margin-bottom: 30px;
+        color: #d6d6d6;
+    }
+    .login-container .form-group {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    .login-container label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+    .login-container input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #a5a5a5;
+        border-radius: 8px;
+    }
+    .login-container .btn-login {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        background-color: #6a5acd; /* Roxo do nosso dashboard */
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    .login-container .errorlist {
+        color: #e74c3c;
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+        font-weight: 600;
+    }</style>
+<div class="login-container">
+    <h2>Acessar Painel de Gestão</h2>
+    
+    {% if form.errors %}
+        <p class="errorlist">Seu nome de usuário e senha não correspondem. Tente novamente.</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Nome de Usuário</label>
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">Senha</label>
+            {{ form.password }}
+        </div>
+         <div style="text-align: right; margin-bottom: 15px; font-size: 14px;">
+        <a href="{% url 'password_reset' %}" style="color: #6a5acd; text-decoration: none;">Esqueceu a senha?</a>
+        </div>
+        <button type="submit" class="btn-login">Entrar</button>
+    </form>
+</div>
+{% endblock %}

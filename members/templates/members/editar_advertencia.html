@@ -1,0 +1,33 @@
+{% extends 'members/layout.html' %}
+
+{% block dashboard_title %}Editar Advertência{% endblock %}
+
+{% block page_title %}Editar Advertência{% endblock %}
+
+{% block dashboardcontent %}
+    <div class="modal.is-open">
+        
+        <h3 class="page-header">
+            Alterando advertência para: {{ form.instance.membro.nome }}
+        </h3>
+
+        <form method="post" enctype="multipart/form-data" class="modal-body">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="errorlist">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            
+            <div class="modal-footer">
+                <a href="{% url 'membros:advertencias' %}" class="botao-cancel">Cancelar</a>
+                <button type="submit" class="btn-save">Salvar Alterações</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

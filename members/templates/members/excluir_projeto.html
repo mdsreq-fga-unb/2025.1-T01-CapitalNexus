@@ -1,0 +1,18 @@
+{% extends 'members/layout.html' %}
+
+{% block page_title %}Confirmar Exclusão{% endblock %}
+
+{% block dashboardcontent %}
+    <div class="modal.is-open">
+        <h3 class="modal-header">Você tem certeza?</h3>
+        <p>Você está prestes a excluir permanentemente o {{ tipo }} "{{ objeto.titulo }}".</p>
+        <p style="color: #e74c3c; font-weight: bold;">Esta ação não pode ser desfeita.</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="modal-footer">
+                <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="botao-cancel">Cancelar</a>
+                <button type="submit" class="btn-save" style="background-color: #e74c3c;">Sim, Excluir</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

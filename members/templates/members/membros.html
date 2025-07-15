@@ -1,0 +1,81 @@
+{% extends 'members/layout.html' %}
+
+{% block dashboard_title %}Membros{% endblock %}
+{% block page_title %}Gerenciamento de Membros{% endblock %}
+
+{% block dashboardcontent %}
+    <p class="page-subtitle">Membros e suas associações aos núcleos.</p>
+    <div class="page-header">
+        <form class="filter-bar" method="get">
+            <input type="text" name="nome" placeholder="Nome do membro" value="{{ request.GET.nome }}">
+            <select name="cargo">
+                <option value="">Todos os Cargos</option>
+                {% for cargo in cargos_para_filtro %}
+                    <option value="{{ cargo.posicao }}" {% if request.GET.cargo == cargo.posicao %}selected{% endif %}>{{ cargo.posicao }}</option>
+                {% endfor %}
+            </select>
+            <select name="nucleo">
+                <option value="">Todos os Núcleos</option>
+                {% for nucleo in nucleos_para_filtro %}
+                    <option value="{{ nucleo.nome }}" {% if request.GET.nucleo == nucleo.nome %}selected{% endif %}>{{ nucleo.nome }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn-filter">Aplicar Filtros</button>
+            <button type="button" class="'btn-new-meeting" data-target-modal="#novo-membro-modal">Novo membro</button>
+        </form>
+    </div>
+
+    <div class="member-grid">
+        {% for membro in membros %}
+        <div class="member-card">
+            <div class="member-card-header">
+                <div class="user-cell">
+                    <div class="user-avatar">{{ membro.nome.0|upper }}</div>
+                    <strong>{{ membro.nome }}</strong>
+                </div>
+                <div class="actions-cell">
+                        <a href="{% url 'membros:editar-membro' membro.matricula %}" class="action-icon action-edit" title="Editar"><i class="fa-solid fa-pencil"></i></a>
+                        <a href="{% url 'membros:excluir-membro' membro.matricula %}" class="action-icon action-delete" title="Excluir"><i class="fa-solid fa-trash"></i></a>
+                        <!-- <a href="#" class="action-icon action-delete" title="Excluir" data-target-modal="#delete-modal-{{ membro.matricula }}">
+                            <i class="fa-solid fa-trash"></i>
+                        </a> -->
+
+                </div>
+            </div>
+            <div class="member-card-body">
+                {% with cargo_principal=membro.membronucleo_set.first.cargo.posicao %}
+                    <span class="tag tag-cargo">{{ cargo_principal|default:"Sem cargo" }}</span>
+                {% endwith %}
+
+                <p class="contact-info"><i class="fa-regular fa-envelope"></i> {{ membro.email }}</p>
+                <p class="contact-info"><i class="fa-solid fa-phone"></i> {{ membro.matricula }}</p>
+            </div>
+            <div class="member-card-footer">
+                {% for assoc in membro.membronucleo_set.all %}
+                    <span class="tag tag-nucleo-{{ forloop.counter|slugify }}">{{ assoc.nucleo.nome }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% empty %}
+        <div class="panel"><p>Nenhum membro encontrado com os filtros atuais.</p></div>
+        {% endfor %}
+    </div>
+    <div id="novo-membro-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Novo Membro</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'membros:membro-novo' %}" method="post" class="form-layout">
+                    {% csrf_token %}
+                    {{ form_novo_membro.as_p }}
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

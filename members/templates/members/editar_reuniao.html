@@ -1,0 +1,31 @@
+{% extends 'members/layout.html' %}
+{% load static %}
+
+{% block dashboard_title %}Editar reunião{% endblock %}
+
+{% block page_title %}Editar reunião{% endblock %}
+
+{% block dashboardcontent %}
+    <div class="modal.is-open">
+            <h3 class="page-header"><strong>Altere os dados da reunião</strong></h3>
+
+        <form method="post" enctype="multipart/form-data" class="modal-body">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="errorlist">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            
+            <div class="modal-footer">
+                <a href="{% url 'membros:reunioes' %}" class="botao-cancel">Cancelar</a>
+                <button type="submit" class="btn-save">Salvar Alterações</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
