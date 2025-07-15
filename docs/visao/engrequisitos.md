@@ -43,7 +43,7 @@ Foca na **modelagem visual ou textual** dos requisitos para facilitar o entendim
         - O trabalho realizado entrega um incremento funcional e observável ao produto?
         - A entrega está claramente rastreada à sua origem? (A descrição do Pull Request ou da tarefa cita a **US**, **RN** ou **O.E.** correspondente?)
     1. **Cobertura dos Requisitos**
-        - Todos os cenários (sucesso, falha e alternativos) descritos nos [**Critérios de Aceite (BDD)**](/backlog/geral/#backlog) foram implementados e são demonstráveis?
+        - Todos os cenários (sucesso, falha e alternativos) descritos nos [**Critérios de Aceite (BDD)**](https://mdsreq-fga-unb.github.io/2025.1-T01-CapitalNexus/backlog/geral/#backlog) foram implementados e são demonstráveis?
     1. **Qualidade de Testes**
         - Foi criado o teste unitário necessário para a nova funcionalidade?
         - Os fluxos principais foram validados **manualmente** em um ambiente de teste, confirmando o comportamento esperado?

@@ -30,7 +30,7 @@ O DoD define os critérios que precisam ser cumpridos para que uma funcionalidad
 
 **2. Cobertura dos Requisitos**
 
-- Todos os cenários (sucesso, falha e alternativos) descritos nos [**Critérios de Aceite (BDD)**](/backlog/geral/#backlog) foram implementados e são demonstráveis?
+- Todos os cenários (sucesso, falha e alternativos) descritos nos [**Critérios de Aceite (BDD)**](https://mdsreq-fga-unb.github.io/2025.1-T01-CapitalNexus/backlog/geral/#backlog) foram implementados e são demonstráveis?
 
 **3. Qualidade de Testes**
 
