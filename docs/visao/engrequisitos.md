@@ -39,12 +39,27 @@ Foca na **modelagem visual ou textual** dos requisitos para facilitar o entendim
     1. O requisito agrega valor e está associado à algum dos objetivos específicos da solução?
     1. As dependências do requisitos estão mapeadas (se houver)?
 1. **Definition of Done (DoD)**: A técnica de DoD demonstra **qualidade do requisito produzido**. Para que seja considerado como *Done*, deve atender ao seguinte:
-    1. Esse requisito entrega um incremento do produto?
-    1. Contempla critérios de aceite estabelecidos?
-    1. Está documentado para uso?
-    1. Foi revisado por outro desenvolvedor?
-    1. Segue os padrões [estabelecidos de codificação](..\contribuicao)?
-    1. Foi testado?
+    1. **Entrega de Valor**
+        - O trabalho realizado entrega um incremento funcional e observável ao produto?
+        - A entrega está claramente rastreada à sua origem? (A descrição do Pull Request ou da tarefa cita a **US**, **RN** ou **O.E.** correspondente?)
+    1. **Cobertura dos Requisitos**
+        - Todos os cenários (sucesso, falha e alternativos) descritos nos [**Critérios de Aceite (BDD)**](/backlog/geral/#backlog) foram implementados e são demonstráveis?
+    1. **Qualidade de Testes**
+        - Foi criado o teste unitário necessário para a nova funcionalidade?
+        - Os fluxos principais foram validados **manualmente** em um ambiente de teste, confirmando o comportamento esperado?
+    1. **Revisão por Pares (Code Review)**
+        - O **Pull Request (PR)** foi revisado e aprovado por, pelo menos, um outro membro da equipe?
+        - A revisão de código validou os critérios essenciais?
+            - **Conformidade:** O código segue os padrões estabelecidos?
+            - **Lógica:** A implementação atende corretamente aos requisitos?
+            - **Legibilidade:** O código é claro, bem nomeado e de fácil manutenção?
+            - **Segurança:** Não há dados sensíveis (senhas, tokens) expostos no código?
+    1. **Padrões de Código**
+        - O código segue os **padrões de codificação** e o guia de estilo definidos pelo projeto?
+        - As ferramentas de **Linter** e **Formatter** foram executadas e não apontam erros?
+    1. **Documentação**
+        - A **documentação técnica** foi devidamente atualizada? (Ex: `README.md`, comentários em lógicas complexas, novas variáveis de ambiente).
+        - Está documentado para uso com docstrings da biblioteca pydoc, com descrição, argumentos e retorno.
 1. **Revisão em Pares**: A revisão em pares entre os membros do grupo auxiliará na **verificação dos requisitos**, verificando se estão sendo feitos de maneira correta.
 1. **Feedback**: Será utilizada a técnica de feedback com a CRT para **manter um backlog de produto verificado** e **validado** de acordo com as necessidades da solução. Garantindo perspectivas alinhadas e de acordo entre partes.
 1. **Análise de Viabilidade**: Será utilizada a técnica de análise de viabilidade para **garantir requisitos factíveis**.

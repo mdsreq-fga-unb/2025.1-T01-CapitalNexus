@@ -46,7 +46,7 @@ O Prompt IA foi utilizado para fazer uma **análise dos requisitos**, resolver c
 ### Prototipação Navegável
 
 Para a área pública da plataforma, foi feito um **protótipo navegável** do Figma, disponível [aqui](https://www.figma.com/proto/oLr46TFUlHuLrmSEJycHma/%C3%81rea-p%C3%BAblica?node-id=133-456&p=f&t=bxoh3RmmTK3w1HFY-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=133%3A456).
-
+![protótipo-figma](../assets/prototipo_figma.png)
 ### Entrega e Validação do Protótipo
 
 | Data      | Tipo           | Participantes                | Objetivo/Descrição                                                                                   |

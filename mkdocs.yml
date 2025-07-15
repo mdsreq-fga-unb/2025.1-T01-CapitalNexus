@@ -8,10 +8,10 @@ nav:
   - Visão do Produto e Projeto:
       - Cenário atual do cliente e do negócio: visao/cenario.md
       - Solução proposta: visao/solucao.md
+      - Interação entre equipe e cliente: visao/interacao.md
       - Estratégias de engenharia de software: visao/estrategias.md
       - Engenharia de requisitos: visao/engrequisitos.md
       - Cronograma: visao/cronograma.md
-      - Interação entre equipe e cliente: visao/interacao.md
       - DoR e DoD: visao/doredod.md
       - Evidências: visao/evidencias.md
       - Lições aprendidas: visao/licoes.md
@@ -32,7 +32,7 @@ nav:
         - Apresentação e incremento: entregas/unidade3/entrega.md
       - Unidade 4:
         - Casos de uso: entregas/unidade4/casosdeuso.md
-        - Feedback do cliente e entrega da unidade: entregas/unidade4/videos.md
+        - Feedback do cliente e entrega da unidade: entregas/unidade4/entregas.md
 
 
 theme:
