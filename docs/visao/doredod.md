@@ -1,7 +1,6 @@
 # DoR e DoD
 
-Esta seção apresenta os conceitos de Definition of Ready (DoR) e Definition of Done (DoD), que auxiliam a garantir que o trabalho seja bem definido previamente. Enquanto o DoR estabelece critérios claros para garantir que um item do backlog esteja pronto para ser iniciado — com definição, valor, tempo e critérios bem definidos —, o DoD define os padrões de qualidade que determinam quando um incremento está verdadeiramente concluído e pronto para entrega.
-
+Esta seção apresenta os conceitos de **Definition of Ready (DoR)** e **Definition of Done (DoD)**, que auxiliam a **garantir que o trabalho seja bem definido** previamente. Enquanto o **DoR estabelece critérios claros** para garantir que um **item do backlog esteja pronto** para ser iniciado — com definição, valor, tempo e critérios bem definidos —, o **DoD define os padrões de qualidade** que determinam quando um incremento está verdadeiramente concluído e pronto para entrega.
 
 *Boas práticas e Direcionamentos utilizados para definição dos critérios*
 

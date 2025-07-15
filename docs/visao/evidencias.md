@@ -35,11 +35,11 @@ No dia **25/04**, foi feita reunião com o cliente para a **análise e consenso 
 
 ### Análise de Domínio de Requisitos
 
-Foi utilizada análise de domínio de requisito para resolver contradições, eliminar ambiguidades e complementar informações ausentes nos requisitos elicitados. Essa análise foi feita em conjunto com o cliente na reunião acima e por mensagens via WhatsApp.
+Foi utilizada análise de domínio de requisito para resolver contradições, eliminar ambiguidades e complementar informações ausentes nos requisitos elicitados. Essa **análise foi feita em conjunto com o cliente** na reunião acima e por mensagens via WhatsApp.
 
 ### Prompt IA para Análise
 
-O Prompt IA foi utilizado para fazer uma análise dos requisitos, resolver contradições e alinhar as perspectivas, de uma forma mais direta e eficiente.
+O Prompt IA foi utilizado para fazer uma **análise dos requisitos**, resolver contradições e alinhar as perspectivas, de uma **forma mais direta e eficiente**.
 
 ## 🎨 Representação de Requisitos
 
@@ -66,7 +66,7 @@ Os requisitos foram declarados usando [**User Story, Épicos e Features**](https
 
 ### Critérios de Aceitação BDD
 
-A equipe começou a trabalhar os [**critérios de aceitação no formato BDD**]((https://mdsreq-fga-unb.github.io/2025.1-T01-CapitalNexus/backlog/geral/#backlog)) junto com o cliente para o desenvolvimento dos requisitos, as validações foram feitas por meio do WhatsApp. 
+A equipe começou a trabalhar os [**critérios de aceitação no formato BDD**](https://mdsreq-fga-unb.github.io/2025.1-T01-CapitalNexus/backlog/geral/#backlog) junto com o cliente para o desenvolvimento dos requisitos, as validações foram feitas por meio do WhatsApp. 
 
 ## ✅ Verificação e Validação de Requisitos
 
@@ -110,7 +110,7 @@ Foi utilizada a [técnica matriz de priorização](https://mdsreq-fga-unb.github
 
 ### Feedback para Atualização
 
-Conforme o feedback do cliente, os requisitos foram sendo atualizados continuamente para garantir entregas de valor alinhadas com as necessidades da Capital Rocket Team.
+Conforme o feedback do cliente, os **requisitos foram sendo atualizados continuamente** para garantir entregas de valor alinhadas com as necessidades da Capital Rocket Team.
 
 ## 📜 Histórico de Versão 
 |**Data**|**Versão** |**Descrição** |**Autor**|

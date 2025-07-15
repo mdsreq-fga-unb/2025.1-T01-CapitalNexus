@@ -5,7 +5,7 @@
 - Abordagem: **Híbrida**;
 - Ciclo de vida: **Iterativo incremental**;
 - Processo: **AUP**;
-- Frameworkde gerenciamento ágil: **Kanban**.
+- Framework de gerenciamento ágil: **Kanban**.
 
 ## 📊 Quadro Comparativo
 

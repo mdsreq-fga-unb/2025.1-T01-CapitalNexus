@@ -2,7 +2,7 @@
 
 ## 💼 Introdução ao Negócio e Contexto
 
-A **Capital Rocket Team (CRT)** é uma equipe de competição de aeromodelismo da **Universidade de Brasília (UnB)**. Fundada no ano de **2015**, tem como objetivo representar a universidade em **competições nacionais e internacionais**, além de promover a capacitação dos estudantes e desenvolvimento dos subsistemas com tecnologia nacional relativas à foguetes. 
+A **Capital Rocket Team (CRT)** é uma equipe de competição de aeromodelismo da **Universidade de Brasília (UnB)**. Fundada no ano de **2015**, tem como objetivo representar a universidade em **competições nacionais e internacionais**, além de promover a **capacitação dos estudantes** e **desenvolvimento dos subsistemas** com tecnologia nacional relativas à foguetes. 
 
 A equipe conta com diversas conquistas ao longo de sua jornada, como o **1° e 2° lugar em 2022 e 2021** na **Latin American Space Challenge (LASC)**, **2ª maior competição experimental de engenharia de foguetes do mundo**. A CRT também se destaca por ser a **única equipe da América Latina a lançar um foguete de propulsão híbrida**, foco principal da equipe.
 
@@ -11,7 +11,7 @@ Apesar de todas as suas conquistas, a equipe enfrenta alguns problemas de **divu
 ## 💡 Identificação da Oportunidade ou Problema
 A principal oportunidade identificada para a equipe é a **facilitação de divulgação do seu trabalho**, uma vez que atualmente suas informações e projetos estão espalhados por diferentes meios de comunicação, o que dificulta que **patrocinadores em potencial tenham acesso fácil e integral ao seu trabalho**.
 
-No gerenciamento interno, a oportunidade principal é a **utilização de um sistema centralizado** que facilite o acompanhamento individual dos membros (como faltas, advertências e strikes), que atualmente é feito por planilhas, além do **controle de estoques**, onde os integrantes da equipe tenham acesso aos materiais disponíveis e solicitem a sua utilização ou realizem pedidos dos outros, que atualmente é feita pessoalmente. 
+No gerenciamento interno, a oportunidade principal é a **utilização de um sistema centralizado** que facilite o **acompanhamento individual dos membros** (como faltas, advertências e strikes), que atualmente é feito por planilhas, além do **controle de estoques**, onde os integrantes da equipe tenham acesso aos materiais disponíveis e solicitem a sua utilização ou realizem pedidos dos outros, que atualmente é feita pessoalmente. 
 
 A figura a seguir apresenta o **diagrama de Ishikawa**, contendo as causas e o problema da CRT.
 

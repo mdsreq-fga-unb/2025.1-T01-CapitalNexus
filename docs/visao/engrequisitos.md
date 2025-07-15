@@ -6,54 +6,53 @@ A Engenharia de Requisitos dispõe de diversas **técnicas e práticas**, que de
 ### 🔍 Elicitação e Descoberta
 Foca na **identificação e coleta inicial** de requisitos por meio da interação com stakeholders, usuários e outras fontes. O objetivo é descobrir necessidades, expectativas e restrições que o a solução de software deve atender.
 
-- **Entrevista**: Na fase de Elicitação e Descoberta de requisitos, a técnica de entrevistas tem como principal objetivo não apenas **coletar requisitos**, mas também **compreender as expectativas** do cliente em relação à solução em desenvolvimento e **compreensão do problema**. Além disso, essa técnica é fundamental para **alinhar a equipe de desenvolvimento** com a visão do cliente (CRT), garantindo que todos compartilhem do mesmo entendimento sobre o projeto.
-- **User Story**: Foi utilizado User Story para que conseguissemos elicitar e descobrir os requisitos a partir do ponto de vista do usuário.
-- **Observação**: Um membro da equipe foi responsável por participar do dia a dia com a equipe e descobrir requisitos a partir da Observação.
+1. **Entrevista**: Na fase de Elicitação e Descoberta de requisitos, a técnica de entrevistas tem como principal objetivo não apenas **coletar requisitos**, mas também **compreender as expectativas** do cliente em relação à solução em desenvolvimento e **compreensão do problema**. Além disso, essa técnica é fundamental para **alinhar a equipe de desenvolvimento** com a visão do cliente (CRT), garantindo que todos compartilhem do mesmo entendimento sobre o projeto.
+1. **User Story**: Foi utilizado User Story para que conseguissemos elicitar e **descobrir os requisitos** a partir do **ponto de vista do usuário**.
+1. **Observação**: Um membro da equipe foi responsável por **participar do dia a dia** com a equipe e descobrir **requisitos a partir da Observação**.
 
 ### 🤝 Análise e Consenso
 Envolve o **refinamento e a consolidação** dos requisitos elicitados. Busca-se eliminar ambiguidades, resolver conflitos, priorizar e garantir que os requisitos sejam completos, consistentes e alinhados com os objetivos do negócio.
 
-- **Entrevista** : A utilização da técnica tem como objetivo **alinhar as diferentes perspectivas** levantadas na elicitação e **mediando conflitos** entre necessidades divergentes.
-- **Análise de Domínio de Requisito**: utilizamos análise de domínio de requisito para resolver contradições, eliminar ambiguidades e complementar informações ausentes. 
-- **Prompt IA** : O Prompt IA foi utilizado para fazer uma análise dos requisitos, resolver contradições e alinhar as perspectivas, de uma forma mais direta.
+1. **Entrevista** : A utilização da técnica tem como objetivo **alinhar as diferentes perspectivas** levantadas na elicitação e **mediando conflitos** entre necessidades divergentes.
+1. **Análise de Domínio de Requisito**: utilizamos análise de domínio de requisito para **resolver contradições**, **eliminar ambiguidades** e complementar informações ausentes. 
+1. **Prompt IA** : O Prompt IA foi utilizado para fazer uma **análise dos requisitos**, resolver contradições e alinhar as perspectivas, **de uma forma mais direta**.
 
 ### 📝 Declaração de Requisitos
 É a **documentação formal** dos requisitos analisados, utilizando linguagem clara e estruturada. O foco é especificar "o quê" o sistema deve fazer, garantindo rastreabilidade.
 
-- **Documento de Visão de Produto**: Foi feito o documento de visão para declarar os requisitos e disponibilizar para a equipe e o cliente.
-- **User Stories**: Na fase de Declaração de Requisitos será utilizada a técnica de narrativas de usuários (*user stories*), que **descrevem funcionalidades** sob a perspectiva do usuário. O objetivo dessa técnica é garantir o **foco em entregas de valor**.
+1. **Documento de Visão de Produto**: Foi feito o documento de visão para **declarar os requisitos** e disponibilizar para a equipe e o cliente.
+1. **User Stories**: Na fase de Declaração de Requisitos será utilizada a técnica de narrativas de usuários (*user stories*), que **descrevem funcionalidades** sob a perspectiva do usuário. O objetivo dessa técnica é garantir o **foco em entregas de valor**.
 
 ### 🎨 Representação de Requisitos
 Foca na **modelagem visual ou textual** dos requisitos para facilitar o entendimento e a comunicação.
 
-- **Prototipação**: A técnica de representação informal de prototipação será utilizada com objetivo de permitir a CRT **fornecer feedbacks** intermediarios, afim de validar partes do front inicial.
+1. **Prototipação**: A técnica de representação informal de prototipação será utilizada com objetivo de permitir a CRT **fornecer feedbacks** intermediarios, afim de **validar partes do front** inicial.
 
 ### ✅ Verificação e Validação de Requisitos
 **Garante a qualidade** dos requisitos. A **verificação** assegura que os requisitos estão corretamente especificados (ex: completos, não ambíguos), enquanto a **validação** confere se atendem às reais necessidades do cliente.
 
-- **Definition of Ready (DoR)**: A técnica de DoR delimita quando um **requisito está preparado para ser trabalhado**. Para que seja considerado como *Ready*, serão levadas em consideração se:
+1. **Definition of Ready (DoR)**: A técnica de DoR delimita quando um **requisito está preparado para ser trabalhado**. Para que seja considerado como *Ready*, serão levadas em consideração se:
     1. O requisito está representado por uma história de usuário?
     1. O requisito possui critérios de aceitação orientados por *Behavior Driven Development* (BDD) e testes?
     1. O requisito está consoante com a granularidade dos demais?
     1. O requisito foi estimado?
     1. O requisito agrega valor e está associado à algum dos objetivos específicos da solução?
     1. As dependências do requisitos estão mapeadas (se houver)?
-- **Definition of Done (DoD)**: A técnica de DoD demonstra **qualidade do requisito produzido**. Para que seja considerado como *Done*, deve atender ao seguinte:
+1. **Definition of Done (DoD)**: A técnica de DoD demonstra **qualidade do requisito produzido**. Para que seja considerado como *Done*, deve atender ao seguinte:
     1. Esse requisito entrega um incremento do produto?
     1. Contempla critérios de aceite estabelecidos?
     1. Está documentado para uso?
     1. Foi revisado por outro desenvolvedor?
     1. Segue os padrões [estabelecidos de codificação](..\contribuicao)?
     1. Foi testado?
-- **Revisão em Pares**: A revisão em pares entre os membros do grupo auxiliará na **verificação dos requisitos**, verificando se estão sendo feitos de maneira correta.
-- **Feedback**: Será utilizada a técnica de feedback com a CRT para **manter um backlog de produto verificado** e **validado** de acordo com as necessidades da solução.
-- **Análise de Viabilidade**: Será utilizada a técnica de análise de viabilidade para garantir requisitos factíveis.
-- **Feedback (cliente/equipe)**: Será utiliza a ténica de feedback para garantir que alinhar diferentes perspectivas, garantindo que os requisitos estejam de acordo entre partes.
+1. **Revisão em Pares**: A revisão em pares entre os membros do grupo auxiliará na **verificação dos requisitos**, verificando se estão sendo feitos de maneira correta.
+1. **Feedback**: Será utilizada a técnica de feedback com a CRT para **manter um backlog de produto verificado** e **validado** de acordo com as necessidades da solução. Garantindo perspectivas alinhadas e de acordo entre partes.
+1. **Análise de Viabilidade**: Será utilizada a técnica de análise de viabilidade para **garantir requisitos factíveis**.
 
 ### 🔄 Organização e Atualização de Requisitos    
-- **MoSCoW**: será utilizada a técnica de priorização de requisitos *MoSCoW* (*Must Have, Should Have, Could Have, Won't Have*), com objetivo de **gerar o Produto Mínimo Viável** (*MVP*).
-- **Matriz de priorização**: Foi utilizado a técnica matriz de priorização para definir os requisitos do MVP, considerando esforço técnico e MoSCoW.
-- **Feedback**: Conforme o feedback do cliente, os requsiitos foram sendo atualizados, para garantir entregas de valor.
+1. **MoSCoW**: será utilizada a técnica de priorização de requisitos *MoSCoW* (*Must Have, Should Have, Could Have, Won't Have*), com objetivo de **gerar o Produto Mínimo Viável** (*MVP*).
+1. **Matriz de priorização**: Foi utilizado a técnica matriz de priorização para **definir os requisitos do MVP**, considerando esforço técnico e MoSCoW.
+1. **Feedback**: Conforme o feedback do cliente, os requsitos foram sendo **atualizados**, para **garantir entregas de valor**.
 
 ## 🔀 Engenharia de Requisitos e o AUP
 
