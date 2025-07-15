@@ -120,24 +120,124 @@ falhas registradas.
 
 
 ## 2. Gerenciar serviços de saúde
+
 ### Breve descrição
 
+Este caso de uso permite que o administrador do sistema adicione, edite, visualize e remova informações sobre clínicas, hospitais e campanhas de saúde. O objetivo é manter o mapeamento de serviços de saúde atualizado para que os pacientes possam localizá-los e agendar consultas. 
 
 ### Atores
 
+-   Administrador 
+    
 
 ### Fluxo de eventos
-*Fluxo principal*
-1. 
-2. 
 
-*Fluxos de exceção*
-- *FE01 Nome da exceção*: 
+**Fluxo principal**
+
+1.  O administrador acessa a funcionalidade "Gerenciar serviços de saúde" no painel principal.
+    
+2.  O sistema exibe uma lista de serviços de saúde cadastrados (clínicas, hospitais, campanhas).
+    
+3.  O administrador pode selecionar as seguintes opções:
+    
+    -   Adicionar novo serviço
+        
+    -   Editar serviço existente
+        
+    -   Visualizar detalhes do serviço
+        
+    -   Remover serviço
+        
+4.  O administrador seleciona a opção "Visualizar detalhes do serviço".
+    
+5.  O sistema exibe todas as informações do serviço selecionado em formato somente leitura.
+    
+6.  O caso de uso é encerrado.
+    
+
+**Fluxos alternativos**
+
+**FA01 - Adicionar novo serviço**
+
+1.  No passo 3 do fluxo principal, o administrador seleciona a opção "Adicionar novo serviço".
+    
+2.  O sistema exibe um formulário para entrada de dados do novo serviço, solicitando:
+    
+    -   Nome do serviço
+        
+    -   Tipo de serviço (clínica, hospital, campanha)
+        
+    -   Endereço
+        
+    -   Horário de funcionamento/duração da campanha
+        
+    -   Especialidades/serviços oferecidos
+        
+    -   Contato
+        
+3.  O administrador preenche os dados e clica em "Salvar". [FE01]
+    
+4.  O sistema valida os dados [RN01] e registra o novo serviço no banco de dados.
+    
+5.  O sistema exibe a mensagem de sucesso: "Serviço adicionado com sucesso!".
+    
+6.  O caso de uso é encerrado.
+    
+
+**FA02 - Editar serviço existente**
+
+1.  No passo 3 do fluxo principal, o administrador seleciona um serviço da lista e escolhe a opção "Editar serviço existente".
+    
+2.  O sistema carrega os dados do serviço selecionado em um formulário pré-preenchido.
+    
+3.  O administrador modifica os dados conforme necessário e clica em "Salvar". [FE01]
+    
+4.  O sistema valida os dados [RN01] e atualiza as informações do serviço no banco de dados.
+    
+5.  O sistema exibe a mensagem de sucesso: "Serviço atualizado com sucesso!".
+    
+6.  O caso de uso é encerrado.
+    
+
+**FA03 - Remover serviço**
+
+1.  No passo 3 do fluxo principal, o administrador seleciona um serviço da lista e escolhe a opção "Remover serviço".
+    
+2.  O sistema solicita uma confirmação da remoção com uma janela de diálogo (modal) com o aviso "Atenção! Você tem certeza que deseja remover este serviço? Esta ação é permanente.".
+    
+3.  Se o administrador confirmar a remoção, o sistema remove o serviço do banco de dados. [RN02]
+    
+4.  O sistema exibe a mensagem de sucesso: "Serviço removido com sucesso!".
+    
+5.  O caso de uso é encerrado.
+    
+
+**Fluxos de exceção**
+
+-   **FE01 - Dados Inválidos**: Se os dados submetidos pelo administrador forem inválidos (ex: campos obrigatórios vazios, formato incorreto de endereço), o sistema não salva as informações, exibe mensagens de erro indicando qual(is) campo(s) precisa(m) ser corrigido(s) e permanece no formulário para correção.
+    
+-   **FE02 - Nenhuma serviço cadastrado**: Se não houver serviços cadastrados no sistema, o sistema informará ao administrador que "Não há serviços cadastrados no momento." e pode sugerir a criação de um novo.
+    
+-   **FE03 - Falha na Conexão/Processamento**: Em qualquer ponto onde o sistema tenta acessar o banco de dados ou processar informações, se houver uma falha na conexão ou no processamento de dados, o sistema exibe uma mensagem de erro genérica (ex: "Erro ao processar a solicitação. Tente novamente mais tarde.") e o caso de uso é abortado.
+    
 
 ### Requisitos especiais
 
+-   A interface deve ser intuitiva e fácil de usar.
+    
+-   Todos os campos de entrada devem ser validados para garantir a integridade dos dados.
+    
+-   Somente administradores autenticados devem ter acesso a esta funcionalidade.
+    
+-   Capacidade de filtrar e ordenar a lista de serviços.
+    
 
 ### Regras de negócio
+
+-   **RN01 - Nome Único**: Cada serviço de saúde (clínica, hospital, campanha) deve ter um nome único no sistema.
+    
+-   **RN02 - Restrição de Remoção**: Serviços que já foram utilizados em agendamentos ou que possuem dados históricos de impacto não podem ser removidos diretamente, apenas desativados ou arquivados.
+
 
 
 ## 3. Gerenciar Dados Médicos
