@@ -4,7 +4,7 @@ Em uma comunidade remota chamada Vila Esperança, onde o acesso a serviços de s
 
 Para facilitar o entendimento do produto, foi utilizado Diagrama de Casos de Uso, que pode ser visualizado a seguir.
 
-<img src="docs/assets/diagramauml.png" alt="Diagrama UML">
+<img src="diagramauml.png" alt="Diagrama UML">
 Figura 1: Diagrama UML ConnectCare
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/0d6cf692-ced8-43f7-ba5d-cdf58f6ce4ab" id="-FXvrC83u1Cn"></iframe></div>
