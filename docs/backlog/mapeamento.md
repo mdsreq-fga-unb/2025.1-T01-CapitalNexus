@@ -1,6 +1,6 @@
 # Mapeamento de Requisitos por Área
 
-Este documento organiza os casos de uso (US) do sistema por módulos funcionais, **mapeando cada funcionalidade** às suas **respectivas regras de negócio** (RN). A estrutura permite visualizar rapidamente as capacidades do sistema e suas dependências regulatórias.
+Este documento organiza as Histórias de Usuário (US) do sistema por módulos funcionais, **mapeando cada funcionalidade** às suas **respectivas regras de negócio** (RN). Permitindo visualizar rapidamente as capacidades do sistema e suas dependências regulatórias.
 
 ## 📂 Página de Gestão de Núcleos
 *Gerenciamento dos centros de responsabilidade da equipe*
