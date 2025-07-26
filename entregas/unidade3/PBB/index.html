@@ -1,0 +1,2277 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../unidade2/">
+      
+      
+        <link rel="next" href="../USM/">
+      
+      
+      <link rel="icon" href="../../../None">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>PBB - Capital Nexus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/styles.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-product-backlog-building-pbb-healthnet" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="Capital Nexus" class="md-header__button md-logo" aria-label="Capital Nexus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Capital Nexus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PBB
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mdsreq-fga-unb/2025.1-T01-CapitalNexus" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2025.1-T01-CapitalNexus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Capital Nexus" class="md-nav__button md-logo" aria-label="Capital Nexus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Capital Nexus
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mdsreq-fga-unb/2025.1-T01-CapitalNexus" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2025.1-T01-CapitalNexus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Visão do Produto e Projeto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Visão do Produto e Projeto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/cenario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cenário atual do cliente e do negócio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/solucao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Solução proposta
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/interacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interação entre equipe e cliente
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/estrategias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Estratégias de Engenharia de Software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/engrequisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Engenharia de Requisitos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/cronograma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cronograma
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/doredod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DoR e DoD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/evidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evidências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/licoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lições aprendidas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/contribuicao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Política de contribuição
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../visao/referencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Referências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Requisitos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Requisitos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../requisitos/reqfuncional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requisitos funcionais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../requisitos/reqnaofuncional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requisitos não funcionais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Backlog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Backlog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backlog/geral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backlog Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backlog/mvp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Priorização e Produto Mínimo Viável
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backlog/mapeamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mapeamento de Requisitos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Entregas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Entregas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidadeum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unidade 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidade2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unidade 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Unidade 3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unidade 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    PBB
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    PBB
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-sobre-o-product-backlog-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Sobre o Product Backlog Building
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-pbb-realizado-para-a-healthnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. PBB realizado para a HealthNet:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pbb-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      PBB Board
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-historias-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Histórias de Usuários:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-criterios-de-aceitacao-das-historias-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4. Critérios de Aceitação das Histórias de Usuários
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-behavior-driven-development-bdd-das-historias-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5. Behavior Driven Development (BDD) das Histórias de Usuários
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../USM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entrega/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apresentação e incremento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Unidade 4
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Unidade 4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidade4/casosdeuso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Casos de uso
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidade4/entregas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Feedback do cliente e entrega da unidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-sobre-o-product-backlog-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Sobre o Product Backlog Building
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-pbb-realizado-para-a-healthnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. PBB realizado para a HealthNet:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pbb-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      PBB Board
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-historias-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Histórias de Usuários:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-criterios-de-aceitacao-das-historias-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4. Critérios de Aceitação das Histórias de Usuários
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-behavior-driven-development-bdd-das-historias-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5. Behavior Driven Development (BDD) das Histórias de Usuários
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<p><a href="https://unbbr.sharepoint.com/:v:/s/Requisitos592-Desenvolvedores/EdIyEmojbe1EnbfO4ytTj8EB7saZEctn94HQy2A0xr79CA?e=RKoaFB&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D">Entrega da unidade 3</a></p>
+<h1 id="1-product-backlog-building-pbb-healthnet">1. Product Backlog Building (PBB) - HealthNet</h1>
+<h2 id="11-sobre-o-product-backlog-building">1.1. Sobre o Product Backlog Building</h2>
+<p>O Product Backlog Building (PBB) é uma metodologia colaborativa bastante utilizada em ambientes ágeis para organizar e priorizar os requisitos de um produto. Criada com o objetivo de tornar mais eficiente a elaboração do backlog, essa abordagem permite que as equipes compreendam com mais clareza as necessidades dos usuários e as transformem em funcionalidades bem definidas. O PBB integra elementos do Design Thinking com os fundamentos do Agile, promovendo o alinhamento entre todos os envolvidos no projeto – desde os desenvolvedores até os clientes. Ao incentivar a participação ativa dos stakeholders, essa técnica estimula uma visão coletiva e evita retrabalho, garantindo que os esforços estejam focados naquilo que realmente agrega valor ao produto. Durante sua aplicação, o PBB busca responder questões centrais como: "o que deve ser desenvolvido?", "quem são os usuários finais?" e "de que forma eles serão beneficiados?", tornando-se uma abordagem prática e orientada ao valor.</p>
+<p>O PBB Canvas, por sua vez, é uma ferramenta visual que estrutura o processo de Product Backlog Building de forma clara e intuitiva. Ele é dividido em blocos que auxiliam na coleta e organização das informações fundamentais para o desenvolvimento do produto. Dentre essas seções, destacam-se os campos para os objetivos do negócio, as personas (representações dos usuários) e as atividades que esses usuários irão desempenhar. Cada atividade é decomposta em tarefas menores, que compõem os itens do backlog. Essa representação visual facilita o processo de priorização, evidenciando dependências e ligando diretamente os objetivos estratégicos às entregas da equipe. Com isso, o PBB Canvas não só melhora a comunicação entre os membros do time, mas também aumenta a transparência do projeto, resultando em um desenvolvimento mais eficaz e alinhado aos resultados esperados.</p>
+<h2 id="12-pbb-realizado-para-a-healthnet">1.2. PBB realizado para a HealthNet:</h2>
+<p>O Canvas de Product Backlog Building da empresa  <em>"HealthNet"</em>  foi realizada em equipe com o auxílio da plataforma Miro, por meio do template oficial projetado por Fábio Aguiar, criador do método PBB para desenvolvimento de soluções de software e definição do backlog de produtos.</p>
+<iframe width="100%" height="600" src="https://miro.com/app/board/uXjVIqRN9A0=/" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+
+<h2 id="pbb-board">PBB Board</h2>
+<p><img width="1073" height="543" alt="image" src="https://github.com/user-attachments/assets/62bd1d7b-db2c-4d2d-add0-c75f414665ea" />.</p>
+<h2 id="13-historias-de-usuarios">1.3. Histórias de Usuários:</h2>
+<p><strong>1.3.1 Persona: Recepcionista (Maria)</strong></p>
+<ul>
+<li><em>Funcionalidade:</em> Gerenciamento de Cadastro de Pacientes.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Código US</th>
+<th>Título</th>
+<th>História de Usuário</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US 1.1</td>
+<td>Cadastrar novo paciente</td>
+<td>Como Recepcionista, quero cadastrar um novo paciente de forma rápida e intuitiva, para agilizar o atendimento e reduzir tempo de espera na recepção.</td>
+</tr>
+<tr>
+<td>US 1.3</td>
+<td>Atualizar informações do paciente</td>
+<td>Como Recepcionista, quero atualizar informações cadastrais e de contato do paciente de forma eficiente, para garantir dados precisos e facilitar comunicação.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.3.2 Persona: Médico (Dr. João)</strong></p>
+<ul>
+<li><em>Funcionalidade:</em> Prontuário Eletrônico do Paciente (PEP) e Suporte à Decisão Clínica.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Código US</th>
+<th>Título</th>
+<th>História de Usuário</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US 1.2</td>
+<td>Consultar histórico de paciente</td>
+<td>Como Médico, quero acessar o histórico completo do paciente de todas as unidades da HealthNet, para ter informações relevantes e tomar decisões clínicas mais assertivas.</td>
+</tr>
+<tr>
+<td>US 1.4</td>
+<td>Visualizar prontuário eletrônico completo</td>
+<td>Como Médico, quero visualizar de forma centralizada todos os dados clínicos do paciente — exames, tratamentos — para compreender o quadro clínico completo e embasar diagnóstico e tratamento.</td>
+</tr>
+<tr>
+<td>US 1.5</td>
+<td>Registrar notas médicas e evoluções no prontuário</td>
+<td>Como Médico, quero inserir notas de atendimento e evoluções clínicas diretamente no PEP, para manter registro atualizado e detalhado de cada consulta.</td>
+</tr>
+<tr>
+<td>US 1.12</td>
+<td>Gerar prescrição eletrônica</td>
+<td>Como Médico, quero criar prescrições digitais padronizadas e seguras, para reduzir erros de legibilidade e garantir integridade da informação.</td>
+</tr>
+<tr>
+<td>US 1.13</td>
+<td>Gerar alerta de alergias</td>
+<td>Como Médico, quero receber alertas automáticos sobre alergias conhecidas do paciente durante prescrição, para evitar reações adversas.</td>
+</tr>
+<tr>
+<td>US 1.14</td>
+<td>Gerar alerta de interações medicamentosas</td>
+<td>Como Médico, quero prescrever medicamentos com segurança, para evitar interações medicamentosas e prevenir complicações nos pacientes.</td>
+</tr>
+<tr>
+<td>US 1.22</td>
+<td>Transferir paciente entre unidades</td>
+<td>Como Médico, quero transferir pacientes entre departamentos/unidades eletronicamente, para agilizar fluxo de atendimento e eliminar documentos físicos.</td>
+</tr>
+<tr>
+<td>US 1.23</td>
+<td>Encaminhar paciente a especialista</td>
+<td>Como Médico, quero encaminhar pacientes a outros especialistas de forma digital, para garantir continuidade do cuidado e acesso a expertise.</td>
+</tr>
+<tr>
+<td>US 1.24</td>
+<td>Compartilhar informações entre equipes médicas</td>
+<td>Como Médico, quero compartilhar informações relevantes do paciente com equipes médicas de forma segura e eficiente, para atendimento coordenado.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.3.3 Persona: Coordenador de Agendamento (Rafael)</strong></p>
+<ul>
+<li><em>Funcionalidade:</em> Sistema Integrado de Agendamento.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Código US</th>
+<th>Título</th>
+<th>História de Usuário</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US 1.7</td>
+<td>Visualizar disponibilidade de médicos</td>
+<td>Como Coordenador, quero visualizar agendas de todos os profissionais de saúde de modo integrado, para facilitar agendamento e otimizar distribuição de consultas.</td>
+</tr>
+<tr>
+<td>US 1.9</td>
+<td>Remarcar consultas</td>
+<td>Como Coordenador, quero reagendar consultas de pacientes de forma ágil, para acomodar necessidades dos pacientes e otimizar agenda dos médicos.</td>
+</tr>
+<tr>
+<td>US 1.10</td>
+<td>Cancelar consultas</td>
+<td>Como Coordenador, quero cancelar consultas de pacientes de forma simples, para liberar horários e gerenciar agenda com eficiência.</td>
+</tr>
+<tr>
+<td>US 1.11</td>
+<td>Reduzir faltas por meio de lembretes de consulta</td>
+<td>Como Coordenador, quero reduzir as faltas em consultas agendadas, para melhorar a experiência dos pacientes e otimizar a agenda da equipe médica.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.3.4 Persona: Paciente (Sra. Clara)</strong></p>
+<ul>
+<li><em>Funcionalidade:</em> Portal do Paciente.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Código US</th>
+<th>Título</th>
+<th>História de Usuário</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US 1.8</td>
+<td>Agendar consultas online</td>
+<td>Como Paciente, quero agendar minhas consultas através do portal, para ter autonomia e conveniência no gerenciamento dos horários.</td>
+</tr>
+<tr>
+<td>US 1.18</td>
+<td>Acessar histórico médico pessoal (portal)</td>
+<td>Como Paciente, quero acessar histórico médico completo no portal, para acompanhar minha saúde e controlar minhas informações.</td>
+</tr>
+<tr>
+<td>US 1.19</td>
+<td>Visualizar resultados de exames (portal)</td>
+<td>Como Paciente, quero acessar e baixar resultados de exames diretamente do portal, para ter acesso rápido aos laudos.</td>
+</tr>
+<tr>
+<td>US 1.20</td>
+<td>Receber lembretes de medicação</td>
+<td>Como Paciente, quero receber lembretes de medicação por portal/notificações, para seguir corretamente o tratamento.</td>
+</tr>
+<tr>
+<td>US 1.21</td>
+<td>Gerenciar dados pessoais (portal)</td>
+<td>Como Paciente, quero atualizar meus dados básicos e de contato no portal, para manter informações corretas e facilitar comunicação com a clínica.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.3.5 Persona: Farmacêutica (Lívia)</strong></p>
+<ul>
+<li><em>Funcionalidade:</em> Módulo de Prescrição e Dispensação.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Código US</th>
+<th>Título</th>
+<th>História de Usuário</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US 1.15</td>
+<td>Receber prescrições na farmácia</td>
+<td>Como Farmacêutica, quero receber prescrições eletrônicas diretamente no sistema da farmácia, para agilizar dispensação e reduzir erros.</td>
+</tr>
+<tr>
+<td>US 1.16</td>
+<td>Registrar dispensação de medicamentos</td>
+<td>Como Farmacêutica, quero registrar quais medicamentos foram dispensados ao paciente, para controlar estoque e histórico de medicação.</td>
+</tr>
+<tr>
+<td>US 1.17</td>
+<td>Acessar informações detalhadas de medicamentos</td>
+<td>Como Farmacêutica, quero acessar informações detalhadas (bula, composição, posologia, efeitos, interações), para orientar pacientes e verificar segurança.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.3.6 Persona: Diretor de Tecnologia (Sr. Roberto)</strong></p>
+<ul>
+<li><em>Funcionalidade:</em> Segurança e Monitoramento de Sistema.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Código US</th>
+<th>Título</th>
+<th>História de Usuário</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US 1.6</td>
+<td>Garantir segurança e privacidade de dados</td>
+<td>Como Diretor de Tecnologia, quero assegurar a proteção dos dados sensíveis da instituição, para evitar vazamentos, garantir conformidade com a LGPD e proteger a reputação da organização.</td>
+</tr>
+<tr>
+<td>US 1.25</td>
+<td>Coletar dados automaticamente para relatórios</td>
+<td>Como Diretor de Tecnologia, eu quero acessar relatórios completos e atualizados com dados de diferentes fontes, para tomar decisões estratégicas com base em informações confiáveis e sem depender de coleta manual.</td>
+</tr>
+<tr>
+<td>US 1.26</td>
+<td>Monitorar o desempenho do sistema</td>
+<td>Como Diretor de Tecnologia, quero acompanhar o desempenho e a estabilidade do sistema em tempo real, para identificar e resolver problemas.</td>
+</tr>
+<tr>
+<td>US 1.27</td>
+<td>Monitorar a segurança do sistema</td>
+<td>Como Diretor de Tecnologia, quero acompanhar continuamente a segurança dos dados e da infraestrutura, para detectar ameaças cibernéticas e agir rapidamente para evitar vazamentos ou danos.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="14-criterios-de-aceitacao-das-historias-de-usuarios">1.4. Critérios de Aceitação das Histórias de Usuários</h2>
+<p><strong>PBI 1.1: Realizar Cadastro de Novo Paciente</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Recepcionista</strong>, eu quero <strong>cadastrar um novo paciente</strong>, para <strong>agilizar o atendimento e reduzir o tempo de espera na recepção</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Registrar nome completo, CPF, data de nascimento, telefone, e-mail e endereço.</li>
+<li>Validar CPF único para cada paciente, impedindo duplicatas no sistema.</li>
+<li>Exibir campos obrigatórios com indicação visual clara(ex: asterisco vermelho).</li>
+<li>Confirmar cadastro bem-sucedido com mensagem de feedback ao usuário.</li>
+<li>Permitir busca do paciente cadastrado por nome ou cpf após o cadastro.</li>
+<li>Em caso de erro, exibir mensagens claras explicando o problema (ex: CPF inválido).</li>
+</ul>
+<hr />
+<p><strong>PBI 1.2: Consultar Histórico Completo do Paciente (Todas as Unidades)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>acessar o histórico médico completo do paciente de qualquer unidade da HealthNet</strong>, para <strong>ter todas as informações relevantes durante a consulta e tomar decisões clínicas mais assertivas</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Exibir histórico unificado de todas as unidades. As informações exibidas para cada item do histórico devem incluir: data, tipo de registro (consulta, exame, prescrição, evolução), nome do profissional e a unidade de atendimento.</li>
+<li>Incluir consultas anteriores (data, hora, nome do médico, especialidade, motivo), exames (nome do exame, data da realização, laboratório, médico solicitante e um link clicável para o laudo completo em pdf), prescrições (data, nome do medicamento, dosagem, frequência, duração e nome do médico) e evoluções (data, hora, nome do médico e texto completo com a evolução clínica).</li>
+<li>Permitir filtro por data, unidade ou tipo de registro.</li>
+<li>Garantir acesso seguro e rápido, exigindo autenticação prévia do médico (login e senha), somente médicos com permissão podem vizualizar o histórico.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.3: Atualizar Informações do Paciente</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Recepcionista</strong>, eu quero <strong>atualizar informações cadastrais e de contato do paciente de forma eficiente</strong>, para <strong>garantir dados precisos e facilitar a comunicação</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir alteração de nome, CPF, data de nascimento, telefone, e-mail e endereço.</li>
+<li>Validar formatos de e-mail e telefone. Se o formato for inválido, uma mensagem de erro clara deve ser exibida ao lado do campo, impedindo a atualização.</li>
+<li>Confirmar atualização bem-sucedida com uma mensagem de confirmação e permanecer na tela de edição com os dados atualizados.</li>
+<li>Manter histórico de alterações (opcional).</li>
+</ul>
+<hr />
+<p><strong>PBI 1.4: Visualizar Prontuário Eletrônico Completo (Exames, Tratamentos)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>visualizar de forma centralizada todos os dados clínicos do paciente, incluindo exames e tratamentos anteriores</strong>, para <strong>compreender o quadro clínico completo e embasar o diagnóstico e tratamento</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Exibir lista de exames realizados, incluindo nome do exame, data da realização, laboratório, médico solicitante e um link clicável para o laudo completo em pdf.</li>
+<li>Exibir alerta de alergias ao olhar o prontuário</li>
+<li>Exibir alerta de interações medicamentosas</li>
+<li>Detalhar tratamentos prescritos e em andamento com nome do medicamento, dosagem, via de administração, frequência, duração do tratamento, data de início/fim e nome do médico prescritor..</li>
+<li>Apresentar informações de forma organizada e legível, utilizando seções claras (ex: "Exames", "Tratamentos", "Histórico de Consultas"), fontes padronizadas e uso de negrito para títulos e informações chave.</li>
+<li>Permitir navegação fácil entre seções com abas no topo ou um menu lateral.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.5: Registrar Notas Médicas e Evoluções no Prontuário</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>inserir notas de atendimento e evoluções clínicas diretamente no Prontuário Eletrônico (PEP)</strong>, para <strong>manter o registro atualizado de cada consulta</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir adicionar novas notas de evolução.</li>
+<li>Registrar data, hora e identificação do médico automaticamente.</li>
+<li>Exibir notas cronologicamente na seção de evolução no prontuário.</li>
+<li>Permitir edição das notas (com controle de versão, se aplicável).</li>
+</ul>
+<hr />
+<p><strong>PBI 1.6: Garantir Segurança e Privacidade dos Dados do Paciente</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Diretor de Tecnologia (Sr. Roberto)</strong>, eu quero <strong>assegurar a segurança e a conformidade legal no tratamento dos dados dos pacientes</strong>, para <strong>proteger informações sensíveis e evitar vazamentos ou penalidades.</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Criptografar dados sensíveis.</li>
+<li>Implementar controle de acesso baseado em função (RBAC),  garantindo que as permissões de acesso aos dados sejam definidas por função .</li>
+<li>Auditar e registrar todas as ações de acesso e modificação de dados, incluindo: usuário, data e hora, tipo de ação (leitura, escrita, exclusão), IP de origem e os dados específicos afetados..</li>
+<li>Anonimizar/pseudonimizar dados para relatórios e análises (conforme LGPD), utilizando técnicas que impossibilitem a reidentificação direta do paciente sem acesso a uma chave de reversão controlada e segura..</li>
+<li>Fornecer mecanismos para exclusão de dados (direito ao esquecimento), após solicitação formal e verificação de não haver retenção legal obrigatória..</li>
+</ul>
+<hr />
+<p><strong>PBI 1.7: Visualizar Disponibilidade de Médicos e Especialistas (Unificado)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Coordenador de Agendamento (Rafael)</strong>, eu quero <strong>visualizar as agendas de todos os profissionais de saúde de forma integrada</strong>, para <strong>facilitar o agendamento e otimizar a distribuição de consultas</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Exibir calendário unificado com a disponibilidade de todos os médicos.</li>
+<li>Permitir filtrar por especialidade, unidade e período.</li>
+<li>Indicar claramente horários livres e ocupados.</li>
+<li>Permitir agendamento diretamente da visualização da agenda.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.8: Agendar Consultas Online para Pacientes (Portal do Paciente)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Paciente (Sra. Clara)</strong>, eu quero <strong>agendar minhas próprias consultas através do portal online</strong>, para <strong>ter autonomia e conveniência no gerenciamento dos meus horários</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir escolher especialidade, médico, data e horário disponíveis.</li>
+<li>Confirmar agendamento via notificação no e-mail ou SMS, contendo: data, hora, médico, especialidade e endereço da unidade.</li>
+<li>Exibir consulta agendada no painel do paciente mostrando: data, hora, nome do médico, especialidade e status ("Confirmada").</li>
+<li>Validar dados do paciente para agendamento e permitir o agendamento apenas para ele, garantindo que o paciente seja o titular do agendamento.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.9: Remarcar Consultas de Pacientes</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Coordenador de Agendamento (Rafael)</strong>, eu quero <strong>reagendar consultas de pacientes de forma ágil</strong>, para <strong>acomodar as necessidades dos pacientes e otimizar a agenda dos médicos</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir remarcar consulta existente para novo horário/data, exibindo a disponibilidade do médico.</li>
+<li>Atualizar agenda do médico automaticamente, liberando o horário antigo e ocupando o novo horário.</li>
+<li>Notificar paciente sobre a remarcação via e-mail e/ou SMS, com as informações da nova consulta (data, hora, médico, especialidade e local).</li>
+<li>Disponibilizar a função de remarcação para o paciente via portal, permitindo remarcar consultas com no mínimo 24 horas de antecedência em relação ao horário original..</li>
+</ul>
+<hr />
+<p><strong>PBI 1.10: Cancelar Consultas de Pacientes</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Coordenador de Agendamento (Rafael)</strong>, eu quero <strong>cancelar consultas de pacientes de forma simples</strong>, para <strong>liberar horários e gerenciar a agenda de forma eficiente</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir cancelar consulta existente (via busca por paciente ou lista de agendamentos) e cancelá-la. Uma janela de confirmação deve ser exibida antes do cancelamento efetivo.</li>
+<li>Remover consulta da agenda do médico e tornar o horário imediatamente disponível para outros agendamentos.</li>
+<li>Notificar paciente sobre o cancelamento via e-mail e/ou SMS.</li>
+<li>Disponibilizar a função de cancelamento para o paciente via portal.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.11: Enviar Notificações Automáticas de Lembrete de Consulta</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Coordenador de Agendamento (Rafael)</strong>, eu quero <strong>reduzir o número de faltas em consultas agendadas</strong>, para <strong>melhorar a experiência do paciente e otimizar a utilização dos horários disponíveis.</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Enviar lembrete X horas antes da consulta (configurável).</li>
+<li>Permitir configurar canal de notificação (SMS/e-mail/portal) em seu perfil.</li>
+<li>Incluir data, hora, médico e local na notificação.</li>
+<li>Atualizar status da notificação no sistema (ex: "Enviado", "Falha no Envio", "Lido") no registro da consulta no sistema..</li>
+</ul>
+<hr />
+<p><strong>PBI 1.12: Gerar Prescrição Eletrônica de Medicamentos</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>criar prescrições digitais de forma padronizada e segura</strong>, para <strong>reduzir erros de legibilidade e garantir a integridade da informação</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir selecionar medicamentos de um banco de dados integrado.</li>
+<li>Preencher dosagem, via, frequência e duração do tratamento.</li>
+<li>Gerar prescrição em formato legível e padronizado.</li>
+<li>Permitir assinatura digital da prescrição (se aplicável).</li>
+<li>Registrar prescrição no prontuário do paciente.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.13: Gerar Alerta Automático de Alergias ao Prescrever</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>receber alertas automáticos sobre alergias conhecidas do paciente durante o processo de prescrição</strong>, para <strong>evitar reações adversas e garantir a segurança do paciente</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Verificar histórico de alergias do paciente ao adicionar medicamento ao digitar ou selecionar um medicamento no campo de prescrição.</li>
+<li>Exibir alerta claro e imediato em caso de alergia.</li>
+<li>Exigir confirmação ou alteração da prescrição em caso de alerta.</li>
+<li>Registrar ação do médico após o alerta.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.14: Gerar Alerta Automático de Interações Medicamentosas ao Prescrever</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>prescrever medicamentos com segurança</strong>, para <strong>prevenir complicações e garantir a eficácia do tratamento dos pacientes</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Analisar interações entre novos medicamentos e os já prescritos/em uso pelo paciente, utilizando uma base de dados de interações medicamentosas.</li>
+<li>Exibir alerta de interação medicamentosa com nível de gravidade.</li>
+<li>Sugerir informações adicionais (ex: mecanismo da interação, possíveis efeitos adversos) e, quando possível, alternativas terapêuticas para o médico.</li>
+<li>Registrar a decisão do médico em relação à interação, incluindo: medicamentos envolvidos, interação detectada, nível de gravidade, decisão do médico e uma justificativa.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.15: Receber Prescrições Eletronicamente na Farmácia</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Farmacêutica (Lívia)</strong>, eu quero <strong>receber as prescrições médicas diretamente no sistema da farmácia</strong>, para <strong>agilizar o processo de dispensa e reduzir erros de transcrição</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Exibir prescrições eletrônicas em uma fila de atendimento.</li>
+<li>Apresentar todas as informações da prescrição de forma legível  e completa (medicamentos, dosagem, via, frequência, duração, dados do paciente e dados do médico).</li>
+<li>Permitir vincular a prescrição ao registro do paciente na farmácia, preferencialmente por busca de CPF ou nome do paciente..</li>
+<li>Atualizar status da prescrição para "recebida".</li>
+</ul>
+<hr />
+<p><strong>PBI 1.16: Registrar Dispensação de Medicamentos</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Farmacêutica (Lívia)</strong>, eu quero <strong>registrar quais medicamentos foram dispensados ao paciente</strong>, para <strong>ter um controle preciso do estoque e do histórico de medicação do paciente</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir registrar a quantidade dispensada de cada medicamento.</li>
+<li>Debitar automaticamente do estoque.</li>
+<li>Registrar data e hora da dispensa.</li>
+<li>Associar dispensa ao paciente e à prescrição.</li>
+<li>Gerar comprovante de dispensa.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.17: Acessar Informações Detalhadas de Medicamentos (Para Farmacêutico)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Farmacêutica (Lívia)</strong>, eu quero <strong>acessar informações detalhadas sobre cada medicamento no sistema</strong>, para <strong>orientar os pacientes, verificar a segurança e tomar decisões informadas</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Fornecer acesso a bula completa do medicamento integrada diretamente ao sistema ou por um link para uma base de dados oficial e atualizada.</li>
+<li>Incluir informações sobre composição, posologia, efeitos colaterais contraindicações e interações medicamentosas.</li>
+<li>Detalhar contraindicações e interações medicamentosas.</li>
+<li>Permitir busca rápida por nome do medicamento.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.18: Acessar Histórico Médico Pessoal (Via Portal)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Paciente (Sra. Clara)</strong>, eu quero <strong>acessar uma área segura no portal onde eu possa visualizar meu histórico médico completo</strong>, para <strong>acompanhar minha saúde e ter controle sobre minhas informações</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Exibir lista de consultas anteriores (data, médico, especialidade, unidade da consulta e o motivo).</li>
+<li>Apresentar resumo de diagnósticos e procedimentos,com as datas correspondentes. Este resumo deve ser alimentado pelos dados do prontuário eletrônico.</li>
+<li>Garantir acesso seguro por login e senha.</li>
+<li>Permitir filtrar o histórico por data (intervalo), tipo de registro (consulta, exames, etc.) e especialidade.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.19: Visualizar Resultados de Exames (Via Portal)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Paciente (Sra. Clara)</strong>, eu quero <strong>acessar e fazer download dos resultados de meus exames diretamente do portal</strong>, para <strong>ter acesso rápido aos meus laudos sem precisar ir à clínica</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Exibir lista de exames realizados,  incluindo: nome do exame, data da realização, laboratório e status (ex: "Disponível", "Processando").</li>
+<li>Permitir visualizar o laudo do exame no portal.</li>
+<li>Disponibilizar opção de download do laudo em PDF.</li>
+<li>Notificar paciente quando novo resultado estiver disponível via e-mail ou portal.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.20: Receber Lembretes de Medicação (Via Portal/Notificações)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Paciente (Sra. Clara)</strong>, eu quero <strong>receber lembretes de medicação através do portal ou outros canais</strong>, para <strong>garantir que eu siga o tratamento corretamente e não me esqueça de tomar meus remédios</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir configurar horário e frequência dos lembretes.</li>
+<li>Enviar notificações via portal, e-mail ou push (se configurado).</li>
+<li>Identificar o medicamento e a dosagem no lembrete.</li>
+<li>Permitir desativar os lembretes a qualquer momento.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.21: Gerenciar Dados Cadastrais Pessoais (Via Portal)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Paciente (Sra. Clara)</strong>, eu quero <strong>atualizar meus dados básicos e de contato no portal</strong>, para <strong>manter minhas informações sempre corretas e facilitar a comunicação com a clínica</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir edição de nome, telefone, e-mail e endereço, a alteração do cpf só poderá ser realizada exigindo contato com a recepção.</li>
+<li>Validar formato dos dados inseridos.</li>
+<li>Confirmar atualização bem-sucedida.</li>
+<li>Atualizar os dados com autenticação de login e senha para garantir a segurança das informações.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.22: Transferir Paciente entre Departamentos/Unidades (Eletrônico)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>transferir pacientes entre departamentos ou unidades da HealthNet de forma eletrônica</strong>, para <strong>agilizar o fluxo de atendimento e eliminar o transporte manual de documentos</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir selecionar o paciente e o departamento/unidade de destino.</li>
+<li>Transferir eletronicamente o prontuário completo,  garantindo que todas as informações clínicas (consultas, exames, prescrições, evoluções) estejam acessíveis no departamento/unidade de destino.</li>
+<li>Notificar a equipe do departamento/unidade de destino.</li>
+<li>Registrar a transferência no histórico do paciente.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.23: Encaminhar Paciente a Outro Especialista (Eletrônico)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>encaminhar pacientes a outros especialistas de forma digital</strong>, para <strong>garantir a continuidade do cuidado e facilitar o acesso a diferentes expertises</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir gerar encaminhamento digital através de um formulário específico no prontuário do paciente.</li>
+<li>Informar especialista, motivo e observações do encaminhamento.</li>
+<li>Notificar o especialista ou a equipe de agendamento.</li>
+<li>Registrar o encaminhamento no prontuário na seção de histórico de encaminhamentos, com a data, o especialista de destino e o motivo..</li>
+</ul>
+<hr />
+<p><strong>PBI 1.24: Compartilhar Informações do Paciente entre Equipes Médicas (Digitalmente)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>compartilhar informações relevantes do paciente com outras equipes médicas de forma segura e eficiente</strong>, para <strong>garantir uma visão holística e um atendimento coordenado</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Permitir selecionar partes do prontuário para compartilhamento.</li>
+<li>Definir permissões de acesso (ex: somente leitura).</li>
+<li>Notificar a equipe/profissional sobre o compartilhamento.</li>
+<li>Registrar log de quem acessou o que e quando.</li>
+<li>Garantir criptografia no compartilhamento de dados.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.25: Coletar Dados para Relatórios Automaticamente (de Múltiplos Sistemas)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Diretor de Tecnologia (Sr. Roberto)</strong>, eu quero <strong>dispor de relatórios completos e atualizados com dados consolidados de múltiplas fontes</strong>, para <strong>tomar decisões estratégicas baseadas em informações precisas e sem depender de coleta manual</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Integrar-se com todos os módulos do sistema (agendamento, financeiro, PEP).</li>
+<li>Coletar dados de forma automatizada e programada.</li>
+<li>Padronizar e consolidar os dados para relatórios.</li>
+<li>Garantir a integridade e consistência dos dados coletados, através de mecanismos de validação e conciliação com alertas em caso de inconsistências.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.26: Monitorar o Desempenho do Sistema</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Diretor de Tecnologia (Sr. Roberto)</strong>, eu quero <strong>acompanhar o desempenho e a estabilidade do sistema em tempo real,</strong> para <strong>identificar e resolver problemas que possam impactar os usuários</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Exibir métricas de desempenho em tempo real (CPU, memória, latência).</li>
+<li>Gerar alertas automáticos para desvios de performance.</li>
+<li>Apresentar gráficos e históricos de desempenho.</li>
+<li>Identificar gargalos e anomalias de forma clara.</li>
+</ul>
+<hr />
+<p><strong>PBI 1.27: Monitorar a Segurança do Sistema</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Diretor de Tecnologia (Sr. Roberto)</strong>, eu quero <strong>monitorar continuamente a segurança dos dados e da infraestrutura</strong>, para <strong>proteger a organização contra ameaças cibernéticas e vazamentos de informações sensíveis</strong>.</p>
+<p><strong>Critérios de Aceitação:</strong></p>
+<ul>
+<li>Monitorar tentativas de acesso não autorizado,  incluindo: tentativas de login falhas, acesso a recursos sem permissão.</li>
+<li>Detectar e alertar sobre atividades suspeitas ou anomalias.</li>
+<li>Registrar logs de segurança detalhados.</li>
+<li>Realizar varreduras de vulnerabilidade programadas.</li>
+<li>Alertar sobre configurações de segurança inadequadas.</li>
+</ul>
+<h2 id="15-behavior-driven-development-bdd-das-historias-de-usuarios">1.5. Behavior Driven Development (BDD) das Histórias de Usuários</h2>
+<p><strong>PBI 1.1: Realizar Cadastro de Novo Paciente</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Recepcionista</strong>, eu quero <strong>cadastrar um novo paciente de forma rápida e intuitiva</strong>, para <strong>agilizar o atendimento e reduzir o tempo de espera na recepção</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Cadastro bem-sucedido de um novo paciente</p>
+<p>Dado que a recepcionista <strong>(Maria)</strong> está na tela de cadastro de pacientes</p>
+<p>Quando ela preenche todos os campos obrigatórios (nome completo: João Silva Neto, CPF: 123.456.789-00, data de nascimento: 15/03/1980, telefone: (11) 98765-4321, e-mail: joao.silva@email.com, endereço: Rua A, 123, São Paulo)
+E clica em "Salvar"</p>
+<p>Então o sistema com sucesso registra todas as informações fornecidas do paciente </p>
+<p>E exibe uma mensagem de confirmação "Paciente cadastrado com sucesso"</p>
+<p>E a recepcionista pode visualizar o cadastro do paciente na lista de pacientes.</p>
+<p><strong>Cenário:</strong> Tentativa de cadastro com CPF duplicado</p>
+<p>Dado que a recepcionista <strong>(Maria)</strong> está na tela de cadastro de pacientes</p>
+<p>Quando ela tenta cadastrar um paciente com um CPF já existente no sistema (João Silva Neto, CPF: 123.456.789-00)</p>
+<p>Então o sistema impede o cadastro</p>
+<p>E exibe uma mensagem de erro indicando que o CPF já está em uso ("CPF já cadastrado").</p>
+<p><strong>Cenário:</strong> Campos obrigatórios não preenchidos</p>
+<p>Dado que a recepcionista <strong>(Maria)</strong> está na tela de cadastro de pacientes</p>
+<p>Quando ela tenta salvar o cadastro sem preencher todos os campos obrigatórios(nome completo, CPF, data de nascimento, telefone, e-mail, endereço) </p>
+<p>Então o sistema impede o cadastro</p>
+<p>E destaca os campos não preenchidos com uma mensagem de validação (ex: "Campo obrigatório").</p>
+<hr />
+<p><strong>PBI 1.2: Consultar Histórico Completo do Paciente</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>acessar o histórico médico completo do paciente de qualquer unidade da HealthNet</strong>, para <strong>ter todas as informações relevantes durante a consulta e tomar decisões clínicas mais assertivas</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Visualização do histórico completo do paciente</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> está logado e pesquisa um paciente</p>
+<p>Quando ele seleciona o paciente</p>
+<p>E clica em "Visualizar Histórico Completo"</p>
+<p>Então o sistema exibe um painel unificado com todas as consultas, exames, prescrições e evoluções de todas as unidades</p>
+<p>E o médico pode filtrar o histórico por data, unidade ou tipo de registro.</p>
+<p><strong>Cenário:</strong> Histórico vazio ou inexistente</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> acessa o histórico de um paciente recém-cadastrado ou sem registros</p>
+<p>Quando ele tenta visualizar o histórico</p>
+<p>Então o sistema exibe uma mensagem indicando que não há registros anteriores</p>
+<p>E oferece a opção de adicionar novas informações.</p>
+<hr />
+<p><strong>PBI 1.3: Atualizar Informações do Paciente</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Recepcionista</strong>, eu quero <strong>atualizar informações cadastrais e de contato do paciente de forma eficiente</strong>, para <strong>garantir dados precisos e facilitar a comunicação</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Atualização de dados cadastrais bem-sucedida</p>
+<p>Dado que a recepcionista <strong>(Maria)</strong> está na tela de edição do cadastro do paciente</p>
+<p>Quando ela modifica o telefone((11) 96666-3333) para ((11) 96868-2134)e o endereço(Rua J, 321, São Paulo) para (Rua Y, 456, São Paulo)</p>
+<p>E clica em "Salvar Alterações"</p>
+<p>Então o sistema salva as alterações com sucesso</p>
+<p>E uma mensagem de confirmação é exibida "Dados atualizados com sucesso"</p>
+<p>E o paciente aparece com as informações atualizadas na busca.</p>
+<p><strong>Cenário:</strong> Inconsistência na atualização de e-mail</p>
+<p>Dado que a recepcionista <strong>(Maria)</strong> está na tela de edição do cadastro de pacientes</p>
+<p>Quando ela tenta atualizar o e-mail do paciente inserindo um formato inválido (ex: "email@.com" ou sem "@")</p>
+<p>E clica em "Salvar Alterações"</p>
+<p>Então o sistema impede a atualização</p>
+<p>E exibe uma mensagem de erro "Formato de e-mail inválido".</p>
+<hr />
+<p><strong>PBI 1.4: Visualizar Prontuário Eletrônico Completo (Exames, Tratamentos)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>visualizar de forma centralizada todos os dados clínicos do paciente, incluindo exames e tratamentos anteriores</strong>, para <strong>compreender o quadro clínico completo e embasar o diagnóstico e tratamento</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Acesso ao prontuário com exames e tratamentos</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> acessa o prontuário de um paciente</p>
+<p>Quando ele navega para as seções de "Exames" e "Tratamentos"</p>
+<p>Então o sistema exibe a lista de exames realizados com seus resultados (incluindo laudos e imagens, se disponíveis)</p>
+<p>E exibe os tratamentos prescritos e em andamento com detalhes de dosagem e duração.</p>
+<p><strong>Cenário:</strong> Exames ou tratamentos ausentes</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> acessa o prontuário de um paciente sem exames ou tratamentos anteriores</p>
+<p>Quando ele navega para as seções de "Exames" ou "Tratamentos"</p>
+<p>Então o sistema exibe uma mensagem indicando a ausência de registros</p>
+<p>E não há informações desnecessárias exibidas.</p>
+<hr />
+<p><strong>PBI 1.5: Registrar Notas Médicas e Evoluções no Prontuário</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>inserir notas de atendimento e evoluções clínicas diretamente no Prontuário Eletrônico (PEP)</strong>, para <strong>manter o registro atualizado e detalhado de cada consulta</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Registro de nota médica bem-sucedido</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> finaliza uma consulta</p>
+<p>Quando ele acessa a área de "Notas e Evoluções" no prontuário do paciente</p>
+<p>E digita o resumo do atendimento e observações relevantes</p>
+<p>E clica em "Salvar Nota"</p>
+<p>Então o sistema salva a nota com data, hora e identificação do médico</p>
+<p>E a nota fica visível no histórico de evoluções, ordenada cronologicamente.</p>
+<p><strong>Cenário:</strong> Tentativa de salvar nota vazia</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> está na área de "Notas e Evoluções"</p>
+<p>Quando ele tenta salvar uma nota sem conteúdo</p>
+<p>Então o sistema impede o salvamento</p>
+<p>E exibe uma mensagem de erro "A nota não pode estar vazia".</p>
+<hr />
+<p><strong>PBI 1.6: Garantir Segurança e Privacidade dos Dados do Paciente</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Diretor de Tecnologia (Sr. Roberto)</strong>, eu quero <strong>que o sistema implemente medidas de segurança robustas e garanta a conformidade com regulamentações de proteção de dados (LGPD)</strong>, para <strong>proteger as informações sensíveis dos pacientes e evitar multas ou vazamentos</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Tentativa de acesso não autorizado bloqueada</p>
+<p>Dado que um usuário não autenticado tenta acessar dados de pacientes</p>
+<p>Quando ele tenta realizar a ação de acesso (ex: via URL direta)</p>
+<p>Então o sistema impede o acesso</p>
+<p>E redireciona para a tela de login ou exibe uma mensagem de "Acesso negado"</p>
+<p>E registra a tentativa nos logs de segurança.</p>
+<p><strong>Cenário:</strong> Conformidade com LGPD na exportação de dados</p>
+<p>Dado que uma requisição de dados de paciente é feita (conforme direito de acesso da LGPD)</p>
+<p>Quando o sistema exporta os dados solicitados</p>
+<p>Então os dados são criptografados ou pseudonimizados antes da exportação</p>
+<p>E o acesso a esses dados e a exportação são logados para fins de auditoria.</p>
+<p><strong>Cenário:</strong> Dados sensíveis criptografados no banco de dados</p>
+<p>Dado que informações sensíveis de pacientes (ex: CPF, dados de saúde) são armazenadas</p>
+<p>Quando o sistema armazena esses dados no banco de dados</p>
+<p>Então os dados são armazenados em formato criptografado</p>
+<p>E apenas usuários autorizados podem acessá-los em formato legível.</p>
+<hr />
+<p><strong>PBI 1.7: Visualizar Disponibilidade de Médicos e Especialistas (Unificado)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Coordenador de Agendamento (Rafael)</strong>, eu quero <strong>visualizar as agendas de todos os profissionais de saúde de forma integrada</strong>, para <strong>facilitar o agendamento e otimizar a distribuição de consultas</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Visualização unificada da agenda</p>
+<p>Dado que o coordenador de agendamento <strong>(Rafael)</strong> acessa a tela de agendamento</p>
+<p>Quando ele seleciona uma especialidade e uma data</p>
+<p>Então o sistema exibe a disponibilidade de todos os médicos daquela especialidade nas diferentes unidades em um único painel</p>
+<p>E os horários ocupados são claramente marcados, indicando o tipo de compromisso (consulta, cirurgia, etc.).</p>
+<p><strong>Cenário:</strong> Filtragem da agenda por múltiplos critérios</p>
+<p>Dado que o coordenador de agendamento <strong>(Rafael)</strong> está na tela de agendamento</p>
+<p>Quando ele aplica filtros por médico específico, unidade e período de tempo</p>
+<p>Então o sistema exibe a agenda filtrada, mostrando apenas a disponibilidade relevante</p>
+<p>E a performance da busca não é impactada negativamente.</p>
+<hr />
+<p><strong>PBI 1.8: Agendar Consultas Online para Pacientes (Portal do Paciente)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Paciente (Sra. Clara)</strong>, eu quero <strong>agendar minhas próprias consultas através do portal online</strong>, para <strong>ter autonomia e conveniência no gerenciamento dos meus horários</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Agendamento de consulta online bem-sucedido</p>
+<p>Dado que a paciente <strong>(Clara)</strong> está logada no portal do paciente</p>
+<p>Quando ela seleciona uma especialidade, médico, data e horário disponíveis</p>
+<p>E confirma o agendamento</p>
+<p>Então o sistema registra a consulta na agenda do médico</p>
+<p>E envia uma confirmação de agendamento para o e-mail ou SMS da paciente</p>
+<p>E a consulta aparece no painel de "Minhas Consultas" no portal.</p>
+<p><strong>Cenário:</strong> Tentativa de agendar em horário indisponível</p>
+<p>Dado que a paciente <strong>(Clara)</strong> está no portal de agendamento</p>
+<p>Quando ela tenta selecionar um horário que já foi ocupado ou bloqueado</p>
+<p>Então o sistema não permite a seleção do horário</p>
+<p>E exibe uma mensagem indicando que o horário não está mais disponível.</p>
+<hr />
+<p><strong>PBI 1.9: Remarcar Consultas de Pacientes</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Coordenador de Agendamento (Rafael)</strong>, eu quero <strong>reagendar consultas de pacientes de forma ágil</strong>, para <strong>acomodar as necessidades dos pacientes e otimizar a agenda dos médicos</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Remarcação de consulta pela equipe bem-sucedida</p>
+<p>Dado que o coordenador de agendamento <strong>(Rafael)</strong> seleciona uma consulta existente no sistema</p>
+<p>Quando ele escolhe um novo horário disponível para a mesma consulta</p>
+<p>E confirma a remarcação</p>
+<p>Então o sistema atualiza a agenda do médico com o novo horário e libera o anterior</p>
+<p>E notifica o paciente sobre a mudança por e-mail ou SMS.</p>
+<p><strong>Cenário:</strong> Paciente remarca a consulta via portal</p>
+<p>Dado que a paciente <strong>(Clara)</strong> está logada no portal e visualiza uma consulta futura</p>
+<p>Quando ela clica em "Remarcar" na sua consulta</p>
+<p>E seleciona um novo horário disponível</p>
+<p>E confirma a remarcação</p>
+<p>Então o sistema atualiza a agenda do médico</p>
+<p>E envia uma notificação de confirmação para a paciente.</p>
+<hr />
+<p><strong>PBI 1.10: Cancelar Consultas de Pacientes</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Coordenador de Agendamento (Rafael)</strong>, eu quero <strong>cancelar consultas de pacientes de forma simples</strong>, para <strong>liberar horários e gerenciar a agenda de forma eficiente</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Cancelamento de consulta pela equipe</p>
+<p>Dado que o coordenador de agendamento <strong>(Rafael)</strong> seleciona uma consulta para cancelamento no sistema</p>
+<p>Quando ele confirma o cancelamento</p>
+<p>Então o sistema remove a consulta da agenda do médico</p>
+<p>E libera o horário para novos agendamentos</p>
+<p>E envia uma notificação de cancelamento para o paciente por e-mail ou SMS.</p>
+<p><strong>Cenário:</strong> Paciente cancela a consulta via portal</p>
+<p>Dado que a paciente <strong>(Clara)</strong> está logada no portal e visualiza uma consulta futura</p>
+<p>Quando ela clica em "Cancelar" na sua consulta</p>
+<p>E confirma a ação</p>
+<p>Então o sistema remove a consulta da agenda do médico</p>
+<p>E envia uma notificação de cancelamento para a paciente.</p>
+<hr />
+<p><strong>PBI 1.11: Enviar Notificações Automáticas de Lembrete de Consulta</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Coordenador de Agendamento (Rafael)</strong>, eu quero <strong>que o sistema envie lembretes automáticos de consultas por SMS, e-mail ou via portal do paciente</strong>, para <strong>reduzir o número de faltas e melhorar a experiência do paciente</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Envio de lembrete por SMS/e-mail</p>
+<p>Dado que uma consulta está agendada para acontecer nas próximas 24 horas (ou período configurável)</p>
+<p>Quando o sistema executa o processo de envio de lembretes automáticos</p>
+<p>Então um SMS/e-mail é enviado ao paciente (conforme preferência)</p>
+<p>E a notificação inclui os detalhes da consulta (data, hora, médico, local).</p>
+<p><strong>Cenário:</strong> Lembrete visível no portal do paciente</p>
+<p>Dado que a paciente <strong>(Clara)</strong> tem uma consulta agendada</p>
+<p>Quando ela acessa o portal do paciente</p>
+<p>Então um lembrete da próxima consulta é exibido no painel principal ou em uma seção de notificações dedicada</p>
+<p>E a paciente pode confirmar o recebimento do lembrete.</p>
+<hr />
+<p><strong>PBI 1.12: Gerar Prescrição Eletrônica de Medicamentos</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>criar prescrições digitais de forma padronizada e segura</strong>, para <strong>reduzir erros de legibilidade e garantir a integridade da informação</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Geração de prescrição eletrônica bem-sucedida</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> está na tela de prescrição de um paciente</p>
+<p>Quando ele seleciona os medicamentos de um banco de dados</p>
+<p>E preenche a dosagem, via de administração, frequência e duração do tratamento</p>
+<p>E clica em "Gerar Prescrição"</p>
+<p>Então o sistema gera uma prescrição eletrônica com todas as informações padronizadas</p>
+<p>E a prescrição é salva no prontuário do paciente</p>
+<p>E está disponível para a farmácia.</p>
+<p><strong>Cenário:</strong> Prescrição com medicamento inválido/inexistente</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> está na tela de prescrição</p>
+<p>Quando ele tenta prescrever um medicamento que não existe no banco de dados do sistema</p>
+<p>Então o sistema impede a seleção do medicamento</p>
+<p>E exibe uma mensagem de erro "Medicamento não encontrado ou inválido".</p>
+<hr />
+<p><strong>PBI 1.13: Gerar Alerta Automático de Alergias ao Prescrever</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>receber alertas automáticos sobre alergias conhecidas do paciente durante o processo de prescrição</strong>, para <strong>evitar reações adversas e garantir a segurança do paciente</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Alerta de alergia ao adicionar medicamento</p>
+<p>Dado que o histórico do paciente registra uma alergia (ex: à Penicilina)</p>
+<p>Quando o médico tenta prescrever um medicamento que contém Penicilina ou um de seus derivados</p>
+<p>Então o sistema exibe um alerta pop-up "ATENÇÃO: Paciente alérgico a este componente!"</p>
+<p>E o médico precisa confirmar a ação ou escolher outra medicação.</p>
+<p><strong>Cenário:</strong> Paciente sem alergias registradas</p>
+<p>Dado que o histórico do paciente não registra nenhuma alergia</p>
+<p>Quando o médico prescreve um medicamento</p>
+<p>Então o sistema não exibe alertas de alergia</p>
+<p>E a prescrição prossegue normalmente.</p>
+<hr />
+<p><strong>PBI 1.14: Gerar Alerta Automático de Interações Medicamentosas ao Prescrever</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>que o sistema verifique automaticamente interações entre medicamentos prescritos</strong>, para <strong>prevenir complicações e garantir a eficácia do tratamento</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Alerta de interação medicamentosa relevante</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> está prescrevendo um novo medicamento</p>
+<p>Quando este medicamento possui uma interação clinicamente relevante com outro já prescrito ou em uso pelo paciente (registrado no histórico)</p>
+<p>Então o sistema exibe um alerta de interação (ex: "Risco de interação grave com [Medicamento X]")</p>
+<p>E sugere informações sobre a interação ou alternativas para o médico.</p>
+<p><strong>Cenário:</strong> Nenhuma interação medicamentosa detectada</p>
+<p>Dado que o médico <strong>(Dr. joão)</strong> está prescrevendo um medicamento</p>
+<p>Quando não há interações conhecidas com outros medicamentos no histórico do paciente ou na prescrição atual</p>
+<p>Então o sistema não exibe alertas de interação</p>
+<p>E a prescrição prossegue normalmente.</p>
+<hr />
+<p><strong>PBI 1.15: Receber Prescrições Eletronicamente na Farmácia</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Farmacêutica (Lívia)</strong>, eu quero <strong>receber as prescrições médicas diretamente no sistema da farmácia</strong>, para <strong>agilizar o processo de dispensa e reduzir erros de transcrição</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Recebimento e visualização de prescrição eletrônica</p>
+<p>Dado que uma prescrição eletrônica foi gerada por um médico</p>
+<p>Quando a farmacêutica <strong>(Lívia)</strong> acessa o módulo de "Prescrições Pendentes" na farmácia</p>
+<p>Então a prescrição é exibida no sistema em formato legível e completo</p>
+<p>E a farmacêutica <strong>(Lívia)</strong> pode vincular a prescrição ao registro do paciente</p>
+<p>E o status da prescrição é atualizado para "recebida".</p>
+<p><strong>Cenário:</strong> Prescrição não encontrada</p>
+<p>Dado que a farmacêutica <strong>(Lívia)</strong> tenta buscar uma prescrição eletrônica específica</p>
+<p>Quando a prescrição não foi gerada ou não existe no sistema</p>
+<p>Então o sistema exibe uma mensagem "Prescrição não encontrada"</p>
+<p>E não exibe dados de prescrição.</p>
+<hr />
+<p><strong>PBI 1.16: Registrar Dispensação de Medicamentos</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Farmacêutica (Lívia)</strong>, eu quero <strong>registrar quais medicamentos foram dispensados ao paciente</strong>, para <strong>ter um controle preciso do estoque e do histórico de medicação do paciente</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Registro bem-sucedido da dispensa de medicamento</p>
+<p>Dado que a farmacêutica <strong>(Lívia)</strong> está dispensando medicamentos com base em uma prescrição válida</p>
+<p>Quando ela seleciona os medicamentos e as quantidades a serem dispensadas</p>
+<p>E confirma a ação de dispensa</p>
+<p>Então o sistema debita os medicamentos do estoque</p>
+<p>E registra a data, quantidade e identificação da farmacêutica no histórico de dispensa do paciente</p>
+<p>E gera um comprovante de dispensa para o paciente.</p>
+<p><strong>Cenário:</strong> Tentativa de dispensar medicamento sem estoque</p>
+<p>Dado que a farmacêutica <strong>(Lívia)</strong> tenta dispensar um medicamento</p>
+<p>Quando a quantidade solicitada excede o estoque disponível</p>
+<p>Então o sistema impede a dispensa</p>
+<p>E exibe um alerta "Estoque insuficiente para [Nome do Medicamento]".</p>
+<hr />
+<p><strong>PBI 1.17: Acessar Informações Detalhadas de Medicamentos (Para Farmacêutico)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Farmacêutica (Lívia)</strong>, eu quero <strong>acessar informações detalhadas sobre cada medicamento no sistema</strong>, para <strong>orientar os pacientes, verificar a segurança e tomar decisões informadas</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Consulta de informações detalhadas de medicamento</p>
+<p>Dado que a farmacêutica <strong>(Lívia)</strong> pesquisa por um medicamento no sistema</p>
+<p>Quando ela seleciona o medicamento nos resultados da busca</p>
+<p>Então o sistema exibe informações como bula completa, composição, posologia</p>
+<p>E apresenta efeitos colaterais, contraindicações e interações medicamentosas.</p>
+<p><strong>Cenário:</strong> Medicamento não encontrado no banco de dados</p>
+<p>Dado que a farmacêutica <strong>(Lívia)</strong> pesquisa por um medicamento inexistente ou com nome incorreto</p>
+<p>Quando ela realiza a busca</p>
+<p>Então o sistema exibe uma mensagem "Medicamento não encontrado"</p>
+<p>E sugere opções de busca ou verificação do nome.</p>
+<hr />
+<p><strong>PBI 1.18: Acessar Histórico Médico Pessoal (Via Portal)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Paciente (Sra. Clara)</strong>, eu quero <strong>acessar uma área segura no portal onde eu possa visualizar meu histórico médico completo</strong>, para <strong>acompanhar minha saúde e ter controle sobre minhas informações</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Visualização do histórico de consultas e exames</p>
+<p>Dado que a paciente <strong>(Clara)</strong> está logada no portal do paciente</p>
+<p>Quando ela clica na seção "Meu Histórico Médico"</p>
+<p>Então o sistema exibe um resumo das suas consultas anteriores (data, médico, especialidade, motivo)</p>
+<p>E uma lista de exames realizados com link para resultados.</p>
+<p><strong>Cenário:</strong> Histórico médico vazio</p>
+<p>Dado que a paciente <strong>(Clara)</strong> está logada no portal e é recém-cadastrada ou não tem histórico</p>
+<p>Quando ela acessa a seção "Meu Histórico Médico"</p>
+<p>Então o sistema exibe uma mensagem "Seu histórico médico está vazio. Agende sua primeira consulta!"</p>
+<p>E não exibe informações incorretas.</p>
+<hr />
+<p><strong>PBI 1.19: Visualizar Resultados de Exames (Via Portal)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Paciente (Sra. Clara)</strong>, eu quero <strong>acessar e fazer download dos resultados de meus exames diretamente do portal</strong>, para <strong>ter acesso rápido aos meus laudos sem precisar ir à clínica</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Download de resultado de exame disponível</p>
+<p>Dado que a paciente <strong>(Clara)</strong> está logada no portal e um novo resultado de exame está disponível (ex: resultado de hemograma)</p>
+<p>Quando ela clica no exame desejado na lista de resultados</p>
+<p>Então o sistema permite a visualização do laudo diretamente na tela</p>
+<p>E oferece a opção de download em formato PDF ou similar.</p>
+<p><strong>Cenário:</strong> Exame ainda em processamento</p>
+<p>Dado que a paciente <strong>(Clara)</strong> acessa o portal e um exame foi recentemente coletado, mas o resultado ainda não está pronto</p>
+<p>Quando ela verifica a seção de "Resultados de Exames"</p>
+<p>Então o sistema exibe o status do exame como "Em processamento" ou "Aguardando Resultado"</p>
+<p>E não permite o acesso ao laudo.</p>
+<hr />
+<p><strong>PBI 1.20: Receber Lembretes de Medicação (Via Portal/Notificações)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Paciente (Sra. Clara)</strong>, eu quero <strong>receber lembretes de medicação através do portal ou outros canais</strong>, para <strong>garantir que eu siga o tratamento corretamente e não me esqueça de tomar meus remédios</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Configuração e recebimento de lembrete de medicação</p>
+<p>Dado que a paciente <strong>(Clara)</strong> está logada no portal</p>
+<p>Quando ela acessa a seção de "Medicamentos"</p>
+<p>E configura um lembrete para um medicamento específico (nome, dosagem, horário, frequência)</p>
+<p>Então o sistema registra a configuração do lembrete</p>
+<p>E envia notificações (no portal, e-mail ou push notification, conforme configurado) nos horários definidos.</p>
+<p><strong>Cenário:</strong> Lembrete ignorado/desativado</p>
+<p>Dado que a paciente <strong>(Clara)</strong> recebe um lembrete de medicação</p>
+<p>Quando ela clica em "Marcar como tomado" ou "Desativar lembrete"</p>
+<p>Então o sistema atualiza o status do lembrete</p>
+<p>E para de enviar notificações para aquela dose ou medicamento, conforme a ação.</p>
+<hr />
+<p><strong>PBI 1.21: Gerenciar Dados Cadastrais Pessoais (Via Portal)</strong></p>
+<p><strong>História de Usuário:</strong> Como uma <strong>Paciente (Sra. Clara)</strong>, eu quero <strong>atualizar meus dados básicos e de contato no portal</strong>, para <strong>manter minhas informações sempre corretas e facilitar a comunicação com a clínica</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Edição de dados pessoais bem-sucedida</p>
+<p>Dado que a paciente <strong>(Clara)</strong> está logada no portal</p>
+<p>Quando ela acessa a seção "Meus Dados Cadastrais"</p>
+<p>E altera seu telefone ou e-mail</p>
+<p>E clica em "Salvar Alterações"</p>
+<p>Então o sistema salva as alterações com sucesso</p>
+<p>E exibe uma mensagem de sucesso "Dados atualizados"</p>
+<p>E as informações são refletidas em seu cadastro.</p>
+<p><strong>Cenário:</strong> Tentativa de salvar dados inválidos</p>
+<p>Dado que a paciente <strong>(Clara)</strong> está na seção "Meus Dados Cadastrais"</p>
+<p>Quando ela tenta salvar um número de telefone com formato inválido (ex: menos de 8 dígitos)</p>
+<p>Então o sistema impede o salvamento</p>
+<p>E exibe uma mensagem de erro "Formato de telefone inválido".</p>
+<hr />
+<p><strong>PBI 1.22: Transferir Paciente entre Departamentos/Unidades (Eletrônico)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>transferir pacientes entre departamentos ou unidades da HealthNet de forma eletrônica</strong>, para <strong>agilizar o fluxo de atendimento e eliminar o transporte manual de documentos</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Transferência eletrônica bem-sucedida de paciente</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> finaliza o atendimento em um departamento/unidade</p>
+<p>Quando ele seleciona a opção "Transferir Paciente" no prontuário</p>
+<p>E escolhe o departamento/unidade de destino</p>
+<p>E confirma a transferência</p>
+<p>Então o sistema move o registro do paciente para o fluxo do novo departamento/unidade</p>
+<p>E a equipe de destino é notificada sobre a chegada do paciente com seu prontuário digital.</p>
+<p><strong>Cenário:</strong> Tentativa de transferência para departamento inexistente</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> tenta transferir um paciente</p>
+<p>Quando ele seleciona um departamento ou unidade que não está cadastrado no sistema</p>
+<p>Então o sistema impede a seleção</p>
+<p>E exibe uma mensagem de erro "Departamento/Unidade de destino inválida".</p>
+<hr />
+<p><strong>PBI 1.23: Encaminhar Paciente a Outro Especialista (Eletrônico)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>encaminhar pacientes a outros especialistas de forma digital</strong>, para <strong>garantir a continuidade do cuidado e facilitar o acesso a diferentes expertises</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Encaminhamento eletrônico a especialista bem-sucedido</p>
+<p>Dado que o médico <strong>(Dr. João)</strong> identifica a necessidade de encaminhamento para outra especialidade</p>
+<p>Quando ele acessa a função "Encaminhar Paciente" no prontuário</p>
+<p>E preenche os dados do encaminhamento (especialidade, motivo, observações relevantes)</p>
+<p>E envia</p>
+<p>Então o sistema gera o encaminhamento eletrônico</p>
+<p>E notifica o especialista ou a equipe de agendamento sobre o novo encaminhamento</p>
+<p>E o encaminhamento fica registrado no prontuário do paciente.</p>
+<p><strong>Cenário:</strong> Encaminhamento sem motivo preenchido</p>
+<p>Dado que o médico <strong>(Dr. joão)</strong> está na tela de encaminhamento</p>
+<p>Quando ele tenta enviar o encaminhamento sem preencher o campo "Motivo do Encaminhamento"</p>
+<p>Então o sistema impede o envio</p>
+<p>E exibe uma mensagem de validação "Motivo do encaminhamento é obrigatório".</p>
+<hr />
+<p><strong>PBI 1.24: Compartilhar Informações do Paciente entre Equipes Médicas (Digitalmente)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Médico (Dr. João)</strong>, eu quero <strong>compartilhar informações relevantes do paciente com outras equipes médicas de forma segura e eficiente</strong>, para <strong>garantir uma visão holística e um atendimento coordenado</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Compartilhamento seguro de informações com equipe</p>
+<p>Dado que o médico <strong>(Dr. joão)</strong> precisa compartilhar dados específicos do prontuário com uma equipe multidisciplinar (ex: equipe de cirurgia)</p>
+<p>Quando ele seleciona as informações a serem compartilhadas</p>
+<p>E escolhe a equipe/profissionais com quem compartilhar</p>
+<p>E define as permissões de acesso (ex: somente leitura por 24h)</p>
+<p>Então o sistema permite o acesso controlado e logado a essas informações para a equipe selecionada</p>
+<p>E a equipe é notificada sobre o compartilhamento e o tempo de acesso.</p>
+<p><strong>Cenário:</strong> Tentativa de compartilhamento com usuário sem permissão</p>
+<p>Dado que um médico <strong>(Dr. joão)</strong> tenta compartilhar informações sensíveis do paciente com um usuário que não possui a permissão de acesso a dados de saúde</p>
+<p>Quando ele tenta adicionar o usuário à lista de compartilhamento</p>
+<p>Então o sistema impede a inclusão do usuário</p>
+<p>E exibe uma mensagem "Usuário não possui permissão para acessar este tipo de informação".</p>
+<hr />
+<p><strong>PBI 1.25: Coletar Dados para Relatórios Automaticamente (de Múltiplos Sistemas)</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Diretor de Tecnologia (Sr. Roberto)</strong>, eu quero <strong>que o sistema colete dados de diferentes fontes para a geração de relatórios automaticamente</strong>, para <strong>garantir a precisão e a abrangência das informações sem intervenção manual</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Coleta de dados de integração bem-sucedida</p>
+<p>Dado que há dados de consultas (agendamento), exames (laboratório) e faturamento (financeiro) em diferentes módulos do sistema</p>
+<p>Quando o sistema executa a rotina programada de coleta de dados para relatórios</p>
+<p>Então ele integra e padroniza as informações de todas as fontes automaticamente</p>
+<p>E as disponibiliza em um data warehouse ou base consolidada para a geração de relatórios.</p>
+<p><strong>Cenário:</strong> Falha na integração de dados de uma fonte</p>
+<p>Dado que a rotina de coleta de dados é executada</p>
+<p>Quando há uma falha na conexão ou no formato dos dados de um dos sistemas integrados</p>
+<p>Então o sistema registra a falha no log de integração</p>
+<p>E alerta o Diretor de Tecnologia sobre a interrupção da coleta de dados daquela fonte.</p>
+<hr />
+<p><strong>PBI 1.26: Monitorar o Desempenho do Sistema</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Diretor de Tecnologia (Sr. Roberto)</strong>, eu quero <strong>ter acesso a painéis e alertas para monitorar o desempenho e a estabilidade do sistema</strong>, para <strong>proativamente identificar e resolver problemas de performance antes que afetem os usuários</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Visualização do dashboard de desempenho em tempo real</p>
+<p>Dado que o diretor de tecnologia <strong>(Sr. Roberto)</strong> acessa o painel de monitoramento do sistema</p>
+<p>Quando ele visualiza os gráficos e métricas de desempenho</p>
+<p>Então o sistema exibe o tempo de resposta das requisições, uso de CPU e memória em tempo real</p>
+<p>E apresenta o status dos serviços e aplicações críticas.</p>
+<p><strong>Cenário:</strong> Alerta de alto consumo de recursos</p>
+<p>Dado que o uso da CPU excede 80% por mais de 5 minutos</p>
+<p>Quando o sistema de monitoramento detecta essa anomalia</p>
+<p>Então ele gera um alerta imediato (ex: e-mail, notificação no dashboard) para a equipe de TI</p>
+<p>E registra o evento nos logs de desempenho para análise posterior.</p>
+<hr />
+<p><strong>PBI 1.27: Monitorar a Segurança do Sistema</strong></p>
+<p><strong>História de Usuário:</strong> Como um <strong>Diretor de Tecnologia (Sr. Roberto)</strong>, eu quero <strong>que o sistema contenha funcionalidades para monitorar e garantir a segurança dos dados e da infraestrutura</strong>, para <strong>proteger contra ameaças cibernéticas e vazamentos de informações sensíveis</strong>.</p>
+<p><strong>BDD (Behavior-Driven Development):</strong></p>
+<p><strong>Cenário:</strong> Detecção e alerta de tentativa de acesso não autorizado</p>
+<p>Dado que ocorre uma tentativa de login com credenciais inválidas múltiplas vezes (ex: 5 vezes em 1 minuto)</p>
+<p>Quando o sistema de monitoramento de segurança detecta esse padrão</p>
+<p>Então ele gera um alerta imediato para a equipe de TI</p>
+<p>E bloqueia temporariamente o acesso do IP de origem</p>
+<p>E registra a tentativa nos logs de segurança.</p>
+<p><strong>Cenário:</strong> Monitoramento de integridade de arquivos críticos</p>
+<p>Dado que um arquivo crítico do sistema é modificado sem autorização</p>
+<p>Quando o sistema de monitoramento de segurança verifica a integridade dos arquivos</p>
+<p>Então ele detecta a alteração não autorizada</p>
+<p>E gera um alerta para a equipe de TI</p>
+<p>E registra os detalhes da modificação no log de auditoria.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.tabs.link", "header.autohide", "navigation.instant", "navigation.top", "navigation.tracking", "content.code.select", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
