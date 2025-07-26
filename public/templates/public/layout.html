@@ -25,21 +25,21 @@
         <a href="" class="logo"><img src="{% static 'public/images/Logo.png' %}" alt="Logo" /></a>
         <div class="menu-desktop">
           <ul class="nav-links">
-            <li><a href="{% url 'sobre' %}">Sobre</a></li>
-            <li><a href="{% url 'projetos' %}">Projetos</a></li>
-            <li><a href="{% url 'contato' %}">Contato</a></li>
+            <li><a href="{% url 'publico:sobre' %}">Sobre</a></li>
+            <li><a href="{% url 'publico:projetos' %}">Projetos</a></li>
+            <li><a href="{% url 'publico:contato' %}">Contato</a></li>
           </ul>
-          <a href="{% url 'admin:index' %}" class="btn-cta">Área do membro</a>
+          <a href="{% url 'membros:home' %}" class="btn-cta">Área do membro</a>
         </div>
         <div class="menu-mobile-icon">
           <span></span><span></span><span></span>
         </div>
       </nav>
       <div class="menu-mobile" >
-            <a href="{% url 'sobre' %}">Sobre</a><br>
-            <a href="{% url 'projetos' %}">Projetos</a><br>
-            <a href="{% url 'contato' %}">Contato</a><br>
-            <a href="#" class="btn-cta-mobile">Área do membro</a>
+            <a href="{% url 'publico:sobre' %}">Sobre</a><br>
+            <a href="{% url 'publico:projetos' %}">Projetos</a><br>
+            <a href="{% url 'publico:contato' %}">Contato</a><br>
+            <a href="{% url 'membros:home' %}" class="btn-cta-mobile">Área do membro</a>
         </div>
     </header>
     <main>
@@ -51,7 +51,7 @@
 
     <footer class="navbar">
       <div class="container">
-        <a href="{% url 'sobre' %}"  class="logo">
+        <a href="{% url 'publico:sobre' %}"  class="logo">
           <img src="{% static 'public/images/Logo.png' %}" alt="Logo" />
         </a>
 

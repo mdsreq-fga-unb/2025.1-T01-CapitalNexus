@@ -1,6 +1,8 @@
 from django import forms
 from django.core.validators import EmailValidator
 
+from public.models import Projeto
+
 class FormularioContato(forms.Form):
     nome = forms.CharField(
         max_length=100,
@@ -20,5 +22,17 @@ class FormularioContato(forms.Form):
         label="Eu li e aceito os termos de uso e a política de privacidade.",
         error_messages={'required': 'Você deve aceitar os termos para enviar a mensagem.'}
     )
+
+class ProjetoForm(forms.ModelForm):
+    class Meta:
+        model = Projeto
+        # Inclui todos os campos do modelo no formulário
+        fields = '__all__'
+        widgets = {
+            'resumo': forms.Textarea(attrs={'rows': 3}),
+            'dimensoes': forms.Textarea(attrs={'rows': 3}),
+            'situacao': forms.Textarea(attrs={'rows': 3}),
+            'custo': forms.Textarea(attrs={'rows': 3}),
+        }
 
 

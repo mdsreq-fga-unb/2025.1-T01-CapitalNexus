@@ -1,0 +1,24 @@
+{% extends 'members/layout.html' %}
+
+{% block page_title %}{% if form.instance.pk %}Editar Projeto{% else %}Novo Projeto{% endif %}{% endblock %}
+
+{% block dashboardcontent %}
+    <div class="modal.is-open">
+        <form method="post" enctype="multipart/form-data" class="modal-body">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="errorlist">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <div class="modal-footer">
+                <a href="{% url 'membros:painel' %}" class="botao-cancel">Cancelar</a>
+                <button type="submit" class="btn-save">Salvar</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
